@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hyeona's Portfolio</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/script.js" defer></script>
+  </head>
+
+  <body>
+    <main>
+      <!-- HERO -->
+
+      <section class="portfolio-hero" id="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <!-- TITLE -->
+
+          <div class="hero-header">
+            <h1 class="hero-title" id="hero-title">DESIGN PORTFOLIO</h1>
+
+            <!-- CATEGORY -->
+
+            <nav class="hero-categories" aria-label="Portfolio categories">
+              <a href="#ui-design"> 01 UI DESIGN </a>
+
+              <a href="#publishing"> 02 PUBLISHING </a>
+
+              <a href="#web-project"> 03 WEB PROJECT </a>
+            </nav>
+          </div>
+
+          <!-- HERO VISUAL -->
+
+          <div class="hero-visual" aria-hidden="true">
+            <!-- 뒤쪽 장식 -->
+
+            <img class="hero-flourish" src="./img/background.svg" alt="" />
+
+            <!-- 앞쪽 클로버 -->
+
+            <div class="hero-symbol-wrap">
+              <div class="hero-symbol-tilt">
+                <div class="hero-symbol-rotator">
+                  <img class="hero-symbol" src="./img/hero-symbol.svg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTTOM META -->
+
+          <div class="hero-meta">
+            <!-- LEFT -->
+
+            <p class="hero-intro">
+              개별적인 언어로 사고하고,<br />
+
+              사용자의 시선으로 구현하는<br />
+
+              UX/UI 퍼블리셔 김현아입니다.
+            </p>
+
+            <!-- PROJECT BUTTON-->
+
+            <div class="project-nav-wrap">
+              <!-- 처음 보이는 버튼 -->
+
+              <button
+                class="hero-cta project-trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="project-menu"
+              >
+                <span> VIEW PROJECTS </span>
+              </button>
+
+              <!-- 클릭하면 펼쳐지는 버튼 -->
+
+              <nav
+                class="project-menu"
+                id="project-menu"
+                aria-label="Project sections"
+                aria-hidden="true"
+              >
+                <a href="#ui-design"> UI DESIGN </a>
+
+                <a href="#publishing"> PUBLISHING </a>
+
+                <a href="#web-project"> WEB PROJECT </a>
+              </nav>
+            </div>
+
+            <!-- RIGHT -->
+
+            <p class="hero-role">
+              UX/UI DESIGNER · WEB PUBLISHER<br />
+
+              2026
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- UI DESIGN -->
+
+      <section class="portfolio-section" id="ui-design">
+        <div class="section-inner">
+          <span class="section-number"> 01 </span>
+
+          <h2>UI DESIGN</h2>
+        </div>
+      </section>
+
+      <!-- PUBLISHING -->
+
+      <section class="portfolio-section" id="publishing">
+        <div class="section-inner">
+          <span class="section-number"> 02 </span>
+
+          <h2>PUBLISHING</h2>
+        </div>
+      </section>
+
+      <!-- WEB PROJECT -->
+
+      <section class="portfolio-section" id="web-project">
+        <div class="section-inner">
+          <span class="section-number"> 03 </span>
+
+          <h2>WEB PROJECT</h2>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
