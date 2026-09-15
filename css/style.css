@@ -1,5 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
+@font-face {
+  font-family: "GMarketSans";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff") format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GMarketSans";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GMarketSans";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
 
 /* ==================================================
    ROOT
@@ -32,7 +53,7 @@ body {
   background: var(--bg);
   color: var(--text);
 
-  font-family: "Pretendard", Arial, Helvetica, sans-serif;
+  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
 
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
@@ -75,7 +96,6 @@ a {
 ================================================== */
 
 .hero-header {
-  /* �쒕ぉ怨� 01쨌02쨌03�� �숈씪�� 醫뚯슦 �щ갚�� �ъ슜 */
   width: 82vw;
   max-width: 1575px;
   margin: 0 auto;
@@ -84,7 +104,7 @@ a {
 .hero-title {
   margin: 0;
 
-  font-family: "Righteous", "Pretendard", sans-serif;
+  font-family: "Righteous", "GMarketSans", sans-serif;
 
   font-size: 9vw;
   font-weight: 400;
@@ -110,7 +130,6 @@ a {
   padding: 0;
   margin-top: 0.45vw;
 
-  /* �쒕ぉ怨� �④퍡 �붾㈃ ��뿉 鍮꾨��섏뿬 異뺤냼 */
   font-size: 1.2vw;
 
   line-height: 1;
@@ -158,10 +177,6 @@ a {
 
   margin-top: 12px;
 
-  /*
-    湲곗〈 1800px蹂대떎 �먭렐媛먯쓣 議곌툑 媛뺥븯寃�
-    以섏꽌 �대줈踰� �먭퍡媛� �� �� 蹂댁씠寃� ��
-  */
   perspective: 1000px;
 
   perspective-origin: center center;
@@ -307,9 +322,6 @@ a {
 
   z-index: 30;
 
-  /*
-    �욎そ�쇰줈 14px
-  */
   transform: translateZ(14px);
 
   filter:
@@ -328,16 +340,8 @@ a {
   top: 0;
 
   z-index: 20;
-
-  /*
-    �대줈踰� �먭퍡 媛��대뜲 遺�遺�
-  */
   transform: translateZ(0);
 
-  /*
-    �녿㈃泥섎읆 蹂댁씠�꾨줉
-    �욌㈃蹂대떎 �대몼寃�
-  */
   filter:
     brightness(0.82) saturate(0.95);
 }
@@ -355,14 +359,7 @@ a {
 
   z-index: 10;
 
-  /*
-    �ㅼそ�쇰줈 14px
 
-    �� +14
-    �� -14
-
-    珥� �� 28px �먭퍡
-  */
   transform:
     translateZ(-14px) rotateY(180deg);
 
@@ -402,12 +399,9 @@ a {
 .hero-role {
   margin: 0;
 
-  /* �ㅻ챸 臾멸뎄�� �붾㈃�� 以꾩씠�� �숈븞 怨꾩냽 �묒븘吏�吏� �딅룄濡� 怨좎젙 */
   font-size: 22px;
-
-  line-height: 1.2;
-
-  letter-spacing: -0.02em;
+  font-weight: 300;
+  line-height: 1.4;
 }
 
 .hero-intro {
@@ -767,7 +761,7 @@ a {
 .portfolio-section h2 {
   margin: 0;
 
-  font-family: "Righteous", "Pretendard", sans-serif;
+  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
 
   font-size: 120px;
 
@@ -988,7 +982,7 @@ a {
     font-size: clamp(9px, 1.2vw, 11px);
   }
 
-  .project-menu a + a::before {
+  .project-menu a+a::before {
     display: none;
   }
 
