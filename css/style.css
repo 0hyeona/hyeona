@@ -1,11 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
+
+/* ==================================================
+   ROOT
+================================================== */
+
 :root {
   --bg: #ffffff;
   --text: #050505;
   --muted: #181818;
+
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
+
+
+/* ==================================================
+   RESET
+================================================== */
 
 * {
   box-sizing: border-box;
@@ -36,7 +47,11 @@ a {
   text-decoration: none;
 }
 
-/* hero */
+
+/* ==================================================
+   HERO
+================================================== */
+
 .portfolio-hero {
   min-height: 100svh;
 
@@ -46,46 +61,61 @@ a {
 }
 
 .hero-inner {
-  width: min(100%, 1920px);
+  width: 100%;
+  max-width: 1920px;
 
   margin: 0 auto;
 
-  padding: clamp(34px, 4.2vw, 80px) clamp(24px, 6vw, 112px)
-    clamp(56px, 7vw, 120px);
+  padding: 70px 112px 80px;
 }
 
-/* title */
+
+/* ==================================================
+   TITLE
+================================================== */
+
+.hero-header {
+  /* �쒕ぉ怨� 01쨌02쨌03�� �숈씪�� 醫뚯슦 �щ갚�� �ъ슜 */
+  width: 82vw;
+  max-width: 1575px;
+  margin: 0 auto;
+}
+
 .hero-title {
   margin: 0;
 
   font-family: "Righteous", "Pretendard", sans-serif;
 
-  font-size: clamp(58px, 7.25vw, 140px);
-
-  line-height: 0.88;
-
+  font-size: 9vw;
   font-weight: 400;
+
+  line-height: 1;
 
   text-align: center;
 
   white-space: nowrap;
 }
 
-/* category */
+
+/* ==================================================
+   CATEGORY
+================================================== */
+
 .hero-categories {
   display: grid;
 
   grid-template-columns: repeat(3, 1fr);
 
-  margin-top: clamp(12px, 1.6vw, 24px);
+  width: 100%;
+  padding: 0;
+  margin-top: 0.45vw;
 
-  font-size: clamp(11px, 0.8vw, 15px);
+  /* �쒕ぉ怨� �④퍡 �붾㈃ ��뿉 鍮꾨��섏뿬 異뺤냼 */
+  font-size: 1.2vw;
 
   line-height: 1;
 
-  font-weight: 700;
-
-  letter-spacing: -0.015em;
+  font-weight: 600;
 }
 
 .hero-categories a {
@@ -110,30 +140,11 @@ a {
   text-align: right;
 }
 
-.hero-categories a::after {
-  content: "";
 
-  position: absolute;
+/* ==================================================
+   HERO VISUAL
+================================================== */
 
-  left: 0;
-
-  right: 100%;
-
-  bottom: -6px;
-
-  height: 1px;
-
-  background: currentColor;
-
-  transition: right 0.35s var(--ease);
-}
-
-.hero-categories a:hover::after,
-.hero-categories a:focus-visible::after {
-  right: 0;
-}
-
-/* visual */
 .hero-visual {
   position: relative;
 
@@ -143,23 +154,33 @@ a {
 
   place-items: center;
 
-  height: clamp(260px, 34vw, 540px);
+  height: 540px;
 
-  margin-top: clamp(4px, 0.6vw, 12px);
+  margin-top: 12px;
 
-  perspective: 1800px;
+  /*
+    湲곗〈 1800px蹂대떎 �먭렐媛먯쓣 議곌툑 媛뺥븯寃�
+    以섏꽌 �대줈踰� �먭퍡媛� �� �� 蹂댁씠寃� ��
+  */
+  perspective: 1000px;
+
+  perspective-origin: center center;
 
   transform-style: preserve-3d;
 }
 
-/* background svg */
+
+/* ==================================================
+   BACKGROUND
+================================================== */
+
 .hero-flourish {
   position: absolute;
 
   left: 50%;
   top: 50%;
 
-  width: min(104vw, 1710px);
+  width: 97vw;
 
   height: auto;
 
@@ -172,7 +193,11 @@ a {
   animation: flourishFloat 6.8s ease-in-out infinite;
 }
 
-/* clover */
+
+/* ==================================================
+   CLOVER WRAP
+================================================== */
+
 .hero-symbol-wrap {
   position: relative;
 
@@ -183,11 +208,12 @@ a {
   place-items: center;
 
   transform-style: preserve-3d;
-
-  animation: symbolLift 5.6s ease-in-out infinite;
 }
 
-/* 그림자 */
+
+/* ==================================================
+   CLOVER SHADOW
+================================================== */
 
 .hero-symbol-wrap::after {
   content: "";
@@ -195,30 +221,30 @@ a {
   position: absolute;
 
   left: 50%;
+  bottom: -12px;
 
-  bottom: clamp(-12px, -1vw, -2px);
+  width: 280px;
+  height: 34px;
 
-  width: clamp(130px, 19vw, 280px);
-
-  height: clamp(18px, 2.4vw, 34px);
-
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.08) 48%,
-    rgba(0, 0, 0, 0) 75%
-  );
+  background:
+    radial-gradient(circle,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.08) 48%,
+      rgba(0, 0, 0, 0) 75%);
 
   transform: translateX(-50%);
 
   filter: blur(8px);
 
-  z-index: -1;
+  opacity: 0.35;
 
-  animation: shadowPulse 5.6s ease-in-out infinite;
+  z-index: -1;
 }
 
-/* 마우스 기울기 */
+
+/* ==================================================
+   CLOVER TILT WRAPPER
+================================================== */
 
 .hero-symbol-tilt {
   position: relative;
@@ -226,53 +252,129 @@ a {
   z-index: 10;
 
   transform-style: preserve-3d;
-
-  transition: transform 0.4s var(--ease);
-
-  will-change: transform;
 }
 
-/* 자동 회전 */
+
+/* ==================================================
+   CLOVER ROTATOR
+================================================== */
 
 .hero-symbol-rotator {
   position: relative;
 
   z-index: 10;
 
-  animation: symbolRotate 7.5s ease-in-out infinite;
+  width: 610px;
 
   transform-style: preserve-3d;
+
+  transform-origin: center center;
+
+  animation: symbolRotate 6s linear infinite;
 
   will-change: transform;
 }
 
-/* 실제 클로버 */
+
+/* ==================================================
+   CLOVER COMMON
+================================================== */
 
 .hero-symbol {
-  position: relative;
-
-  z-index: 10;
-
-  width: clamp(245px, 31.5vw, 610px);
-
+  width: 100%;
   height: auto;
 
   display: block;
 
-  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.12));
-
-  backface-visibility: visible;
+  transform-origin: center center;
 
   pointer-events: none;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  backface-visibility: visible;
 }
 
-/* hover */
 
-.hero-visual:hover .hero-symbol-tilt {
-  transform: rotateX(5deg) rotateY(-10deg);
+/* ==================================================
+   CLOVER FRONT
+================================================== */
+
+.hero-symbol-front {
+  position: relative;
+
+  z-index: 30;
+
+  /*
+    �욎そ�쇰줈 14px
+  */
+  transform: translateZ(14px);
+
+  filter:
+    drop-shadow(0 14px 28px rgba(0, 0, 0, 0.12));
 }
 
-/* meta */
+
+/* ==================================================
+   CLOVER DEPTH
+================================================== */
+
+.hero-symbol-depth {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  z-index: 20;
+
+  /*
+    �대줈踰� �먭퍡 媛��대뜲 遺�遺�
+  */
+  transform: translateZ(0);
+
+  /*
+    �녿㈃泥섎읆 蹂댁씠�꾨줉
+    �욌㈃蹂대떎 �대몼寃�
+  */
+  filter:
+    brightness(0.82) saturate(0.95);
+}
+
+
+/* ==================================================
+   CLOVER BACK
+================================================== */
+
+.hero-symbol-back {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  z-index: 10;
+
+  /*
+    �ㅼそ�쇰줈 14px
+
+    �� +14
+    �� -14
+
+    珥� �� 28px �먭퍡
+  */
+  transform:
+    translateZ(-14px) rotateY(180deg);
+
+  filter:
+    brightness(0.72) saturate(0.9);
+}
+
+
+/* ==================================================
+   BOTTOM META
+================================================== */
+
 .hero-meta {
   position: relative;
 
@@ -280,36 +382,51 @@ a {
 
   display: grid;
 
-  grid-template-columns:
-    1fr
-    auto
-    1fr;
+  grid-template-columns: 1fr auto 1fr;
 
   align-items: end;
 
   gap: 24px;
 
-  margin-top: clamp(-54px, -3vw, -22px);
+  padding: 0 16px;
+
+  margin-top: -54px;
 }
+
+
+/* ==================================================
+   LEFT / RIGHT TEXT
+================================================== */
 
 .hero-intro,
 .hero-role {
   margin: 0;
 
-  font-size: clamp(11px, 0.82vw, 16px);
+  /* �ㅻ챸 臾멸뎄�� �붾㈃�� 以꾩씠�� �숈븞 怨꾩냽 �묒븘吏�吏� �딅룄濡� 怨좎젙 */
+  font-size: 22px;
 
   line-height: 1.2;
-
-  font-weight: 650;
 
   letter-spacing: -0.02em;
 }
 
+.hero-intro {
+  justify-self: start;
+
+  text-align: left;
+}
+
 .hero-role {
+  justify-self: end;
+
   text-align: right;
 }
 
-/* cta */
+
+/* ==================================================
+   CTA
+================================================== */
+
 .hero-cta {
   justify-self: center;
 
@@ -317,9 +434,8 @@ a {
 
   place-items: center;
 
-  min-width: clamp(132px, 10vw, 176px);
-
-  min-height: clamp(36px, 3vw, 48px);
+  width: 260px;
+  height: 54px;
 
   padding: 0 22px;
 
@@ -337,9 +453,7 @@ a {
 
   -webkit-backdrop-filter: blur(12px);
 
-  font-size: clamp(10px, 0.7vw, 13px);
-
-  font-weight: 700;
+  font-size: 14px;
 
   color: var(--text);
 
@@ -358,10 +472,14 @@ a {
 
   background: #fff;
 
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.14);
 }
 
-/* 메뉴 펼치기 */
+
+/* ==================================================
+   PROJECT NAV
+================================================== */
 
 .project-nav-wrap {
   position: relative;
@@ -372,14 +490,18 @@ a {
 
   place-items: center;
 
-  width: clamp(150px, 10vw, 180px);
+  width: 260px;
+  height: 54px;
 
-  height: clamp(44px, 3.4vw, 54px);
+  font-weight: 700;
 
   z-index: 30;
 }
 
-/* 처음 보이는 VIEW PROJECTS */
+
+/* ==================================================
+   PROJECT TRIGGER
+================================================== */
 
 .project-trigger {
   position: absolute;
@@ -395,10 +517,15 @@ a {
 }
 
 .project-trigger:hover {
-  transform: translate(-50%, calc(-50% - 3px));
+  transform:
+    translate(-50%,
+      calc(-50% - 3px));
 }
 
-/* 펼쳐질 메뉴 */
+
+/* ==================================================
+   PROJECT MENU
+================================================== */
 
 .project-menu {
   position: absolute;
@@ -406,15 +533,15 @@ a {
   left: 50%;
   top: 50%;
 
-  width: clamp(440px, 40vw, 660px);
+  width: 660px;
 
-  min-height: clamp(48px, 3.6vw, 58px);
+  min-height: 58px;
 
   padding: 5px;
 
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 
   align-items: center;
 
@@ -434,7 +561,8 @@ a {
 
   -webkit-backdrop-filter: blur(16px);
 
-  transform: translate(-50%, -50%) scaleX(0.24);
+  transform:
+    translate(-50%, -50%) scaleX(0.24);
 
   transform-origin: center;
 
@@ -454,7 +582,10 @@ a {
     visibility 0.28s;
 }
 
-/* 각각의 이동 버튼 */
+
+/* ==================================================
+   PROJECT MENU ITEM
+================================================== */
 
 .project-menu a {
   position: relative;
@@ -471,9 +602,7 @@ a {
 
   border-radius: 999px;
 
-  font-size: clamp(10px, 0.75vw, 13px);
-
-  font-weight: 700;
+  font-size: 14px;
 
   letter-spacing: -0.01em;
 
@@ -490,19 +619,20 @@ a {
     color 0.28s ease;
 }
 
-/* 살짝 구분선 */
 
-.project-menu a + a::before {
+/* ==================================================
+   PROJECT MENU DIVIDER
+================================================== */
+
+.project-menu a+a::before {
   content: "";
 
   position: absolute;
 
   left: -2px;
-
   top: 50%;
 
   width: 1px;
-
   height: 18px;
 
   background: rgba(0, 0, 0, 0.08);
@@ -512,11 +642,16 @@ a {
   transition: opacity 0.25s ease;
 }
 
-/* open state */
+
+/* ==================================================
+   PROJECT MENU OPEN
+================================================== */
+
 .project-nav-wrap.is-open .project-trigger {
   opacity: 0;
 
-  transform: translate(-50%, -50%) scale(0.8);
+  transform:
+    translate(-50%, -50%) scale(0.8);
 
   visibility: hidden;
 
@@ -530,10 +665,9 @@ a {
 
   pointer-events: auto;
 
-  transform: translate(-50%, -50%) scaleX(1);
+  transform:
+    translate(-50%, -50%) scaleX(1);
 }
-
-/* OPEN 후 메뉴 등장 */
 
 .project-nav-wrap.is-open .project-menu a {
   opacity: 1;
@@ -541,21 +675,47 @@ a {
   transform: translateY(0);
 }
 
-/* 살짝 순차적으로 */
+
+/* ==================================================
+   PROJECT MENU DELAY
+================================================== */
 
 .project-nav-wrap.is-open .project-menu a:nth-child(1) {
-  transition-delay: 0.12s, 0.12s, 0s, 0s;
+  transition-delay:
+    0.12s,
+    0.12s,
+    0s,
+    0s;
 }
 
 .project-nav-wrap.is-open .project-menu a:nth-child(2) {
-  transition-delay: 0.18s, 0.18s, 0s, 0s;
+  transition-delay:
+    0.18s,
+    0.18s,
+    0s,
+    0s;
 }
 
 .project-nav-wrap.is-open .project-menu a:nth-child(3) {
-  transition-delay: 0.24s, 0.24s, 0s, 0s;
+  transition-delay:
+    0.24s,
+    0.24s,
+    0s,
+    0s;
 }
 
-/* 메뉴 hover */
+.project-nav-wrap.is-open .project-menu a:nth-child(4) {
+  transition-delay:
+    0.3s,
+    0.3s,
+    0s,
+    0s;
+}
+
+
+/* ==================================================
+   PROJECT MENU HOVER
+================================================== */
 
 .project-menu a:hover,
 .project-menu a:focus-visible {
@@ -568,16 +728,20 @@ a {
 
 .project-menu a:hover::before,
 .project-menu a:focus-visible::before,
-.project-menu a:hover + a::before,
-.project-menu a:focus-visible + a::before {
+.project-menu a:hover+a::before,
+.project-menu a:focus-visible+a::before {
   opacity: 0;
 }
 
-/* portfolio sections */
+
+/* ==================================================
+   PORTFOLIO SECTION
+================================================== */
+
 .portfolio-section {
   min-height: 100svh;
 
-  padding: clamp(80px, 8vw, 150px) clamp(24px, 6vw, 112px);
+  padding: 150px 112px;
 
   scroll-margin-top: 0;
 
@@ -585,7 +749,9 @@ a {
 }
 
 .section-inner {
-  width: min(100%, 1680px);
+  width: 100%;
+
+  max-width: 1680px;
 
   margin: 0 auto;
 }
@@ -596,8 +762,6 @@ a {
   margin-bottom: 18px;
 
   font-size: 14px;
-
-  font-weight: 700;
 }
 
 .portfolio-section h2 {
@@ -605,14 +769,18 @@ a {
 
   font-family: "Righteous", "Pretendard", sans-serif;
 
-  font-size: clamp(54px, 7vw, 120px);
+  font-size: 120px;
 
   font-weight: 400;
 
   line-height: 0.95;
 }
 
-/* focus */
+
+/* ==================================================
+   FOCUS
+================================================== */
+
 .hero-cta:focus-visible,
 .hero-categories a:focus-visible,
 .project-menu a:focus-visible {
@@ -621,259 +789,230 @@ a {
   outline-offset: 4px;
 }
 
-/* ANIMATION */
+
+/* ==================================================
+   CLOVER ROTATION
+================================================== */
 
 @keyframes symbolRotate {
+
   0% {
-    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
-  }
-
-  20% {
-    transform: rotateY(14deg) rotateX(2deg) rotateZ(2deg);
-  }
-
-  50% {
-    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
-  }
-
-  80% {
-    transform: rotateY(-14deg) rotateX(-2deg) rotateZ(-2deg);
+    transform: rotateY(0deg);
   }
 
   100% {
-    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+    transform: rotateY(360deg);
   }
+
 }
 
-@keyframes symbolLift {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
 
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@keyframes shadowPulse {
-  0%,
-  100% {
-    transform: translateX(-50%) scale(1);
-
-    opacity: 0.42;
-  }
-
-  50% {
-    transform: translateX(-50%) scale(0.88);
-
-    opacity: 0.25;
-  }
-}
+/* ==================================================
+   BACKGROUND ANIMATION
+================================================== */
 
 @keyframes flourishFloat {
+
   0%,
   100% {
-    transform: translate(-50%, -48%) scale(1);
+    transform:
+      translate(-50%, -48%) scale(1);
 
     opacity: 1;
   }
 
   50% {
-    transform: translate(-50%, -46.5%) scale(1.01);
+    transform:
+      translate(-50%, -46.5%) scale(1.01);
 
     opacity: 0.96;
   }
+
 }
 
-/* TABLET  */
-
-@media (max-width: 960px) {
+@media (max-width: 1200px) and (min-width: 769px) {
   .hero-inner {
-    padding-left: 30px;
+    padding: 5vw 6vw 5vw;
+  }
 
-    padding-right: 30px;
+  .hero-header {
+    width: 82vw;
   }
 
   .hero-title {
-    font-size: clamp(52px, 9vw, 84px);
-  }
-
-  .hero-visual {
-    height: clamp(280px, 48vw, 430px);
-  }
-
-  .hero-flourish {
-    width: 132vw;
-  }
-
-  .hero-symbol {
-    width: clamp(250px, 42vw, 420px);
-  }
-
-  .hero-meta {
-    margin-top: -28px;
-  }
-
-  .project-menu {
-    width: min(560px, 70vw);
-  }
-}
-
-/* MOBILE */
-
-@media (max-width: 680px) {
-  .portfolio-hero {
-    min-height: auto;
-  }
-
-  .hero-inner {
-    padding: 28px 20px 64px;
-  }
-
-  .hero-title {
-    font-size: clamp(43px, 14vw, 72px);
-
-    line-height: 0.92;
-
-    white-space: normal;
+    font-size: 9vw;
   }
 
   .hero-categories {
-    margin-top: 18px;
-
-    gap: 10px;
-
-    font-size: 10px;
-  }
-
-  .hero-categories a:nth-child(2),
-  .hero-categories a:nth-child(3) {
-    text-align: left;
-
-    justify-self: start;
+    margin-top: 0.55vw;
+    font-size: 1.2vw;
   }
 
   .hero-visual {
-    height: 310px;
-
-    margin-top: 12px;
+    height: 46vw;
+    min-height: 390px;
+    max-height: 520px;
   }
 
-  .hero-flourish {
-    width: 190vw;
-
-    opacity: 0.82;
-  }
-
-  .hero-symbol {
-    width: min(76vw, 350px);
+  .hero-symbol-rotator {
+    width: 48vw;
+    max-width: 560px;
   }
 
   .hero-meta {
-    grid-template-columns:
-      1fr
-      1fr;
-
-    gap: 24px 16px;
-
-    margin-top: -12px;
+    margin-top: -4vw;
   }
 
   .hero-intro,
   .hero-role {
-    font-size: 11px;
-  }
-
-  /* 중앙 버튼 영역 */
-
-  .project-nav-wrap {
-    grid-column: 1 / -1;
-
-    grid-row: 1;
-
-    justify-self: center;
-
-    width: 150px;
-
-    height: 48px;
-  }
-
-  .hero-cta {
-    min-width: 146px;
-  }
-
-  /* 모바일에서 펼쳐지는 메뉴 */
-
-  .project-menu {
-    width: min(92vw, 440px);
-
-    min-height: 52px;
-  }
-
-  .project-menu a {
-    padding: 0 8px;
-
-    font-size: 10px;
-  }
-
-  .hero-intro {
-    grid-column: 1;
-
-    grid-row: 2;
-  }
-
-  .hero-role {
-    grid-column: 2;
-
-    grid-row: 2;
+    font-size: 16px;
   }
 }
 
-/* SMALL MOBILE */
+@media (max-width: 768px) {
+  .portfolio-hero {
+    min-height: 100svh;
+  }
 
-@media (max-width: 420px) {
+  .hero-inner {
+    min-height: 100svh;
+    padding: 5vw 4.8vw 4vw;
+  }
+
+  .hero-header {
+    position: relative;
+    z-index: 20;
+    width: 90.4vw;
+  }
+
   .hero-title {
-    font-size: 12.6vw;
+    width: min-content;
+    margin: 0 auto;
+    font-size: 9vw;
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    text-align: center;
+    white-space: normal;
   }
 
   .hero-categories {
-    font-size: 9px;
+    display: none;
+  }
+
+  .hero-categories a:nth-child(n) {
+    justify-self: auto;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .hero-visual {
+    height: 46vw;
+    min-height: 0;
+    max-height: none;
+    margin-top: 1vw;
+    perspective: 700px;
   }
 
   .hero-flourish {
-    width: 220vw;
+    width: 180vw;
+    max-width: none;
+    transform: translate(-50%, -50%);
   }
 
-  .hero-symbol {
-    width: 80vw;
+  .hero-symbol-rotator {
+    width: 48vw;
+    max-width: none;
+  }
+
+  .hero-symbol-front {
+    transform: translateZ(9px);
+  }
+
+  .hero-symbol-back {
+    transform: translateZ(-9px) rotateY(180deg);
+  }
+
+  .hero-symbol-wrap::after {
+    bottom: -1vw;
+    width: 25vw;
+    height: 3.5vw;
+    filter: blur(0.8vw);
+  }
+
+  .hero-meta {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 3vw 2vw;
+    padding: 0;
+    margin-top: -1.8vw;
+  }
+
+  .hero-intro,
+  .hero-role {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .hero-role {
+    align-self: start;
+  }
+
+  .project-nav-wrap {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 29vw;
+    min-width: 180px;
+    max-width: 220px;
+    height: clamp(40px, 5.7vw, 44px);
+  }
+
+  .hero-cta {
+    width: 100%;
+    height: 100%;
+    padding: 0 2vw;
+    font-size: clamp(10px, 1.3vw, 12px);
   }
 
   .project-menu {
-    width: calc(100vw - 30px);
-
-    padding: 4px;
+    width: min(362px, calc(100vw - 40px));
+    min-height: 94px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    padding: 5px;
+    border-radius: 24px;
   }
 
   .project-menu a {
-    font-size: 9px;
+    min-height: 40px;
+    padding: 0 8px;
+    font-size: clamp(9px, 1.2vw, 11px);
+  }
 
-    padding: 0 5px;
+  .project-menu a + a::before {
+    display: none;
+  }
+
+  .portfolio-section {
+    padding: 96px 20px;
+  }
+
+  .portfolio-section h2 {
+    font-size: clamp(52px, 17vw, 72px);
   }
 }
 
-/* REDUCED MOTION  */
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+
+@media (max-width: 374px) {
+  .hero-inner {
+    padding-inline: 16px;
   }
 
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
+  .hero-categories {
+    gap: 1vw;
+  }
 
-    animation: none !important;
+  .project-menu {
+    width: calc(100vw - 32px);
   }
 }
