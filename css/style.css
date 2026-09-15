@@ -36,7 +36,8 @@ a {
   text-decoration: none;
 }
 
-HERO .portfolio-hero {
+/* hero */
+.portfolio-hero {
   min-height: 100svh;
 
   background: #fff;
@@ -53,7 +54,8 @@ HERO .portfolio-hero {
     clamp(56px, 7vw, 120px);
 }
 
-TITLE .hero-title {
+/* title */
+.hero-title {
   margin: 0;
 
   font-family: "Righteous", "Pretendard", sans-serif;
@@ -69,7 +71,8 @@ TITLE .hero-title {
   white-space: nowrap;
 }
 
-CATEGORY .hero-categories {
+/* category */
+.hero-categories {
   display: grid;
 
   grid-template-columns: repeat(3, 1fr);
@@ -130,7 +133,8 @@ CATEGORY .hero-categories {
   right: 0;
 }
 
-VISUAL .hero-visual {
+/* visual */
+.hero-visual {
   position: relative;
 
   isolation: isolate;
@@ -148,7 +152,8 @@ VISUAL .hero-visual {
   transform-style: preserve-3d;
 }
 
-BACKGROUND SVG .hero-flourish {
+/* background svg */
+.hero-flourish {
   position: absolute;
 
   left: 50%;
@@ -167,7 +172,8 @@ BACKGROUND SVG .hero-flourish {
   animation: flourishFloat 6.8s ease-in-out infinite;
 }
 
-CLOVER .hero-symbol-wrap {
+/* clover */
+.hero-symbol-wrap {
   position: relative;
 
   z-index: 10;
@@ -266,7 +272,8 @@ CLOVER .hero-symbol-wrap {
   transform: rotateX(5deg) rotateY(-10deg);
 }
 
-META .hero-meta {
+/* meta */
+.hero-meta {
   position: relative;
 
   z-index: 20;
@@ -302,7 +309,8 @@ META .hero-meta {
   text-align: right;
 }
 
-CTA .hero-cta {
+/* cta */
+.hero-cta {
   justify-self: center;
 
   display: inline-grid;
@@ -504,7 +512,8 @@ CTA .hero-cta {
   transition: opacity 0.25s ease;
 }
 
-OPEN STATE .project-nav-wrap.is-open .project-trigger {
+/* open state */
+.project-nav-wrap.is-open .project-trigger {
   opacity: 0;
 
   transform: translate(-50%, -50%) scale(0.8);
@@ -564,7 +573,8 @@ OPEN STATE .project-nav-wrap.is-open .project-trigger {
   opacity: 0;
 }
 
-PORTFOLIO SECTIONS .portfolio-section {
+/* portfolio sections */
+.portfolio-section {
   min-height: 100svh;
 
   padding: clamp(80px, 8vw, 150px) clamp(24px, 6vw, 112px);
@@ -602,7 +612,8 @@ PORTFOLIO SECTIONS .portfolio-section {
   line-height: 0.95;
 }
 
-FOCUS .hero-cta:focus-visible,
+/* focus */
+.hero-cta:focus-visible,
 .hero-categories a:focus-visible,
 .project-menu a:focus-visible {
   outline: 2px solid #000;
