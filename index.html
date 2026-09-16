@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>hyeona's Portfolio</title>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
   <script src="./js/script.js" defer></script>
 </head>
 
@@ -69,13 +71,13 @@
             <!-- 클릭하면 펼쳐지는 버튼 -->
 
             <nav class="project-menu" id="project-menu" aria-label="Project sections" aria-hidden="true">
-              <a class="is-current" href="#about" aria-current="location"> ABOUT </a>
+              <a class="is-current" href="#about" aria-current="location"> ABOUT ME </a>
 
-              <a href="#visual"> VISUAL </a>
+              <a href="#visual"> MY WORKS </a>
 
-              <a href="#ui-design"> UI DESIGN </a>
+              <a href="#ui-design"> PROJECTS </a>
 
-              <a href="#publishing"> PUBLISHING </a>
+              <a href="#publishing"> RESUME </a>
             </nav>
           </div>
 
@@ -91,55 +93,57 @@
     <!-- ABOUT -->
 
     <div class="about-chapter" id="about">
-    <!-- DESIGN PHILOSOPHY -->
+      <section class="about-profile" aria-labelledby="about-profile-title">
+        <div class="about-profile-inner">
+          <p class="about-profile-eyebrow">ABOUT ME</p>
 
-    <section class="philosophy-section" aria-labelledby="philosophy-title">
-      <div class="philosophy-inner">
-        <header class="philosophy-header">
-          <p class="philosophy-kicker">BASIC MAKES BETTER DESIGN.</p>
-
-          <h2 class="philosophy-title" id="philosophy-title">
-            기본을 이해하고,<br>
-            더 나은 화면을 만듭니다.
-          </h2>
-        </header>
-
-        <div class="philosophy-content">
-          <ol class="philosophy-list">
-            <li class="philosophy-item">
-              <h3><strong>01</strong> BASIC</h3>
-              <p>
-                정렬, 간격, 타이포그래피와 정보의 위계처럼 눈에 잘 띄지 않는 작은 기준들이<br>
-                좋은 디자인의 완성도를 만든다고 생각합니다.
-              </p>
-            </li>
-
-            <li class="philosophy-item">
-              <h3><strong>02</strong> BUILD</h3>
-              <p>
-                Figma에서 설계한 화면의 의도가<br>
-                실제 웹에서도 그대로 이어질 수 있도록 디자인과 퍼블리싱의 연결을 고민합니다.
-              </p>
-            </li>
-
-            <li class="philosophy-item">
-              <h3><strong>03</strong> EXPERIENCE</h3>
-              <p>
-                보기 좋은 화면을 만드는 것에서 끝나지 않고,<br>
-                사용자가 자연스럽게 보고, 이해하고, 행동할 수 있는 웹 경험을 만들고자 합니다.
-              </p>
-            </li>
-          </ol>
-
-          <figure class="philosophy-visual">
-            <div class="philosophy-image-placeholder">
-              <span>ABOUT IMAGE</span>
-            </div>
-            <figcaption>DESIGN · PUBLISHING · EXPERIENCE</figcaption>
+        <div class="about-profile-layout">
+          <figure class="about-profile-photo">
+            <span>PROFILE IMAGE</span>
           </figure>
+
+          <div class="about-profile-content">
+            <p class="about-profile-kicker">BASIC MAKES BETTER DESIGN</p>
+            <h2 class="about-profile-title" id="about-profile-title">
+              기본을 이해하고,<br>
+              더 나은 화면을 만듭니다.
+            </h2>
+
+            <div class="about-profile-description">
+              <p>
+                컴퓨터공학을 전공하며 웹의 구조와 개발 과정을 이해하고, 사용자 경험을<br>
+                고려해 화면을 설계하는 UX/UI 디자이너이자 웹 퍼블리셔입니다.
+              </p>
+              <p>
+                디자인과 개발을 함께 이해하는 강점을 바탕으로,<br>
+                보기 좋은 화면을 넘어 자연스럽게 구현되는 경험을 만듭니다.
+              </p>
+            </div>
+
+            <div class="about-profile-details">
+              <section class="about-personal" aria-labelledby="profile-info-title">
+                <h3 id="profile-info-title">PROFILE</h3>
+                <dl class="about-profile-info">
+                  <div><dt>NAME</dt><dd>김현아</dd></div>
+                  <div><dt>BIRTH</dt><dd>2004.05.31</dd></div>
+                  <div><dt>CONTACT</dt><dd>010-4124-4600</dd></div>
+                  <div><dt>MBTI</dt><dd>ISFJ</dd></div>
+                </dl>
+              </section>
+
+              <section class="about-certifications" aria-labelledby="certifications-title">
+                <h3 id="certifications-title">CERTIFICATIONS</h3>
+                <ul>
+                  <li><time datetime="2026-05-15">2026.05.15</time><span>GTQ 그래픽기술자격 1급</span></li>
+                  <li><time datetime="2026-06-26">2026.06.26</time><span>GTQ 일러스트 1급</span></li>
+                  <li><time datetime="2026-09-11">2026.09.11</time><span>정보처리기사</span></li>
+                </ul>
+              </section>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
 
     <!-- TOOLS & CAPABILITIES -->
 
@@ -164,7 +168,7 @@
 
             <div class="capability-grid">
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/PS.svg" alt="">Photoshop</h4>
+                <h4><img class="tool-icon" src="./img/tool/PS.svg" alt="">Photoshop</h4>
                 <ul>
                   <li>웹 배너 및 상세페이지 디자인</li>
                   <li>이미지 보정 및 합성</li>
@@ -173,7 +177,7 @@
               </article>
 
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/AI.svg" alt="">Illustrator</h4>
+                <h4><img class="tool-icon" src="./img/tool/AI.svg" alt="">Illustrator</h4>
                 <ul>
                   <li>로고·아이콘 제작</li>
                   <li>벡터 일러스트 작업</li>
@@ -181,7 +185,7 @@
               </article>
 
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/FIGMA.svg" alt="">Figma</h4>
+                <h4><img class="tool-icon" src="./img/tool/FIGMA.svg" alt="">Figma</h4>
                 <ul>
                   <li>UX/UI 디자인</li>
                   <li>와이어프레임/프로토타입 제작</li>
@@ -197,7 +201,7 @@
 
             <div class="capability-grid">
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/HTML.svg" alt="">HTML</h4>
+                <h4><img class="tool-icon" src="./img/tool/HTML.svg" alt="">HTML</h4>
                 <ul>
                   <li>HTML5 시맨틱 마크업</li>
                   <li>웹 표준 및 웹 접근성을 고려한 구조 작성</li>
@@ -205,7 +209,7 @@
               </article>
 
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/CSS.svg" alt="">CSS</h4>
+                <h4><img class="tool-icon" src="./img/tool/CSS.svg" alt="">CSS</h4>
                 <ul>
                   <li>Flexbox·Grid 기반 레이아웃</li>
                   <li>반응형 웹</li>
@@ -214,7 +218,7 @@
               </article>
 
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/JS.svg" alt="">JavaScript</h4>
+                <h4><img class="tool-icon" src="./img/tool/JS.svg" alt="">JavaScript</h4>
                 <ul>
                   <li>DOM 제어</li>
                   <li>기본 UI 인터랙션 구현</li>
@@ -222,14 +226,14 @@
               </article>
 
               <article class="tool-card">
-                <h4><img class="tool-icon tool-icon--wide" src="./img/툴/제이쿼리.svg" alt="">jQuery</h4>
+                <h4><img class="tool-icon tool-icon--wide" src="./img/tool/JQUERY.svg" alt="">jQuery</h4>
                 <ul>
                   <li>JavaScript 기반 UI 구현 및 효과 적용</li>
                 </ul>
               </article>
 
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/REACT.svg" alt="">React</h4>
+                <h4><img class="tool-icon" src="./img/tool/REACT.svg" alt="">React</h4>
                 <ul>
                   <li>컴포넌트 기반 화면 개발</li>
                 </ul>
@@ -242,7 +246,7 @@
 
             <div class="capability-grid">
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/NOTION.svg" alt="">Notion</h4>
+                <h4><img class="tool-icon" src="./img/tool/NOTION.svg" alt="">Notion</h4>
                 <ul>
                   <li>일정 관리 및 태스크 트래킹</li>
                   <li>협업 및 디자인 프로세스 정리</li>
@@ -250,7 +254,7 @@
               </article>
 
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/GIT.svg" alt="">Git</h4>
+                <h4><img class="tool-icon" src="./img/tool/GIT.svg" alt="">Git</h4>
                 <ul>
                   <li>소스 코드 버전 관리 및 변경 이력 추적</li>
                   <li>브랜치 전략을 통한 협업 프로세스 이해</li>
@@ -258,7 +262,7 @@
               </article>
 
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/GITHUB.svg" alt="">GitHub</h4>
+                <h4><img class="tool-icon" src="./img/tool/GITHUB.svg" alt="">GitHub</h4>
                 <ul>
                   <li>원격 저장소 관리 및 팀원 간 소스 코드 공유</li>
                   <li>GitHub 기반 프로젝트 이슈 및 배포 프로세스 운영</li>
@@ -272,7 +276,7 @@
 
             <div class="capability-grid">
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/지피티.svg" alt="">GPT</h4>
+                <h4><img class="tool-icon" src="./img/tool/GPT.svg" alt="">GPT</h4>
                 <ul>
                   <li>글 작성 초안 작성 및 다듬기</li>
                   <li>이미지 생성 및 시각 자료 활용</li>
@@ -280,7 +284,7 @@
               </article>
 
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/제미나이.svg" alt="">Gemini</h4>
+                <h4><img class="tool-icon" src="./img/tool/GEMINI.svg" alt="">Gemini</h4>
                 <ul>
                   <li>코드 작성 중 모르는 부분의 빠른 질의응답</li>
                   <li>간단한 질문 및 피드백 수렴</li>
@@ -288,7 +292,7 @@
               </article>
 
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/클로드.svg" alt="">Claude</h4>
+                <h4><img class="tool-icon" src="./img/tool/CLAUDE.svg" alt="">Claude</h4>
                 <ul>
                   <li>MCP를 활용한 Figma 연동 작업</li>
                   <li>Claude Code 기반 연동 개발 진행</li>
@@ -296,14 +300,14 @@
               </article>
 
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/커서.svg" alt="">Cursor AI</h4>
+                <h4><img class="tool-icon" src="./img/tool/CURSOR.svg" alt="">Cursor AI</h4>
                 <ul>
                   <li>AI 에디터를 활용한 효율적인 개발 프로세스 진행</li>
                 </ul>
               </article>
 
               <article class="tool-card">
-                <h4><img class="tool-icon" src="./img/툴/코덱스.svg" alt="">Codex</h4>
+                <h4><img class="tool-icon" src="./img/tool/CODEX.svg" alt="">Codex</h4>
                 <ul>
                   <li>AI 모델 기반의 코드 생성 및 개발 지원</li>
                 </ul>
@@ -328,88 +332,120 @@
           </h2>
         </header>
 
-        <div class="visual-filter" role="group" aria-label="비주얼 작업 필터">
-          <button class="visual-filter-button is-active" type="button" data-filter="popup" aria-pressed="true">
+        <div class="visual-filter" role="tablist" aria-label="비주얼 작업 카테고리">
+          <button class="visual-filter-button is-active" id="visual-tab-popup" type="button" role="tab"
+            data-filter="popup" aria-selected="true" aria-controls="visual-panel-popup">
             POPUP
           </button>
-          <button class="visual-filter-button" type="button" data-filter="banner" aria-pressed="false">
-            BANNER
-          </button>
-          <button class="visual-filter-button" type="button" data-filter="poster" aria-pressed="false">
+          <button class="visual-filter-button" id="visual-tab-poster" type="button" role="tab"
+            data-filter="poster" aria-selected="false" aria-controls="visual-panel-poster" tabindex="-1">
             POSTER
           </button>
-          <button class="visual-filter-button" type="button" data-filter="detail" aria-pressed="false">
+          <button class="visual-filter-button" id="visual-tab-banner" type="button" role="tab"
+            data-filter="banner" aria-selected="false" aria-controls="visual-panel-banner" tabindex="-1">
+            BANNER
+          </button>
+          <button class="visual-filter-button" id="visual-tab-detail" type="button" role="tab"
+            data-filter="detail" aria-selected="false" aria-controls="visual-panel-detail" tabindex="-1">
             DETAIL PAGE
           </button>
         </div>
 
-        <div class="visual-project-grid" id="visual-project-grid">
-          <article class="visual-project-card" data-category="popup">
-            <div class="visual-project-media"><span>POPUP 01</span></div>
-            <div class="visual-project-info">
-              <p>POPUP · 01</p>
-              <h3>팝업 디자인 프로젝트</h3>
+        <div class="visual-project-slider-viewport">
+          <div class="visual-project-panel is-active" id="visual-panel-popup" role="tabpanel"
+            aria-labelledby="visual-tab-popup" data-category="popup">
+            <div class="swiper visual-project-swiper">
+              <div class="swiper-wrapper">
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/popup/팝업-디자인 1.jpg" alt="팝업 디자인 작품 1" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>01</span> 팝업 디자인</h3><p>프로모션 비주얼 디자인</p></div>
+                </article>
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/popup/팝업-디자인 2.jpg" alt="팝업 디자인 작품 2" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>02</span> 팝업 디자인</h3><p>프로모션 비주얼 디자인</p></div>
+                </article>
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/popup/팝업-디자인 3.jpg" alt="팝업 디자인 작품 3" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>03</span> 팝업 디자인</h3><p>프로모션 비주얼 디자인</p></div>
+                </article>
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/popup/팝업-디자인 4.jpg" alt="팝업 디자인 작품 4" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>04</span> 팝업 디자인</h3><p>프로모션 비주얼 디자인</p></div>
+                </article>
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/popup/팝업-디자인 5.jpg" alt="팝업 디자인 작품 5" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>05</span> 팝업 디자인</h3><p>프로모션 비주얼 디자인</p></div>
+                </article>
+              </div>
             </div>
-          </article>
+          </div>
 
-          <article class="visual-project-card" data-category="popup">
-            <div class="visual-project-media"><span>POPUP 02</span></div>
-            <div class="visual-project-info">
-              <p>POPUP · 02</p>
-              <h3>팝업 디자인 프로젝트</h3>
+          <div class="visual-project-panel" id="visual-panel-poster" role="tabpanel"
+            aria-labelledby="visual-tab-poster" data-category="poster" hidden>
+            <div class="swiper visual-project-swiper">
+              <div class="swiper-wrapper">
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/poster/포스터-디자인 1.jpg" alt="포스터 디자인 작품 1" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>01</span> 포스터 디자인</h3><p>브랜드 포스터 디자인</p></div>
+                </article>
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/poster/포스터-디자인 2.jpg" alt="포스터 디자인 작품 2" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>02</span> 포스터 디자인</h3><p>브랜드 포스터 디자인</p></div>
+                </article>
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/poster/포스터-디자인 3.jpg" alt="포스터 디자인 작품 3" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>03</span> 포스터 디자인</h3><p>브랜드 포스터 디자인</p></div>
+                </article>
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/poster/포스터-디자인 4.jpg" alt="포스터 디자인 작품 4" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>04</span> 포스터 디자인</h3><p>브랜드 포스터 디자인</p></div>
+                </article>
+              </div>
             </div>
-          </article>
+          </div>
 
-          <article class="visual-project-card" data-category="banner" hidden>
-            <div class="visual-project-media"><span>BANNER 01</span></div>
-            <div class="visual-project-info">
-              <p>BANNER · 01</p>
-              <h3>배너 디자인 프로젝트</h3>
+          <div class="visual-project-panel" id="visual-panel-banner" role="tabpanel"
+            aria-labelledby="visual-tab-banner" data-category="banner" hidden>
+            <div class="swiper visual-project-swiper visual-project-swiper--banner">
+              <div class="swiper-wrapper">
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/banner/배너-디자인 1.jpg" alt="배너 디자인 작품 1" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>01</span> 배너 디자인</h3><p>프로모션 배너 디자인</p></div>
+                </article>
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/banner/배너-디자인 2.jpg" alt="배너 디자인 작품 2" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>02</span> 배너 디자인</h3><p>프로모션 배너 디자인</p></div>
+                </article>
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/banner/배너-디자인 3.jpg" alt="배너 디자인 작품 3" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>03</span> 배너 디자인</h3><p>프로모션 배너 디자인</p></div>
+                </article>
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/banner/배너-디자인 4.jpg" alt="배너 디자인 작품 4" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>04</span> 배너 디자인</h3><p>프로모션 배너 디자인</p></div>
+                </article>
+                <article class="swiper-slide visual-project-card">
+                  <div class="visual-project-media"><img src="./img/banner/배너-디자인 5.jpg" alt="배너 디자인 작품 5" loading="lazy"></div>
+                  <div class="visual-project-info"><h3><span>05</span> 배너 디자인</h3><p>프로모션 배너 디자인</p></div>
+                </article>
+              </div>
             </div>
-          </article>
+          </div>
 
-          <article class="visual-project-card" data-category="banner" hidden>
-            <div class="visual-project-media"><span>BANNER 02</span></div>
-            <div class="visual-project-info">
-              <p>BANNER · 02</p>
-              <h3>배너 디자인 프로젝트</h3>
+          <div class="visual-project-panel" id="visual-panel-detail" role="tabpanel"
+            aria-labelledby="visual-tab-detail" data-category="detail" hidden>
+            <div class="swiper visual-project-swiper">
+              <div class="swiper-wrapper">
+                <article class="swiper-slide visual-project-card visual-project-card--empty">
+                  <div class="visual-project-media"><span>DETAIL PAGE<br>COMING SOON</span></div>
+                  <div class="visual-project-info"><h3><span>01</span> 상세페이지 디자인</h3><p>작품 이미지를 준비하고 있습니다.</p></div>
+                </article>
+              </div>
             </div>
-          </article>
-
-          <article class="visual-project-card" data-category="poster" hidden>
-            <div class="visual-project-media"><span>POSTER 01</span></div>
-            <div class="visual-project-info">
-              <p>POSTER · 01</p>
-              <h3>포스터 디자인 프로젝트</h3>
-            </div>
-          </article>
-
-          <article class="visual-project-card" data-category="poster" hidden>
-            <div class="visual-project-media"><span>POSTER 02</span></div>
-            <div class="visual-project-info">
-              <p>POSTER · 02</p>
-              <h3>포스터 디자인 프로젝트</h3>
-            </div>
-          </article>
-
-          <article class="visual-project-card" data-category="detail" hidden>
-            <div class="visual-project-media"><span>DETAIL PAGE 01</span></div>
-            <div class="visual-project-info">
-              <p>DETAIL PAGE · 01</p>
-              <h3>상세페이지 디자인 프로젝트</h3>
-            </div>
-          </article>
-
-          <article class="visual-project-card" data-category="detail" hidden>
-            <div class="visual-project-media"><span>DETAIL PAGE 02</span></div>
-            <div class="visual-project-info">
-              <p>DETAIL PAGE · 02</p>
-              <h3>상세페이지 디자인 프로젝트</h3>
-            </div>
-          </article>
+          </div>
         </div>
 
-        <p class="visual-project-count" aria-live="polite"><span>2</span> PROJECTS</p>
+        <p class="visual-project-count" aria-live="polite"><span>5</span> PROJECTS</p>
       </div>
     </section>
 
@@ -588,10 +624,10 @@
 
   <nav class="floating-nav" aria-label="페이지 바로가기">
     <div class="floating-nav-menu" id="floating-nav-menu">
-      <a class="is-current" href="#about" aria-current="location">ABOUT</a>
-      <a href="#visual">VISUAL</a>
-      <a href="#ui-design">UI DESIGN</a>
-      <a href="#publishing">PUBLISHING</a>
+      <a class="is-current" href="#about" aria-current="location">ABOUT ME</a>
+      <a href="#visual">MY WORKS</a>
+      <a href="#ui-design">PROJECTS</a>
+      <a href="#publishing">RESUME</a>
     </div>
 
     <button class="floating-nav-toggle" type="button" aria-expanded="false" aria-controls="floating-nav-menu">

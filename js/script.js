@@ -195,41 +195,173 @@
 
 
 /* ==================================================
-   VISUAL PROJECT FILTER
+   VISUAL PROJECT TABS + INFINITE SWIPER
 ================================================== */
 
 (function () {
   "use strict";
 
   const filter = document.querySelector(".visual-filter");
-  const grid = document.getElementById("visual-project-grid");
+  const panels = document.querySelectorAll(".visual-project-panel");
   const count = document.querySelector(".visual-project-count span");
 
-  if (!filter || !grid || !count) return;
+  if (!filter || !panels.length || !count) return;
 
-  const buttons = filter.querySelectorAll("[data-filter]");
-  const cards = grid.querySelectorAll("[data-category]");
+  const buttons = [...filter.querySelectorAll("[data-filter]")];
+  const swipers = new Map();
+  const slidePixelsPerSecond = 82;
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const category = button.dataset.filter;
-      let visibleCount = 0;
+  function getSpaceBetween() {
+    return window.innerWidth < 769 ? 16 : 30;
+  }
 
-      buttons.forEach((item) => {
-        const isSelected = item === button;
+  function getUniformSpeed(swiperElement) {
+    const slide = swiperElement.querySelector(".swiper-slide");
+    const slideWidth = slide?.getBoundingClientRect().width || 320;
+    const travelDistance = slideWidth + getSpaceBetween();
 
-        item.classList.toggle("is-active", isSelected);
-        item.setAttribute("aria-pressed", String(isSelected));
+    return Math.round((travelDistance / slidePixelsPerSecond) * 1000);
+  }
+
+  function syncSwiperSpeed(swiper) {
+    const speed = getUniformSpeed(swiper.el);
+
+    swiper.params.speed = speed;
+    swiper.originalParams.speed = speed;
+  }
+
+  function resumeAtUniformSpeed(swiper, snapToSlide = true) {
+    if (!swiper || swiper.destroyed) return;
+
+    swiper.autoplay.stop();
+    syncSwiperSpeed(swiper);
+    if (snapToSlide) swiper.slideToClosest(0, false);
+    swiper.autoplay.start();
+  }
+
+  function prepareLoopSlides(panel) {
+    const wrapper = panel.querySelector(".swiper-wrapper");
+    const originals = [...wrapper.children].filter((slide) => !slide.hasAttribute("data-loop-clone"));
+
+    panel.dataset.projectCount = String(originals.length);
+
+    if (wrapper.querySelector("[data-loop-clone]")) return originals.length;
+
+    while (wrapper.children.length < 12) {
+      originals.forEach((slide) => {
+        const clone = slide.cloneNode(true);
+        const image = clone.querySelector("img");
+
+        clone.dataset.loopClone = "true";
+        clone.setAttribute("aria-hidden", "true");
+        if (image) image.alt = "";
+        wrapper.appendChild(clone);
       });
+    }
 
-      cards.forEach((card) => {
-        const isVisible = card.dataset.category === category;
+    return originals.length;
+  }
 
-        card.hidden = !isVisible;
-        if (isVisible) visibleCount += 1;
-      });
+  function initSwiper(panel) {
+    if (swipers.has(panel) || typeof Swiper === "undefined") return swipers.get(panel);
 
-      count.textContent = visibleCount;
+    prepareLoopSlides(panel);
+    const swiperElement = panel.querySelector(".visual-project-swiper");
+    const swiper = new Swiper(swiperElement, {
+      slidesPerView: "auto",
+      spaceBetween: 30,
+      loop: true,
+      speed: getUniformSpeed(swiperElement),
+      grabCursor: true,
+      watchOverflow: false,
+      observer: true,
+      observeParents: true,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: false
+      },
+      breakpoints: {
+        0: { spaceBetween: 16 },
+        769: { spaceBetween: 30 }
+      },
+      on: {
+        touchStart(instance) {
+          instance.autoplay.stop();
+        },
+        touchEnd(instance) {
+          resumeAtUniformSpeed(instance);
+        },
+        resize(instance) {
+          syncSwiperSpeed(instance);
+        }
+      }
+    });
+
+    swipers.set(panel, swiper);
+    return swiper;
+  }
+
+  function activateCategory(button) {
+    const category = button.dataset.filter;
+    const activePanel = [...panels].find((panel) => panel.dataset.category === category);
+
+    if (!activePanel) return;
+
+    buttons.forEach((item) => {
+      const isSelected = item === button;
+
+      item.classList.toggle("is-active", isSelected);
+      item.setAttribute("aria-selected", String(isSelected));
+      item.tabIndex = isSelected ? 0 : -1;
+    });
+
+    panels.forEach((panel) => {
+      const isActive = panel === activePanel;
+
+      panel.hidden = !isActive;
+      panel.classList.toggle("is-active", isActive);
+    });
+
+    count.textContent = activePanel.querySelectorAll(
+      ".visual-project-card:not([data-loop-clone])"
+    ).length;
+
+    const activeSwiper = swipers.get(activePanel);
+    if (activeSwiper) {
+      activeSwiper.update();
+      resumeAtUniformSpeed(activeSwiper);
+    }
+  }
+
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => activateCategory(button));
+    button.addEventListener("keydown", (event) => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+
+      event.preventDefault();
+      let nextIndex = index;
+
+      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + buttons.length) % buttons.length;
+      if (event.key === 'ArrowRight') nextIndex = (index + 1) % buttons.length;
+      if (event.key === 'Home') nextIndex = 0;
+      if (event.key === 'End') nextIndex = buttons.length - 1;
+
+      buttons[nextIndex].focus();
+      activateCategory(buttons[nextIndex]);
+    });
+  });
+
+  panels.forEach((panel) => initSwiper(panel));
+
+  const initialButton = buttons.find((button) => button.classList.contains("is-active")) || buttons[0];
+  activateCategory(initialButton);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) return;
+
+    swipers.forEach((swiper) => {
+      resumeAtUniformSpeed(swiper, false);
     });
   });
 })();
