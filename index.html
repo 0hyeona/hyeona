@@ -79,8 +79,6 @@
 
               <a href="#visual"> MY WORKS </a>
 
-              <a href="#ui-design"> PROJECT </a>
-
               <a href="#contact"> CONTACT </a>
 
               <a href="#resume"> RESUME </a>
@@ -100,6 +98,8 @@
 
     <div class="about-chapter" id="about">
       <section class="about-profile" aria-labelledby="about-profile-title">
+        <img class="about-profile-decoration" src="./img/hero-symbol.svg" alt="" aria-hidden="true">
+
         <div class="about-profile-inner">
           <p class="about-profile-eyebrow">ABOUT ME</p>
 
@@ -150,7 +150,7 @@
                 </section>
 
                 <section class="about-certifications" aria-labelledby="certifications-title">
-                  <h3 id="certifications-title">CERTIFICATIONS</h3>
+                  <h3 id="certifications-title">Certifications</h3>
                   <ul>
                     <li><time datetime="2026-05-15">2026.05.15</time><span>GTQ 그래픽기술자격 1급</span></li>
                     <li><time datetime="2026-06-26">2026.06.26</time><span>GTQ 일러스트 1급</span></li>
@@ -181,7 +181,7 @@
           </header>
 
           <div class="capability-groups">
-            <section class="capability-group">
+            <section class="capability-group capability-group--design">
               <h3 class="capability-label">DESIGN</h3>
 
               <div class="capability-grid">
@@ -214,7 +214,7 @@
               </div>
             </section>
 
-            <section class="capability-group capability-group--right">
+            <section class="capability-group capability-group--right capability-group--publishing">
               <h3 class="capability-label">PUBLISHING</h3>
 
               <div class="capability-grid">
@@ -259,7 +259,11 @@
               </div>
             </section>
 
-            <section class="capability-group">
+            <div class="capability-assets" aria-hidden="true">
+              <img src="./img/bg_assets.jpg" alt="">
+            </div>
+
+            <section class="capability-group capability-group--collaboration">
               <h3 class="capability-label">COLLABORATION</h3>
 
               <div class="capability-grid">
@@ -289,7 +293,7 @@
               </div>
             </section>
 
-            <section class="capability-group capability-group--right">
+            <section class="capability-group capability-group--right capability-group--ai">
               <h3 class="capability-label">AI</h3>
 
               <div class="capability-grid">
@@ -522,179 +526,9 @@
           </div>
         </div>
 
-        <p class="visual-project-count" aria-live="polite"><span>5</span> PROJECTS</p>
       </div>
     </section>
 
-    <!-- UI DESIGN PROJECTS -->
-
-    <section class="ui-projects" id="ui-design" aria-labelledby="ui-projects-title">
-      <div class="ui-projects-inner">
-        <header class="ui-projects-header">
-          <p class="ui-projects-kicker">UI DESIGN PROJECTS</p>
-
-          <h2 class="ui-projects-title" id="ui-projects-title">
-            사용자의 흐름을 설계하고,<br>
-            경험을 화면으로 만듭니다.
-          </h2>
-
-          <p class="ui-projects-summary">
-            문제를 발견하고 구조를 정리해, 사용하기 편한 인터페이스로 발전시킨 프로젝트입니다.
-          </p>
-        </header>
-
-        <div class="ui-project-list">
-          <article class="ui-project-card">
-            <div class="ui-project-media">
-              <span>UI PROJECT 01</span>
-            </div>
-
-            <div class="ui-project-content">
-              <div class="ui-project-heading">
-                <span>01</span>
-                <p>WEB / MOBILE UI</p>
-              </div>
-
-              <h3>프로젝트 제목을 입력하세요</h3>
-              <p class="ui-project-description">
-                프로젝트의 배경과 해결하려던 사용자 문제를 간단하게 소개하는 영역입니다.
-              </p>
-
-              <dl class="ui-project-meta">
-                <div>
-                  <dt>ROLE</dt>
-                  <dd>UX Research · UI Design</dd>
-                </div>
-                <div>
-                  <dt>PERIOD</dt>
-                  <dd>0000.00 — 0000.00</dd>
-                </div>
-                <div>
-                  <dt>TOOLS</dt>
-                  <dd>Figma · Photoshop</dd>
-                </div>
-              </dl>
-
-              <span class="ui-project-cta">VIEW CASE STUDY</span>
-            </div>
-          </article>
-
-          <article class="ui-project-card ui-project-card--reverse">
-            <div class="ui-project-media">
-              <span>UI PROJECT 02</span>
-            </div>
-
-            <div class="ui-project-content">
-              <div class="ui-project-heading">
-                <span>02</span>
-                <p>RESPONSIVE WEB UI</p>
-              </div>
-
-              <h3>프로젝트 제목을 입력하세요</h3>
-              <p class="ui-project-description">
-                디자인 과정에서 중요하게 생각한 기준과 개선 결과를 요약하는 영역입니다.
-              </p>
-
-              <dl class="ui-project-meta">
-                <div>
-                  <dt>ROLE</dt>
-                  <dd>UX Planning · UI Design</dd>
-                </div>
-                <div>
-                  <dt>PERIOD</dt>
-                  <dd>0000.00 — 0000.00</dd>
-                </div>
-                <div>
-                  <dt>TOOLS</dt>
-                  <dd>Figma · Illustrator</dd>
-                </div>
-              </dl>
-
-              <span class="ui-project-cta">VIEW CASE STUDY</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PUBLISHING PROJECTS -->
-
-    <section class="publishing-projects" id="publishing" aria-labelledby="publishing-projects-title">
-      <div class="publishing-projects-inner">
-        <header class="publishing-projects-header">
-          <p class="publishing-projects-kicker">PUBLISHING PROJECTS</p>
-
-          <h2 class="publishing-projects-title" id="publishing-projects-title">
-            디자인을 코드로 옮기고,<br>
-            모든 화면에서 완성합니다.
-          </h2>
-
-          <p class="publishing-projects-summary">
-            시맨틱 마크업과 반응형 레이아웃을 바탕으로 디자인 의도를 실제 웹 환경에 구현합니다.
-          </p>
-        </header>
-
-        <div class="publishing-project-grid">
-          <article class="publishing-project-card">
-            <div class="publishing-project-media">
-              <span>PUBLISHING PROJECT 01</span>
-            </div>
-
-            <div class="publishing-project-content">
-              <div class="publishing-project-heading">
-                <span>01</span>
-                <p>RESPONSIVE WEBSITE</p>
-              </div>
-
-              <h3>프로젝트 제목을 입력하세요</h3>
-              <p class="publishing-project-description">
-                구현한 페이지의 목적과 주요 인터랙션, 반응형 대응 내용을 소개하는 영역입니다.
-              </p>
-
-              <ul class="publishing-project-tags" aria-label="사용 기술">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-              </ul>
-
-              <div class="publishing-project-links">
-                <span>VIEW SITE</span>
-                <span>VIEW CODE</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="publishing-project-card">
-            <div class="publishing-project-media publishing-project-media--light">
-              <span>PUBLISHING PROJECT 02</span>
-            </div>
-
-            <div class="publishing-project-content">
-              <div class="publishing-project-heading">
-                <span>02</span>
-                <p>INTERACTIVE WEBSITE</p>
-              </div>
-
-              <h3>프로젝트 제목을 입력하세요</h3>
-              <p class="publishing-project-description">
-                사용자 경험을 위해 적용한 동작과 성능·접근성 개선 내용을 소개하는 영역입니다.
-              </p>
-
-              <ul class="publishing-project-tags" aria-label="사용 기술">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-              </ul>
-
-              <div class="publishing-project-links">
-                <span>VIEW SITE</span>
-                <span>VIEW CODE</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- FLOATING NAVIGATION -->
@@ -704,7 +538,6 @@
       <a class="is-current" href="#hero" aria-current="location">HOME</a>
       <a href="#about">ABOUT ME</a>
       <a href="#visual">MY WORKS</a>
-      <a href="#ui-design">PROJECT</a>
       <a href="#contact">CONTACT</a>
       <a href="#resume">RESUME</a>
     </div>
