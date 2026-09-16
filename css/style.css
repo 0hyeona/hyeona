@@ -501,7 +501,7 @@ a {
   left: 50%;
   top: 50%;
 
-  width: 660px;
+  width: min(960px, calc(100vw - 80px));
 
   min-height: 58px;
 
@@ -509,7 +509,7 @@ a {
 
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 
   align-items: center;
 
@@ -915,7 +915,7 @@ a {
 
 .about-certifications ul {
   display: grid;
-  gap: 13px;
+  gap: 15px;
   margin: 20px 0 0;
   padding: 0;
   list-style: none;
@@ -925,7 +925,7 @@ a {
   display: grid;
   grid-template-columns: 136px minmax(0, 1fr);
   gap: 16px;
-  align-items: baseline;
+  align-items: center;
 }
 
 .about-certifications time {
@@ -2063,7 +2063,7 @@ a {
   .project-menu {
     width: min(362px, calc(100vw - 40px));
     min-height: 94px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2px;
     padding: 5px;
     border-radius: 24px;
@@ -2148,13 +2148,25 @@ a {
   }
 
   .about-profile-info div {
-    grid-template-columns: 82px minmax(0, 1fr);
-    gap: 14px;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .about-profile-info {
+    gap: 18px;
   }
 
   .about-certifications li {
-    grid-template-columns: 104px minmax(0, 1fr);
-    gap: 12px;
+    grid-template-columns: 126px minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .about-certifications {
+    padding-top: 44px;
+  }
+
+  .about-certifications ul {
+    gap: 18px;
   }
 
   .capabilities-inner {

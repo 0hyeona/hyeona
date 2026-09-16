@@ -71,13 +71,17 @@
             <!-- 클릭하면 펼쳐지는 버튼 -->
 
             <nav class="project-menu" id="project-menu" aria-label="Project sections" aria-hidden="true">
-              <a class="is-current" href="#about" aria-current="location"> ABOUT ME </a>
+              <a class="is-current" href="#hero" aria-current="location"> HOME </a>
+
+              <a href="#about"> ABOUT ME </a>
 
               <a href="#visual"> MY WORKS </a>
 
-              <a href="#ui-design"> PROJECTS </a>
+              <a href="#ui-design"> PROJECT </a>
 
-              <a href="#publishing"> RESUME </a>
+              <a href="#contact"> CONTACT </a>
+
+              <a href="#resume"> RESUME </a>
             </nav>
           </div>
 
@@ -120,13 +124,13 @@
               </p>
             </div>
 
-            <div class="about-profile-details">
+            <div class="about-profile-details" id="resume">
               <section class="about-personal" aria-labelledby="profile-info-title">
                 <h3 id="profile-info-title">PROFILE</h3>
                 <dl class="about-profile-info">
                   <div><dt>NAME</dt><dd>김현아</dd></div>
                   <div><dt>BIRTH</dt><dd>2004.05.31</dd></div>
-                  <div><dt>CONTACT</dt><dd>010-4124-4600</dd></div>
+                  <div id="contact"><dt>CONTACT</dt><dd>010-4124-4600</dd></div>
                   <div><dt>MBTI</dt><dd>ISFJ</dd></div>
                 </dl>
               </section>
@@ -624,10 +628,12 @@
 
   <nav class="floating-nav" aria-label="페이지 바로가기">
     <div class="floating-nav-menu" id="floating-nav-menu">
-      <a class="is-current" href="#about" aria-current="location">ABOUT ME</a>
+      <a class="is-current" href="#hero" aria-current="location">HOME</a>
+      <a href="#about">ABOUT ME</a>
       <a href="#visual">MY WORKS</a>
-      <a href="#ui-design">PROJECTS</a>
-      <a href="#publishing">RESUME</a>
+      <a href="#ui-design">PROJECT</a>
+      <a href="#contact">CONTACT</a>
+      <a href="#resume">RESUME</a>
     </div>
 
     <button class="floating-nav-toggle" type="button" aria-expanded="false" aria-controls="floating-nav-menu">

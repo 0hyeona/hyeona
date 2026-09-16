@@ -103,7 +103,7 @@
   const allNavigationLinks = document.querySelectorAll(
     ".project-menu a[href^='#'], .floating-nav-menu a[href^='#']"
   );
-  const sectionIds = ["about", "visual", "ui-design", "publishing"];
+  const sectionIds = ["hero", "about", "visual", "ui-design", "publishing"];
   const sections = sectionIds
     .map((id) => document.getElementById(id))
     .filter(Boolean);
