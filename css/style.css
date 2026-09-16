@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 
 @font-face {
   font-family: "GMarketSans";
@@ -462,8 +463,8 @@ a {
 
   z-index: 30;
 
-  /* 좌우 문구는 유지하고 프로젝트 버튼만 히어로 하단으로 이동 */
-  transform: translateY(clamp(112px, 13vh, 156px));
+  /* 프로젝트 버튼은 살짝만 아래로 배치 — 큰 고정 이동값으로 인한 데스크톱 하단 밀림 방지 */
+  transform: translateY(clamp(56px, 6vh, 72px));
 }
 
 
@@ -477,7 +478,7 @@ a {
   left: 50%;
   top: 50%;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -80%);
 
   z-index: 3;
 
@@ -487,7 +488,7 @@ a {
 .project-trigger:hover {
   transform:
     translate(-50%,
-      calc(-50% - 3px));
+      calc(-80% - 3px));
 }
 
 
@@ -530,7 +531,7 @@ a {
   -webkit-backdrop-filter: blur(16px);
 
   transform:
-    translate(-50%, -50%) scaleX(0.24);
+    translate(-50%, -80%) scaleX(0.24);
 
   transform-origin: center;
 
@@ -619,7 +620,7 @@ a {
   opacity: 0;
 
   transform:
-    translate(-50%, -50%) scale(0.8);
+    translate(-50%, -80%) scale(0.8);
 
   visibility: hidden;
 
@@ -634,7 +635,7 @@ a {
   pointer-events: auto;
 
   transform:
-    translate(-50%, -50%) scaleX(1);
+    translate(-50%, -80%) scaleX(1);
 }
 
 .project-nav-wrap.is-open .project-menu a {
@@ -842,7 +843,7 @@ a {
   letter-spacing: -0.025em;
 }
 
-.about-profile-description p + p {
+.about-profile-description p+p {
   margin-top: 16px;
 }
 
@@ -985,7 +986,7 @@ a {
 .capabilities-summary {
   margin-top: 24px;
 
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.5;
 }
 
@@ -1001,7 +1002,7 @@ a {
 
   padding: 62px 56px 46px;
 
-  border: 1px solid rgba(20, 55, 169, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 30px;
 }
 
@@ -1015,7 +1016,7 @@ a {
   margin: 0;
   padding: 9px 20px;
 
-  border: 1px solid rgba(20, 55, 169, 0.55);
+  /* border: 1px solid rgba(0, 0, 0, 0.25); */
   border-radius: 2px;
 
   background: #fff;
@@ -1073,13 +1074,14 @@ a {
 
   color: #555;
 
-  font-size: 15px;
-  font-weight: 300;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
   line-height: 1.45;
   letter-spacing: -0.025em;
 }
 
-.tool-card li + li {
+.tool-card li+li {
   margin-top: 4px;
 }
 
@@ -1244,7 +1246,8 @@ a {
 .visual-project-info p {
   margin: 8px 0 0;
   color: #777;
-  font-size: 13px;
+  font-size: 16px;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.5;
 }
 
@@ -1663,7 +1666,7 @@ a {
 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   gap: 10px;
 
   opacity: 0;
@@ -1691,6 +1694,7 @@ a {
 
   display: grid;
   place-items: center;
+
   flex: 0 0 54px;
 
   width: 54px;
@@ -1747,16 +1751,17 @@ a {
   top: 64px;
   right: 0;
 
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
 
-  padding: 5px;
+  width: 220px;
+  padding: 8px;
 
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 999px;
+  border-radius: 24px;
 
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
 
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
 
@@ -1767,7 +1772,7 @@ a {
   visibility: hidden;
   pointer-events: none;
 
-  transform: translateY(-10px) scale(0.96);
+  transform: translateY(-10px);
   transform-origin: top right;
 
   transition:
@@ -1781,22 +1786,26 @@ a {
   visibility: visible;
   pointer-events: auto;
 
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 .floating-nav-menu a {
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
-  min-width: 126px;
+  width: 100%;
+  min-width: 0;
   min-height: 44px;
+
   padding: 0 16px;
 
-  border-radius: 999px;
+  border-radius: 14px;
 
-  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-family: "Pretendard", "GMarketSans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
   font-weight: 500;
+
   white-space: nowrap;
 
   transition:
@@ -1807,14 +1816,13 @@ a {
 
 .floating-nav-menu a:hover,
 .floating-nav-menu a:focus-visible {
-  transform: translateY(-2px);
+  transform: translateX(-3px);
 }
 
 .floating-nav-menu a.is-current {
   background: #050505;
   color: #fff;
 }
-
 
 /* ==================================================
    FOCUS
@@ -1871,6 +1879,60 @@ a {
 
 }
 
+/* ==================================================
+   SMALL DESKTOP / 100% BROWSER ZOOM FIX
+   1201px ~ 1700px 구간에서 고정 px 요소만 약 90% 수준으로 축소
+   (기존 90% 줌에서 자연스럽게 보이던 비율을 100%에서도 유지)
+================================================== */
+@media (max-width: 1700px) and (min-width: 1201px) {
+  .hero-inner {
+    padding: 63px 7vw 72px;
+  }
+
+  .hero-visual {
+    height: 486px;
+    margin-top: 47px;
+  }
+
+  .hero-symbol-rotator {
+    width: 549px;
+  }
+
+  .hero-symbol-wrap::after {
+    bottom: -11px;
+    width: 252px;
+    height: 31px;
+    filter: blur(7px);
+  }
+
+  .hero-meta {
+    gap: 22px;
+    padding: 0 14px;
+    margin-top: -49px;
+  }
+
+  .hero-intro,
+  .hero-role {
+    font-size: 20px;
+  }
+
+  .hero-cta,
+  .project-nav-wrap {
+    width: 234px;
+    height: 49px;
+  }
+
+  .hero-cta {
+    padding: 0 20px;
+    font-size: 13px;
+  }
+
+  .project-nav-wrap {
+    /* 작은 데스크톱에서는 버튼을 기존보다 약 20px 위로 올림 */
+    transform: translateY(clamp(22px, 3vh, 34px));
+  }
+}
+
 @media (max-width: 1200px) and (min-width: 769px) {
   .hero-inner {
     padding: 5vw 6vw 5vw;
@@ -1898,6 +1960,10 @@ a {
   .hero-intro,
   .hero-role {
     font-size: 16px;
+  }
+
+  .project-nav-wrap {
+    transform: translateY(28px);
   }
 
   .about-profile-inner {
@@ -2002,7 +2068,7 @@ a {
   .hero-flourish {
     width: 180vw;
     max-width: none;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -80%);
   }
 
   .hero-symbol-rotator {
@@ -2120,11 +2186,11 @@ a {
   }
 
   .about-profile-description p {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.65;
   }
 
-  .about-profile-description p + p {
+  .about-profile-description p+p {
     margin-top: 18px;
   }
 
@@ -2188,7 +2254,7 @@ a {
 
   .capabilities-summary {
     margin-top: 18px;
-    font-size: 12px;
+    font-size: 18px;
   }
 
   .capability-groups {
