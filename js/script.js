@@ -516,63 +516,87 @@
     });
   });
 })();
-/* ==================================================
-   STICKY PROJECT LINKS
-   - 뷰포트 기준으로 가장 가까운 프로젝트 하나만 is-sticky
-   - originalTop 고정값 없이 매 스크롤마다 재계산
-================================================== */
+
 
 (function () {
   "use strict";
 
   const projects = [...document.querySelectorAll(".web-site")];
 
-  // links가 없는 프로젝트는 제외
   const items = projects
     .map((project) => ({
       project,
       links: project.querySelector(".project-links"),
     }))
-    .filter(({ links }) => links !== null);
+    .filter(({ links }) => links);
 
   if (!items.length) return;
 
-  const OFFSET = 24; // 상단 여백 (기존 코드와 동일)
+  const OFFSET = 24;
+
+  let positions = [];
+
+  function measure() {
+    // 측정 전에 sticky 해제
+    items.forEach(({ links }) => {
+      links.classList.remove("is-sticky");
+    });
+
+    positions = items.map(({ project, links }) => {
+      const linksRect = links.getBoundingClientRect();
+      const projectRect = project.getBoundingClientRect();
+
+      return {
+        project,
+        links,
+
+        // 버튼의 원래 문서상 위치
+        linksTop: linksRect.top + window.scrollY,
+
+        // 프로젝트 끝 위치
+        projectBottom:
+          projectRect.bottom + window.scrollY,
+
+        linksHeight: links.offsetHeight,
+      };
+    });
+
+    update();
+  }
 
   function update() {
-    let bestIndex = -1;
-    let bestDistance = Infinity;
+    const scrollPoint = window.scrollY + OFFSET;
 
-    items.forEach(({ project, links }, index) => {
-      const projectRect = project.getBoundingClientRect();
-      const linksHeight = links.offsetHeight;
+    let activeIndex = -1;
 
-      // 프로젝트 상단이 뷰포트 상단 + OFFSET 이상 스크롤됐는지
-      const passedTop = projectRect.top <= OFFSET;
+    positions.forEach((item, index) => {
+      const passedButton =
+        scrollPoint >= item.linksTop;
 
-      // 프로젝트 하단이 links 높이 + OFFSET보다 아래에 있는지 (아직 보임)
-      const stillVisible = projectRect.bottom > linksHeight + OFFSET;
+      const beforeProjectEnd =
+        scrollPoint <
+        item.projectBottom - item.linksHeight;
 
-      if (passedTop && stillVisible) {
-        // sticky 조건을 만족하는 후보 중 뷰포트 상단에 가장 가까운 것 선택
-        // projectRect.top이 0에 가까울수록(또는 음수일수록) 현재 보이는 프로젝트
-        const distance = Math.abs(projectRect.top);
-
-        if (distance < bestDistance) {
-          bestDistance = distance;
-          bestIndex = index;
-        }
+      if (passedButton && beforeProjectEnd) {
+        activeIndex = index;
       }
     });
 
-    // 선택된 하나만 is-sticky, 나머지는 해제
-    items.forEach(({ links }, index) => {
-      links.classList.toggle("is-sticky", index === bestIndex);
+    positions.forEach((item, index) => {
+      item.links.classList.toggle(
+        "is-sticky",
+        index === activeIndex
+      );
     });
   }
 
-  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("scroll", update, {
+    passive: true,
+  });
 
-  // 초기 실행 (새로고침 후 스크롤 위치 복원 대응)
-  update();
+  window.addEventListener("resize", measure);
+
+  window.addEventListener("load", measure);
+
+  measure();
 })();
