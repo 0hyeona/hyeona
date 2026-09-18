@@ -103,7 +103,14 @@
   const allNavigationLinks = document.querySelectorAll(
     ".project-menu a[href^='#'], .floating-nav-menu a[href^='#']"
   );
-  const sectionIds = ["hero", "about", "visual", "contact"];
+  const sectionIds = [
+    "hero",
+    "about",
+    "visual",
+    "romand-project",
+    "noda-project",
+    "contact"
+  ];
   const sections = sectionIds
     .map((id) => document.getElementById(id))
     .filter(Boolean);
@@ -159,7 +166,17 @@
   });
 
   floatingLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (event) => {
+      const target = document.getElementById(link.hash.slice(1));
+
+      if (target) {
+        event.preventDefault();
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+
       setActiveSection(link.hash.slice(1));
       closeFloatingMenu();
     });
@@ -325,8 +342,8 @@
 
   const buttons = [...filter.querySelectorAll("[data-filter]")];
   const swipers = new Map();
-  const slidePixelsPerSecond = 82;
-  const bannerSlideSpeed = 800;
+  const slidePixelsPerSecond = 64;
+  const bannerSlideSpeed = 1100;
 
   function getSpaceBetween() {
     return window.innerWidth < 769 ? 16 : 30;
@@ -408,7 +425,7 @@
     const swiperOptions = {
       slidesPerView: isBannerSwiper ? 1 : "auto",
       spaceBetween: 30,
-      loop: !isBannerSwiper,
+      loop: true,
       speed: isBannerSwiper ? bannerSlideSpeed : getUniformSpeed(swiperElement),
       grabCursor: true,
       watchOverflow: false,
@@ -418,8 +435,16 @@
         delay: isBannerSwiper ? 3300 : 0,
         disableOnInteraction: false,
         pauseOnMouseEnter: false,
-        stopOnLastSlide: isBannerSwiper
+        stopOnLastSlide: false
       },
+      ...(isBannerSwiper
+        ? {
+            pagination: {
+              el: swiperElement.querySelector(".swiper-pagination"),
+              clickable: true,
+            },
+          }
+        : {}),
       breakpoints: {
         0: { spaceBetween: 16 },
         769: { spaceBetween: 30 }
@@ -518,6 +543,83 @@
 })();
 
 
+/* ==================================================
+   DETAIL PAGE MODAL — PC
+================================================== */
+
+(function () {
+  "use strict";
+
+  const visualProjects = document.querySelector(".visual-projects");
+  const modal = document.getElementById("detail-modal");
+  const modalMedia = document.getElementById("detail-modal-media");
+  const modalTitle = document.getElementById("detail-modal-title");
+  const modalDescription = document.getElementById("detail-modal-description");
+  const modalLabel = modal?.querySelector(".detail-modal-label");
+
+  if (!visualProjects || !modal || !modalMedia || !modalTitle || !modalDescription) return;
+
+  visualProjects.querySelectorAll(".visual-project-card").forEach((card) => {
+    card.setAttribute("data-visual-modal-trigger", "true");
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("role", "button");
+  });
+
+  function closeModal() {
+    modal.hidden = true;
+    modal.classList.remove("is-detail-modal");
+    document.body.classList.remove("is-detail-modal-open");
+  }
+
+  function openModal(card) {
+    const sourceMedia = card.querySelector(".visual-project-media");
+    const sourceTitle = card.querySelector(".visual-project-info h3");
+    const sourceDescription = card.querySelector(".visual-project-info p");
+
+    modalMedia.replaceChildren();
+    const image = sourceMedia?.querySelector("img");
+
+    if (image) {
+      const imageClone = image.cloneNode(true);
+      imageClone.removeAttribute("loading");
+      modalMedia.appendChild(imageClone);
+    } else if (sourceMedia) {
+      modalMedia.innerHTML = sourceMedia.innerHTML;
+    }
+
+    const panel = card.closest(".visual-project-panel");
+    const category = panel?.dataset.category?.toUpperCase() || "VISUAL WORK";
+
+    if (modalLabel) modalLabel.textContent = category;
+    modal.classList.toggle("is-detail-modal", category === "DETAIL");
+    modalTitle.textContent = sourceTitle?.textContent.trim() || "상세페이지 디자인";
+    modalDescription.textContent = sourceDescription?.textContent.trim() || "상세페이지 디자인 설명입니다.";
+    modal.hidden = false;
+    document.body.classList.add("is-detail-modal-open");
+  }
+
+  visualProjects.addEventListener("click", (event) => {
+    const card = event.target.closest("[data-visual-modal-trigger]");
+    if (card) openModal(card);
+  });
+
+  visualProjects.addEventListener("keydown", (event) => {
+    if ((event.key === "Enter" || event.key === " ") && event.target.closest("[data-visual-modal-trigger]")) {
+      event.preventDefault();
+      openModal(event.target.closest("[data-visual-modal-trigger]"));
+    }
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target.closest("[data-detail-modal-close]")) closeModal();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) closeModal();
+  });
+})();
+
+
 (function () {
   "use strict";
 
@@ -542,9 +644,12 @@
       links.classList.remove("is-sticky");
     });
 
-    positions = items.map(({ project, links }) => {
+    positions = items.map(({ project, links }, index) => {
       const linksRect = links.getBoundingClientRect();
-      const projectRect = project.getBoundingClientRect();
+      const nextProject = items[index + 1]?.project;
+      const projectBottom = nextProject
+        ? nextProject.getBoundingClientRect().top + window.scrollY
+        : document.documentElement.scrollHeight;
 
       return {
         project,
@@ -554,8 +659,7 @@
         linksTop: linksRect.top + window.scrollY,
 
         // 프로젝트 끝 위치
-        projectBottom:
-          projectRect.bottom + window.scrollY,
+        projectBottom,
 
         linksHeight: links.offsetHeight,
       };
