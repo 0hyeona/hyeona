@@ -516,34 +516,48 @@
     });
   });
 })();
+/* ==================================================
+   STICKY PROJECT LINKS
+   - 뷰포트 기준으로 가장 가까운 프로젝트 하나만 is-sticky
+   - originalTop 고정값 없이 매 스크롤마다 재계산
+================================================== */
 
 (function () {
   "use strict";
 
-  const items = [...document.querySelectorAll(".project-intro-inner")]
-    .map((container) => ({
-      container,
-      links: container.querySelector(".project-links"),
+  const projects = [...document.querySelectorAll(".web-site")];
+
+  // links가 없는 프로젝트는 제외
+  const items = projects
+    .map((project) => ({
+      project,
+      links: project.querySelector(".project-links"),
     }))
     .filter(({ links }) => links !== null);
 
   if (!items.length) return;
 
-  const OFFSET = 24;
+  const OFFSET = 24; // 상단 여백 (기존 코드와 동일)
 
   function update() {
     let bestIndex = -1;
     let bestDistance = Infinity;
 
-    items.forEach(({ container, links }, index) => {
-      const containerRect = container.getBoundingClientRect();
+    items.forEach(({ project, links }, index) => {
+      const projectRect = project.getBoundingClientRect();
       const linksHeight = links.offsetHeight;
 
-      const passedTop = containerRect.top <= OFFSET;
-      const stillVisible = containerRect.bottom > linksHeight + OFFSET;
+      // 프로젝트 상단이 뷰포트 상단 + OFFSET 이상 스크롤됐는지
+      const passedTop = projectRect.top <= OFFSET;
+
+      // 프로젝트 하단이 links 높이 + OFFSET보다 아래에 있는지 (아직 보임)
+      const stillVisible = projectRect.bottom > linksHeight + OFFSET;
 
       if (passedTop && stillVisible) {
-        const distance = Math.abs(containerRect.top);
+        // sticky 조건을 만족하는 후보 중 뷰포트 상단에 가장 가까운 것 선택
+        // projectRect.top이 0에 가까울수록(또는 음수일수록) 현재 보이는 프로젝트
+        const distance = Math.abs(projectRect.top);
+
         if (distance < bestDistance) {
           bestDistance = distance;
           bestIndex = index;
@@ -551,11 +565,14 @@
       }
     });
 
+    // 선택된 하나만 is-sticky, 나머지는 해제
     items.forEach(({ links }, index) => {
       links.classList.toggle("is-sticky", index === bestIndex);
     });
   }
 
   window.addEventListener("scroll", update, { passive: true });
+
+  // 초기 실행 (새로고침 후 스크롤 위치 복원 대응)
   update();
 })();
