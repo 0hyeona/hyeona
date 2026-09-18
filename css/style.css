@@ -1975,7 +1975,24 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 }
 
 .romand-logo-section {
+  position: relative;
   text-align: center;
+}
+
+.romand-product-assets {
+  position: absolute;
+  z-index: 0;
+  right: clamp(-84px, -4vw, -28px);
+  bottom: clamp(-90px, -7vw, -42px);
+  width: min(30vw, 380px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.romand-logo-section > *:not(.romand-product-assets) {
+  position: relative;
+  z-index: 1;
 }
 
 .romand-system-label {
@@ -2288,13 +2305,28 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 }
 
 .noda-brand-concept {
+  position: relative;
+  isolation: isolate;
   width: 100%;
   background: #fff;
   color: #333;
   font-size: 26px;
 }
 
+.noda-brand-chair {
+  position: absolute;
+  z-index: 0;
+  top: clamp(180px, 17vw, 280px);
+  right: clamp(-150px, -5vw, -40px);
+  width: min(43vw, 620px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
 .noda-brand-concept-inner {
+  position: relative;
+  z-index: 1;
   width: min(100% - 96px, 1280px);
   margin: 0 auto;
   padding: clamp(110px, 14vw, 220px) 0 clamp(120px, 16vw, 240px);
@@ -3104,6 +3136,15 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 ================================================== */
 
 @media (max-width: 768px) {
+  .romand-product-assets {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    display: block;
+    width: min(82vw, 360px);
+    margin: 34px auto 0;
+  }
+
 
   .portfolio-hero,
   .about-profile {
@@ -4305,6 +4346,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .noda-showcase-about h3 { font-size: 18px; }
   .noda-showcase-about dl { column-gap: 20px; font-size: 12px; }
 
+  .noda-brand-chair { display: none; }
   .noda-brand-concept-inner { width: 100%; padding: 96px 24px 120px; }
   .noda-brand-hero > p { font-size: 12px; }
   .noda-brand-hero h2 { font-size: 38px; }
