@@ -31,7 +31,6 @@
   --bg: #ffffff;
   --text: #333333;
   --muted: #181818;
-
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
@@ -51,12 +50,9 @@ html {
 body {
   margin: 0;
   overflow-x: clip;
-
   background: var(--bg);
   color: var(--text);
-
   font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
 }
@@ -72,16 +68,13 @@ a {
 
 .sr-only {
   position: absolute;
-
   width: 1px;
   height: 1px;
   padding: 0;
   margin: -1px;
-
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-
   border: 0;
 }
 
@@ -92,24 +85,15 @@ a {
 
 .portfolio-hero {
   min-height: 100svh;
-
   background: #fff;
-
   overflow: hidden;
 }
 
 .hero-inner {
   width: 100%;
-
   margin: 0 auto;
-
   padding: 70px 112px 80px;
 }
-
-
-/* ==================================================
-   TITLE
-================================================== */
 
 .hero-header {
   width: 100%;
@@ -117,16 +101,11 @@ a {
 
 .hero-title {
   margin: 0;
-
   font-family: "Righteous", "GMarketSans", sans-serif;
-
   font-size: 9.4vw;
   font-weight: 400;
-
   line-height: 1;
-
   text-align: center;
-
   white-space: nowrap;
 }
 
@@ -137,255 +116,134 @@ a {
 
 .hero-visual {
   position: relative;
-
   isolation: isolate;
-
   display: grid;
-
   place-items: center;
-
   height: 540px;
-
   margin-top: 52px;
-
   perspective: 1000px;
-
   perspective-origin: center center;
-
   transform-style: preserve-3d;
 }
-
-
-/* ==================================================
-   BACKGROUND
-================================================== */
 
 .hero-flourish {
   position: absolute;
-
   left: 50%;
   top: 50%;
-
   width: 97vw;
-
   height: auto;
-
   transform: translate(-50%, -48%);
-
   z-index: 1;
-
   pointer-events: none;
-
   animation: flourishFloat 6.8s ease-in-out infinite;
 }
 
-
-/* ==================================================
-   CLOVER WRAP
-================================================== */
-
 .hero-symbol-wrap {
   position: relative;
-
   z-index: 10;
-
   display: grid;
-
   place-items: center;
-
   transform-style: preserve-3d;
 }
-
-
-/* ==================================================
-   CLOVER SHADOW
-================================================== */
 
 .hero-symbol-wrap::after {
   content: "";
-
   position: absolute;
-
   left: 50%;
   bottom: -12px;
-
   width: 280px;
   height: 34px;
-
-  background:
-    radial-gradient(circle,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.08) 48%,
-      rgba(0, 0, 0, 0) 75%);
-
+  background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.08) 48%, rgba(0,0,0,0) 75%);
   transform: translateX(-50%);
-
   filter: blur(8px);
-
   opacity: 0.35;
-
   z-index: -1;
 }
 
-
-/* ==================================================
-   CLOVER TILT WRAPPER
-================================================== */
-
 .hero-symbol-tilt {
   position: relative;
-
   z-index: 10;
-
   transform-style: preserve-3d;
 }
-
-
-/* ==================================================
-   CLOVER ROTATOR
-================================================== */
 
 .hero-symbol-rotator {
   position: relative;
-
   z-index: 10;
-
   width: 610px;
-
   transform-style: preserve-3d;
-
   transform-origin: center center;
-
   animation: symbolRotate 6s linear infinite;
-
   will-change: transform;
 }
-
-
-/* ==================================================
-   CLOVER COMMON
-================================================== */
 
 .hero-symbol {
   width: 100%;
   height: auto;
-
   display: block;
-
   transform-origin: center center;
-
   pointer-events: none;
-
   user-select: none;
-
   -webkit-user-drag: none;
-
   backface-visibility: visible;
 }
 
-
-/* ==================================================
-   CLOVER FRONT
-================================================== */
-
 .hero-symbol-front {
   position: relative;
-
   z-index: 30;
-
   transform: translateZ(14px);
-
-  filter:
-    drop-shadow(0 14px 28px rgba(0, 0, 0, 0.12));
+  filter: drop-shadow(0 14px 28px rgba(0,0,0,0.12));
 }
-
-
-/* ==================================================
-   CLOVER DEPTH
-================================================== */
 
 .hero-symbol-depth {
   position: absolute;
-
   left: 0;
   top: 0;
-
   z-index: 20;
   transform: translateZ(0);
-
-  filter:
-    brightness(0.82) saturate(0.95);
+  filter: brightness(0.82) saturate(0.95);
 }
-
-
-/* ==================================================
-   CLOVER BACK
-================================================== */
 
 .hero-symbol-back {
   position: absolute;
-
   left: 0;
   top: 0;
-
   z-index: 10;
-
-
-  transform:
-    translateZ(-14px) rotateY(180deg);
-
-  filter:
-    brightness(0.72) saturate(0.9);
+  transform: translateZ(-14px) rotateY(180deg);
+  filter: brightness(0.72) saturate(0.9);
 }
 
 
 /* ==================================================
-   BOTTOM META
+   HERO META
 ================================================== */
 
 .hero-meta {
   position: relative;
-
   z-index: 20;
-
   display: grid;
-
   grid-template-columns: 1fr auto 1fr;
-
   align-items: end;
-
   gap: 24px;
-
   padding: 0 16px;
-
   margin-top: -54px;
 }
-
-
-/* ==================================================
-   LEFT / RIGHT TEXT
-================================================== */
 
 .hero-intro,
 .hero-role {
   margin: 0;
-
   font-size: 22px;
   font-weight: 500;
   line-height: 1.4;
-
   white-space: nowrap;
 }
 
 .hero-intro {
   justify-self: start;
-
   text-align: left;
 }
 
 .hero-role {
   justify-self: end;
-
   text-align: right;
 }
 
@@ -395,41 +253,50 @@ a {
 
 
 /* ==================================================
-   CTA
+   PROJECT NAV
 ================================================== */
+
+.project-nav-wrap {
+  position: relative;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: 260px;
+  height: 54px;
+  font-weight: 500;
+  z-index: 30;
+  transform: translateY(clamp(56px, 6vh, 72px));
+}
+
+.project-trigger {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -80%);
+  z-index: 3;
+  white-space: nowrap;
+}
+
+.project-trigger:hover {
+  transform: translate(-50%, calc(-80% - 3px));
+}
 
 .hero-cta {
   justify-self: center;
-
   display: inline-grid;
-
   place-items: center;
-
   width: 260px;
   height: 54px;
-
   padding: 0 22px;
-
   border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.72);
-
-  border: 1px solid rgba(0, 0, 0, 0.08);
-
-  box-shadow:
-    0 16px 35px rgba(0, 0, 0, 0.1),
-    inset 0 1px 1px rgba(255, 255, 255, 0.95);
-
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.95);
   backdrop-filter: blur(12px);
-
   -webkit-backdrop-filter: blur(12px);
-
   font-size: 14px;
-
   color: var(--text);
-
   cursor: pointer;
-
   transition:
     transform 0.3s var(--ease),
     box-shadow 0.3s var(--ease),
@@ -440,152 +307,53 @@ a {
 .hero-cta:hover,
 .hero-cta:focus-visible {
   transform: translateY(-3px);
-
   background: #fff;
-
-  box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.14);
 }
-
-
-/* ==================================================
-   PROJECT NAV
-================================================== */
-
-.project-nav-wrap {
-  position: relative;
-
-  justify-self: center;
-
-  display: grid;
-
-  place-items: center;
-
-  width: 260px;
-  height: 54px;
-
-  font-weight: 500;
-
-  z-index: 30;
-
-  /* 프로젝트 버튼은 살짝만 아래로 배치 — 큰 고정 이동값으로 인한 데스크톱 하단 밀림 방지 */
-  transform: translateY(clamp(56px, 6vh, 72px));
-}
-
-
-/* ==================================================
-   PROJECT TRIGGER
-================================================== */
-
-.project-trigger {
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  transform: translate(-50%, -80%);
-
-  z-index: 3;
-
-  white-space: nowrap;
-}
-
-.project-trigger:hover {
-  transform:
-    translate(-50%,
-      calc(-80% - 3px));
-}
-
-
-/* ==================================================
-   PROJECT MENU
-================================================== */
 
 .project-menu {
   position: absolute;
-
   left: 50%;
   top: 50%;
-
   width: min(960px, calc(100vw - 80px));
-
   min-height: 58px;
-
   padding: 5px;
-
   display: grid;
-
   grid-template-columns: repeat(5, 1fr);
-
   align-items: center;
-
   gap: 4px;
-
   border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.64);
-
-  border: 1px solid rgba(0, 0, 0, 0.08);
-
-  box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.1),
-    inset 0 1px 1px rgba(255, 255, 255, 0.9);
-
+  background: rgba(255,255,255,0.64);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.9);
   backdrop-filter: blur(16px);
-
   -webkit-backdrop-filter: blur(16px);
-
-  transform:
-    translate(-50%, -80%) scaleX(0.24);
-
+  transform: translate(-50%, -80%) scaleX(0.24);
   transform-origin: center;
-
   opacity: 0;
-
   visibility: hidden;
-
   pointer-events: none;
-
   overflow: hidden;
-
   z-index: 2;
-
   transition:
     transform 0.65s var(--ease),
     opacity 0.28s ease,
     visibility 0.28s;
 }
 
-
-/* ==================================================
-   PROJECT MENU ITEM
-================================================== */
-
 .project-menu a {
   position: relative;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   min-height: 44px;
-
   padding: 0 16px;
-
   border-radius: 999px;
-
   font-size: 14px;
-
   letter-spacing: -0.01em;
-
   white-space: nowrap;
-
   opacity: 0;
-
   transform: translateY(8px);
-
   transition:
     opacity 0.35s ease,
     transform 0.45s var(--ease),
@@ -593,182 +361,64 @@ a {
     color 0.28s ease;
 }
 
-
-/* ==================================================
-   PROJECT MENU DIVIDER
-================================================== */
-
-.project-menu a+a::before {
+.project-menu a + a::before {
   content: "";
-
   position: absolute;
-
   left: -2px;
   top: 50%;
-
   width: 1px;
   height: 18px;
-
-  background: rgba(0, 0, 0, 0.08);
-
+  background: rgba(0,0,0,0.08);
   transform: translateY(-50%);
-
   transition: opacity 0.25s ease;
 }
 
-
-/* ==================================================
-   PROJECT MENU OPEN
-================================================== */
-
 .project-nav-wrap.is-open .project-trigger {
   opacity: 0;
-
-  transform:
-    translate(-50%, -80%) scale(0.8);
-
+  transform: translate(-50%, -80%) scale(0.8);
   visibility: hidden;
-
   pointer-events: none;
 }
 
 .project-nav-wrap.is-open .project-menu {
   opacity: 1;
-
   visibility: visible;
-
   pointer-events: auto;
-
-  transform:
-    translate(-50%, -80%) scaleX(1);
+  transform: translate(-50%, -80%) scaleX(1);
 }
 
 .project-nav-wrap.is-open .project-menu a {
   opacity: 1;
-
   transform: translateY(0);
 }
 
-
-/* ==================================================
-   PROJECT MENU DELAY
-================================================== */
-
-.project-nav-wrap.is-open .project-menu a:nth-child(1) {
-  transition-delay:
-    0.12s,
-    0.12s,
-    0s,
-    0s;
-}
-
-.project-nav-wrap.is-open .project-menu a:nth-child(2) {
-  transition-delay:
-    0.18s,
-    0.18s,
-    0s,
-    0s;
-}
-
-.project-nav-wrap.is-open .project-menu a:nth-child(3) {
-  transition-delay:
-    0.24s,
-    0.24s,
-    0s,
-    0s;
-}
-
-.project-nav-wrap.is-open .project-menu a:nth-child(4) {
-  transition-delay:
-    0.3s,
-    0.3s,
-    0s,
-    0s;
-}
-
-.project-nav-wrap.is-open .project-menu a:nth-child(5) {
-  transition-delay:
-    0.36s,
-    0.36s,
-    0s,
-    0s;
-}
-
-
-/* ==================================================
-   PROJECT MENU HOVER
-================================================== */
+.project-nav-wrap.is-open .project-menu a:nth-child(1) { transition-delay: 0.12s, 0.12s, 0s, 0s; }
+.project-nav-wrap.is-open .project-menu a:nth-child(2) { transition-delay: 0.18s, 0.18s, 0s, 0s; }
+.project-nav-wrap.is-open .project-menu a:nth-child(3) { transition-delay: 0.24s, 0.24s, 0s, 0s; }
+.project-nav-wrap.is-open .project-menu a:nth-child(4) { transition-delay: 0.30s, 0.30s, 0s, 0s; }
+.project-nav-wrap.is-open .project-menu a:nth-child(5) { transition-delay: 0.36s, 0.36s, 0s, 0s; }
 
 .project-menu a:hover,
 .project-menu a:focus-visible,
 .project-menu a.is-current {
   background: #050505;
-
   color: #fff;
-
   transform: translateY(-2px);
 }
 
 .project-menu a:hover::before,
 .project-menu a:focus-visible::before,
 .project-menu a.is-current::before,
-.project-menu a:hover+a::before,
-.project-menu a:focus-visible+a::before,
-.project-menu a.is-current+a::before {
+.project-menu a:hover + a::before,
+.project-menu a:focus-visible + a::before,
+.project-menu a.is-current + a::before {
   opacity: 0;
-}
-
-
-/* ==================================================
-   PORTFOLIO SECTION
-================================================== */
-
-.portfolio-section {
-  min-height: 100svh;
-
-  padding: 150px 112px;
-
-  scroll-margin-top: 0;
-
-  background: #fff;
-}
-
-.section-inner {
-  width: 100%;
-
-  max-width: 1680px;
-
-  margin: 0 auto;
-}
-
-.section-number {
-  display: block;
-
-  margin-bottom: 18px;
-
-  font-size: 14px;
-}
-
-.portfolio-section h2 {
-  margin: 0;
-
-  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-
-  font-size: 120px;
-
-  font-weight: 400;
-
-  line-height: 0.95;
 }
 
 
 /* ==================================================
    ABOUT PROFILE
 ================================================== */
-
-.about-chapter {
-  scroll-margin-top: 0;
-}
 
 .about-profile {
   position: relative;
@@ -829,13 +479,6 @@ a {
   color: var(--text);
 }
 
-.about-profile-photo span {
-  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-}
-
 .about-profile-photo img {
   display: block;
   width: 100%;
@@ -872,7 +515,7 @@ a {
   letter-spacing: -0.025em;
 }
 
-.about-profile-description p+p {
+.about-profile-description p + p {
   margin-top: 16px;
 }
 
@@ -980,23 +623,20 @@ a {
   color: #666;
 }
 
+
 /* ==================================================
    TOOLS & CAPABILITIES
 ================================================== */
 
 .capabilities-section {
   min-height: 100svh;
-
   padding: 0;
-
   background: #fff;
-
   display: flow-root;
 }
 
 .capabilities-inner {
   width: calc(100% - clamp(64px, 16.8vw, 232px));
-
   margin: 48px auto 120px;
 }
 
@@ -1007,7 +647,6 @@ a {
 .capabilities-kicker,
 .capabilities-summary {
   margin: 0;
-
   font-family: "GMarketSans", Arial, Helvetica, sans-serif;
 }
 
@@ -1019,7 +658,6 @@ a {
 
 .capabilities-title {
   margin: 18px 0 0;
-
   font-size: clamp(48px, 4.5vw, 76px);
   font-weight: 700;
   line-height: 1.06;
@@ -1028,7 +666,6 @@ a {
 
 .capabilities-summary {
   margin-top: 24px;
-
   font-size: 18px;
   line-height: 1.5;
 }
@@ -1036,16 +673,13 @@ a {
 .capability-groups {
   display: grid;
   gap: 64px;
-
   margin-top: 104px;
 }
 
 .capability-group {
   position: relative;
-
   padding: 62px 56px 46px;
-
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0,0,0,0.25);
   border-radius: 16px;
 }
 
@@ -1053,22 +687,16 @@ a {
   position: absolute;
   top: 0;
   left: 40px;
-
   margin: 0;
   padding: 10px 32px;
-
-  /* border: 1px solid rgba(0, 0, 0, 0.25); */
   border-radius: 2px;
-
   background: #fff;
   color: var(--text);
-
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 1;
   text-align: center;
-
   transform: translateY(-50%);
 }
 
@@ -1077,21 +705,10 @@ a {
   left: auto;
 }
 
-.capability-group--design .capability-label {
-  width: 179px;
-}
-
-.capability-group--publishing .capability-label {
-  width: 250px;
-}
-
-.capability-group--collaboration .capability-label {
-  width: 269px;
-}
-
-.capability-group--ai .capability-label {
-  width: 95px;
-}
+.capability-group--design .capability-label    { width: 179px; }
+.capability-group--publishing .capability-label { width: 250px; }
+.capability-group--collaboration .capability-label { width: 269px; }
+.capability-group--ai .capability-label        { width: 95px; }
 
 .capability-assets {
   display: flex;
@@ -1125,11 +742,9 @@ a {
   display: flex;
   align-items: center;
   gap: 7px;
-
   margin: 0 0 14px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(51, 51, 51, 0.18);
-
+  border-bottom: 1px solid rgba(51,51,51,0.18);
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 26px;
   font-weight: 700;
@@ -1148,10 +763,8 @@ a {
 
 .tool-icon {
   flex: 0 0 auto;
-
   width: 26px;
   height: 26px;
-
   object-fit: contain;
 }
 
@@ -1162,9 +775,7 @@ a {
 .tool-card ul {
   margin: 0;
   padding-left: 18px;
-
   color: var(--text);
-
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -1172,7 +783,7 @@ a {
   letter-spacing: -0.025em;
 }
 
-.tool-card li+li {
+.tool-card li + li {
   margin-top: 8px;
 }
 
@@ -1183,11 +794,8 @@ a {
 
 .visual-projects {
   min-height: 100svh;
-
   padding: 0;
-
   background: #fff;
-
   display: flow-root;
   scroll-margin-top: 0;
 }
@@ -1204,7 +812,6 @@ a {
 
 .visual-projects-kicker {
   margin: 0;
-
   font-family: "GMarketSans", Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -1213,7 +820,6 @@ a {
 
 .visual-projects-title {
   margin: 14px 0 0;
-
   font-size: clamp(48px, 4.5vw, 76px);
   font-weight: 700;
   line-height: 1.06;
@@ -1236,7 +842,7 @@ a {
   border-radius: 999px;
   background: #fff;
   color: var(--text);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
   font-family: "GMarketSans", Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -1250,7 +856,7 @@ a {
 
 .visual-filter-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 9px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 9px 24px rgba(0,0,0,0.1);
 }
 
 .visual-filter-button.is-active {
@@ -1304,12 +910,6 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-@media (min-width: 769px) {
-  .visual-project-panel[data-category="popup"] .visual-project-card {
-    width: clamp(340px, 26vw, 420px);
-  }
 }
 
 .visual-project-swiper.visual-project-swiper--banner {
@@ -1390,6 +990,7 @@ a {
   font-family: "GMarketSans", Arial, Helvetica, sans-serif;
 }
 
+
 /* ==================================================
    FLOATING NAVIGATION
 ================================================== */
@@ -1399,18 +1000,14 @@ a {
   top: 24px;
   right: 24px;
   z-index: 1000;
-
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
-
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
   transform: translateY(-14px);
-
   transition:
     opacity 0.3s var(--ease),
     visibility 0.3s,
@@ -1421,50 +1018,37 @@ a {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-
   transform: translateY(0);
 }
 
 .floating-nav-toggle {
   position: relative;
-
   display: grid;
   place-items: center;
-
   flex: 0 0 54px;
-
   width: 54px;
   height: 54px;
   padding: 0;
-
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0,0,0,0.1);
   border-radius: 50%;
-
   background: #fff;
   color: var(--text);
-
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
-
+  box-shadow: 0 14px 34px rgba(0,0,0,0.16);
   cursor: pointer;
 }
 
 .floating-nav-icon {
   display: grid;
   gap: 5px;
-
   width: 20px;
 }
 
 .floating-nav-icon i {
   display: block;
-
   width: 100%;
   height: 2px;
-
   border-radius: 999px;
-
   background: currentColor;
-
   transition:
     transform 0.32s var(--ease),
     opacity 0.22s ease;
@@ -1486,31 +1070,22 @@ a {
   position: absolute;
   top: 64px;
   right: 0;
-
   display: grid;
   grid-template-columns: 1fr;
   gap: 6px;
-
   width: 220px;
   padding: 8px;
-
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0,0,0,0.1);
   border-radius: 24px;
-
-  background: rgba(255, 255, 255, 0.92);
-
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
-
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.12);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
   transform: translateY(-10px);
   transform-origin: top right;
-
   transition:
     opacity 0.28s ease,
     visibility 0.28s,
@@ -1521,7 +1096,6 @@ a {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-
   transform: translateY(0);
 }
 
@@ -1529,21 +1103,15 @@ a {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
   width: 100%;
   min-width: 0;
   min-height: 44px;
-
   padding: 0 16px;
-
   border-radius: 14px;
-
   font-family: "Pretendard", "GMarketSans", Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 500;
-
   white-space: nowrap;
-
   transition:
     background 0.25s ease,
     color 0.25s ease,
@@ -1559,6 +1127,7 @@ a {
   background: #050505;
   color: #fff;
 }
+
 
 /* ==================================================
    SECTION TITLE REVEAL
@@ -1604,6 +1173,11 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   transform: translate3d(0, 0, 0);
 }
 
+
+/* ==================================================
+   WEB SITE / PROJECT INTRO
+================================================== */
+
 .web-site img {
   display: block;
   width: 100%;
@@ -1622,14 +1196,11 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 .project-intro-inner {
   width: 100%;
   min-height: 570px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   padding: 80px 20px;
-
   text-align: center;
 }
 
@@ -1637,7 +1208,6 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   margin-bottom: 60px;
 }
 
@@ -1648,14 +1218,12 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
 .project-number span {
   margin-top: 6px;
-
   font-size: 20px;
   font-weight: 500;
 }
 
 .project-title h2 {
   margin: 0;
-
   font-size: 60px;
   font-weight: 700;
   line-height: 1.15;
@@ -1663,7 +1231,6 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
 .project-title p {
   margin: 12px 0 0;
-
   font-size: 26px;
   font-weight: 500;
   line-height: 1.4;
@@ -1673,21 +1240,16 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: max-content;
   margin: 65px auto 0;
-
   gap: 12px;
 }
 
 .project-links.is-sticky {
   position: fixed;
-
   top: 24px;
   z-index: 999;
-
   margin: 0;
-
   transform: none;
 }
 
@@ -1695,29 +1257,28 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   min-width: 100px;
   height: 42px;
   padding: 0 24px;
-
   background: #fff;
   border: none;
   border-radius: 999px;
-
   font-size: 16px;
   font-weight: 500;
   color: #333;
-  text-decoration: none;
-
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
-
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
   transition: 0.3s ease;
 }
 
 .project-links a:hover {
   transform: translateY(-2px);
-  box-shadow: 0 9px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 9px 24px rgba(0,0,0,0.1);
 }
+
+
+/* ==================================================
+   HOVER EFFECTS (pointer device only)
+================================================== */
 
 @media (hover: hover) and (pointer: fine) {
   .visual-project-media img {
@@ -1740,8 +1301,12 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .tool-card:hover .tool-icon {
     transform: translateY(-2px) rotate(-3deg);
   }
-
 }
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   html.has-reveal-motion .title-reveal-group .reveal-kicker,
@@ -1761,8 +1326,8 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .hero-symbol-rotator {
     animation: none;
   }
-
 }
+
 
 /* ==================================================
    FOCUS
@@ -1774,54 +1339,59 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 .floating-nav-toggle:focus-visible,
 .floating-nav-menu a:focus-visible {
   outline: 2px solid #000;
-
   outline-offset: 4px;
 }
 
 
 /* ==================================================
-   CLOVER ROTATION
+   ANIMATIONS
 ================================================== */
 
 @keyframes symbolRotate {
-  from {
-    transform: rotateY(0deg);
-  }
-
-  to {
-    transform: rotateY(360deg);
-  }
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
 }
-
-
-/* ==================================================
-   BACKGROUND ANIMATION
-================================================== */
 
 @keyframes flourishFloat {
-
-  0%,
-  100% {
-    transform:
-      translate(-50%, -48%) scale(1);
-
+  0%, 100% {
+    transform: translate(-50%, -48%) scale(1);
     opacity: 1;
   }
-
   50% {
-    transform:
-      translate(-50%, -46.5%) scale(1.01);
-
+    transform: translate(-50%, -46.5%) scale(1.01);
     opacity: 0.96;
   }
-
 }
 
+
 /* ==================================================
-   SMALL DESKTOP / 100% BROWSER ZOOM FIX
-   1201px ~ 1700px 구간에서 고정 px 요소만 약 90% 수준으로 축소
-   (기존 90% 줌에서 자연스럽게 보이던 비율을 100%에서도 유지)
+   CUSTOM CURSOR
 ================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body {
+    cursor: url("../img/cursor.svg") 8 8, auto;
+  }
+
+  body :is(
+    a, button, [role="button"],
+    .hero-cta, .project-menu,
+    .visual-filter-button,
+    .visual-project-swiper,
+    .visual-project-swiper *,
+    .floating-nav-toggle,
+    .floating-nav-menu
+  ) {
+    cursor: url("../img/cursor.svg") 8 8, pointer;
+  }
+}
+
+
+/* ==================================================
+   RESPONSIVE — 1201px ~ 1700px
+================================================== */
+
 @media (max-width: 1700px) and (min-width: 1201px) {
   .hero-inner {
     padding: 63px 7vw 72px;
@@ -1866,10 +1436,14 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   }
 
   .project-nav-wrap {
-    /* 작은 데스크톱에서는 버튼을 기존보다 약 20px 위로 올림 */
     transform: translateY(clamp(22px, 3vh, 34px));
   }
 }
+
+
+/* ==================================================
+   RESPONSIVE — 769px ~ 1200px (태블릿)
+================================================== */
 
 @media (max-width: 1200px) {
   .about-profile-decoration {
@@ -1879,7 +1453,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
 @media (max-width: 1200px) and (min-width: 769px) {
   .hero-inner {
-    padding: 5vw 6vw 5vw;
+    padding: 5vw 6vw;
   }
 
   .hero-title {
@@ -1929,7 +1503,6 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
   .about-profile-details {
     grid-template-columns: 1fr;
-    gap: 0;
   }
 
   .about-personal {
@@ -1952,25 +1525,23 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
     gap: 38px 4vw;
   }
 
-  .visual-projects-inner {
-    width: 100%;
-  }
-
-  .floating-nav-menu a {
-    min-width: 108px;
-    padding-inline: 12px;
+  .visual-project-panel[data-category="popup"] .visual-project-card {
+    width: clamp(340px, 26vw, 420px);
   }
 }
 
+
+/* ==================================================
+   RESPONSIVE — ~ 768px (모바일)
+================================================== */
+
 @media (max-width: 768px) {
+  .portfolio-hero,
   .about-profile {
     min-height: auto;
   }
 
-  .portfolio-hero {
-    min-height: auto;
-  }
-
+  /* Hero */
   .hero-inner {
     min-height: auto;
     padding: 5vw 4.8vw clamp(48px, 10vw, 72px);
@@ -2065,7 +1636,6 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .project-menu {
     width: min(362px, calc(100vw - 40px));
     min-height: 50px;
-    grid-template-columns: repeat(5, 1fr);
     gap: 2px;
     padding: 5px;
     border-radius: 24px;
@@ -2077,18 +1647,11 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
     font-size: clamp(9px, 1.2vw, 11px);
   }
 
-  .project-menu a+a::before {
+  .project-menu a + a::before {
     display: none;
   }
 
-  .portfolio-section {
-    padding: 96px 20px;
-  }
-
-  .portfolio-section h2 {
-    font-size: clamp(52px, 17vw, 72px);
-  }
-
+  /* About */
   .about-profile-inner {
     width: calc(100% - 40px);
     margin: 40px auto 88px;
@@ -2126,7 +1689,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
     line-height: 1.65;
   }
 
-  .about-profile-description p+p {
+  .about-profile-description p + p {
     margin-top: 18px;
   }
 
@@ -2136,7 +1699,6 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
   .about-profile-details {
     grid-template-columns: 1fr;
-    gap: 0;
     margin-top: 38px;
     padding-top: 24px;
   }
@@ -2146,13 +1708,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   }
 
   .about-certifications {
-    padding: 32px 0 0;
-  }
-
-  .about-profile-info div {
-    grid-template-columns: subgrid;
-    column-gap: inherit;
-    row-gap: 0;
+    padding: 44px 0 0;
   }
 
   .about-profile-info {
@@ -2160,21 +1716,12 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
     margin-top: 20px;
   }
 
-  .about-certifications li {
-    grid-template-columns: subgrid;
-    column-gap: inherit;
-    row-gap: 0;
-  }
-
-  .about-certifications {
-    padding-top: 44px;
-  }
-
   .about-certifications ul {
     gap: 18px;
     margin-top: 20px;
   }
 
+  /* Capabilities */
   .capabilities-inner {
     width: calc(100% - 40px);
     margin: 72px auto 88px;
@@ -2202,7 +1749,6 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
   .capability-group {
     padding: 48px 22px 30px;
-    border-radius: 16px;
   }
 
   .capability-assets {
@@ -2234,7 +1780,6 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
     margin-bottom: 12px;
     padding-bottom: 8px;
     font-size: 22px;
-    font-weight: 700;
   }
 
   .tool-card ul {
@@ -2255,8 +1800,8 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
     width: 44px;
   }
 
+  /* Visual Projects */
   .visual-projects-inner {
-    width: 100%;
     margin: 72px auto 88px;
   }
 
@@ -2316,6 +1861,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
     font-size: 16px;
   }
 
+  /* Floating Nav */
   .floating-nav {
     top: calc(12px + env(safe-area-inset-top));
     right: 16px;
@@ -2328,33 +1874,116 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   }
 
   .floating-nav-menu {
-    position: absolute;
     top: 58px;
-    right: 0;
-    bottom: auto;
-
-    display: grid;
-    grid-template-columns: 1fr;
-
     width: 210px;
-
     border-radius: 22px;
-
-    transform: translateY(-10px);
-    transform-origin: top right;
-  }
-
-  .floating-nav.is-open .floating-nav-menu {
-    transform: translateY(0);
   }
 
   .floating-nav-menu a {
-    min-width: 0;
     min-height: 42px;
+  }
+
+  /* Project Intro */
+  .project-intro-inner {
+    min-height: auto;
+    padding: clamp(70px, 10vw, 100px) clamp(16px, 5vw, 40px);
+  }
+
+  .project-number {
+    margin-bottom: clamp(36px, 7vw, 60px);
+  }
+
+  .project-number strong,
+  .project-number span {
+    font-size: clamp(14px, 1.8vw, 18px);
+  }
+
+  .project-number span {
+    margin-top: 5px;
+  }
+
+  .project-title h2 {
+    font-size: clamp(30px, 5.8vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+  }
+
+  .project-title p {
+    max-width: 1100px;
+    margin: clamp(12px, 2vw, 18px) auto 0;
+    padding: 0 clamp(0px, 2vw, 20px);
+    font-size: clamp(13px, 2.1vw, 21px);
+    line-height: 1.4;
+    word-break: keep-all;
+  }
+
+  .project-title p br {
+    display: none;
+  }
+
+  .project-links {
+    gap: clamp(6px, 1.2vw, 12px);
+    margin-top: clamp(35px, 6vw, 60px);
+  }
+
+  .project-links a {
+    min-width: clamp(70px, 10vw, 100px);
+    height: clamp(32px, 4vw, 40px);
+    padding: 0 clamp(14px, 2vw, 24px);
+    font-size: clamp(11px, 1.5vw, 15px);
   }
 }
 
 
+/* ==================================================
+   RESPONSIVE — ~ 480px (소형 모바일)
+================================================== */
+
+@media (max-width: 480px) {
+  .project-intro-inner {
+    padding: 60px 16px;
+  }
+
+  .project-number {
+    margin-bottom: 42px;
+  }
+
+  .project-number strong,
+  .project-number span {
+    font-size: clamp(13px, 4vw, 16px);
+  }
+
+  .project-title h2 {
+    font-size: clamp(27px, 10vw, 42px);
+    line-height: 1.08;
+    word-break: keep-all;
+  }
+
+  .project-title p {
+    width: 100%;
+    padding: 0;
+    font-size: clamp(12px, 4vw, 16px);
+    line-height: 1.55;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .project-links {
+    margin-top: 32px;
+  }
+
+  .project-links a {
+    min-width: 0;
+    height: 32px;
+    padding: 0 14px;
+    font-size: 11px;
+  }
+}
+
+
+/* ==================================================
+   RESPONSIVE — ~ 374px (최소)
+================================================== */
 
 @media (max-width: 374px) {
   .hero-inner {
@@ -2363,187 +1992,5 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
   .project-menu {
     width: calc(100vw - 32px);
-  }
-}
-
-
-/* ==================================================
-   CUSTOM CURSOR
-================================================== */
-
-@media (hover: hover) and (pointer: fine) {
-  html,
-  body {
-    cursor: url("../img/cursor.svg") 8 8, auto;
-  }
-
-  body :is(
-    a,
-    button,
-    [role="button"],
-    .hero-cta,
-    .project-menu,
-    .visual-filter-button,
-    .visual-project-swiper,
-    .visual-project-swiper *,
-    .floating-nav-toggle,
-    .floating-nav-menu
-  ) {
-    cursor: url("../img/cursor.svg") 8 8, pointer;
-  }
-}
-
-/* ==========================================
-   PROJECT INTRO RESPONSIVE
-   1024px ~ 280px
-========================================== */
-
-@media (max-width: 1024px) {
-
-  .project-intro-inner {
-    min-height: auto;
-    padding: clamp(70px, 10vw, 100px) clamp(16px, 5vw, 40px);
-  }
-
-
-  /* 01 / Team Project */
-
-  .project-number {
-    margin-bottom: clamp(36px, 7vw, 60px);
-  }
-
-  .project-number strong {
-    font-size: clamp(14px, 1.8vw, 18px);
-  }
-
-  .project-number span {
-    margin-top: 5px;
-
-    font-size: clamp(14px, 1.8vw, 18px);
-  }
-
-
-  /* 메인 제목 */
-
-  .project-title {
-    width: 100%;
-  }
-
-  .project-title h2 {
-    font-size: clamp(30px, 5.8vw, 52px);
-    line-height: 1.1;
-
-    letter-spacing: -0.04em;
-  }
-
-
-  /* 설명 */
-
-  .project-title p {
-    max-width: 1100px;
-
-    margin: clamp(12px, 2vw, 18px) auto 0;
-
-    padding: 0 clamp(0px, 2vw, 20px);
-
-    font-size: clamp(13px, 2.1vw, 21px);
-    line-height: 1.4;
-
-    word-break: keep-all;
-  }
-
-
-  /* PC에서 넣었던 br 제거 */
-  
-  .project-title p br {
-    display: none;
-  }
-
-
-  /* 버튼 */
-
-  .project-links {
-    gap: clamp(6px, 1.2vw, 12px);
-
-    margin-top: clamp(35px, 6vw, 60px);
-  }
-
-  .project-links a {
-    min-width: clamp(70px, 10vw, 100px);
-    height: clamp(32px, 4vw, 40px);
-
-    padding: 0 clamp(14px, 2vw, 24px);
-
-    font-size: clamp(11px, 1.5vw, 15px);
-  }
-}
-
-
-/* ==========================================
-   MOBILE
-   480px ~ 280px
-========================================== */
-
-@media (max-width: 480px) {
-
-  .project-intro-inner {
-    padding: 60px 16px;
-  }
-
-
-  /* 01 / Team Project */
-
-  .project-number {
-    margin-bottom: 42px;
-  }
-
-  .project-number strong {
-    font-size: clamp(13px, 4vw, 16px);
-  }
-
-  .project-number span {
-    font-size: clamp(13px, 4vw, 16px);
-  }
-
-
-  /* TITLE */
-
-  .project-title h2 {
-    font-size: clamp(27px, 10vw, 42px);
-    line-height: 1.08;
-
-    word-break: keep-all;
-  }
-
-
-  /* DESCRIPTION */
-
-  .project-title p {
-    width: 100%;
-
-    padding: 0;
-
-    font-size: clamp(12px, 4vw, 16px);
-    line-height: 1.55;
-
-    word-break: keep-all;
-    overflow-wrap: break-word;
-  }
-
-
-  /* BUTTON */
-
-  .project-links {
-    margin-top: 32px;
-  }
-
-  .project-links a {
-    min-width: 0;
-
-    height: 32px;
-
-    padding: 0 14px;
-
-    font-size: 11px;
   }
 }

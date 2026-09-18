@@ -103,7 +103,7 @@
   const allNavigationLinks = document.querySelectorAll(
     ".project-menu a[href^='#'], .floating-nav-menu a[href^='#']"
   );
-  const sectionIds = ["hero", "about", "visual"];
+  const sectionIds = ["hero", "about", "visual", "contact"];
   const sections = sectionIds
     .map((id) => document.getElementById(id))
     .filter(Boolean);
@@ -517,28 +517,45 @@
   });
 })();
 
-const projects = document.querySelectorAll(".web-site");
+(function () {
+  "use strict";
 
-projects.forEach((project) => {
-  const links = project.querySelector(".project-links");
+  const items = [...document.querySelectorAll(".project-intro-inner")]
+    .map((container) => ({
+      container,
+      links: container.querySelector(".project-links"),
+    }))
+    .filter(({ links }) => links !== null);
 
-  if (!links) return;
+  if (!items.length) return;
 
-  const originalTop = links.getBoundingClientRect().top + window.scrollY;
+  const OFFSET = 24;
 
-  window.addEventListener("scroll", () => {
-    const projectRect = project.getBoundingClientRect();
-    const linksHeight = links.offsetHeight;
+  function update() {
+    let bestIndex = -1;
+    let bestDistance = Infinity;
 
-    const reachedTop = window.scrollY >= originalTop - 24;
-    const projectStillVisible =
-      projectRect.bottom > linksHeight + 24;
+    items.forEach(({ container, links }, index) => {
+      const containerRect = container.getBoundingClientRect();
+      const linksHeight = links.offsetHeight;
 
-    if (reachedTop && projectStillVisible) {
-      links.classList.add("is-sticky");
-    } else {
-      links.classList.remove("is-sticky");
-    }
-  });
-});
+      const passedTop = containerRect.top <= OFFSET;
+      const stillVisible = containerRect.bottom > linksHeight + OFFSET;
 
+      if (passedTop && stillVisible) {
+        const distance = Math.abs(containerRect.top);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestIndex = index;
+        }
+      }
+    });
+
+    items.forEach(({ links }, index) => {
+      links.classList.toggle("is-sticky", index === bestIndex);
+    });
+  }
+
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+})();
