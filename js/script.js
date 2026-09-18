@@ -516,3 +516,29 @@
     });
   });
 })();
+
+const projects = document.querySelectorAll(".web-site");
+
+projects.forEach((project) => {
+  const links = project.querySelector(".project-links");
+
+  if (!links) return;
+
+  const originalTop = links.getBoundingClientRect().top + window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    const projectRect = project.getBoundingClientRect();
+    const linksHeight = links.offsetHeight;
+
+    const reachedTop = window.scrollY >= originalTop - 24;
+    const projectStillVisible =
+      projectRect.bottom > linksHeight + 24;
+
+    if (reachedTop && projectStillVisible) {
+      links.classList.add("is-sticky");
+    } else {
+      links.classList.remove("is-sticky");
+    }
+  });
+});
+

@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 
 @font-face {
   font-family: "GMarketSans";
@@ -1605,6 +1604,121 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   transform: translate3d(0, 0, 0);
 }
 
+.web-site img {
+  display: block;
+  width: 100%;
+  padding-bottom: 96px;
+}
+
+.web-site .none {
+  padding-bottom: 0;
+}
+
+.project-intro {
+  width: 100%;
+  background: #f4f5f8;
+}
+
+.project-intro-inner {
+  width: 100%;
+  min-height: 570px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 80px 20px;
+
+  text-align: center;
+}
+
+.project-number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 60px;
+}
+
+.project-number strong {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.project-number span {
+  margin-top: 6px;
+
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.project-title h2 {
+  margin: 0;
+
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.project-title p {
+  margin: 12px 0 0;
+
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.project-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: max-content;
+  margin: 65px auto 0;
+
+  gap: 12px;
+}
+
+.project-links.is-sticky {
+  position: fixed;
+
+  top: 24px;
+  z-index: 999;
+
+  margin: 0;
+
+  transform: none;
+}
+
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 100px;
+  height: 42px;
+  padding: 0 24px;
+
+  background: #fff;
+  border: none;
+  border-radius: 999px;
+
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+
+  transition: 0.3s ease;
+}
+
+.project-links a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 24px rgba(0, 0, 0, 0.1);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .visual-project-media img {
     transition: transform 0.7s var(--ease);
@@ -2276,5 +2390,160 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
     .floating-nav-menu
   ) {
     cursor: url("../img/cursor.svg") 8 8, pointer;
+  }
+}
+
+/* ==========================================
+   PROJECT INTRO RESPONSIVE
+   1024px ~ 280px
+========================================== */
+
+@media (max-width: 1024px) {
+
+  .project-intro-inner {
+    min-height: auto;
+    padding: clamp(70px, 10vw, 100px) clamp(16px, 5vw, 40px);
+  }
+
+
+  /* 01 / Team Project */
+
+  .project-number {
+    margin-bottom: clamp(36px, 7vw, 60px);
+  }
+
+  .project-number strong {
+    font-size: clamp(14px, 1.8vw, 18px);
+  }
+
+  .project-number span {
+    margin-top: 5px;
+
+    font-size: clamp(14px, 1.8vw, 18px);
+  }
+
+
+  /* 메인 제목 */
+
+  .project-title {
+    width: 100%;
+  }
+
+  .project-title h2 {
+    font-size: clamp(30px, 5.8vw, 52px);
+    line-height: 1.1;
+
+    letter-spacing: -0.04em;
+  }
+
+
+  /* 설명 */
+
+  .project-title p {
+    max-width: 1100px;
+
+    margin: clamp(12px, 2vw, 18px) auto 0;
+
+    padding: 0 clamp(0px, 2vw, 20px);
+
+    font-size: clamp(13px, 2.1vw, 21px);
+    line-height: 1.4;
+
+    word-break: keep-all;
+  }
+
+
+  /* PC에서 넣었던 br 제거 */
+  
+  .project-title p br {
+    display: none;
+  }
+
+
+  /* 버튼 */
+
+  .project-links {
+    gap: clamp(6px, 1.2vw, 12px);
+
+    margin-top: clamp(35px, 6vw, 60px);
+  }
+
+  .project-links a {
+    min-width: clamp(70px, 10vw, 100px);
+    height: clamp(32px, 4vw, 40px);
+
+    padding: 0 clamp(14px, 2vw, 24px);
+
+    font-size: clamp(11px, 1.5vw, 15px);
+  }
+}
+
+
+/* ==========================================
+   MOBILE
+   480px ~ 280px
+========================================== */
+
+@media (max-width: 480px) {
+
+  .project-intro-inner {
+    padding: 60px 16px;
+  }
+
+
+  /* 01 / Team Project */
+
+  .project-number {
+    margin-bottom: 42px;
+  }
+
+  .project-number strong {
+    font-size: clamp(13px, 4vw, 16px);
+  }
+
+  .project-number span {
+    font-size: clamp(13px, 4vw, 16px);
+  }
+
+
+  /* TITLE */
+
+  .project-title h2 {
+    font-size: clamp(27px, 10vw, 42px);
+    line-height: 1.08;
+
+    word-break: keep-all;
+  }
+
+
+  /* DESCRIPTION */
+
+  .project-title p {
+    width: 100%;
+
+    padding: 0;
+
+    font-size: clamp(12px, 4vw, 16px);
+    line-height: 1.55;
+
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+
+  /* BUTTON */
+
+  .project-links {
+    margin-top: 32px;
+  }
+
+  .project-links a {
+    min-width: 0;
+
+    height: 32px;
+
+    padding: 0 14px;
+
+    font-size: 11px;
   }
 }
