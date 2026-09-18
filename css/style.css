@@ -1922,7 +1922,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   max-width: 920px;
   margin: 24px 0 0;
   font-size: clamp(22px, 2vw, 34px);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.4;
   word-break: keep-all;
 }
@@ -2165,6 +2165,10 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 .noda-showcase {
   width: 100%;
   background: #fff;
+  background-image: url("../img/noda-furniture-background.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: #333;
 }
 
@@ -2957,6 +2961,17 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 }
 
 @media (max-width: 1200px) and (min-width: 769px) {
+  .final-contact,
+  .final-contact-inner {
+    background: #fff;
+  }
+
+  .final-contact-decoration {
+    width: 170px;
+    right: 4%;
+    bottom: 48px;
+  }
+
   .hero-inner {
     padding: 5vw 6vw;
   }
@@ -5184,11 +5199,58 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 }
 
 @media (max-width: 768px) {
+  .final-contact,
+  .final-contact-inner {
+    background: #fff;
+  }
+
+  .final-contact-inner {
+    min-height: 560px;
+  }
+
   .final-contact-decoration {
-    right: 6%;
-    bottom: 72px;
-    width: 190px;
-    opacity: 0.7;
+    right: 4%;
+    bottom: 36px;
+    width: 120px;
+    opacity: 0.55;
+  }
+}
+
+/* Keep the Rom&nd design system compact on tablet widths. */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .romand-design-system-inner {
+    width: calc(100% - 96px);
+    padding-block: 88px 128px;
+  }
+
+  .romand-system-description,
+  .romand-color-section .romand-system-description,
+  .romand-type-section .romand-system-description {
+    font-size: clamp(14px, 1.6vw, 20px);
+    line-height: 1.5;
+  }
+
+  .romand-logo-assets {
+    gap: 36px;
+    margin-top: 40px;
+  }
+
+  .romand-logo-assets figure:first-child img {
+    width: min(36vw, 260px);
+  }
+
+  .romand-logo-assets figure:last-child img {
+    width: 72px;
+  }
+
+  .romand-color-section,
+  .romand-type-section {
+    gap: 52px;
+    margin-top: 112px;
+  }
+
+  .romand-color-palette {
+    width: min(100%, 270px);
   }
 }
 
@@ -5220,6 +5282,57 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .noda-type-table [role="row"] {
     min-width: 0;
     white-space: normal;
+  }
+}
+
+/* Keep SUITE and Pretendard specimens on the same type hierarchy. */
+.romand-type-specimen h2,
+.noda-type-specimen h2 {
+  font-size: clamp(28px, 3vw, 42px);
+}
+
+.noda-type-table [role="row"] {
+  font-size: clamp(10px, 0.95vw, 16px);
+}
+
+.noda-type-table [role="row"]:nth-child(-n + 2) {
+  font-size: clamp(16px, 1.65vw, 24px);
+}
+
+.noda-type-table [role="row"]:nth-child(n + 3):nth-child(-n + 4) {
+  font-size: clamp(14px, 1.35vw, 20px);
+}
+
+.noda-type-table [role="row"]:nth-child(n + 5):nth-child(-n + 6) {
+  font-size: clamp(12px, 1.1vw, 17px);
+}
+
+.noda-type-table [role="row"]:nth-child(n + 7):nth-child(-n + 8) {
+  font-size: clamp(11px, 0.95vw, 15px);
+}
+
+.noda-type-table [role="row"]:nth-child(n + 9):nth-child(-n + 10) {
+  font-size: clamp(10px, 0.82vw, 13px);
+}
+
+.noda-type-table [role="row"]:nth-child(n + 11) {
+  font-size: clamp(9px, 0.72vw, 11px);
+}
+
+@media (max-width: 768px) {
+  .romand-type-specimen h2,
+  .noda-type-specimen h2 {
+    font-size: 32px;
+  }
+
+  .romand-type-table,
+  .noda-type-table {
+    gap: 10px;
+  }
+
+  .romand-type-table [role="row"],
+  .noda-type-table [role="row"] {
+    line-height: 1.35;
   }
 }
 
