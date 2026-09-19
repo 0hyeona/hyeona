@@ -70,7 +70,21 @@
 
   /* 메뉴 링크 클릭 */
   menu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (event) => {
+      const hash = link.getAttribute("href");
+      const target = hash?.startsWith("#")
+        ? document.getElementById(hash.slice(1))
+        : null;
+
+      if (target) {
+        event.preventDefault();
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        window.history.replaceState(null, "", hash);
+      }
+
       menu.querySelectorAll("a").forEach((item) => {
         item.classList.remove("is-current");
         item.removeAttribute("aria-current");
@@ -329,7 +343,7 @@
 
 
 /* ==================================================
-   VISUAL PROJECT TABS + INFINITE SWIPER
+   VISUAL PROJECT TABS + SLIDERS
 ================================================== */
 
 (function () {
@@ -343,31 +357,26 @@
   const buttons = [...filter.querySelectorAll("[data-filter]")];
   const swipers = new Map();
   const continuousSlideSpeed = 7600;
-  const bannerSlideSpeed = 1100;
+  const bannerSlideSpeed = 900;
 
   function syncSwiperSpeed(swiper) {
-    if (swiper.el.classList.contains("visual-project-swiper--banner")) {
-      swiper.params.speed = bannerSlideSpeed;
-      swiper.originalParams.speed = bannerSlideSpeed;
-      return;
-    }
+    const speed = swiper.el.dataset.mode === "banner"
+      ? bannerSlideSpeed
+      : continuousSlideSpeed;
 
-    swiper.params.speed = continuousSlideSpeed;
-    swiper.originalParams.speed = continuousSlideSpeed;
+    swiper.params.speed = speed;
+    swiper.originalParams.speed = speed;
   }
 
   function resumeAtUniformSpeed(swiper, snapToSlide = true) {
-    if (!swiper || swiper.destroyed) return;
+    if (!swiper || swiper.destroyed || !swiper.el.dataset.mode) return;
 
     swiper.autoplay.stop();
     syncSwiperSpeed(swiper);
 
-    if (swiper.el.classList.contains("visual-project-swiper--banner")) {
-      swiper.autoplay.start();
-      return;
+    if (snapToSlide && swiper.el.dataset.mode === "continuous") {
+      swiper.slideToClosest(0, false);
     }
-
-    if (snapToSlide) swiper.slideToClosest(0, false);
     swiper.autoplay.start();
   }
 
@@ -398,14 +407,17 @@
     if (swipers.has(panel) || typeof Swiper === "undefined") return swipers.get(panel);
 
     const swiperElement = panel.querySelector(".visual-project-swiper");
-    const isBannerSwiper = swiperElement.classList.contains("visual-project-swiper--banner");
+    const isBannerSwiper = panel.dataset.category === "banner";
+    const isContinuousSwiper = !isBannerSwiper;
 
-    if (isBannerSwiper) {
+    if (isContinuousSwiper) {
+      swiperElement.dataset.mode = "continuous";
+      prepareLoopSlides(panel);
+    } else {
+      swiperElement.dataset.mode = "banner";
       panel.dataset.projectCount = String(
         swiperElement.querySelectorAll(".visual-project-card").length
       );
-    } else {
-      prepareLoopSlides(panel);
     }
 
     const swiperOptions = {
@@ -417,6 +429,8 @@
       watchOverflow: false,
       observer: true,
       observeParents: true,
+      preventClicks: false,
+      preventClicksPropagation: false,
       autoplay: {
         delay: isBannerSwiper ? 3300 : 0,
         disableOnInteraction: false,
@@ -427,8 +441,8 @@
         ? {
             pagination: {
               el: swiperElement.querySelector(".swiper-pagination"),
-              clickable: true,
-            },
+              clickable: true
+            }
           }
         : {}),
       breakpoints: {
@@ -475,12 +489,8 @@
       panel.classList.toggle("is-active", isActive);
 
       const panelSwiper = swipers.get(panel);
-      if (
-        !isActive &&
-        panelSwiper?.el.classList.contains("visual-project-swiper--banner")
-      ) {
+      if (!isActive && panelSwiper?.el.dataset.mode) {
         panelSwiper.autoplay.stop();
-        panelSwiper.slideTo(0, 0, false);
       }
     });
 
@@ -518,10 +528,7 @@
     if (document.hidden) return;
 
     swipers.forEach((swiper, panel) => {
-      if (
-        swiper.el.classList.contains("visual-project-swiper--banner") &&
-        !panel.classList.contains("is-active")
-      ) return;
+      if (!panel.classList.contains("is-active")) return;
 
       resumeAtUniformSpeed(swiper, false);
     });
@@ -549,14 +556,17 @@
   const modalTitle = document.getElementById("detail-modal-title");
   const modalDescription = document.getElementById("detail-modal-description");
   const modalLabel = modal?.querySelector(".detail-modal-label");
+  let pointerStart = null;
 
   if (!visualProjects || !modal || !modalMedia || !modalTitle || !modalDescription) return;
 
-  visualProjects.querySelectorAll(".visual-project-card").forEach((card) => {
+  visualProjects
+    .querySelectorAll('.visual-project-panel[data-category="detail"] .visual-project-card')
+    .forEach((card) => {
     card.setAttribute("data-visual-modal-trigger", "true");
     card.setAttribute("tabindex", "0");
     card.setAttribute("role", "button");
-  });
+    });
 
   function closeModal() {
     modal.hidden = true;
@@ -566,6 +576,8 @@
   }
 
   function openModal(card) {
+    if (!modal.hidden) return;
+
     const sourceMedia = card.querySelector(".visual-project-media");
     const sourceTitle = card.querySelector(".visual-project-info h3");
     const sourceDescription = card.querySelector(".visual-project-info p");
@@ -582,10 +594,10 @@
     }
 
     const panel = card.closest(".visual-project-panel");
-    const category = panel?.dataset.category?.toUpperCase() || "VISUAL WORK";
+    const category = panel?.dataset.category?.toUpperCase() || "DETAIL";
 
-    if (modalLabel) modalLabel.textContent = category;
-    modal.classList.toggle("is-detail-modal", category === "DETAIL");
+    if (modalLabel) modalLabel.textContent = `${category} PAGE`;
+    modal.classList.add("is-detail-modal");
     modalTitle.textContent = sourceTitle?.textContent.trim() || "상세페이지 디자인";
     modalDescription.textContent = sourceDescription?.textContent.trim() || "상세페이지 디자인 설명입니다.";
     modal.hidden = false;
@@ -596,6 +608,31 @@
     const card = event.target.closest("[data-visual-modal-trigger]");
     if (card) openModal(card);
   });
+
+  visualProjects.addEventListener("pointerdown", (event) => {
+    const card = event.target.closest("[data-visual-modal-trigger]");
+    if (!card) return;
+
+    pointerStart = {
+      card,
+      x: event.clientX,
+      y: event.clientY,
+    };
+  }, true);
+
+  visualProjects.addEventListener("pointerup", (event) => {
+    if (!pointerStart) return;
+
+    const card = event.target.closest("[data-visual-modal-trigger]");
+    const distance = Math.hypot(
+      event.clientX - pointerStart.x,
+      event.clientY - pointerStart.y
+    );
+    const shouldOpen = card === pointerStart.card && distance < 10;
+
+    pointerStart = null;
+    if (shouldOpen) openModal(card);
+  }, true);
 
   visualProjects.addEventListener("keydown", (event) => {
     if ((event.key === "Enter" || event.key === " ") && event.target.closest("[data-visual-modal-trigger]")) {
@@ -646,15 +683,9 @@
         : document.documentElement.scrollHeight;
 
       return {
-        project,
         links,
-
-        // 버튼의 원래 문서상 위치
         linksTop: linksRect.top + window.scrollY,
-
-        // 프로젝트 끝 위치
         projectBottom,
-
         linksHeight: links.offsetHeight,
       };
     });
