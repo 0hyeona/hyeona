@@ -342,20 +342,8 @@
 
   const buttons = [...filter.querySelectorAll("[data-filter]")];
   const swipers = new Map();
-  const slidePixelsPerSecond = 64;
+  const continuousSlideSpeed = 7600;
   const bannerSlideSpeed = 1100;
-
-  function getSpaceBetween() {
-    return window.innerWidth < 769 ? 16 : 30;
-  }
-
-  function getUniformSpeed(swiperElement) {
-    const slide = swiperElement.querySelector(".swiper-slide");
-    const slideWidth = slide?.getBoundingClientRect().width || 320;
-    const travelDistance = slideWidth + getSpaceBetween();
-
-    return Math.round((travelDistance / slidePixelsPerSecond) * 1000);
-  }
 
   function syncSwiperSpeed(swiper) {
     if (swiper.el.classList.contains("visual-project-swiper--banner")) {
@@ -364,10 +352,8 @@
       return;
     }
 
-    const speed = getUniformSpeed(swiper.el);
-
-    swiper.params.speed = speed;
-    swiper.originalParams.speed = speed;
+    swiper.params.speed = continuousSlideSpeed;
+    swiper.originalParams.speed = continuousSlideSpeed;
   }
 
   function resumeAtUniformSpeed(swiper, snapToSlide = true) {
@@ -426,7 +412,7 @@
       slidesPerView: isBannerSwiper ? 1 : "auto",
       spaceBetween: 30,
       loop: true,
-      speed: isBannerSwiper ? bannerSlideSpeed : getUniformSpeed(swiperElement),
+      speed: isBannerSwiper ? bannerSlideSpeed : continuousSlideSpeed,
       grabCursor: true,
       watchOverflow: false,
       observer: true,
@@ -540,6 +526,13 @@
       resumeAtUniformSpeed(swiper, false);
     });
   });
+
+  document.addEventListener("visual-modal-closed", () => {
+    swipers.forEach((swiper, panel) => {
+      if (!panel.classList.contains("is-active")) return;
+      resumeAtUniformSpeed(swiper);
+    });
+  });
 })();
 
 
@@ -569,6 +562,7 @@
     modal.hidden = true;
     modal.classList.remove("is-detail-modal");
     document.body.classList.remove("is-detail-modal-open");
+    document.dispatchEvent(new CustomEvent("visual-modal-closed"));
   }
 
   function openModal(card) {

@@ -950,7 +950,7 @@ a {
   display: grid;
   place-items: center;
   content: "바로가기";
-  background: linear-gradient(135deg, rgba(35, 35, 35, 0.82), rgba(35, 35, 35, 0.46));
+  background: rgba(0, 0, 0, 0.66);
   color: #fff;
   font-family: "GMarketSans", Arial, sans-serif;
   font-size: 20px;
@@ -1169,8 +1169,11 @@ a {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.88);
   color: #333;
+  font-family: Arial, sans-serif;
   font-size: 28px;
-  line-height: 1;
+  line-height: 40px;
+  text-align: center;
+  text-indent: 0;
   cursor: pointer;
 }
 
@@ -1189,14 +1192,33 @@ body.is-detail-modal-open {
     height: auto;
     min-height: 0;
     max-height: calc(100vh - 32px);
-    overflow-y: auto;
+    overflow: hidden;
     border-radius: 18px;
+  }
+
+  .detail-modal:not(.is-detail-modal) .detail-modal-dialog {
+    overflow-y: auto;
   }
 
   .detail-modal-media {
     min-height: 280px;
     height: auto;
     aspect-ratio: 1 / 1;
+  }
+
+  .detail-modal:not(.is-detail-modal) .detail-modal-media {
+    aspect-ratio: auto;
+    height: auto;
+    min-height: 0;
+    padding: 28px 24px;
+  }
+
+  .detail-modal:not(.is-detail-modal) .detail-modal-media img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    object-fit: contain;
   }
 
   .detail-modal.is-detail-modal .detail-modal-media {
@@ -1219,6 +1241,12 @@ body.is-detail-modal-open {
 
 .visual-project-info {
   margin-top: 18px;
+  line-height: 1.4;
+}
+
+.visual-project-info h3,
+.visual-project-info p {
+  line-height: 1.4;
 }
 
 .visual-project-info p {
@@ -1802,6 +1830,10 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   text-align: center;
 }
 
+.romand-problem-header .romand-section-label {
+  font-weight: 700;
+}
+
 .romand-section-label {
   display: flex;
   justify-content: center;
@@ -1872,7 +1904,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   display: block;
   margin-bottom: 12px;
   color: #a61c39;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.4;
 }
@@ -1943,9 +1975,9 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   gap: 14px;
   min-width: 0;
   padding: 22px 20px 24px;
-  border-top: 3px solid #a61c39;
+  /* border-top: 3px solid #a61c39; */
   border-radius: 12px;
-  background: rgba(255, 241, 245, 0.82);
+  /* background: rgba(255, 241, 245, 0.82); */
   color: #777;
   font-size: clamp(12px, 0.95vw, 16px);
   font-weight: 400;
@@ -1955,12 +1987,14 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 .romand-goal li strong {
   color: #333;
   font-weight: 700;
+  font-size: 24px;
 }
 
 .romand-goal li span {
   display: block;
   line-height: 1.4;
   word-break: keep-all;
+  font-size:20px;
 }
 
 .romand-design-system {
@@ -2030,8 +2064,10 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
 .romand-logo-assets figcaption {
   font-family: "Pretendard", Arial, sans-serif;
-  font-size: 16px;
+  font-size: clamp(12px, 1.25vw, 18px);
   font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
 }
 
 .romand-color-section,
@@ -2518,6 +2554,11 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   list-style: none;
 }
 
+.noda-persona-needs-goal {
+  display: grid;
+  gap: clamp(58px, 8vw, 110px);
+}
+
 .noda-style-guide {
   width: 100%;
   background: #fff;
@@ -2679,10 +2720,18 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
 .final-contact-inner {
   position: relative;
+  display: flex;
+  align-items: center;
   width: min(100% - 160px, 1440px);
   margin: 0 auto;
   min-height: 520px;
-  padding: clamp(100px, 12vw, 180px) 0 30px;
+  padding-top: clamp(110px, 12vw, 180px);
+  padding-bottom: clamp(100px, 10vw, 160px);
+}
+
+.final-contact-copy {
+  width: min(100%, 1100px);
+  margin-inline: auto;
 }
 
 .final-contact-copy h2 {
@@ -2799,7 +2848,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   }
 
   .visual-project-card:hover .visual-project-media img {
-    transform: scale(1.06);
+    transform: none;
   }
 
   .visual-project-card:hover .visual-project-media::after {
@@ -3138,7 +3187,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
   .responsive-projects-title {
     font-size: 48px;
-    line-height: 1.06;
+    line-height: 1.4;
     white-space: normal;
   }
 
@@ -3243,7 +3292,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .hero-intro,
   .hero-role {
     font-size: 12px;
-    line-height: 1.45;
+    line-height: 1.4;
     white-space: normal;
   }
 
@@ -3312,7 +3361,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .about-profile-title {
     margin-top: 20px;
     font-size: clamp(38px, 10.5vw, 58px);
-    line-height: 1.1;
+    line-height: 1.4;
   }
 
   .about-profile-description {
@@ -3321,7 +3370,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
   .about-profile-description p {
     font-size: 16px;
-    line-height: 1.65;
+    line-height: 1.4;
   }
 
   .about-profile-description p+p {
@@ -3419,7 +3468,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
   .tool-card ul {
     font-size: 16px;
-    line-height: 1.55;
+    line-height: 1.4;
   }
 
   .tool-card h4::after {
@@ -3466,7 +3515,29 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   }
 
   .visual-project-card {
-    width: min(76vw, 320px);
+    width: min(100%, 320px);
+  }
+
+  .visual-project-media {
+    aspect-ratio: auto;
+    height: auto;
+    overflow: visible;
+  }
+
+  .visual-project-media img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .visual-project-swiper--banner .visual-project-media {
+    aspect-ratio: auto;
+    height: auto;
+  }
+
+  .visual-project-info p,
+  .visual-project-info h3 {
+    line-height: 1.4;
   }
 
   .visual-project-swiper.visual-project-swiper--banner {
@@ -3662,7 +3733,11 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
   .romand-goal {
     margin-top: 100px;
-    padding: 28px 20px 24px;
+    padding: 20px;
+  }
+
+  .romand-goal .romand-section-label {
+    font-size: 16px;
   }
 
   .romand-goal h2 {
@@ -3678,8 +3753,16 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
   .romand-goal li {
     gap: 8px;
-    padding: 16px 14px 18px;
-    font-size: 11px;
+    padding: 16px;
+    font-size: 12px;
+  }
+
+  .romand-goal li strong {
+    font-size: 16px;
+  }
+
+  .romand-goal li span {
+    font-size: 12px;
   }
 
   .romand-design-system-inner {
@@ -3704,6 +3787,10 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
   .romand-logo-assets figure:last-child img {
     width: 58px;
+  }
+
+  .romand-logo-assets figcaption {
+    font-size: 14px;
   }
 
   .romand-color-section,
@@ -3827,7 +3914,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .noda-brand-hero h2 {
     margin-top: 16px;
     font-size: clamp(32px, 10.5vw, 52px);
-    line-height: 1.15;
+    line-height: 1.4;
   }
 
   .noda-keywords {
@@ -3928,7 +4015,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .noda-persona-block dt,
   .noda-persona-block dd {
     font-size: 12px;
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
   .noda-persona-profile dl {
@@ -4015,7 +4102,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
   .final-contact-copy h2 {
     font-size: clamp(25px, 8vw, 38px);
-    line-height: 1.2;
+    line-height: 1.4;
   }
 
   .final-contact-copy > p {
@@ -4136,7 +4223,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
   .project-title h2 {
     font-size: clamp(27px, 10vw, 42px);
-    line-height: 1.08;
+    line-height: 1.4;
     word-break: keep-all;
   }
 
@@ -4211,7 +4298,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   border-radius: 32px;
 }
 .romand-goal .romand-section-label { font-size: 18px; }
-.romand-goal h2 { font-size: 32px; }
+.romand-goal h2 { font-size: 32px; font-weight: 700;}
 .romand-goal li { font-size: 16px; }
 
 .romand-design-system-inner {
@@ -4279,12 +4366,51 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .romand-problem-item { gap: 56px; }
   .noda-persona-inner { padding-block: 190px 160px; }
   .noda-persona-content { gap: 72px; }
+  .noda-brand-logo {
+    display: block;
+    margin-top: 160px;
+  }
+  .noda-brand-logo > .noda-brand-label {
+    display: table;
+    margin: 0;
+  }
+  .noda-brand-logo-row {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(48px, 7vw, 84px);
+    width: 100%;
+    margin-top: 30px;
+  }
+  .noda-brand-logo-mark {
+    flex: 0 0 clamp(180px, 27vw, 280px);
+    min-width: 0;
+  }
+  .noda-brand-logo-mark img {
+    width: min(100%, 220px);
+    margin: 0;
+  }
+  .noda-brand-logo-row > p {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 10px 0 0;
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.55;
+    text-align: left;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
   .noda-persona-block p,
   .noda-persona-block li,
   .noda-persona-block dt,
   .noda-persona-block dd { font-size: 20px; }
   .noda-style-description { font-size: 20px; }
   .noda-type-table [role="row"] { font-size: 18px; }
+  .romand-goal { padding: 32px; }
+  .romand-goal .romand-section-label { font-size: 16px; }
+  .romand-goal h2 { font-size: 20px; }
+  .romand-goal li { padding: 16px; font-size: 16px; }
+  .romand-goal li strong { font-size: 24px; }
+  .romand-goal li span { font-size: 16px; }
 }
 
 @media (max-width: 768px) {
@@ -4302,9 +4428,12 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .romand-problem-item:nth-child(even) { gap: 32px; }
   .romand-problem-copy h3 { font-size: 22px; }
   .romand-problem-copy ul { margin-top: 14px; font-size: 14px; }
-  .romand-goal { margin-top: 96px; padding: 32px 24px; border-radius: 24px; }
-  .romand-goal h2 { font-size: 24px; }
-  .romand-goal li { font-size: 14px; }
+  .romand-goal { margin-top: 96px; padding: 22px; border-radius: 24px; }
+  .romand-goal .romand-section-label { font-size: 16px; }
+  .romand-goal h2 { font-size: 20px; }
+  .romand-goal li { padding: 16px; font-size: 12px; }
+  .romand-goal li strong { font-size: 16px; }
+  .romand-goal li span { font-size: 12px; }
 
   .romand-design-system-inner { padding: 104px 24px 128px; }
   .romand-system-label { font-size: 20px; }
@@ -4331,7 +4460,7 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .noda-keywords { margin-top: 56px; }
   .noda-brand-label, .noda-keywords h3 { font-size: 18px; }
   .noda-brand-logo { gap: 40px; margin-top: 108px; }
-  .noda-brand-logo > p { font-size: 12px; }
+  .noda-brand-logo > p { font-size: 20px; }
 
   .noda-persona-inner { width: 100%; padding: 120px 24px 120px; }
   .noda-persona-wordmark { top: 60px; width: 700px; }
@@ -4339,6 +4468,31 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .noda-persona-profile h2 { font-size: 22px; }
   .noda-persona-block h3 { font-size: 18px; }
   .noda-persona-details { gap: 44px; }
+  .noda-persona-needs-goal {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .noda-persona-needs-goal .noda-persona-block {
+    display: block;
+    min-width: 0;
+    padding: 18px 0;
+    border: 0;
+    padding-inline: 14px;
+  }
+
+  .noda-persona-needs-goal .noda-persona-block + .noda-persona-block {
+    margin-top: 0;
+  }
+
+  .noda-persona-needs-goal .noda-persona-block h3 {
+    margin: 0 0 16px;
+  }
+
+  .noda-persona-needs-goal .noda-persona-block ul,
+  .noda-persona-needs-goal .noda-persona-block p {
+    min-width: 0;
+  }
   .noda-persona-block p,
   .noda-persona-block li,
   .noda-persona-block dt,
@@ -4353,7 +4507,11 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   .noda-type-specimen h2 { font-size: 36px; }
   .noda-type-table [role="row"] { font-size: 11px; }
 
-  .final-contact-inner { width: 100%; min-height: 700px; padding: 88px 24px 30px; }
+  .final-contact-inner {
+    width: 100%;
+    min-height: 700px;
+    padding: 88px 24px;
+  }
   .final-contact-copy h2 { font-size: 32px; }
   .final-contact-copy > p { font-size: 12px; }
 }
@@ -5017,8 +5175,8 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 @media (min-width: 1201px) {
   .final-contact-inner {
     min-height: 820px;
-    padding-top: 170px;
-    padding-bottom: 42px;
+    padding-top: 150px;
+    padding-bottom: 150px;
   }
 
   .final-contact-copy h2 {
@@ -5273,6 +5431,10 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 
   .romand-logo-assets figure:last-child img {
     width: 72px;
+  }
+
+  .romand-logo-assets figcaption {
+    font-size: 16px;
   }
 
   .romand-color-section,
