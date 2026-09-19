@@ -356,12 +356,13 @@
 
   const buttons = [...filter.querySelectorAll("[data-filter]")];
   const swipers = new Map();
+  const compactSliderMedia = window.matchMedia("(max-width: 1200px)");
   const continuousSlideSpeed = 7600;
-  const bannerSlideSpeed = 900;
+  const pagedSlideSpeed = 900;
 
   function syncSwiperSpeed(swiper) {
-    const speed = swiper.el.dataset.mode === "banner"
-      ? bannerSlideSpeed
+    const speed = swiper.el.dataset.mode === "paged"
+      ? pagedSlideSpeed
       : continuousSlideSpeed;
 
     swiper.params.speed = speed;
@@ -403,28 +404,46 @@
     return originals.length;
   }
 
+  function removeLoopSlides(panel) {
+    const wrapper = panel.querySelector(".swiper-wrapper");
+
+    wrapper.querySelectorAll("[data-loop-clone]").forEach((slide) => slide.remove());
+    [...wrapper.children]
+      .sort((a, b) => Number(a.dataset.projectIndex) - Number(b.dataset.projectIndex))
+      .forEach((slide) => wrapper.appendChild(slide));
+  }
+
   function initSwiper(panel) {
     if (swipers.has(panel) || typeof Swiper === "undefined") return swipers.get(panel);
 
     const swiperElement = panel.querySelector(".visual-project-swiper");
     const isBannerSwiper = panel.dataset.category === "banner";
-    const isContinuousSwiper = !isBannerSwiper;
+    const isPagedSwiper = isBannerSwiper || compactSliderMedia.matches;
+    const projectCount = swiperElement.querySelectorAll(
+      ".visual-project-card:not([data-loop-clone])"
+    ).length;
 
-    if (isContinuousSwiper) {
+    swiperElement
+      .querySelectorAll(".visual-project-card:not([data-loop-clone])")
+      .forEach((slide, index) => {
+        if (!slide.hasAttribute("data-project-index")) {
+          slide.dataset.projectIndex = String(index);
+        }
+      });
+
+    if (!isPagedSwiper) {
       swiperElement.dataset.mode = "continuous";
       prepareLoopSlides(panel);
     } else {
-      swiperElement.dataset.mode = "banner";
-      panel.dataset.projectCount = String(
-        swiperElement.querySelectorAll(".visual-project-card").length
-      );
+      swiperElement.dataset.mode = "paged";
+      panel.dataset.projectCount = String(projectCount);
     }
 
     const swiperOptions = {
-      slidesPerView: isBannerSwiper ? 1 : "auto",
+      slidesPerView: isPagedSwiper ? 1 : "auto",
       spaceBetween: 30,
-      loop: true,
-      speed: isBannerSwiper ? bannerSlideSpeed : continuousSlideSpeed,
+      loop: !isPagedSwiper || projectCount > 1,
+      speed: isPagedSwiper ? pagedSlideSpeed : continuousSlideSpeed,
       grabCursor: true,
       watchOverflow: false,
       observer: true,
@@ -432,12 +451,12 @@
       preventClicks: false,
       preventClicksPropagation: false,
       autoplay: {
-        delay: isBannerSwiper ? 3300 : 0,
+        delay: isPagedSwiper ? 3300 : 0,
         disableOnInteraction: false,
         pauseOnMouseEnter: false,
         stopOnLastSlide: false
       },
-      ...(isBannerSwiper
+      ...(isPagedSwiper
         ? {
             pagination: {
               el: swiperElement.querySelector(".swiper-pagination"),
@@ -523,6 +542,19 @@
 
   const initialButton = buttons.find((button) => button.classList.contains("is-active")) || buttons[0];
   activateCategory(initialButton);
+
+  compactSliderMedia.addEventListener("change", () => {
+    swipers.forEach((swiper) => swiper.destroy(true, true));
+    swipers.clear();
+
+    panels.forEach((panel) => {
+      removeLoopSlides(panel);
+      initSwiper(panel);
+    });
+
+    const activeButton = buttons.find((button) => button.classList.contains("is-active")) || buttons[0];
+    activateCategory(activeButton);
+  });
 
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) return;
@@ -668,6 +700,7 @@
   const OFFSET = 24;
 
   let positions = [];
+  let measureFrame = 0;
 
   function measure() {
     // 측정 전에 sticky 해제
@@ -691,6 +724,11 @@
     });
 
     update();
+  }
+
+  function scheduleMeasure() {
+    cancelAnimationFrame(measureFrame);
+    measureFrame = requestAnimationFrame(measure);
   }
 
   function update() {
@@ -723,9 +761,21 @@
     passive: true,
   });
 
-  window.addEventListener("resize", measure);
+  window.addEventListener("resize", scheduleMeasure);
 
-  window.addEventListener("load", measure);
+  window.addEventListener("orientationchange", scheduleMeasure);
+
+  document.addEventListener("load", (event) => {
+    if (event.target instanceof HTMLImageElement) {
+      scheduleMeasure();
+    }
+  }, true);
+
+  window.addEventListener("load", scheduleMeasure);
+
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(scheduleMeasure);
+  }
 
   measure();
 })();
