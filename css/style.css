@@ -6706,3 +6706,158 @@ main :where(h1, h2, h3, h4, p, li, dd) {
     transform: translate3d(0, var(--reveal-y, 28px), 0);
   }
 }
+
+/* ==================================================
+   RESPONSIVE POLISH — STATIC HERO & PROJECT DETAILS
+================================================== */
+
+/* The responsive flourish position must remain authoritative. The old
+   keyframes included their own translate values, which briefly pulled the
+   wings away from their intended position before returning them. */
+.hero-flourish {
+  animation: none;
+}
+
+@media (min-width: 769px) {
+  .hero-header {
+    position: relative;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    transform: translateX(-50%);
+  }
+
+  .hero-title {
+    width: 100%;
+    margin-inline: auto;
+    font-size: clamp(72px, 8vw, 180px);
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-header,
+  .hero-title {
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
+  }
+}
+
+/* Restore the original, wider ABOUT composition. On large monitors this
+   keeps the photo and copy visually weighted toward the left instead of
+   compressing the whole section into the shared 1280px centered frame. */
+.about-profile-inner {
+  width: calc(100% - clamp(64px, 16.8vw, 232px));
+  max-width: 2100px;
+  margin: 52px auto 72px;
+  padding-inline: 0;
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .about-profile-inner {
+    width: 88%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-profile-inner {
+    width: calc(100% - 40px);
+    margin: 40px auto 88px;
+  }
+}
+
+/* Restore the original breathing room inside the project index bars. */
+@media (min-width: 1201px) {
+  .romand-detail-header,
+  .noda-showcase-header {
+    padding-inline: 96px;
+  }
+
+  /* Reverse all three contact controls on desktop hover/focus. */
+  .final-contact-links a {
+    background: transparent;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .final-contact-links a:hover,
+  .final-contact-links a:focus-visible {
+    border-color: #333;
+    background: #333;
+    color: #fff;
+  }
+}
+
+/* Give the long detail-page scrollbar an inset frame so its top and bottom
+   controls are not clipped by the modal's rounded corners. */
+@media (min-width: 769px) {
+  .detail-modal.is-detail-modal .detail-modal-dialog {
+    box-sizing: border-box;
+    padding: 12px 12px 12px 0;
+  }
+
+  .detail-modal.is-detail-modal .detail-modal-media {
+    box-sizing: border-box;
+    height: 100%;
+    border-radius: 24px 14px 14px 24px;
+    scrollbar-color: #777 #ececec;
+    scrollbar-gutter: stable;
+    scrollbar-width: auto;
+  }
+
+  .detail-modal.is-detail-modal .detail-modal-media::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  .detail-modal.is-detail-modal .detail-modal-media::-webkit-scrollbar-track {
+    border-radius: 999px;
+    background: #ececec;
+  }
+
+  .detail-modal.is-detail-modal .detail-modal-media::-webkit-scrollbar-thumb {
+    min-height: 48px;
+    border: 3px solid #ececec;
+    border-radius: 999px;
+    background: #777;
+  }
+
+  .detail-modal.is-detail-modal .detail-modal-media::-webkit-scrollbar-button:single-button {
+    display: block;
+    height: 18px;
+    border-radius: 999px;
+    background-color: #ececec;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+  }
+
+  .detail-modal.is-detail-modal .detail-modal-media::-webkit-scrollbar-button:single-button:vertical:decrement {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 10.5 8 5l5 5.5' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+
+  .detail-modal.is-detail-modal .detail-modal-media::-webkit-scrollbar-button:single-button:vertical:increment {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m3 5.5 5 5.5 5-5.5' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+}
+
+/* Reduce the NODA logo mark on tablet and phone without changing the copy. */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .noda-brand-logo-mark {
+    flex-basis: 190px;
+  }
+
+  .noda-brand-logo-mark img {
+    width: min(100%, 168px);
+  }
+}
+
+@media (max-width: 768px) {
+  .noda-brand-logo-mark img {
+    width: min(32vw, 112px);
+  }
+}
