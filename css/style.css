@@ -6568,3 +6568,141 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
     animation: none;
   }
 }
+
+/* ==================================================
+   MOBILE STABILITY — FULL WIDTH & STATIC DECORATIONS
+================================================== */
+
+@media (max-width: 768px) {
+  /* Keep the flourish at the mobile position instead of letting desktop
+     keyframes temporarily move it across the intro copy. */
+  .hero-flourish {
+    animation: none;
+  }
+
+  /* The clover now participates in the layout, so the full artwork remains
+     inside the section and never gets clipped below its boundary. */
+  .final-contact-inner {
+    justify-content: flex-start;
+    min-height: auto;
+    padding: 96px 24px 48px;
+  }
+
+  .final-contact-inner::after {
+    display: none;
+  }
+
+  .final-contact-decoration {
+    position: relative;
+    inset: auto;
+    display: block;
+    flex: 0 0 auto;
+    width: min(88vw, 346px);
+    height: auto;
+    margin: 40px auto 0;
+    opacity: 0.1;
+    transform: none;
+    translate: none;
+    animation: none;
+  }
+
+  .final-contact-copyright {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    margin: -34px 0 0;
+    text-align: center;
+  }
+}
+
+/* ==================================================
+   CONSISTENT PAGE GUTTERS & NATURAL TEXT WRAPPING
+================================================== */
+
+:root {
+  --page-gutter: 80px;
+  --page-content-max: 1280px;
+}
+
+main :where(h1, h2, h3, h4, p, li, dd) {
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+/* Contained sections share one centered content boundary. */
+.about-profile-inner,
+.capabilities-inner,
+.romand-detail-content,
+.romand-problem-goal-inner,
+.romand-design-system-inner,
+.noda-showcase-inner,
+.noda-brand-concept-inner,
+.noda-persona-inner,
+.noda-style-guide-inner,
+.final-contact-inner {
+  width: min(
+    calc(100% - var(--page-gutter) - var(--page-gutter)),
+    var(--page-content-max)
+  );
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+/* Full-bleed sections keep their backgrounds while their content follows the
+   same left and right guide as the contained sections above. */
+.hero-inner,
+.responsive-projects,
+.project-intro-inner,
+.romand-detail-header,
+.noda-showcase-header {
+  padding-inline: max(
+    var(--page-gutter),
+    calc((100% - var(--page-content-max)) / 2)
+  );
+}
+
+.visual-projects-header,
+.visual-filter {
+  width: min(
+    calc(100% - var(--page-gutter) - var(--page-gutter)),
+    var(--page-content-max)
+  );
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+.visual-project-swiper {
+  padding-inline: max(
+    var(--page-gutter),
+    calc((100% - var(--page-content-max)) / 2)
+  );
+}
+
+.visual-project-swiper.visual-project-swiper--banner {
+  width: min(
+    calc(100% - var(--page-gutter) - var(--page-gutter)),
+    var(--page-content-max)
+  );
+  padding-inline: 0;
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  :root {
+    --page-gutter: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-gutter: 24px;
+  }
+
+  /* Horizontal reveal offsets can make otherwise equal gutters look uneven
+     while scrolling. Keep the fade and vertical motion only. */
+  html.has-reveal-motion .title-reveal-group .reveal-kicker,
+  html.has-portfolio-reveals .portfolio-reveal {
+    --reveal-x: 0px;
+    transform: translate3d(0, var(--reveal-y, 28px), 0);
+  }
+}

@@ -11,9 +11,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
+  width: 100vw;
+  min-width: 0;
   margin: 0;
   overflow-x: clip;
   background: var(--bg);
@@ -21,6 +24,18 @@ body {
   font-family: "GMarketSans", Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
+}
+
+/*
+ * Some in-app iOS browsers reserve a scrollbar gutter from the body width.
+ * Keep full-bleed sections tied to the visual viewport and clip decorative
+ * artwork locally so a narrow blank strip or horizontal page scroll cannot
+ * appear at the right edge.
+ */
+main {
+  width: 100vw;
+  min-width: 0;
+  overflow-x: clip;
 }
 
 button {
