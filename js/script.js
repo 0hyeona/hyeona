@@ -698,6 +698,7 @@
   if (!items.length) return;
 
   const OFFSET = 24;
+  const contactSection = document.getElementById("contact");
 
   let positions = [];
   let measureFrame = 0;
@@ -711,9 +712,12 @@
     positions = items.map(({ project, links }, index) => {
       const linksRect = links.getBoundingClientRect();
       const nextProject = items[index + 1]?.project;
+      const finalBoundary = contactSection
+        ? contactSection.getBoundingClientRect().top + window.scrollY
+        : document.documentElement.scrollHeight;
       const projectBottom = nextProject
         ? nextProject.getBoundingClientRect().top + window.scrollY
-        : document.documentElement.scrollHeight;
+        : finalBoundary;
 
       return {
         links,
