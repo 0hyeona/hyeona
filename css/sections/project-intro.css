@@ -1,0 +1,227 @@
+/* ==================================================
+   프로젝트 공통 인트로
+   HTML 태그: <section class="project-intro">
+   주요 선택자: .project-number, .project-title, .project-links
+   글자 크기: 1rem = 16px
+================================================== */
+
+/* [기본 스타일] */
+.web-site img {
+  display: block;
+    width: 100%;
+    padding-bottom: 96px;
+}
+
+.project-intro {
+  width: 100%;
+    background: #f4f5f8;
+}
+
+.project-intro-inner {
+  width: 100%;
+    min-height: 570px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.project-number {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.project-number strong {
+  font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.project-number span {
+  margin-top: 6px;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.project-title h2 {
+  margin: 0;
+    font-size: 3.75rem;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.project-title p {
+  margin: 12px 0 0;
+    font-size: 1.625rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.project-links {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    margin: 65px auto 0;
+    gap: 12px;
+}
+
+.project-links.is-sticky {
+  position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+  
+    z-index: 999;
+    margin: 0;
+}
+
+.project-links a {
+  display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    height: 42px;
+    padding: 0 24px;
+    background: #fff;
+    border: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+    transition: 0.3s ease;
+}
+
+.project-links a:hover {
+  transform: translateY(-2px);
+    box-shadow: 0 9px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* [반응형: 모바일 · 768px 이하] */
+@media (max-width: 768px) {
+  .project-intro-inner {
+    min-height: auto;
+        padding: clamp(70px, 10vw, 100px) clamp(16px, 5vw, 40px);
+  }
+
+  .project-number {
+    margin-bottom: clamp(36px, 7vw, 60px);
+  }
+
+  .project-number strong,
+  .project-number span {
+    font-size: clamp(0.875rem, 1.8vw, 1.125rem);
+  }
+
+  .project-number span {
+    margin-top: 5px;
+  }
+
+  .project-title h2 {
+    font-size: clamp(1.875rem, 5.8vw, 3.25rem);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+  }
+
+  .project-title p {
+    max-width: 1100px;
+        margin: clamp(12px, 2vw, 18px) auto 0;
+        padding: 0 clamp(0px, 2vw, 20px);
+        font-size: clamp(0.8125rem, 2.1vw, 1.3125rem);
+        line-height: 1.4;
+        word-break: keep-all;
+  }
+
+  .project-title p br {
+    display: none;
+  }
+
+  .project-links {
+    gap: clamp(6px, 1.2vw, 12px);
+        margin-top: clamp(35px, 6vw, 60px);
+  }
+
+  .project-links a {
+    min-width: clamp(70px, 10vw, 100px);
+        height: clamp(32px, 4vw, 40px);
+        padding: 0 clamp(14px, 2vw, 24px);
+        font-size: clamp(0.6875rem, 1.5vw, 0.9375rem);
+  }
+}
+
+/* [반응형: 소형 모바일] */
+@media (max-width: 480px) {
+  .project-intro-inner {
+    padding: 60px 16px;
+  }
+
+  .project-number {
+    margin-bottom: 42px;
+  }
+
+  .project-number strong,
+  .project-number span {
+    font-size: clamp(0.8125rem, 4vw, 1rem);
+  }
+
+  .project-title h2 {
+    font-size: clamp(1.6875rem, 10vw, 2.625rem);
+        line-height: 1.4;
+        word-break: keep-all;
+  }
+
+  .project-title p {
+    width: 100%;
+        padding: 0;
+        font-size: clamp(0.75rem, 4vw, 1rem);
+        line-height: 1.55;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+  }
+
+  .project-links {
+    margin-top: 32px;
+  }
+
+  .project-links a {
+    min-width: 0;
+        height: 32px;
+        padding: 0 14px;
+        font-size: 0.6875rem;
+  }
+}
+
+.project-intro {
+  font-family: "GMarketSans", Arial, sans-serif;
+}
+
+.project-intro-inner {
+  padding-inline: max(
+      var(--page-gutter),
+      calc((100% - var(--page-content-max)) / 2)
+    );
+}
+
+.romand-project-index .project-title p {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.romand-project-index .project-title p {
+  font-size: var(--romand-copy-size);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+#noda-project .project-title p {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.4;
+}
+
+#noda-project .project-title p {
+  font-size: var(--noda-copy-size);
+    font-weight: 400;
+}

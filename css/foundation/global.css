@@ -1,0 +1,144 @@
+/* ==================================================
+   공통 기반 스타일
+   HTML 태그: :root / <main>
+   주요 선택자: :root, main :where(...), @keyframes
+   글자 크기: 1rem = 16px
+================================================== */
+
+/* [기본 스타일] */
+@keyframes symbolRotate {
+  from {
+      transform: rotateY(0deg);
+    }
+  
+    to {
+      transform: rotateY(360deg);
+    }
+}
+
+@keyframes flourishFloat {
+  0%,
+    100% {
+      transform: translate(-50%, -48%) scale(1);
+      opacity: 1;
+    }
+  
+    50% {
+      transform: translate(-50%, -46.5%) scale(1.01);
+      opacity: 0.96;
+    }
+}
+
+/* [반응형: 마우스 사용 기기] */
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body {
+    cursor:
+          url("../../img/cursor.svg") 8 8,
+          auto;
+  }
+}
+
+/* [반응형: 모바일 · 768px 이하] */
+@media (max-width: 768px) {
+  .common-frame {
+    padding-inline: 24px;
+  }
+}
+
+@keyframes finalCloverFloat {
+  0%,
+    100% {
+      transform: translateY(0) rotate(-2deg);
+    }
+  
+    50% {
+      transform: translateY(-14px) rotate(2deg);
+    }
+}
+
+@keyframes finalCloverBackdropFloat {
+  0%,
+    100% {
+      translate: 0 0;
+    }
+
+    50% {
+      translate: 0 -10px;
+    }
+}
+
+:root {
+  --page-gutter: 80px;
+    --page-content-max: 1280px;
+}
+
+main :where(h1, h2, h3, h4, p, li, dd) {
+  white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: normal;
+}
+
+/* [반응형: 태블릿 · 769px–1200px] */
+@media (min-width: 769px) and (max-width: 1200px) {
+  :root {
+    --page-gutter: 48px;
+  }
+}
+
+/* [반응형: 모바일 · 768px 이하] */
+@media (max-width: 768px) {
+  :root {
+    --page-gutter: 24px;
+  }
+}
+
+:root {
+  --introduction-copy-size: 1.25rem;
+    --capability-category-size: 1.25rem;
+}
+
+/* [반응형: 태블릿 · 769px–1200px] */
+@media (min-width: 769px) and (max-width: 1200px) {
+  :root {
+    --introduction-copy-size: 1.125rem;
+        --capability-category-size: 1.125rem;
+  }
+}
+
+/* [반응형: 모바일 · 768px 이하] */
+@media (max-width: 768px) {
+  :root {
+    --introduction-copy-size: 1rem;
+        --capability-category-size: 1rem;
+  }
+}
+
+:root {
+  --romand-copy-size: 1.125rem;
+    --romand-subtitle-size: 1.375rem;
+}
+
+:root {
+  --noda-copy-size: 1.25rem;
+    --noda-label-size: 1.625rem;
+    --noda-subtitle-size: 2rem;
+}
+
+/* [반응형: 태블릿 · 769px–1200px] */
+@media (min-width: 769px) and (max-width: 1200px) {
+  :root {
+    --noda-copy-size: 1.125rem;
+        --noda-label-size: 1.5rem;
+        --noda-subtitle-size: 1.875rem;
+  }
+}
+
+/* [반응형: 모바일 · 768px 이하] */
+@media (max-width: 768px) {
+  :root {
+    --noda-copy-size: 1rem;
+        --noda-label-size: 1.25rem;
+        --noda-subtitle-size: 1.5rem;
+  }
+}

@@ -1,0 +1,456 @@
+/* ==================================================
+   TOOLS & CAPABILITIES 섹션
+   HTML 태그: <section class="capabilities-section">
+   주요 선택자: .capabilities-title, .capability-label, .tool-card
+   글자 크기: 1rem = 16px
+================================================== */
+
+/* [기본 스타일] */
+.capabilities-section {
+  min-height: 100svh;
+    padding: 0;
+    background: #fff;
+    display: flow-root;
+}
+
+.capabilities-inner {
+  width: calc(100% - clamp(64px, 16.8vw, 232px));
+    margin: 48px auto 120px;
+}
+
+.capabilities-header {
+  text-align: center;
+}
+
+.capabilities-kicker,
+.capabilities-summary {
+  margin: 0;
+    font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+}
+
+.capabilities-kicker {
+  font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.capabilities-title {
+  margin: 18px 0 0;
+    font-size: clamp(3rem, 4.5vw, 4.75rem);
+    font-weight: 700;
+    line-height: 1.06;
+    letter-spacing: -0.055em;
+}
+
+.capabilities-summary {
+  margin-top: 24px;
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
+
+.capability-groups {
+  display: grid;
+    gap: 64px;
+    margin-top: 104px;
+}
+
+.capability-group {
+  position: relative;
+    padding: 62px 56px 46px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+
+.capability-label {
+  position: absolute;
+    top: 0;
+    left: 40px;
+    margin: 0;
+    padding: 10px 32px;
+    border-radius: 2px;
+    background: #fff;
+    color: var(--text);
+    font-family:
+      "Pretendard",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    transform: translateY(-50%);
+}
+
+.capability-group--right .capability-label {
+  right: 40px;
+    left: auto;
+}
+
+.capability-group--design .capability-label {
+  width: 179px;
+}
+
+.capability-group--publishing .capability-label {
+  width: 250px;
+}
+
+.capability-group--collaboration .capability-label {
+  width: 269px;
+}
+
+.capability-group--ai .capability-label {
+  width: 95px;
+}
+
+.capability-assets {
+  display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 200px;
+    margin-block: -50px;
+    overflow: hidden;
+}
+
+.capability-assets img {
+  display: block;
+    width: clamp(280px, 22vw, 320px);
+    max-width: 100%;
+    height: auto;
+    transform: translateY(-14%);
+}
+
+.capability-grid {
+  display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 42px 72px;
+    counter-reset: tool-number;
+}
+
+.tool-card {
+  counter-increment: tool-number;
+}
+
+.tool-card h4 {
+  display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.18);
+    font-family:
+      "Pretendard",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    font-size: 1.625rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.tool-card h4::after {
+  content: counter(tool-number, decimal-leading-zero);
+    margin-left: auto;
+    color: #838383;
+    font-family:
+      "Pretendard",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.tool-icon {
+  flex: 0 0 auto;
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+.tool-icon--wide {
+  width: 52px;
+}
+
+.tool-card ul {
+  margin: 0;
+    padding-left: 18px;
+    color: var(--text);
+    font-family:
+      "Pretendard",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: -0.025em;
+}
+
+.tool-card li + li {
+  margin-top: 8px;
+}
+
+/* [반응형: 마우스 사용 기기] */
+@media (hover: hover) and (pointer: fine) {
+  .tool-card h4,
+  .tool-card .tool-icon {
+    transition: transform 0.35s var(--ease);
+  }
+
+  .tool-card:hover h4 {
+    transform: translateX(4px);
+  }
+
+  .tool-card:hover .tool-icon {
+    transform: translateY(-2px) rotate(-3deg);
+  }
+}
+
+/* [반응형: 접근성 · 모션 최소화] */
+@media (prefers-reduced-motion: reduce) {
+  .tool-card h4,
+  .tool-card .tool-icon {
+    transition: none;
+  }
+}
+
+/* [반응형: 태블릿 · 769px–1200px] */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .capabilities-inner {
+    width: 88%;
+  }
+
+  .capability-group {
+    padding-inline: 4vw;
+  }
+
+  .capability-grid {
+    gap: 38px 4vw;
+  }
+}
+
+/* [반응형: 모바일 · 768px 이하] */
+@media (max-width: 768px) {
+  .capabilities-inner {
+    width: calc(100% - 40px);
+        margin: 72px auto 88px;
+  }
+
+  .capabilities-kicker {
+    font-size: 0.75rem;
+  }
+
+  .capabilities-title {
+    margin-top: 20px;
+        font-size: clamp(2.375rem, 10.5vw, 3.625rem);
+  }
+
+  .capabilities-summary {
+    margin-top: 18px;
+        font-size: 1.125rem;
+  }
+
+  .capability-groups {
+    gap: 48px;
+        margin-top: 76px;
+  }
+
+  .capability-group {
+    padding: 48px 22px 30px;
+  }
+
+  .capability-assets {
+    height: 175px;
+        margin-block: -32px;
+  }
+
+  .capability-assets img {
+    width: 280px;
+  }
+
+  .capability-label,
+  .capability-group--right .capability-label {
+    right: auto;
+        left: 22px;
+        width: auto;
+        min-width: 112px;
+        padding: 8px 16px;
+        font-size: 0.9375rem;
+        font-weight: 500;
+  }
+
+  .capability-grid {
+    grid-template-columns: 1fr;
+        gap: 32px;
+  }
+
+  .tool-card h4 {
+    margin-bottom: 12px;
+        padding-bottom: 8px;
+        font-size: 1.375rem;
+  }
+
+  .tool-card ul {
+    font-size: 1rem;
+        line-height: 1.4;
+  }
+
+  .tool-card h4::after {
+    font-size: 0.75rem;
+  }
+
+  .tool-icon {
+    width: 22px;
+        height: 22px;
+  }
+
+  .tool-icon--wide {
+    width: 44px;
+  }
+}
+
+.capability-group {
+  padding: 38px 40px 32px;
+    border: 1px solid rgba(51, 51, 51, 0.2);
+    border-radius: 8px;
+}
+
+.capability-label,
+.capability-group--right .capability-label {
+  position: absolute;
+    top: 0;
+    left: 24px;
+    width: auto;
+    min-width: 0;
+    margin: 0;
+    padding: 0 14px;
+    background: #fff;
+    color: var(--text);
+    font-family: "GMarketSans", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+    transform: translateY(-50%);
+}
+
+.capability-group--right .capability-label {
+  right: 24px;
+    left: auto;
+}
+
+.capability-group--design .capability-label,
+.capability-group--publishing .capability-label,
+.capability-group--collaboration .capability-label,
+.capability-group--ai .capability-label {
+  width: auto;
+}
+
+.capability-grid {
+  margin-top: 0;
+}
+
+.tool-card h4,
+.tool-card h4::after,
+.tool-card p,
+.tool-card ul {
+  font-family: "GMarketSans", Arial, sans-serif;
+}
+
+.tool-card h4 {
+  font-weight: 700;
+}
+
+.tool-card h4::after {
+  font-weight: 300;
+}
+
+.tool-card p,
+.tool-card li {
+  font-family: "GMarketSans", Arial, sans-serif;
+    font-weight: 500;
+}
+
+.tool-card p {
+  margin: 0 0 12px;
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+.tool-card ul {
+  font-weight: 500;
+}
+
+/* [반응형: 모바일 · 768px 이하] */
+@media (max-width: 768px) {
+  .capability-group {
+    padding: 32px 22px 26px;
+  }
+
+  .capability-label,
+  .capability-group--right .capability-label {
+    left: 18px;
+        padding-inline: 10px;
+        font-size: 0.875rem;
+  }
+
+  .capability-group--right .capability-label {
+    right: 18px;
+        left: auto;
+  }
+
+  .capability-grid {
+    margin-top: 0;
+  }
+}
+
+.capabilities-inner {
+  width: min(
+      calc(100% - var(--page-gutter) - var(--page-gutter)),
+      var(--page-content-max)
+    );
+    margin-inline: auto;
+    padding-inline: 0;
+}
+
+.capabilities-section {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.capabilities-section :is(p, h2, h3, h4, li) {
+  font-family: inherit;
+}
+
+.capabilities-summary,
+.tool-card p,
+.tool-card li {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: var(--introduction-copy-size);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.capabilities-section .capabilities-title {
+  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+}
+
+.capabilities-section .capability-label,
+.capabilities-section .capability-group--right .capability-label {
+  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+    font-size: var(--capability-category-size);
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.tool-card p,
+.tool-card ul,
+.tool-card li {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.4;
+}

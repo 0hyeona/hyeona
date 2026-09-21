@@ -1,0 +1,212 @@
+/* ==================================================
+   RESPONSIVE PROJECTS 소개 섹션
+   HTML 태그: <section class="responsive-projects">
+   주요 선택자: .responsive-projects-title, .responsive-projects-description, .responsive-breakpoint
+   글자 크기: 1rem = 16px
+================================================== */
+
+/* [기본 스타일] */
+.responsive-projects {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 128px;
+    padding: 198px 0;
+    color: var(--text);
+    text-align: center;
+}
+
+.responsive-projects-main,
+.responsive-projects-info {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.responsive-projects-main {
+  gap: 16px;
+}
+
+.responsive-projects-title {
+  margin: 0;
+    font-size: 5.625rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    white-space: nowrap;
+}
+
+.responsive-projects-description {
+  margin: 0;
+    font-size: 1.75rem;
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.responsive-projects-info {
+  gap: 32px;
+}
+
+.responsive-projects-info h3 {
+  margin: 0;
+    font-size: 1.625rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.responsive-projects-breakpoints {
+  display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 640px;
+    gap: 32px;
+}
+
+.responsive-breakpoint {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 83px;
+    gap: 3px;
+}
+
+.responsive-breakpoint > img {
+  display: block;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.responsive-breakpoint-copy {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    line-height: 1;
+}
+
+.responsive-breakpoint-copy strong,
+.responsive-breakpoint-copy span {
+  display: block;
+    font-style: normal;
+    white-space: nowrap;
+}
+
+.responsive-breakpoint-copy strong {
+  font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.responsive-breakpoint-copy span {
+  color: #777;
+    font-size: 0.875rem;
+    font-weight: 300;
+}
+
+/* [반응형: 태블릿·모바일 · 1200px 이하] */
+@media (max-width: 1200px) {
+  .responsive-projects-title {
+    font-size: 4.5rem;
+  }
+
+  .responsive-projects-description {
+    font-size: 1.75rem;
+  }
+
+  .responsive-projects-breakpoints {
+    width: 560px;
+  }
+}
+
+/* [반응형: 모바일 · 768px 이하] */
+@media (max-width: 768px) {
+  .responsive-projects {
+    gap: 72px;
+        padding: 112px 24px;
+  }
+
+  .responsive-projects-main {
+    gap: 18px;
+  }
+
+  .responsive-projects-title {
+    font-size: 3rem;
+        line-height: 1.4;
+        white-space: normal;
+  }
+
+  .responsive-projects-description {
+    max-width: 620px;
+        font-size: 1rem;
+        line-height: 1.4;
+        white-space: normal;
+        word-break: keep-all;
+  }
+
+  .responsive-projects-info {
+    gap: 32px;
+  }
+
+  .responsive-projects-info h3 {
+    font-size: 1.625rem;
+  }
+
+  .responsive-projects-breakpoints {
+    width: 100%;
+        gap: 0;
+        justify-content: space-between;
+  }
+
+  .responsive-breakpoint {
+    width: 72px;
+  }
+
+  .responsive-breakpoint-copy strong {
+    font-size: 0.9375rem;
+  }
+
+  .responsive-breakpoint-copy span {
+    font-size: 0.75rem;
+  }
+}
+
+/* [반응형: 소형 모바일] */
+@media (max-width: 374px) {
+  .responsive-projects-title {
+    font-size: 2.375rem;
+  }
+
+  .responsive-projects-description {
+    font-size: 0.875rem;
+  }
+}
+
+.responsive-projects {
+  padding-inline: max(
+      var(--page-gutter),
+      calc((100% - var(--page-content-max)) / 2)
+    );
+}
+
+.responsive-projects {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.responsive-projects :is(p, h2, h3, strong, span) {
+  font-family: inherit;
+}
+
+.responsive-projects-description {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.responsive-projects .responsive-projects-title {
+  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+}
