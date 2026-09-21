@@ -699,7 +699,8 @@
 }
 
 .portfolio-hero .hero-title {
-  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+  /* DESIGN PORTFOLIO는 기존 영문 디스플레이 폰트를 사용합니다. */
+  font-family: "Righteous", "GMarketSans", sans-serif;
 }
 
 .hero-intro,
