@@ -153,6 +153,11 @@
   line-height: 1.35;
 }
 
+#profile-info-title,
+#certifications-title {
+  font-size: 1.5rem;
+}
+
 .about-profile-info dt,
 .about-personal h3,
 .about-certifications h3,
@@ -497,4 +502,91 @@
 
 .about-profile .about-profile-title {
   font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+}
+
+/* PROFILE · CERTIFICATIONS 타이포그래피 위계 */
+.about-profile #profile-info-title,
+.about-profile #certifications-title {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.about-profile .about-profile-info dt,
+.about-profile .about-certifications time {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.about-profile .about-profile-info dd,
+.about-profile .about-certifications li span {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* [반응형: Pad · 769px–1200px] */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .about-profile #profile-info-title,
+  .about-profile #certifications-title {
+    font-size: 1.375rem;
+  }
+
+  .about-profile .about-profile-info,
+  .about-profile .about-certifications ul {
+    column-gap: 24px;
+  }
+}
+
+/* [반응형: Mobile · 768px 이하] */
+@media (max-width: 768px) {
+  .about-profile #profile-info-title,
+  .about-profile #certifications-title {
+    font-size: 1.25rem;
+  }
+
+  .about-profile .about-profile-info dt,
+  .about-profile .about-profile-info dd,
+  .about-profile .about-certifications time,
+  .about-profile .about-certifications li span {
+    font-size: 0.875rem;
+  }
+
+  .about-profile .about-profile-info,
+  .about-profile .about-certifications ul {
+    grid-template-columns: minmax(84px, max-content) minmax(0, 1fr);
+    column-gap: 16px;
+  }
+
+  .about-profile .about-profile-info dd,
+  .about-profile .about-certifications li span {
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* [반응형: 초소형 Mobile · 300px 이하] */
+@media (max-width: 300px) {
+  .about-profile #profile-info-title,
+  .about-profile #certifications-title {
+    font-size: 1.125rem;
+  }
+
+  .about-profile .about-profile-info dt,
+  .about-profile .about-profile-info dd,
+  .about-profile .about-certifications time,
+  .about-profile .about-certifications li span {
+    font-size: 0.75rem;
+  }
+
+  .about-profile .about-profile-info,
+  .about-profile .about-certifications ul {
+    grid-template-columns: minmax(72px, max-content) minmax(0, 1fr);
+    column-gap: 12px;
+  }
 }

@@ -747,7 +747,7 @@ body.is-detail-modal-open {
   }
 }
 
-/* 상세페이지는 자동 재생 없이 최대 4개를 한 화면에 고정합니다. */
+/* 상세페이지는 PC에서 최대 4개를 한 화면에 고정합니다. */
 .visual-project-panel[data-category="detail"] .visual-project-swiper {
   width: min(calc(100% - var(--page-gutter) - var(--page-gutter)),
       var(--page-content-max));
@@ -756,20 +756,22 @@ body.is-detail-modal-open {
   overflow: visible;
 }
 
-.visual-project-panel[data-category="detail"] .swiper-wrapper {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  align-items: start;
-  gap: 30px;
-  transform: none !important;
-}
+@media (min-width: 1201px) {
+  .visual-project-panel[data-category="detail"] .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    gap: 30px;
+    transform: none !important;
+  }
 
-.visual-project-panel[data-category="detail"] .visual-project-card {
-  width: auto !important;
-}
+  .visual-project-panel[data-category="detail"] .visual-project-card {
+    width: auto !important;
+  }
 
-.visual-project-panel[data-category="detail"] .swiper-pagination {
-  display: none !important;
+  .visual-project-panel[data-category="detail"] .swiper-pagination {
+    display: none !important;
+  }
 }
 
 .detail-modal.is-detail-modal .detail-modal-close {
@@ -777,20 +779,28 @@ body.is-detail-modal-open {
 }
 
 @media (max-width: 1200px) {
+  .visual-project-panel[data-category="detail"] .visual-project-swiper {
+    overflow: hidden;
+  }
+
   .visual-project-panel[data-category="detail"] .swiper-wrapper {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .visual-project-panel[data-category="detail"] .visual-project-card {
+    width: 100% !important;
+  }
+
+  .visual-project-panel[data-category="detail"] .swiper-pagination {
+    display: flex !important;
   }
 }
 
 @media (max-width: 600px) {
   .visual-project-panel[data-category="detail"] .visual-project-swiper {
     width: min(calc(100% - 40px), 440px);
-  }
-
-  .visual-project-panel[data-category="detail"] .swiper-wrapper {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
   }
 
   .detail-modal.is-detail-modal .detail-modal-close {

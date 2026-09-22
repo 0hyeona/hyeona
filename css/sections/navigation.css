@@ -18,18 +18,16 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(-14px);
   transition:
-    opacity 0.3s var(--ease),
-    visibility 0.3s,
-    transform 0.35s var(--ease);
+    opacity 0.2s ease,
+    visibility 0.2s;
+  backface-visibility: hidden;
 }
 
 .floating-nav.is-visible {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateY(0);
 }
 
 .floating-nav-toggle {
@@ -46,6 +44,8 @@
   color: var(--text);
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
   cursor: pointer;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .floating-nav-icon {

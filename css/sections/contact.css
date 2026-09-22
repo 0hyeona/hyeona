@@ -445,7 +445,7 @@
   }
 
   .final-contact-copy h2 {
-    font-size: clamp(1.625rem, 7vw, 2.125rem);
+    font-size: clamp(2rem, 7vw, 2.125rem);
   }
 
   .final-contact-links {

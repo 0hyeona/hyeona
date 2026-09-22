@@ -439,6 +439,7 @@
   const buttons = [...filter.querySelectorAll("[data-filter]")];
   const swipers = new Map();
   const compactSliderMedia = window.matchMedia("(max-width: 767px)");
+  const detailSliderMedia = window.matchMedia("(max-width: 1200px)");
   const continuousSlideSpeed = 7600;
   const pagedSlideSpeed = 900;
 
@@ -496,7 +497,9 @@
   }
 
   function initSwiper(panel) {
-    if (panel.dataset.category === "detail") {
+    const isDetailSwiper = panel.dataset.category === "detail";
+
+    if (isDetailSwiper && !detailSliderMedia.matches) {
       removeLoopSlides(panel);
       panel.dataset.projectCount = String(
         panel.querySelectorAll(".visual-project-card").length
@@ -508,7 +511,7 @@
 
     const swiperElement = panel.querySelector(".visual-project-swiper");
     const isBannerSwiper = panel.dataset.category === "banner";
-    const isPagedSwiper = isBannerSwiper || compactSliderMedia.matches;
+    const isPagedSwiper = isBannerSwiper || isDetailSwiper || compactSliderMedia.matches;
     const projectCount = swiperElement.querySelectorAll(
       ".visual-project-card:not([data-loop-clone])"
     ).length;
@@ -538,8 +541,8 @@
       watchOverflow: false,
       observer: true,
       observeParents: true,
-      preventClicks: false,
-      preventClicksPropagation: false,
+      preventClicks: isDetailSwiper,
+      preventClicksPropagation: isDetailSwiper,
       autoplay: {
         delay: isPagedSwiper ? 3300 : 0,
         disableOnInteraction: false,
@@ -612,7 +615,7 @@
 
         activeSwiper.update();
 
-        if (category === "popup" || category === "banner") {
+        if (category === "popup" || category === "banner" || category === "detail") {
           if (activeSwiper.params.loop && typeof activeSwiper.slideToLoop === "function") {
             activeSwiper.slideToLoop(0, 0, false);
           } else {
@@ -646,7 +649,7 @@
   const initialButton = buttons.find((button) => button.classList.contains("is-active")) || buttons[0];
   activateCategory(initialButton);
 
-  compactSliderMedia.addEventListener("change", () => {
+  function rebuildActiveSwiper() {
     swipers.forEach((swiper) => swiper.destroy(true, true));
     swipers.clear();
 
@@ -654,7 +657,10 @@
 
     const activeButton = buttons.find((button) => button.classList.contains("is-active")) || buttons[0];
     activateCategory(activeButton);
-  });
+  }
+
+  compactSliderMedia.addEventListener("change", rebuildActiveSwiper);
+  detailSliderMedia.addEventListener("change", rebuildActiveSwiper);
 
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) return;
