@@ -8,7 +8,7 @@
 /* [기본 스타일] */
 .floating-nav {
   position: fixed;
-  top: 24px;
+  top: 40px;
   right: 24px;
   z-index: 1000;
   display: flex;
@@ -36,9 +36,9 @@
   position: relative;
   display: grid;
   place-items: center;
-  flex: 0 0 54px;
-  width: 54px;
-  height: 54px;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
   padding: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
@@ -50,8 +50,8 @@
 
 .floating-nav-icon {
   display: grid;
-  gap: 5px;
-  width: 20px;
+  gap: 4px;
+  width: 18px;
 }
 
 .floating-nav-icon i {
@@ -66,7 +66,7 @@
 }
 
 .floating-nav.is-open .floating-nav-icon i:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(6px) rotate(45deg);
 }
 
 .floating-nav.is-open .floating-nav-icon i:nth-child(2) {
@@ -74,12 +74,12 @@
 }
 
 .floating-nav.is-open .floating-nav-icon i:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .floating-nav-menu {
   position: absolute;
-  top: 64px;
+  top: 52px;
   right: 0;
   display: grid;
   grid-template-columns: 1fr;
@@ -200,24 +200,81 @@ html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
 /* [반응형: 모바일 · 768px 이하] */
 @media (max-width: 768px) {
   .floating-nav {
-    top: calc(12px + env(safe-area-inset-top));
+    top: calc(36px + env(safe-area-inset-top));
     right: 16px;
   }
 
   .floating-nav-toggle {
-    width: 48px;
-    height: 48px;
-    flex-basis: 48px;
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+
+  .floating-nav-icon {
+    gap: 4px;
+    width: 16px;
+  }
+
+  .floating-nav.is-open .floating-nav-icon i:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .floating-nav.is-open .floating-nav-icon i:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
   }
 
   .floating-nav-menu {
-    top: 58px;
+    top: 50px;
     width: 210px;
     border-radius: 22px;
   }
 
   .floating-nav-menu a {
-    min-height: 42px;
+    min-height: 34px;
+  }
+}
+
+/* [반응형: 초소형 모바일 · 300px 이하] */
+@media (max-width: 300px) {
+  .floating-nav {
+    top: calc(36px + env(safe-area-inset-top));
+    right: -14px;
+  }
+
+  .floating-nav-toggle {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+
+  .floating-nav-icon {
+    gap: 4px;
+    width: 16px;
+  }
+
+  .floating-nav.is-open .floating-nav-icon i:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .floating-nav.is-open .floating-nav-icon i:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .floating-nav-menu {
+    top: 50px;
+    right: 14px;
+    width: min(150px, calc(100vw - 24px));
+  }
+}
+
+/* [반응형: 초소형 모바일 · 280px 이하] */
+@media (max-width: 280px) {
+  .floating-nav {
+    right: -20px;
+  }
+
+  .floating-nav-menu {
+    right: 20px;
   }
 }
 

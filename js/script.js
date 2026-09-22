@@ -247,6 +247,71 @@
       group: ".visual-projects-header",
       kicker: ".visual-projects-kicker",
       heading: ".visual-projects-title"
+    },
+    {
+      group: ".romand-project-index .project-intro-inner",
+      kicker: ".project-number",
+      heading: ".project-title"
+    },
+    {
+      group: ".romand-detail-copy",
+      kicker: ".romand-detail-number",
+      heading: "h2"
+    },
+    {
+      group: ".romand-problem-header",
+      kicker: ".romand-section-label",
+      heading: ".romand-section-summary"
+    },
+    {
+      group: ".romand-goal",
+      kicker: ".romand-section-label",
+      heading: "h2"
+    },
+    {
+      group: ".romand-logo-section",
+      kicker: ".romand-system-label",
+      heading: ".romand-system-description"
+    },
+    {
+      group: ".romand-color-section",
+      kicker: ".romand-system-label",
+      heading: ".romand-system-description"
+    },
+    {
+      group: ".romand-type-section",
+      kicker: ".romand-system-label",
+      heading: ".romand-system-description"
+    },
+    {
+      group: "#noda-project .project-intro-inner",
+      kicker: ".project-number",
+      heading: ".project-title"
+    },
+    {
+      group: ".noda-showcase-copy",
+      kicker: ".noda-showcase-number",
+      heading: "h2"
+    },
+    {
+      group: ".noda-brand-hero",
+      kicker: ":scope > p",
+      heading: "h2"
+    },
+    {
+      group: ".noda-persona-inner",
+      kicker: ".noda-persona-label",
+      heading: "#noda-persona-title"
+    },
+    {
+      group: ".noda-color-section",
+      kicker: ".noda-style-label",
+      heading: ".noda-style-description"
+    },
+    {
+      group: ".noda-typography-copy",
+      kicker: ".noda-style-label",
+      heading: ".noda-style-description"
     }
   ].map(({ group, kicker, heading }) => {
     const groupElement = document.querySelector(group);
@@ -319,6 +384,23 @@
   register(".capability-assets", { y: "24px" });
   register(".tool-card", { y: "22px", stagger: 45, maxDelay: 180 });
   register(".visual-filter", { y: "18px" });
+  register(".romand-device-showcase", { x: "38px", y: "0px" });
+  register(".romand-about", { y: "24px" });
+  register(".romand-problem-item", { y: "34px", stagger: 90, maxDelay: 180 });
+  register(".romand-goal li", { y: "24px", stagger: 80, maxDelay: 160 });
+  register(".romand-logo-assets figure", { y: "24px", stagger: 90, maxDelay: 90 });
+  register(".romand-color-palette", { x: "36px", y: "0px" });
+  register(".romand-type-specimen", { y: "28px" });
+  register(".romand-image-frame", { y: "34px" });
+  register(".noda-showcase-visual", { x: "-38px", y: "0px" });
+  register(".noda-showcase-about", { x: "34px", y: "0px" });
+  register(".noda-keywords", { y: "24px" });
+  register(".noda-brand-logo-row", { y: "30px" });
+  register(".noda-persona-profile", { x: "-34px", y: "0px" });
+  register(".noda-persona-details", { x: "34px", y: "0px" });
+  register(".noda-color-item", { y: "22px", stagger: 70, maxDelay: 210 });
+  register(".noda-type-specimen", { y: "28px" });
+  register(".noda-image-frame", { y: "34px" });
 
   if (!revealItems.length) return;
 
@@ -356,7 +438,7 @@
 
   const buttons = [...filter.querySelectorAll("[data-filter]")];
   const swipers = new Map();
-  const compactSliderMedia = window.matchMedia("(max-width: 1200px)");
+  const compactSliderMedia = window.matchMedia("(max-width: 767px)");
   const continuousSlideSpeed = 7600;
   const pagedSlideSpeed = 900;
 
@@ -414,6 +496,14 @@
   }
 
   function initSwiper(panel) {
+    if (panel.dataset.category === "detail") {
+      removeLoopSlides(panel);
+      panel.dataset.projectCount = String(
+        panel.querySelectorAll(".visual-project-card").length
+      );
+      return null;
+    }
+
     if (swipers.has(panel) || typeof Swiper === "undefined") return swipers.get(panel);
 
     const swiperElement = panel.querySelector(".visual-project-swiper");
@@ -513,10 +603,25 @@
       }
     });
 
-    const activeSwiper = swipers.get(activePanel);
+    const activeSwiper = initSwiper(activePanel);
     if (activeSwiper) {
-      activeSwiper.update();
-      resumeAtUniformSpeed(activeSwiper);
+      activeSwiper.autoplay.stop();
+
+      requestAnimationFrame(() => {
+        if (activePanel.hidden || activeSwiper.destroyed) return;
+
+        activeSwiper.update();
+
+        if (category === "popup" || category === "banner") {
+          if (activeSwiper.params.loop && typeof activeSwiper.slideToLoop === "function") {
+            activeSwiper.slideToLoop(0, 0, false);
+          } else {
+            activeSwiper.slideTo(0, 0, false);
+          }
+        }
+
+        resumeAtUniformSpeed(activeSwiper, false);
+      });
     }
   }
 
@@ -538,8 +643,6 @@
     });
   });
 
-  panels.forEach((panel) => initSwiper(panel));
-
   const initialButton = buttons.find((button) => button.classList.contains("is-active")) || buttons[0];
   activateCategory(initialButton);
 
@@ -547,10 +650,7 @@
     swipers.forEach((swiper) => swiper.destroy(true, true));
     swipers.clear();
 
-    panels.forEach((panel) => {
-      removeLoopSlides(panel);
-      initSwiper(panel);
-    });
+    panels.forEach((panel) => removeLoopSlides(panel));
 
     const activeButton = buttons.find((button) => button.classList.contains("is-active")) || buttons[0];
     activateCategory(activeButton);
@@ -619,7 +719,11 @@
 
     if (image) {
       const imageClone = image.cloneNode(true);
+      const detailSource = image.dataset.detailSrc;
+
+      if (detailSource) imageClone.src = detailSource;
       imageClone.removeAttribute("loading");
+      imageClone.removeAttribute("data-detail-src");
       modalMedia.appendChild(imageClone);
     } else if (sourceMedia) {
       modalMedia.innerHTML = sourceMedia.innerHTML;
@@ -697,7 +801,7 @@
 
   if (!items.length) return;
 
-  const OFFSET = 24;
+  const OFFSET = 40;
   const contactSection = document.getElementById("contact");
 
   let positions = [];
@@ -737,21 +841,29 @@
 
   function update() {
     const scrollPoint = window.scrollY + OFFSET;
+    const contactRect = contactSection?.getBoundingClientRect();
+    const contactIsVisible = Boolean(
+      contactRect &&
+      contactRect.top < window.innerHeight &&
+      contactRect.bottom > 0
+    );
 
     let activeIndex = -1;
 
-    positions.forEach((item, index) => {
-      const passedButton =
-        scrollPoint >= item.linksTop;
+    if (!contactIsVisible) {
+      positions.forEach((item, index) => {
+        const passedButton =
+          scrollPoint >= item.linksTop;
 
-      const beforeProjectEnd =
-        scrollPoint <
-        item.projectBottom - item.linksHeight;
+        const beforeProjectEnd =
+          scrollPoint <
+          item.projectBottom - item.linksHeight;
 
-      if (passedButton && beforeProjectEnd) {
-        activeIndex = index;
-      }
-    });
+        if (passedButton && beforeProjectEnd) {
+          activeIndex = index;
+        }
+      });
+    }
 
     positions.forEach((item, index) => {
       item.links.classList.toggle(

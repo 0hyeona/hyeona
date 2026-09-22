@@ -71,7 +71,7 @@
 
 .project-links.is-sticky {
   position: fixed;
-  top: 24px;
+  top: 40px;
   left: 50%;
   transform: translateX(-50%);
 
@@ -222,4 +222,27 @@
 #noda-project .project-title p {
   font-size: 1rem;
   font-weight: 400;
+}
+
+.romand-project-index .project-number,
+#noda-project .project-number {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+}
+
+.romand-project-index .project-number strong,
+.romand-project-index .project-number span,
+#noda-project .project-number strong,
+#noda-project .project-number span {
+  font-weight: 700;
+}
+
+/* [반응형: 초소형 모바일 · 300px 이하] */
+@media (max-width: 300px) {
+  .romand-project-index .project-number strong,
+  .romand-project-index .project-number span,
+  #noda-project .project-number strong,
+  #noda-project .project-number span {
+    font-size: 12px;
+  }
 }

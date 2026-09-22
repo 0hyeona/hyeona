@@ -127,9 +127,9 @@
   content: "바로가기";
   background: rgba(0, 0, 0, 0.68);
   color: #fff;
-  font-family: "GMarketSans", Arial, sans-serif;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
   opacity: 0;
@@ -218,6 +218,10 @@
 
 .visual-project-panel[data-category="detail"] .visual-project-card {
   cursor: pointer;
+}
+
+.visual-project-panel[data-category="detail"] .visual-project-media img {
+  object-position: center top;
 }
 
 .visual-project-card[data-visual-modal-trigger] {
@@ -535,7 +539,7 @@ body.is-detail-modal-open {
   .visual-filter-button {
     min-height: 34px;
     padding: 0 16px;
-    font-size: 1rem;
+    font-size: .8rem;
   }
 
   .visual-project-slider-viewport {
@@ -659,7 +663,6 @@ body.is-detail-modal-open {
 @media (min-width: 769px) {
   .detail-modal.is-detail-modal .detail-modal-dialog {
     box-sizing: border-box;
-    padding: 12px 12px 12px 0;
   }
 
   .detail-modal.is-detail-modal .detail-modal-media {
@@ -723,4 +726,100 @@ body.is-detail-modal-open {
 
 .visual-projects .visual-projects-title {
   font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+}
+
+/* [반응형: 태블릿 · 768px–1200px] */
+@media (min-width: 768px) and (max-width: 1200px) {
+  .visual-project-swiper:not(.visual-project-swiper--banner) {
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: max(var(--page-gutter),
+        calc((100% - var(--page-content-max)) / 2));
+    overflow: visible;
+  }
+
+  .visual-project-swiper:not(.visual-project-swiper--banner) .visual-project-card {
+    width: clamp(280px, 42vw, 380px);
+  }
+
+  .visual-project-swiper:not(.visual-project-swiper--banner) .swiper-pagination {
+    display: none;
+  }
+}
+
+/* 상세페이지는 자동 재생 없이 최대 4개를 한 화면에 고정합니다. */
+.visual-project-panel[data-category="detail"] .visual-project-swiper {
+  width: min(calc(100% - var(--page-gutter) - var(--page-gutter)),
+      var(--page-content-max));
+  margin-inline: auto;
+  padding-inline: 0;
+  overflow: visible;
+}
+
+.visual-project-panel[data-category="detail"] .swiper-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: 30px;
+  transform: none !important;
+}
+
+.visual-project-panel[data-category="detail"] .visual-project-card {
+  width: auto !important;
+}
+
+.visual-project-panel[data-category="detail"] .swiper-pagination {
+  display: none !important;
+}
+
+.detail-modal.is-detail-modal .detail-modal-close {
+  right: 44px;
+}
+
+@media (max-width: 1200px) {
+  .visual-project-panel[data-category="detail"] .swiper-wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .visual-project-panel[data-category="detail"] .visual-project-swiper {
+    width: min(calc(100% - 40px), 440px);
+  }
+
+  .visual-project-panel[data-category="detail"] .swiper-wrapper {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .detail-modal.is-detail-modal .detail-modal-close {
+    right: 32px;
+  }
+}
+
+/* 팝업·포스터·배너 슬라이드는 화면 가장자리에서 바로 이어집니다. */
+.visual-project-panel:not([data-category="detail"]) .visual-project-swiper {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+  overflow: hidden;
+}
+
+.visual-project-panel[data-category="detail"] .visual-project-swiper {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+}
+
+/* Pad·Mobile에서는 상단 콘텐츠와 동일한 좌우 여백을 사용합니다. */
+@media (max-width: 1200px) {
+  .visual-project-panel:not([data-category="detail"]) .visual-project-swiper,
+  .visual-project-panel[data-category="detail"] .visual-project-swiper {
+    width: calc(100% - var(--page-gutter) - var(--page-gutter));
+    margin-inline: auto;
+    padding-inline: 0;
+  }
 }

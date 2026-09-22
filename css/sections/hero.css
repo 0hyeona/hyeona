@@ -731,7 +731,7 @@
   .hero-title {
     width: 100%;
     margin-inline: auto;
-    font-size: clamp(1.5rem, 9.4vw, 4.5rem);
+    font-size: clamp(2rem, 10vw, 5rem);
     line-height: 1;
     letter-spacing: -0.045em;
     text-align: center;
@@ -744,6 +744,10 @@
   font-family: "Righteous", "GMarketSans", sans-serif;
 }
 
+.hero-title>span {
+  display: inline;
+}
+
 .hero-intro,
 .hero-role,
 .hero-role strong,
@@ -751,4 +755,59 @@
 .project-menu a {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.4;
+}
+
+/* [반응형: 초소형 모바일 · 300px 이하] */
+@media (max-width: 300px) {
+
+  .portfolio-hero,
+  .hero-inner {
+    min-height: 0;
+  }
+
+  .hero-inner {
+    padding-top: 40px;
+    padding-bottom: 24px;
+  }
+
+  .hero-title {
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .hero-role {
+    padding-bottom: 6px;
+  }
+
+  .project-nav-wrap {
+    width: 154px;
+    min-width: 154px;
+    max-width: 154px;
+    height: 32px;
+  }
+
+  .hero-cta {
+    height: 32px;
+    padding-inline: 12px;
+    font-size: 10px;
+  }
+
+  .project-nav-wrap.is-open {
+    height: 68px;
+  }
+}
+
+/* [반응형: 280px 이하] */
+@media (max-width: 280px) {
+  .hero-title {
+    width: 100%;
+    max-width: 100%;
+    font-size: 36px;
+    line-height: 0.95;
+    white-space: normal;
+  }
+
+  .hero-title>span {
+    display: block;
+  }
 }

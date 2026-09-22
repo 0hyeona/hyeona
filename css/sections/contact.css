@@ -681,3 +681,31 @@
   font-size: 1rem;
   font-weight: 400;
 }
+
+/* [반응형: PC · 1201px 이상] */
+@media (min-width: 1201px) {
+  .final-contact-links a,
+  .final-contact-copyright {
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+}
+
+/* [반응형: 초소형 모바일 · 300px 이하] */
+@media (max-width: 300px) {
+  .final-contact-inner {
+    padding-bottom: 0;
+  }
+
+  .final-contact-decoration {
+    right: auto;
+    left: auto;
+    align-self: center;
+    width: min(80vw, 240px);
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .final-contact-copyright {
+    margin-top: -10px;
+  }
+}
