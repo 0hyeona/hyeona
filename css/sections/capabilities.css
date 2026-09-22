@@ -42,7 +42,7 @@
 
 .capabilities-title {
   margin: 18px 0 0;
-  font-size: 5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.20;
 }
@@ -151,7 +151,7 @@
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-  font-size: 1.625rem;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -241,6 +241,10 @@
   .capability-grid {
     gap: 38px 4vw;
   }
+
+  .capabilities-title {
+    font-size: 3rem;
+  }
 }
 
 /* [반응형: 모바일 · 768px 이하] */
@@ -251,12 +255,12 @@
   }
 
   .capabilities-kicker {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 
   .capabilities-title {
     margin-top: 20px;
-    font-size: clamp(2.375rem, 10.5vw, 3.625rem);
+    font-size: 3rem;
   }
 
   .capabilities-summary {
@@ -437,7 +441,7 @@
 .tool-card p,
 .tool-card li {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: var(--introduction-copy-size);
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.4;
 }
@@ -459,4 +463,11 @@
 .tool-card li {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.4;
+}
+
+@media (max-width:300px) {
+
+  .capabilities-title {
+    font-size: 2.5rem;
+  }
 }

@@ -8,41 +8,41 @@
 /* [기본 스타일] */
 .noda-showcase {
   position: relative;
-    isolation: isolate;
-    width: 100%;
-    background: linear-gradient(180deg, #f7f3ee 0%, #eee3d8 100%);
-    color: #333;
+  isolation: isolate;
+  width: 100%;
+  background: linear-gradient(180deg, #f7f3ee 0%, #eee3d8 100%);
+  color: #333;
 }
 
 .noda-showcase::before {
   position: absolute;
-    z-index: 0;
-    inset: 0;
-    content: "";
-    background: rgba(255, 255, 255, 0.28);
-    pointer-events: none;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  background: rgba(255, 255, 255, 0.28);
+  pointer-events: none;
 }
 
 .noda-showcase-header {
   position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 55px;
-    padding: 0 clamp(24px, 7vw, 96px);
-    background: #a38d7f;
-    color: #fff;
-    font-size: clamp(1.125rem, 2vw, 1.75rem);
-    font-weight: 500;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 55px;
+  padding: 0 clamp(24px, 7vw, 96px);
+  background: #a38d7f;
+  color: #fff;
+  font-size: clamp(1.125rem, 2vw, 1.75rem);
+  font-weight: 500;
 }
 
 .noda-showcase-inner {
   position: relative;
-    z-index: 1;
-    width: min(100% - 96px, 1280px);
-    margin: 0 auto;
-    padding: clamp(60px, 8vw, 110px) 0 clamp(96px, 12vw, 180px);
+  z-index: 1;
+  width: min(100% - 96px, 1280px);
+  margin: 0 auto;
+  padding: clamp(60px, 8vw, 110px) 0 clamp(96px, 12vw, 180px);
 }
 
 .noda-showcase-copy {
@@ -51,46 +51,46 @@
 
 .noda-showcase-number {
   display: block;
-    font-size: clamp(1.375rem, 2vw, 2rem);
-    font-weight: 700;
-    line-height: 1.4;
+  font-size: clamp(1.375rem, 2vw, 2rem);
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .noda-showcase-copy h2 {
   margin: 6px 0 10px;
-    color: #a38d7f;
-    font-size: clamp(3.375rem, 6vw, 6rem);
-    font-weight: 700;
-    line-height: 0.95;
+  color: #a38d7f;
+  font-size: clamp(3.375rem, 6vw, 6rem);
+  font-weight: 700;
+  line-height: 0.95;
 }
 
 .noda-showcase-copy p {
   margin: 0;
-    font-family: "Pretendard", Arial, sans-serif;
-    font-size: clamp(0.75rem, 1vw, 1rem);
-    font-weight: 400;
-    line-height: 1.4;
-    word-break: keep-all;
+  font-family: "Pretendard", Arial, sans-serif;
+  font-size: clamp(0.75rem, 1vw, 1rem);
+  font-weight: 400;
+  line-height: 1.4;
+  word-break: keep-all;
 }
 
 .noda-showcase-grid {
   display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.72fr);
-    gap: clamp(28px, 6vw, 92px);
-    align-items: end;
-    margin-top: clamp(54px, 7vw, 100px);
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.72fr);
+  gap: clamp(28px, 6vw, 92px);
+  align-items: end;
+  margin-top: clamp(54px, 7vw, 100px);
 }
 
 .noda-showcase-visual {
   display: flex;
-    justify-content: center;
-    align-items: flex-end;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .noda-showcase-visual img {
   display: block;
-    width: min(100%, 250px);
-    height: auto;
+  width: min(100%, 250px);
+  height: auto;
 }
 
 .noda-showcase-about {
@@ -99,18 +99,18 @@
 
 .noda-showcase-about h3 {
   margin: 0 0 14px;
-    font-size: clamp(1.125rem, 1.5vw, 1.5rem);
-    font-weight: 700;
+  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+  font-weight: 700;
 }
 
 .noda-showcase-about dl {
   display: grid;
-    grid-template-columns: max-content minmax(0, 1fr);
-    gap: 4px clamp(22px, 3vw, 48px);
-    width: 100%;
-    margin: 0;
-    font-size: clamp(0.75rem, 1vw, 1rem);
-    line-height: 1.4;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 4px clamp(22px, 3vw, 48px);
+  width: 100%;
+  margin: 0;
+  font-size: clamp(0.75rem, 1vw, 1rem);
+  line-height: 1.4;
 }
 
 .noda-showcase-about dl div {
@@ -119,65 +119,65 @@
 
 .noda-showcase-about dt {
   font-weight: 500;
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .noda-showcase-about dd {
   min-width: 0;
-    margin: 0;
-    color: #777;
-    font-size: clamp(0.75rem, 1.35vw, 1.25rem);
-    font-weight: 400;
-    letter-spacing: -0.03em;
-    white-space: nowrap;
+  margin: 0;
+  color: #777;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
 }
 
 .noda-brand-concept {
   position: relative;
-    isolation: isolate;
-    width: 100%;
-    background: #fff;
-    color: #333;
-    font-size: 1.625rem;
+  isolation: isolate;
+  width: 100%;
+  background: #fff;
+  color: #333;
+  font-size: 1.625rem;
 }
 
 .noda-brand-chair {
   position: absolute;
-    z-index: 0;
-    top: clamp(230px, 20vw, 320px);
-    right: clamp(-110px, -3vw, -24px);
-    width: min(36vw, 520px);
-    height: auto;
-    pointer-events: none;
-    user-select: none;
+  z-index: 0;
+  top: clamp(230px, 20vw, 320px);
+  right: clamp(-110px, -3vw, -24px);
+  width: min(36vw, 520px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
 }
 
 .noda-brand-concept-inner {
   position: relative;
-    z-index: 1;
-    width: min(100% - 96px, 1280px);
-    margin: 0 auto;
-    padding: clamp(110px, 14vw, 220px) 0 clamp(120px, 16vw, 240px);
+  z-index: 1;
+  width: min(100% - 96px, 1280px);
+  margin: 0 auto;
+  padding: clamp(110px, 14vw, 220px) 0 clamp(120px, 16vw, 240px);
 }
 
 .noda-brand-hero {
   text-align: center;
 }
 
-.noda-brand-hero > p {
+.noda-brand-hero>p {
   margin: 0;
-    font-family: "Pretendard", Arial, sans-serif;
-    font-size: clamp(0.75rem, 1vw, 1rem);
-    font-weight: 400;
+  font-family: "Pretendard", Arial, sans-serif;
+  font-size: clamp(0.75rem, 1vw, 1rem);
+  font-weight: 400;
 }
 
 .noda-brand-hero h2 {
   margin: 20px 0 0;
-    font-size: clamp(2.875rem, 5.5vw, 5.125rem);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.06em;
-    word-break: keep-all;
+  font-size: clamp(2.875rem, 5.5vw, 5.125rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.06em;
+  word-break: keep-all;
 }
 
 .noda-keywords {
@@ -187,138 +187,138 @@
 .noda-brand-label,
 .noda-keywords h3 {
   display: inline-block;
-    margin: 0;
-    padding-bottom: 7px;
-    border-bottom: 1px solid currentColor;
-    font-size: clamp(1.125rem, 1.5vw, 1.5rem);
-    font-weight: 700;
-    line-height: 1.4;
+  margin: 0;
+  padding-bottom: 7px;
+  border-bottom: 1px solid currentColor;
+  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.4;
 }
 
-.noda-keywords > div {
+.noda-keywords>div {
   display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
 }
 
 .noda-keywords span {
   display: inline-flex;
-    align-items: center;
-    min-height: 34px;
-    padding: 0 18px;
-    border: 1px solid #a38d7f;
-    border-radius: 999px;
-    color: #6f5b50;
-    font-family: "Pretendard", Arial, sans-serif;
-    font-size: 1.25rem;
-    font-weight: 400;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 18px;
+  border: 1px solid #a38d7f;
+  border-radius: 999px;
+  color: #6f5b50;
+  font-family: "Pretendard", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .noda-brand-logo {
   display: block;
-    margin-top: clamp(130px, 17vw, 270px);
+  margin-top: clamp(130px, 17vw, 270px);
 }
 
 .noda-brand-logo-row {
   display: grid;
-    grid-template-columns: minmax(180px, 0.42fr) minmax(0, 1fr);
-    gap: clamp(48px, 8vw, 130px);
-    align-items: center;
-    margin-top: 30px;
+  grid-template-columns: minmax(180px, 0.42fr) minmax(0, 1fr);
+  gap: clamp(48px, 8vw, 130px);
+  align-items: center;
+  margin-top: 30px;
 }
 
 .noda-brand-logo-mark img {
   display: block;
-    width: min(100%, 160px);
-    height: auto;
-    margin-top: 30px;
+  width: min(100%, 160px);
+  height: auto;
+  margin-top: 30px;
 }
 
-.noda-brand-logo-row > p {
+.noda-brand-logo-row>p {
   margin: 0;
-    font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-    font-size: 1.625rem;
-    font-weight: 400;
-    line-height: 1.55;
-    word-break: keep-all;
+  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+  font-size: 1.625rem;
+  font-weight: 400;
+  line-height: 1.55;
+  word-break: keep-all;
 }
 
 .noda-persona {
   width: 100%;
-    overflow: hidden;
-    background: linear-gradient(180deg, #f7f3ee 0%, #eee3d8 100%);
-    color: #333;
-    font-size: 1.625rem;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f7f3ee 0%, #eee3d8 100%);
+  color: #333;
+  font-size: 1.625rem;
 }
 
 .noda-persona-inner {
   position: relative;
-    width: min(100% - 96px, 1280px);
-    margin: 0 auto;
-    padding: clamp(180px, 20vw, 320px) 0 clamp(130px, 15vw, 240px);
+  width: min(100% - 96px, 1280px);
+  margin: 0 auto;
+  padding: clamp(180px, 20vw, 320px) 0 clamp(130px, 15vw, 240px);
 }
 
 .noda-persona-wordmark {
   position: absolute;
-    z-index: 0;
-    top: clamp(100px, 13vw, 200px);
-    left: 50%;
-    width: max(1100px, 150vw);
-    max-width: none;
-    transform: translateX(-50%);
-    pointer-events: none;
+  z-index: 0;
+  top: clamp(100px, 13vw, 200px);
+  left: 50%;
+  width: max(1100px, 150vw);
+  max-width: none;
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 
 .noda-persona-content {
   position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(320px, 0.9fr) minmax(420px, 1.1fr);
-    gap: clamp(70px, 10vw, 170px);
-    align-items: start;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(420px, 1.1fr);
+  gap: clamp(70px, 10vw, 170px);
+  align-items: start;
 }
 
 .noda-persona-photo {
   width: min(100%, 380px);
-    aspect-ratio: 1;
-    overflow: hidden;
-    border-radius: 50%;
-    background: #8d796d;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #8d796d;
 }
 
 .noda-persona-photo img {
   display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .noda-persona-profile h2 {
   margin: 32px 0 0;
-    font-size: clamp(1.5rem, 2vw, 2rem);
-    font-weight: 700;
-    line-height: 1.35;
-    letter-spacing: -0.05em;
-    word-break: keep-all;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.05em;
+  word-break: keep-all;
 }
 
 .noda-persona-block {
   margin: 0;
 }
 
-.noda-persona-profile > .noda-persona-block {
+.noda-persona-profile>.noda-persona-block {
   margin-top: 48px;
 }
 
 .noda-persona-block h3 {
   margin: 0 0 20px;
-    color: #a38d7f;
-    font-size: clamp(1.25rem, 1.7vw, 1.75rem);
-    font-weight: 700;
-    line-height: 1.2;
+  color: #a38d7f;
+  font-size: clamp(1.25rem, 1.7vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .noda-persona-block p,
@@ -326,23 +326,23 @@
 .noda-persona-block dt,
 .noda-persona-block dd {
   margin: 0;
-    font-size: 1.625rem;
-    font-weight: 400;
-    line-height: 1.55;
-    letter-spacing: -0.04em;
-    word-break: keep-all;
+  font-size: 1.625rem;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: -0.04em;
+  word-break: keep-all;
 }
 
 .noda-persona-profile dl {
   display: grid;
-    gap: 8px;
-    margin: 0;
+  gap: 8px;
+  margin: 0;
 }
 
 .noda-persona-profile dl div {
   display: grid;
-    grid-template-columns: 190px minmax(0, 1fr);
-    gap: 24px;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 24px;
 }
 
 .noda-persona-profile dt {
@@ -351,39 +351,32 @@
 
 .noda-persona-profile dd {
   color: #333;
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .noda-persona-details {
   display: grid;
-    gap: clamp(58px, 8vw, 110px);
-    padding-top: clamp(90px, 11vw, 170px);
+  gap: clamp(58px, 8vw, 110px);
+  padding-top: clamp(90px, 11vw, 170px);
 }
 
 .noda-persona-details ul {
   display: grid;
-    gap: 8px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .noda-persona-needs-goal {
   display: grid;
-    gap: clamp(58px, 8vw, 110px);
-}
-
-.noda-style-guide {
-  width: 100%;
-    background: #fff;
-    color: #333;
-    font-size: 1.625rem;
+  gap: clamp(58px, 8vw, 110px);
 }
 
 .noda-style-guide-inner {
   width: min(100% - 96px, 1280px);
-    margin: 0 auto;
-    padding: clamp(120px, 14vw, 220px) 0 clamp(140px, 16vw, 260px);
+  margin: 0 auto;
+  padding: clamp(120px, 14vw, 220px) 0 clamp(140px, 16vw, 260px);
 }
 
 .noda-color-section {
@@ -392,51 +385,50 @@
 
 .noda-style-label {
   display: table;
-    margin: 0 auto;
-    padding-bottom: 7px;
-    border-bottom: 1px solid currentColor;
-    font-family: "GMarketSans", Arial, sans-serif;
-    font-size: clamp(1.5rem, 2vw, 2rem);
-    font-weight: 700;
-    line-height: 1.2;
+  margin: 0 auto;
+  padding-bottom: 7px;
+  border-bottom: 1px solid currentColor;
+  font-family: "GMarketSans", Arial, sans-serif;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .noda-style-description {
   margin: 40px 0 0;
-    font-family: "Pretendard", Arial, sans-serif;
-    font-size: 1.625rem;
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: -0.04em;
-    word-break: keep-all;
+  font-family: "Pretendard", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.04em;
+  word-break: keep-all;
 }
 
 .noda-style-description strong {
-  color: #9a8170;
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .noda-color-list {
   display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: clamp(18px, 3vw, 42px);
-    max-width: 900px;
-    margin: 90px auto 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(18px, 3vw, 42px);
+  max-width: 900px;
+  margin: 90px auto 0;
 }
 
 .noda-color-item {
   display: grid;
-    justify-items: center;
-    gap: 18px;
-    font-family: "Pretendard", Arial, sans-serif;
+  justify-items: center;
+  gap: 18px;
+  font-family: "Pretendard", Arial, sans-serif;
 }
 
 .noda-color-item span {
   display: block;
-    width: min(100%, 180px);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: #cbb79f;
+  width: min(100%, 180px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #cbb79f;
 }
 
 .noda-color-item:nth-child(3) span {
@@ -449,22 +441,23 @@
 
 .noda-color-item.is-main span {
   display: grid;
-    place-items: center;
-    color: #fff;
-    background: #9a8170;
+  place-items: center;
+  color: #fff;
+  background: #9a8170;
+  font-size: 1rem;
 }
 
 .noda-color-item b {
   font-size: 1.25rem;
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .noda-typography-section {
   display: grid;
-    grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1.3fr);
-    gap: clamp(60px, 9vw, 140px);
-    align-items: start;
-    margin-top: clamp(170px, 20vw, 320px);
+  grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(60px, 9vw, 140px);
+  align-items: start;
+  margin-top: clamp(170px, 20vw, 320px);
 }
 
 .noda-typography-copy .noda-style-label {
@@ -477,38 +470,36 @@
 
 .noda-type-specimen {
   font-family: "Pretendard", Arial, sans-serif;
-    min-width: 0;
-    max-width: 100%;
-    box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .noda-type-specimen h2 {
   margin: 0 0 26px;
-    font-size: clamp(2.625rem, 4vw, 3.625rem);
-    line-height: 1;
+  font-size: clamp(2.625rem, 4vw, 3.625rem);
+  line-height: 1;
 }
 
 .noda-type-table {
   display: grid;
-    gap: 18px;
+  gap: 18px;
 }
 
 .noda-type-table [role="row"] {
   display: grid;
-    grid-template-columns: minmax(155px, 1fr) minmax(190px, 1.15fr) minmax(
-        140px,
-        0.9fr
-      );
-    align-items: baseline;
-    gap: 26px;
-    font-size: clamp(0.8125rem, 1.4vw, 1.5rem);
-    line-height: 1.25;
+  grid-template-columns: minmax(155px, 1fr) minmax(190px, 1.15fr) minmax(140px,
+      0.9fr);
+  align-items: baseline;
+  gap: 26px;
+  font-size: clamp(0.8125rem, 1.4vw, 1.5rem);
+  line-height: 1.25;
 }
 
 .noda-type-table strong,
 .noda-type-table em {
   font-style: normal;
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .noda-type-table .is-bold {
@@ -517,33 +508,33 @@
 
 .noda-image-section {
   width: 100%;
-    overflow: hidden;
-    background: #fff;
+  overflow: hidden;
+  background: #fff;
 }
 
 .noda-image-frame {
   width: 100%;
-    line-height: 0;
+  line-height: 0;
 }
 
 .noda-image-frame img {
   display: block;
-    width: 100%;
-    max-width: none;
-    height: auto;
+  width: 100%;
+  max-width: none;
+  height: auto;
 }
 
 /* [반응형: 모바일 · 768px 이하] */
 @media (max-width: 768px) {
   .noda-showcase-header {
     min-height: 38px;
-        padding-inline: 16px;
-        font-size: 0.9375rem;
+    padding-inline: 16px;
+    font-size: 0.9375rem;
   }
 
   .noda-showcase-inner {
     width: calc(100% - 48px);
-        padding: 52px 0 96px;
+    padding: 52px 0 96px;
   }
 
   .noda-showcase-number {
@@ -552,7 +543,7 @@
 
   .noda-showcase-copy h2 {
     margin: 6px 0 12px;
-        font-size: clamp(3.25rem, 18vw, 4.875rem);
+    font-size: clamp(3.25rem, 18vw, 4.875rem);
   }
 
   .noda-showcase-copy p {
@@ -561,10 +552,10 @@
 
   .noda-showcase-grid {
     display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 44px;
-        margin-top: 44px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 44px;
+    margin-top: 44px;
   }
 
   .noda-showcase-visual img {
@@ -577,13 +568,13 @@
 
   .noda-showcase-about h3 {
     margin-bottom: 12px;
-        font-size: 1rem;
+    font-size: 1rem;
   }
 
   .noda-showcase-about dl {
     grid-template-columns: minmax(0, 1fr) max-content;
-        gap: 4px 12px;
-        font-size: clamp(0.5625rem, 3.2vw, 0.875rem);
+    gap: 4px 12px;
+    font-size: clamp(0.5625rem, 3.2vw, 0.875rem);
   }
 
   .noda-showcase-about dd {
@@ -592,21 +583,21 @@
 
   .noda-brand-concept-inner {
     width: calc(100% - 48px);
-        padding: 88px 0 112px;
+    padding: 88px 0 112px;
   }
 
   .noda-brand-concept {
     font-size: 0.75rem;
   }
 
-  .noda-brand-hero > p {
+  .noda-brand-hero>p {
     font-size: 0.6875rem;
   }
 
   .noda-brand-hero h2 {
     margin-top: 16px;
-        font-size: clamp(2rem, 10.5vw, 3.25rem);
-        line-height: 1.4;
+    font-size: clamp(2rem, 10.5vw, 3.25rem);
+    line-height: 1.4;
   }
 
   .noda-keywords {
@@ -618,42 +609,42 @@
     font-size: 1rem;
   }
 
-  .noda-keywords > div {
+  .noda-keywords>div {
     gap: 6px;
-        margin-top: 18px;
+    margin-top: 18px;
   }
 
   .noda-keywords span {
     min-height: 29px;
-        padding-inline: 12px;
-        font-size: 0.625rem;
+    padding-inline: 12px;
+    font-size: 0.625rem;
   }
 
   .noda-brand-logo {
     grid-template-columns: 1fr;
-        gap: 38px;
-        margin-top: 104px;
-        text-align: center;
+    gap: 38px;
+    margin-top: 104px;
+    text-align: center;
   }
 
   .noda-brand-logo-mark {
     text-align: left;
   }
 
-  .noda-brand-logo > .noda-brand-label {
+  .noda-brand-logo>.noda-brand-label {
     display: table;
   }
 
   .noda-brand-logo-mark img {
     width: min(42vw, 140px);
-        margin-top: 20px;
-        margin-inline: auto;
+    margin-top: 20px;
+    margin-inline: auto;
   }
 
-  .noda-brand-logo-row > p {
+  .noda-brand-logo-row>p {
     font-size: 0.6875rem;
-        line-height: 1.4;
-        text-align: center;
+    line-height: 1.4;
+    text-align: center;
   }
 
   .noda-persona {
@@ -662,23 +653,23 @@
 
   .noda-persona-inner {
     width: calc(100% - 48px);
-        padding: 92px 0 112px;
+    padding: 92px 0 112px;
   }
 
   .noda-persona-wordmark {
     top: 48px;
-        width: max(560px, 190vw);
+    width: max(560px, 190vw);
   }
 
   .noda-persona-content {
     grid-template-columns: 1fr;
-        gap: 68px;
+    gap: 68px;
   }
 
   .noda-persona-profile {
     display: flex;
-        flex-direction: column;
-        align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .noda-persona-photo {
@@ -687,19 +678,19 @@
 
   .noda-persona-profile h2 {
     width: 100%;
-        margin-top: 24px;
-        font-size: clamp(1.25rem, 6.2vw, 1.8125rem);
-        text-align: left;
+    margin-top: 24px;
+    font-size: clamp(1.25rem, 6.2vw, 1.8125rem);
+    text-align: left;
   }
 
-  .noda-persona-profile > .noda-persona-block {
+  .noda-persona-profile>.noda-persona-block {
     width: 100%;
-        margin-top: 40px;
+    margin-top: 40px;
   }
 
   .noda-persona-block h3 {
     margin-bottom: 12px;
-        font-size: 1.125rem;
+    font-size: 1.125rem;
   }
 
   .noda-persona-block p,
@@ -707,7 +698,7 @@
   .noda-persona-block dt,
   .noda-persona-block dd {
     font-size: 0.75rem;
-        line-height: 1.4;
+    line-height: 1.4;
   }
 
   .noda-persona-profile dl {
@@ -716,12 +707,12 @@
 
   .noda-persona-profile dl div {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: 12px;
+    gap: 12px;
   }
 
   .noda-persona-details {
     gap: 42px;
-        padding-top: 0;
+    padding-top: 0;
   }
 
   .noda-style-guide {
@@ -730,7 +721,7 @@
 
   .noda-style-guide-inner {
     width: calc(100% - 48px);
-        padding: 96px 0 120px;
+    padding: 96px 0 120px;
   }
 
   .noda-style-label {
@@ -739,14 +730,14 @@
 
   .noda-style-description {
     margin-top: 28px;
-        font-size: 0.75rem;
-        line-height: 1.55;
+    font-size: 0.75rem;
+    line-height: 1.55;
   }
 
   .noda-color-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 32px 18px;
-        margin-top: 54px;
+    gap: 32px 18px;
+    margin-top: 54px;
   }
 
   .noda-color-item {
@@ -763,8 +754,8 @@
 
   .noda-typography-section {
     grid-template-columns: 1fr;
-        gap: 70px;
-        margin-top: 120px;
+    gap: 70px;
+    margin-top: 120px;
   }
 
   .noda-typography-copy .noda-style-description {
@@ -773,7 +764,7 @@
 
   .noda-type-specimen h2 {
     margin-bottom: 22px;
-        font-size: 2.25rem;
+    font-size: 2.25rem;
   }
 
   .noda-type-table {
@@ -781,12 +772,10 @@
   }
 
   .noda-type-table [role="row"] {
-    grid-template-columns: minmax(74px, 0.8fr) minmax(100px, 1.1fr) minmax(
-            88px,
-            0.9fr
-          );
-        gap: 8px;
-        font-size: clamp(0.5625rem, 2.8vw, 0.75rem);
+    grid-template-columns: minmax(74px, 0.8fr) minmax(100px, 1.1fr) minmax(88px,
+        0.9fr);
+    gap: 8px;
+    font-size: clamp(0.5625rem, 2.8vw, 0.75rem);
   }
 }
 
@@ -809,7 +798,7 @@
     font-size: 1.875rem;
   }
 
-  .noda-brand-hero > p {
+  .noda-brand-hero>p {
     font-size: 1.5rem;
   }
 
@@ -822,7 +811,7 @@
     font-size: 1.875rem;
   }
 
-  .noda-brand-logo-row > p {
+  .noda-brand-logo-row>p {
     font-size: 1.5rem;
   }
 
@@ -844,7 +833,7 @@
 
 .noda-showcase-header {
   padding: 0 96px;
-    font-size: 1.625rem;
+  font-size: 1.625rem;
 }
 
 .noda-showcase-inner {
@@ -865,7 +854,7 @@
 
 .noda-showcase-grid {
   gap: 80px;
-    margin-top: 88px;
+  margin-top: 88px;
 }
 
 .noda-showcase-about h3 {
@@ -874,14 +863,14 @@
 
 .noda-showcase-about dl {
   column-gap: 40px;
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .noda-brand-concept-inner {
   padding: 180px 0 220px;
 }
 
-.noda-brand-hero > p {
+.noda-brand-hero>p {
   font-size: 1rem;
 }
 
@@ -900,10 +889,10 @@
 
 .noda-brand-logo {
   gap: 96px;
-    margin-top: 220px;
+  margin-top: 220px;
 }
 
-.noda-brand-logo-row > p {
+.noda-brand-logo-row>p {
   font-size: 1.625rem;
 }
 
@@ -913,7 +902,7 @@
 
 .noda-persona-wordmark {
   top: 150px;
-    width: 1500px;
+  width: 1500px;
 }
 
 .noda-persona-content {
@@ -930,7 +919,7 @@
 
 .noda-persona-details {
   gap: 90px;
-    padding-top: 130px;
+  padding-top: 130px;
 }
 
 .noda-persona-block p,
@@ -954,7 +943,7 @@
 
 .noda-color-list {
   gap: 36px;
-    margin-top: 88px;
+  margin-top: 88px;
 }
 
 .noda-color-item b {
@@ -963,7 +952,7 @@
 
 .noda-typography-section {
   gap: 100px;
-    margin-top: 240px;
+  margin-top: 240px;
 }
 
 .noda-type-specimen h2 {
@@ -1003,41 +992,41 @@
 
   .noda-brand-logo {
     display: block;
-        margin-top: 160px;
+    margin-top: 160px;
   }
 
-  .noda-brand-logo > .noda-brand-label {
+  .noda-brand-logo>.noda-brand-label {
     display: table;
-        margin: 0;
+    margin: 0;
   }
 
   .noda-brand-logo-row {
     display: flex;
-        align-items: flex-start;
-        gap: clamp(48px, 7vw, 84px);
-        width: 100%;
-        margin-top: 30px;
+    align-items: flex-start;
+    gap: clamp(48px, 7vw, 84px);
+    width: 100%;
+    margin-top: 30px;
   }
 
   .noda-brand-logo-mark {
     flex: 0 0 clamp(180px, 27vw, 280px);
-        min-width: 0;
+    min-width: 0;
   }
 
   .noda-brand-logo-mark img {
     width: min(100%, 220px);
-        margin: 0;
+    margin: 0;
   }
 
-  .noda-brand-logo-row > p {
+  .noda-brand-logo-row>p {
     flex: 1 1 0;
-        min-width: 0;
-        margin: 10px 0 0;
-        font-size: clamp(1rem, 1.8vw, 1.25rem);
-        line-height: 1.55;
-        text-align: left;
-        word-break: keep-all;
-        overflow-wrap: break-word;
+    min-width: 0;
+    margin: 10px 0 0;
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    line-height: 1.55;
+    text-align: left;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
   .noda-persona-block p,
@@ -1060,12 +1049,12 @@
 @media (max-width: 768px) {
   .noda-showcase-header {
     padding-inline: 16px;
-        font-size: 0.9375rem;
+    font-size: 0.9375rem;
   }
 
   .noda-showcase-inner {
     width: 100%;
-        padding: 56px 24px 96px;
+    padding: 56px 24px 96px;
   }
 
   .noda-showcase-number {
@@ -1078,12 +1067,12 @@
 
   .noda-showcase-copy p {
     font-size: 0.75rem;
-        line-height: 1.5;
+    line-height: 1.5;
   }
 
   .noda-showcase-grid {
     gap: 44px;
-        margin-top: 48px;
+    margin-top: 48px;
   }
 
   .noda-showcase-about h3 {
@@ -1092,7 +1081,7 @@
 
   .noda-showcase-about dl {
     column-gap: 20px;
-        font-size: 0.75rem;
+    font-size: 0.75rem;
   }
 
   .noda-brand-chair {
@@ -1101,10 +1090,10 @@
 
   .noda-brand-concept-inner {
     width: 100%;
-        padding: 96px 24px 120px;
+    padding: 96px 24px 120px;
   }
 
-  .noda-brand-hero > p {
+  .noda-brand-hero>p {
     font-size: 0.75rem;
   }
 
@@ -1123,21 +1112,21 @@
 
   .noda-brand-logo {
     gap: 40px;
-        margin-top: 108px;
+    margin-top: 108px;
   }
 
-  .noda-brand-logo-row > p {
+  .noda-brand-logo-row>p {
     font-size: 0.75rem;
   }
 
   .noda-persona-inner {
     width: 100%;
-        padding: 120px 24px 120px;
+    padding: 120px 24px 120px;
   }
 
   .noda-persona-wordmark {
     top: 60px;
-        width: 700px;
+    width: 700px;
   }
 
   .noda-persona-content {
@@ -1158,18 +1147,18 @@
 
   .noda-persona-needs-goal {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: 12px;
+    gap: 12px;
   }
 
   .noda-persona-needs-goal .noda-persona-block {
     display: block;
-        min-width: 0;
-        padding: 18px 0;
-        border: 0;
-        padding-inline: 14px;
+    min-width: 0;
+    padding: 18px 0;
+    border: 0;
+    padding-inline: 14px;
   }
 
-  .noda-persona-needs-goal .noda-persona-block + .noda-persona-block {
+  .noda-persona-needs-goal .noda-persona-block+.noda-persona-block {
     margin-top: 0;
   }
 
@@ -1191,7 +1180,7 @@
 
   .noda-style-guide-inner {
     width: 100%;
-        padding: 104px 24px 128px;
+    padding: 104px 24px 128px;
   }
 
   .noda-style-label {
@@ -1204,7 +1193,7 @@
 
   .noda-color-list {
     gap: 28px 16px;
-        margin-top: 56px;
+    margin-top: 56px;
   }
 
   .noda-color-item b {
@@ -1213,7 +1202,7 @@
 
   .noda-typography-section {
     gap: 64px;
-        margin-top: 120px;
+    margin-top: 120px;
   }
 
   .noda-type-specimen h2 {
@@ -1260,7 +1249,7 @@
     font-size: 4.5rem;
   }
 
-  .noda-brand-hero > p {
+  .noda-brand-hero>p {
     font-size: 1.25rem;
   }
 
@@ -1272,7 +1261,7 @@
     font-size: 1.625rem;
   }
 
-  .noda-brand-logo-row > p {
+  .noda-brand-logo-row>p {
     font-size: 1.25rem;
   }
 
@@ -1314,9 +1303,10 @@
 
 /* [반응형: PC · 1201px 이상] */
 @media (min-width: 1201px) {
+
   .noda-showcase-copy p,
   .noda-showcase-about dl,
-  .noda-brand-logo-row > p,
+  .noda-brand-logo-row>p,
   .noda-style-description {
     font-size: 1.375rem;
   }
@@ -1335,23 +1325,20 @@
     font-size: 1.375rem;
   }
 
-  .noda-style-label {
-    font-size: 1.875rem;
-  }
 
   .noda-color-item b {
-    font-size: 1.375rem;
+    font-size: 1rem;
   }
 }
 
 /* [반응형: PC · 1201px 이상] */
 @media (min-width: 1201px) {
   .noda-showcase-number {
-    font-size: 1.875rem;
+    font-size: 2rem;
   }
 
   .noda-showcase-copy h2 {
-    font-size: 5.25rem;
+    font-size: 5rem;
   }
 
   .noda-showcase-copy p,
@@ -1360,23 +1347,24 @@
   }
 
   .noda-showcase-about h3 {
-    font-size: 1.875rem;
-  }
-
-  .noda-brand-hero > p {
     font-size: 1.5rem;
   }
 
+  .noda-brand-hero>p {
+    font-size: 1.2rem;
+  }
+
   .noda-brand-hero h2 {
-    font-size: 5.25rem;
+    font-size: 5rem;
+    line-height: inherit;
   }
 
   .noda-brand-label,
   .noda-keywords h3 {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
   }
 
-  .noda-brand-logo-row > p {
+  .noda-brand-logo-row>p {
     font-size: 1.5rem;
   }
 
@@ -1400,37 +1388,33 @@
 @media (min-width: 1201px) {
   .noda-brand-logo {
     display: block;
-        margin-top: 220px;
+    margin-top: 70px;
   }
 
-  .noda-brand-logo > .noda-brand-label {
+  .noda-brand-logo>.noda-brand-label {
     display: table;
-        margin: 0;
+    margin: 0;
   }
 
   .noda-brand-logo-row {
     display: flex;
-        align-items: flex-start;
-        gap: 120px;
-        margin-top: 30px;
-  }
-
-  .noda-brand-logo-mark {
-    flex: 0 0 360px;
+    align-items: flex-start;
+    gap: 120px;
+    margin-top: 30px;
   }
 
   .noda-brand-logo-mark img {
-    width: 260px;
-        margin: 0;
+    width: 180px;
+    margin: 0;
   }
 
-  .noda-brand-logo-row > p {
+  .noda-brand-logo-row>p {
     flex: 1 1 auto;
-        min-width: 0;
-        margin: 22px 0 0;
-        font-size: 1.5rem;
-        line-height: 1.55;
-        text-align: left;
+    min-width: 0;
+    margin: 22px 0 0;
+    font-size: 1.5rem;
+    line-height: 1.55;
+    text-align: left;
   }
 }
 
@@ -1440,16 +1424,16 @@
     display: block;
   }
 
-  .noda-brand-logo > .noda-brand-label {
+  .noda-brand-logo>.noda-brand-label {
     display: table;
-        margin: 0;
+    margin: 0;
   }
 
   .noda-brand-logo-row {
     display: grid;
-        grid-template-columns: 1fr;
-        gap: 38px;
-        margin-top: 20px;
+    grid-template-columns: 1fr;
+    gap: 38px;
+    margin-top: 20px;
   }
 
   .noda-brand-logo-mark {
@@ -1460,20 +1444,20 @@
     margin-inline: auto;
   }
 
-  .noda-brand-logo-row > p {
+  .noda-brand-logo-row>p {
     margin: 0;
-        text-align: center;
+    text-align: center;
   }
 }
 
-.noda-showcase-copy > p,
-.noda-brand-hero > p,
+.noda-showcase-copy>p,
+.noda-brand-hero>p,
 .noda-style-description {
   font-family: "Pretendard", Arial, sans-serif;
 }
 
-.noda-showcase-copy > p,
-.noda-brand-hero > p,
+.noda-showcase-copy>p,
+.noda-brand-hero>p,
 .noda-keywords {
   font-family: "GMarketSans", Arial, sans-serif;
 }
@@ -1507,23 +1491,23 @@
 @media (max-width: 768px) {
   .noda-type-specimen {
     overflow: visible;
-        width: 100%;
+    width: 100%;
   }
 
   .noda-type-table {
     width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        overflow: visible;
-        gap: 10px;
+    min-width: 0;
+    max-width: 100%;
+    overflow: visible;
+    gap: 10px;
   }
 
   .noda-type-table [role="row"] {
     grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.1fr) minmax(0, 0.9fr);
-        gap: 5px;
-        white-space: normal;
-        font-size: 0.625rem;
-        line-height: 1.2;
+    gap: 5px;
+    white-space: normal;
+    font-size: 0.625rem;
+    line-height: 1.2;
   }
 
   .noda-type-table [role="row"]:nth-child(-n + 2) {
@@ -1547,31 +1531,31 @@
 @media (min-width: 769px) and (max-width: 1200px) {
   .noda-type-specimen {
     overflow: visible;
-        width: 100%;
+    width: 100%;
   }
 
   .noda-type-table {
     width: 100%;
-        min-width: 0;
-        max-width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .noda-type-table [role="row"] {
     min-width: 0;
-        white-space: normal;
+    white-space: normal;
   }
 }
 
 .noda-persona-profile dl div {
   display: flex;
-    align-items: baseline;
-    gap: 24px;
+  align-items: baseline;
+  gap: 24px;
 }
 
 .noda-persona-profile dl dt,
 .noda-persona-profile dl dd {
   flex: 1 1 0;
-    min-width: 0;
+  min-width: 0;
 }
 
 /* [반응형: 모바일 · 768px 이하] */
@@ -1593,12 +1577,12 @@
 @media (min-width: 1201px) {
   .noda-persona-inner {
     padding-top: 240px;
-        padding-bottom: 190px;
+    padding-bottom: 190px;
   }
 
   .noda-persona-content {
     grid-template-columns: minmax(300px, 0.82fr) minmax(440px, 1.18fr);
-        gap: 110px;
+    gap: 110px;
   }
 
   .noda-persona-photo {
@@ -1607,7 +1591,7 @@
 
   .noda-persona-details {
     gap: 72px;
-        padding-top: 92px;
+    padding-top: 92px;
   }
 }
 
@@ -1615,13 +1599,13 @@
 @media (min-width: 769px) and (max-width: 1200px) {
   .noda-persona-inner {
     width: calc(100% - 128px);
-        padding-top: 180px;
-        padding-bottom: 150px;
+    padding-top: 180px;
+    padding-bottom: 150px;
   }
 
   .noda-persona-content {
     grid-template-columns: minmax(250px, 0.85fr) minmax(320px, 1.15fr);
-        gap: 64px;
+    gap: 64px;
   }
 
   .noda-persona-photo {
@@ -1630,7 +1614,7 @@
 
   .noda-persona-profile h2 {
     margin-top: 24px;
-        font-size: 1.75rem;
+    font-size: 1.75rem;
   }
 
   .noda-persona-block p,
@@ -1642,12 +1626,12 @@
 
   .noda-persona-profile dl div {
     grid-template-columns: 130px minmax(0, 1fr);
-        gap: 16px;
+    gap: 16px;
   }
 
   .noda-persona-details {
     gap: 58px;
-        padding-top: 62px;
+    padding-top: 62px;
   }
 }
 
@@ -1655,7 +1639,7 @@
 @media (max-width: 768px) {
   .noda-persona-inner {
     padding-top: 104px;
-        padding-bottom: 96px;
+    padding-bottom: 96px;
   }
 
   .noda-persona-wordmark {
@@ -1672,10 +1656,10 @@
 
   .noda-persona-profile h2 {
     margin-top: 20px;
-        text-align: center;
+    text-align: center;
   }
 
-  .noda-persona-profile > .noda-persona-block {
+  .noda-persona-profile>.noda-persona-block {
     margin-top: 32px;
   }
 
@@ -1688,13 +1672,14 @@
   font-family: "GMarketSans", Arial, sans-serif;
 }
 
-.noda-brand-logo > .noda-brand-label {
+.noda-brand-logo>.noda-brand-label {
   font-family: "GMarketSans", Arial, sans-serif;
-    font-weight: 700;
+  font-weight: 700;
 }
 
 /* [반응형: PC · 1201px 이상] */
 @media (min-width: 1201px) {
+
   .noda-type-specimen,
   .noda-type-table {
     font-family: "Pretendard", Arial, sans-serif;
@@ -1735,18 +1720,19 @@
 
 /* [반응형: 태블릿·모바일 · 1200px 이하] */
 @media (max-width: 1200px) {
+
   .noda-style-guide-inner,
   .noda-typography-section,
   .noda-typography-copy,
   .noda-type-specimen {
     min-width: 0;
-        max-width: 100%;
-        box-sizing: border-box;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .noda-type-specimen {
     overflow-x: auto;
-        width: 100%;
+    width: 100%;
   }
 
   .noda-type-specimen h2 {
@@ -1755,9 +1741,9 @@
 
   .noda-type-table {
     width: 680px;
-        min-width: 680px;
-        max-width: none;
-        font-family: "Pretendard", Arial, sans-serif;
+    min-width: 680px;
+    max-width: none;
+    font-family: "Pretendard", Arial, sans-serif;
   }
 
   .noda-type-table [role="row"] {
@@ -1808,7 +1794,7 @@
 @media (min-width: 1201px) {
   .noda-typography-section {
     grid-template-columns: 500px minmax(0, 1fr);
-        gap: 120px;
+    gap: 120px;
   }
 
   .noda-type-specimen {
@@ -1817,7 +1803,7 @@
 
   .noda-type-table {
     width: 100%;
-        min-width: 0;
+    min-width: 0;
   }
 }
 
@@ -1829,9 +1815,9 @@
 
   .noda-type-table [role="row"] {
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 0.82fr);
-        gap: 3px;
-        font-size: 0.5625rem;
-        line-height: 1.15;
+    gap: 3px;
+    font-size: 0.5625rem;
+    line-height: 1.15;
   }
 
   .noda-type-table [role="row"]:nth-child(-n + 2) {
@@ -1855,18 +1841,18 @@
 @media (max-width: 1200px) {
   .noda-type-specimen {
     overflow: visible;
-        width: 100%;
+    width: 100%;
   }
 
   .noda-type-table {
     width: 100%;
-        min-width: 0;
-        max-width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .noda-type-table [role="row"] {
     min-width: 0;
-        white-space: normal;
+    white-space: normal;
   }
 }
 
@@ -1921,9 +1907,9 @@
 @media (max-width: 768px) {
   .noda-type-table [role="row"] {
     grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.1fr) minmax(0, 0.9fr);
-        gap: 5px;
-        font-size: 0.625rem;
-        line-height: 1.2;
+    gap: 5px;
+    font-size: 0.625rem;
+    line-height: 1.2;
   }
 
   .noda-type-table [role="row"]:nth-child(-n + 2) {
@@ -1947,7 +1933,7 @@
 @media (min-width: 769px) and (max-width: 1200px) {
   .noda-typography-section {
     grid-template-columns: 1fr;
-        gap: 64px;
+    gap: 64px;
   }
 
   .noda-type-specimen {
@@ -1956,46 +1942,46 @@
 
   .noda-type-table {
     width: 100%;
-        min-width: 0;
+    min-width: 0;
   }
 }
 
 /* [반응형: 모바일 · 768px 이하] */
 @media (max-width: 768px) {
-  .noda-brand-logo > .noda-brand-label {
+  .noda-brand-logo>.noda-brand-label {
     padding-bottom: 7px;
-        font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-        font-size: 1.25rem;
-        font-weight: 700;
-        line-height: 1.4;
+    font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
   }
 
   .noda-showcase-about dl {
     grid-template-columns: max-content minmax(0, 1fr);
-        column-gap: 16px;
-        font-size: clamp(0.625rem, 3vw, 0.8125rem);
+    column-gap: 16px;
+    font-size: clamp(0.625rem, 3vw, 0.8125rem);
   }
 
   .noda-showcase-about dd {
     overflow-wrap: normal;
-        white-space: nowrap;
+    white-space: nowrap;
   }
 
   .noda-persona-profile dl div {
     display: grid;
-        grid-template-columns: minmax(92px, 0.8fr) minmax(0, 1.2fr);
-        align-items: baseline;
-        gap: 16px;
+    grid-template-columns: minmax(92px, 0.8fr) minmax(0, 1.2fr);
+    align-items: baseline;
+    gap: 16px;
   }
 
   .noda-persona-needs-goal {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px;
+    gap: 24px;
   }
 
   .noda-persona-needs-goal .noda-persona-block {
     min-width: 0;
-        padding: 0;
+    padding: 0;
   }
 
   .noda-persona-needs-goal .noda-persona-block h3 {
@@ -2012,12 +1998,12 @@
 @media (max-width: 374px) {
   .noda-showcase-about dl {
     column-gap: 10px;
-        font-size: 0.625rem;
+    font-size: 0.625rem;
   }
 
   .noda-persona-profile dl div {
     grid-template-columns: 82px minmax(0, 1fr);
-        gap: 12px;
+    gap: 12px;
   }
 
   .noda-persona-needs-goal {
@@ -2027,33 +2013,33 @@
 
 .noda-persona-wordmark {
   width: min(100%, 1500px);
-    height: auto;
-    opacity: 0.1;
+  height: auto;
+  opacity: 0.1;
 }
 
 .noda-persona-room {
   position: absolute;
-    z-index: 0;
-    right: calc((100vw - 100%) / -2);
-    bottom: 0;
-    display: block;
-    width: min(50vw, 1000px);
-    height: auto;
-    opacity: 0.42;
-    pointer-events: none;
+  z-index: 0;
+  right: calc((100vw - 100%) / -2);
+  bottom: 0;
+  display: block;
+  width: min(50vw, 1000px);
+  height: auto;
+  opacity: 0.42;
+  pointer-events: none;
 }
 
 .noda-persona-label {
   position: relative;
-    z-index: 2;
-    display: table;
-    margin: 0 0 clamp(64px, 7vw, 100px);
-    padding-bottom: 7px;
-    border-bottom: 1px solid currentColor;
-    font-family: "GMarketSans", Arial, sans-serif;
-    font-size: clamp(1.5rem, 2vw, 2rem);
-    font-weight: 700;
-    line-height: 1.2;
+  z-index: 2;
+  display: table;
+  margin: 0 0 clamp(64px, 7vw, 100px);
+  padding-bottom: 7px;
+  border-bottom: 1px solid currentColor;
+  font-family: "GMarketSans", Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 /* [반응형: 태블릿 이상 · 769px 이상] */
@@ -2064,7 +2050,7 @@
 
   .noda-persona-details {
     align-self: stretch;
-        grid-template-rows: auto minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
   }
 
   .noda-persona-needs-goal {
@@ -2080,7 +2066,7 @@
 @media (max-width: 768px) {
   .noda-persona-label {
     margin-bottom: 48px;
-        font-size: 1.375rem;
+    font-size: 1.375rem;
   }
 }
 
@@ -2088,7 +2074,7 @@
 @media (min-width: 769px) and (max-width: 1200px) {
   .noda-persona-room {
     width: min(58vw, 680px);
-        opacity: 0.26;
+    opacity: 0.26;
   }
 }
 
@@ -2103,19 +2089,15 @@
 .noda-brand-concept-inner,
 .noda-persona-inner,
 .noda-style-guide-inner {
-  width: min(
-      calc(100% - var(--page-gutter) - var(--page-gutter)),
-      var(--page-content-max)
-    );
-    margin-inline: auto;
-    padding-inline: 0;
+  width: min(calc(100% - var(--page-gutter) - var(--page-gutter)),
+      var(--page-content-max));
+  margin-inline: auto;
+  padding-inline: 0;
 }
 
 .noda-showcase-header {
-  padding-inline: max(
-      var(--page-gutter),
-      calc((100% - var(--page-content-max)) / 2)
-    );
+  padding-inline: max(var(--page-gutter),
+      calc((100% - var(--page-content-max)) / 2));
 }
 
 /* [반응형: PC · 1201px 이상] */
@@ -2143,11 +2125,11 @@
   }
 }
 
-.noda-showcase .noda-showcase-copy > p,
+.noda-showcase .noda-showcase-copy>p,
 .noda-showcase .noda-showcase-about h3,
 .noda-showcase .noda-showcase-about dl,
 .noda-brand-concept .noda-brand-label,
-.noda-brand-concept .noda-brand-logo-row > p,
+.noda-brand-concept .noda-brand-logo-row>p,
 .noda-persona .noda-persona-profile h2,
 .noda-persona .noda-persona-block h3,
 .noda-persona .noda-persona-block p,
@@ -2157,37 +2139,38 @@
 .noda-style-guide .noda-style-label,
 .noda-style-guide .noda-style-description {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.4;
+  line-height: 1.4;
 }
 
-.noda-showcase .noda-showcase-copy > p,
+.noda-showcase .noda-showcase-copy>p,
 .noda-showcase .noda-showcase-about dl,
-.noda-brand-concept .noda-brand-logo-row > p,
+.noda-brand-concept .noda-brand-logo-row>p,
 .noda-persona .noda-persona-block p,
 .noda-persona .noda-persona-block li,
 .noda-persona .noda-persona-block dt,
 .noda-persona .noda-persona-block dd,
 .noda-style-guide .noda-style-description {
-  font-size: var(--noda-copy-size);
-    font-weight: 400;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .noda-showcase .noda-showcase-about h3,
 .noda-brand-concept .noda-brand-label,
 .noda-persona .noda-persona-block h3,
 .noda-style-guide .noda-style-label {
-  font-size: var(--noda-label-size);
-    font-weight: 700;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .noda-persona .noda-persona-profile h2 {
   font-size: var(--noda-subtitle-size);
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .noda-showcase .noda-showcase-about dt,
 .noda-persona .noda-persona-block dt {
-  font-weight: 600;
+  font-size: 1rem;
+  ;
 }
 
 .noda-showcase .noda-showcase-about dd,
@@ -2201,14 +2184,14 @@
 
 .noda-showcase .noda-showcase-about dd {
   min-width: 0;
-    white-space: normal;
-    overflow-wrap: anywhere;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 /* [반응형: 모바일 · 768px 이하] */
 @media (max-width: 768px) {
   .noda-showcase .noda-showcase-about dl {
     grid-template-columns: minmax(96px, max-content) minmax(0, 1fr);
-        column-gap: 14px;
+    column-gap: 14px;
   }
 }

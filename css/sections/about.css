@@ -170,14 +170,6 @@
   font-weight: 300;
 }
 
-.about-personal h3,
-.about-certifications h3 {
-  margin: 0;
-  font-size: 1.375rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
 .about-certifications ul {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
@@ -252,6 +244,7 @@
   .about-certifications {
     padding: 34px 0 0;
   }
+
 }
 
 /* [반응형: 모바일 · 768px 이하] */
@@ -284,7 +277,7 @@
 
   .about-profile-title {
     margin-top: 20px;
-    font-size: clamp(2.375rem, 10.5vw, 3.625rem);
+    font-size: 3rem;
     line-height: 1.4;
   }
 
@@ -339,22 +332,22 @@
   }
 
   .about-profile-title {
-    font-size: 5.375rem;
+    font-size: 3.5rem;
   }
 
   .about-profile-description p {
-    font-size: 1.375rem;
+    font-size: 1rem;
   }
 
   .about-profile-info dt,
   .about-profile-info dd,
   .about-certifications li {
-    font-size: 1.375rem;
+    font-size: 1rem;
   }
 
   .about-personal h3,
   .about-certifications h3 {
-    font-size: 1.625rem;
+    font-size: 1.2rem;
   }
 
   .about-profile-info,
@@ -369,9 +362,6 @@
     font-size: 2.5rem;
   }
 
-  .about-profile-description p {
-    font-size: 0.8125rem;
-  }
 }
 
 /* [반응형: 태블릿 이상 · 769px 이상] */
@@ -387,7 +377,7 @@
 
   .about-profile-title {
     max-width: 100%;
-    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-size: 3rem;
     overflow-wrap: break-word;
   }
 
@@ -440,7 +430,7 @@
   }
 
   .about-profile-details {
-    /* grid-template-columns: minmax(0, 1fr); */
+    grid-template-columns: minmax(0, 1fr);
     gap: 44px;
   }
 
@@ -500,7 +490,7 @@
 .about-certifications time,
 .about-certifications li span {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: var(--introduction-copy-size);
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.4;
 }

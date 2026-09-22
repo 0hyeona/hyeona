@@ -30,7 +30,7 @@
 
 .responsive-projects-title {
   margin: 0;
-  font-size: 5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.40;
   white-space: nowrap;
@@ -102,23 +102,22 @@
 
 .responsive-breakpoint-copy span {
   color: #777;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 300;
 }
 
 /* [반응형: 태블릿·모바일 · 1200px 이하] */
 @media (max-width: 1200px) {
-  .responsive-projects-title {
-    font-size: 4.5rem;
-  }
-
-  .responsive-projects-description {
-    font-size: 1.75rem;
-  }
-
   .responsive-projects-breakpoints {
     width: 560px;
   }
+  .responsive-projects-title {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.40;
+  white-space: nowrap;
+}
 }
 
 /* [반응형: 모바일 · 768px 이하] */
@@ -130,12 +129,6 @@
 
   .responsive-projects-main {
     gap: 18px;
-  }
-
-  .responsive-projects-title {
-    font-size: 3rem;
-    line-height: 1.4;
-    white-space: normal;
   }
 
   .responsive-projects-description {
@@ -155,7 +148,7 @@
   }
 
   .responsive-projects-breakpoints {
-    width: 100%;
+    width: 80%;
     gap: 0;
     justify-content: space-between;
   }
@@ -165,23 +158,23 @@
   }
 
   .responsive-breakpoint-copy strong {
-    font-size: 0.9375rem;
+    font-size: 1rem;
   }
 
   .responsive-breakpoint-copy span {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 }
 
 /* [반응형: 소형 모바일] */
-@media (max-width: 374px) {
-  .responsive-projects-title {
-    font-size: 2.375rem;
-  }
+@media (max-width: 300px) {
+    .responsive-projects-title {
+      font-size: 2.455rem;
+    }
 
-  .responsive-projects-description {
-    font-size: 0.875rem;
-  }
+    .responsive-projects-description {
+      font-size: 0.875rem;
+    }
 }
 
 .responsive-projects {
@@ -199,7 +192,7 @@
 
 .responsive-projects-description {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.4;
 }

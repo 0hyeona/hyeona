@@ -8,113 +8,109 @@
 /* [기본 스타일] */
 .romand-detail {
   --romand-red: #9e1730;
-    --romand-pink: #fff2f5;
-    width: 100%;
-    overflow: hidden;
-    background-color: var(--romand-pink);
-    background-image:
-      linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.62) 25%,
-        transparent 25%,
-        transparent 75%,
-        rgba(255, 255, 255, 0.62) 75%
-      ),
-      linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.62) 25%,
-        transparent 25%,
-        transparent 75%,
-        rgba(255, 255, 255, 0.62) 75%
-      );
-    background-position:
-      0 0,
-      28px 28px;
-    background-size: 56px 56px;
+  --romand-pink: #fff2f5;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--romand-pink);
+  background-image:
+    linear-gradient(45deg,
+      rgba(255, 255, 255, 0.62) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(255, 255, 255, 0.62) 75%),
+    linear-gradient(45deg,
+      rgba(255, 255, 255, 0.62) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(255, 255, 255, 0.62) 75%);
+  background-position:
+    0 0,
+    28px 28px;
+  background-size: 56px 56px;
 }
 
 .romand-detail-header {
   display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 54px;
-    padding: 0 clamp(24px, 7vw, 140px);
-    background: var(--romand-red);
-    color: #fff;
-    font-family: "GMarketSans", Arial, sans-serif;
-    font-size: clamp(1.125rem, 2vw, 1.75rem);
-    font-weight: 500;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 54px;
+  padding: 0 clamp(24px, 7vw, 140px);
+  background: var(--romand-red);
+  color: #fff;
+  font-family: "GMarketSans", Arial, sans-serif;
+  font-size: clamp(1.125rem, 2vw, 1.75rem);
+  font-weight: 500;
 }
 
 .romand-detail-content {
   display: grid;
-    grid-template-columns: minmax(260px, 0.9fr) minmax(480px, 1.7fr);
-    grid-template-rows: auto 1fr;
-    gap: 72px clamp(32px, 5vw, 92px);
-    max-width: 1600px;
-    min-height: 760px;
-    margin: 0 auto;
-    padding: 96px clamp(24px, 7vw, 140px) 84px;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(480px, 1.7fr);
+  grid-template-rows: auto 1fr;
+  gap: 72px clamp(32px, 5vw, 92px);
+  max-width: 1600px;
+  min-height: 760px;
+  margin: 0 auto;
+  padding: 96px clamp(24px, 7vw, 140px) 84px;
 }
 
 .romand-detail-copy {
   grid-column: 1;
-    grid-row: 1;
-    align-self: start;
-    padding-top: 4px;
-    color: #222;
+  grid-row: 1;
+  align-self: start;
+  padding-top: 4px;
+  color: #222;
 }
 
 .romand-detail-number {
   display: block;
-    font-family: "GMarketSans", Arial, sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
+  font-family: "GMarketSans", Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .romand-detail-copy h2 {
   margin: 20px 0 10px;
-    color: var(--romand-red);
-    font-family: "GMarketSans", Arial, sans-serif;
-    font-size: clamp(3.625rem, 5.8vw, 6.5rem);
-    font-weight: 800;
-    line-height: 0.9;
-    letter-spacing: -0.08em;
+  color: var(--romand-red);
+  font-family: "GMarketSans", Arial, sans-serif;
+  font-size: clamp(3.625rem, 5.8vw, 6.5rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.08em;
 }
 
 .romand-detail-copy p {
   margin: 0;
-    font-family: "GMarketSans", Arial, sans-serif;
-    font-size: clamp(0.875rem, 1.25vw, 1.375rem);
-    font-weight: 500;
-    line-height: 1.4;
-    word-break: keep-all;
+  font-family: "GMarketSans", Arial, sans-serif;
+  font-size: clamp(0.875rem, 1.25vw, 1.375rem);
+  font-weight: 500;
+  line-height: 1.4;
+  word-break: keep-all;
 }
 
 .romand-device-showcase {
   position: relative;
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 510px;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 510px;
 }
 
 .romand-device {
   position: relative;
-    width: clamp(148px, 14vw, 232px);
-    aspect-ratio: 0.48;
-    display: block;
-    height: auto;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    object-fit: contain;
-    filter: drop-shadow(5px 8px 0 rgba(0, 0, 0, 0.16));
+  width: clamp(148px, 14vw, 232px);
+  aspect-ratio: 0.48;
+  display: block;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  object-fit: contain;
+  filter: drop-shadow(5px 8px 0 rgba(0, 0, 0, 0.16));
 }
 
-.romand-device + .romand-device {
+.romand-device+.romand-device {
   margin-left: -38px;
 }
 
@@ -133,26 +129,26 @@
 
 .romand-about {
   grid-column: 1;
-    grid-row: 2;
-    align-self: end;
-    color: #333;
-    font-family: "GMarketSans", Arial, sans-serif;
+  grid-row: 2;
+  align-self: end;
+  color: #333;
+  font-family: "GMarketSans", Arial, sans-serif;
 }
 
 .romand-about h3 {
   margin: 0 0 14px;
-    font-size: 1.25rem;
-    font-weight: 800;
+  font-size: 1.25rem;
+  font-weight: 800;
 }
 
 .romand-about dl {
   display: grid;
-    grid-template-columns: max-content minmax(0, 1fr);
-    gap: 4px 18px;
-    width: 100%;
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.4;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 4px 18px;
+  width: 100%;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 .romand-about dl div {
@@ -161,32 +157,30 @@
 
 .romand-about dt {
   font-weight: 500;
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .romand-about dd {
   margin: 0;
-    color: #777;
-    font-weight: 400;
-    white-space: nowrap;
+  color: #777;
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 .romand-problem-goal {
   --romand-soft-pink: #fff1f5;
-    width: 100%;
-    overflow: hidden;
-    background: linear-gradient(
-      180deg,
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(180deg,
       #fff4fa 0%,
       var(--romand-soft-pink) 50%,
-      #ffedf3 100%
-    );
+      #ffedf3 100%);
 }
 
 .romand-problem-goal-inner {
   width: min(100% - 48px, 1280px);
-    margin: 0 auto;
-    padding: clamp(88px, 10vw, 180px) 0 clamp(96px, 12vw, 190px);
+  margin: 0 auto;
+  padding: clamp(88px, 10vw, 180px) 0 clamp(96px, 12vw, 190px);
 }
 
 .romand-problem-header {
@@ -199,35 +193,35 @@
 
 .romand-section-label {
   display: flex;
-    justify-content: center;
-    align-items: center;
-    display: inline-block;
-    margin: 0;
-    border-bottom: 1px solid currentColor;
-    color: #333;
-    font-size: clamp(1.125rem, 1.5vw, 1.625rem);
-    font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  margin: 0;
+  border-bottom: 1px solid currentColor;
+  color: #333;
+  font-size: clamp(1.125rem, 1.5vw, 1.625rem);
+  font-weight: 500;
 }
 
 .romand-section-summary {
   margin: 28px 0 0;
-    color: #333;
-    font-size: clamp(0.8125rem, 1vw, 1.0625rem);
-    font-weight: 400;
-    line-height: 1.4;
+  color: #333;
+  font-size: clamp(0.8125rem, 1vw, 1.0625rem);
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .romand-problem-list {
   display: grid;
-    gap: clamp(88px, 10vw, 170px);
-    margin-top: clamp(88px, 11vw, 180px);
+  gap: clamp(88px, 10vw, 170px);
+  margin-top: clamp(88px, 11vw, 180px);
 }
 
 .romand-problem-item {
   display: grid;
-    grid-template-columns: minmax(0, 1.18fr) minmax(260px, 0.82fr);
-    gap: clamp(40px, 7vw, 120px);
-    align-items: center;
+  grid-template-columns: minmax(0, 1.18fr) minmax(260px, 0.82fr);
+  gap: clamp(40px, 7vw, 120px);
+  align-items: center;
 }
 
 .romand-problem-item:nth-child(even) {
@@ -236,171 +230,171 @@
 
 .romand-problem-item:nth-child(even) .romand-problem-visual {
   grid-column: 2;
-    grid-row: 1;
+  grid-row: 1;
 }
 
 .romand-problem-item:nth-child(even) .romand-problem-copy {
   grid-column: 1;
-    grid-row: 1;
+  grid-row: 1;
 }
 
 .romand-problem-visual {
   display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 0;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
 }
 
 .romand-problem-visual img {
   display: block;
-    width: min(100%, 620px);
-    height: auto;
-    filter: drop-shadow(0 18px 20px rgba(124, 65, 84, 0.12));
+  width: min(100%, 620px);
+  height: auto;
+  filter: drop-shadow(0 18px 20px rgba(124, 65, 84, 0.12));
 }
 
 .romand-problem-copy {
   max-width: 430px;
-    color: #333;
+  color: #333;
 }
 
 .romand-problem-copy h3 {
   margin: 0;
-    font-size: clamp(1.125rem, 1.45vw, 1.5625rem);
-    font-weight: 700;
-    line-height: 1.4;
-    word-break: normal;
+  font-size: clamp(1.125rem, 1.45vw, 1.5625rem);
+  font-weight: 700;
+  line-height: 1.4;
+  word-break: normal;
 }
 
 .romand-problem-copy ul {
   display: grid;
-    gap: 8px;
-    margin: 18px 0 0;
-    padding-left: 0;
-    color: #777;
-    list-style: none;
-    font-size: clamp(0.75rem, 0.95vw, 1rem);
-    font-weight: 400;
-    line-height: 1.4;
-    word-break: normal;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding-left: 0;
+  color: #777;
+  list-style: none;
+  font-size: clamp(0.75rem, 0.95vw, 1rem);
+  font-weight: 400;
+  line-height: 1.4;
+  word-break: normal;
 }
 
 .romand-goal {
   position: relative;
-    margin-top: clamp(110px, 14vw, 220px);
-    padding: clamp(32px, 5vw, 72px);
-    border: 1px solid rgba(158, 23, 48, 0.12);
-    border-radius: clamp(20px, 3vw, 40px);
-    background: rgba(255, 255, 255, 0.78);
-    box-shadow: 0 24px 70px rgba(143, 49, 77, 0.08);
-    backdrop-filter: blur(8px);
+  margin-top: clamp(110px, 14vw, 220px);
+  padding: clamp(32px, 5vw, 72px);
+  border: 1px solid rgba(158, 23, 48, 0.12);
+  border-radius: clamp(20px, 3vw, 40px);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 24px 70px rgba(143, 49, 77, 0.08);
+  backdrop-filter: blur(8px);
 }
 
 .romand-goal .romand-section-label {
   padding: 7px 14px 6px;
-    border: 0;
-    border-radius: 999px;
-    background: #a61c39;
-    color: #fff;
-    font-size: clamp(0.8125rem, 1.1vw, 1.125rem);
-    letter-spacing: 0.04em;
+  border: 0;
+  border-radius: 999px;
+  background: #a61c39;
+  color: #fff;
+  font-size: clamp(0.8125rem, 1.1vw, 1.125rem);
+  letter-spacing: 0.04em;
 }
 
 .romand-goal h2 {
   max-width: 920px;
-    margin: 24px 0 0;
-    font-size: clamp(1.375rem, 2vw, 2.125rem);
-    font-weight: 500;
-    line-height: 1.4;
-    word-break: keep-all;
+  margin: 24px 0 0;
+  font-size: clamp(1.375rem, 2vw, 2.125rem);
+  font-weight: 500;
+  line-height: 1.4;
+  word-break: keep-all;
 }
 
 .romand-goal ol {
   display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
-    margin: 52px 0 0;
-    padding: 0;
-    list-style: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 52px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
 .romand-goal li {
   display: flex;
-    flex-direction: column;
-    gap: 14px;
-    min-width: 0;
-    padding: 22px 20px 24px;
-    /* border-top: 3px solid #a61c39; */
-    border-radius: 12px;
-    /* background: rgba(255, 241, 245, 0.82); */
-    color: #777;
-    font-size: clamp(0.75rem, 0.95vw, 1rem);
-    font-weight: 400;
-    line-height: 1.4;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  padding: 22px 20px 24px;
+  /* border-top: 3px solid #a61c39; */
+  border-radius: 12px;
+  /* background: rgba(255, 241, 245, 0.82); */
+  color: #777;
+  font-size: clamp(0.75rem, 0.95vw, 1rem);
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .romand-goal li strong {
   color: #333;
-    font-weight: 700;
-    font-size: 1.5rem;
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
 .romand-goal li span {
   display: block;
-    line-height: 1.4;
-    word-break: keep-all;
-    font-size: 1.25rem;
+  line-height: 1.4;
+  word-break: keep-all;
+  font-size: 1.25rem;
 }
 
 .romand-design-system {
   background: #fff;
-    color: #333;
+  color: #333;
 }
 
 .romand-design-system-inner {
   width: min(100% - 96px, 1280px);
-    margin: 0 auto;
-    padding: clamp(110px, 13vw, 210px) 0 clamp(120px, 15vw, 240px);
+  margin: 0 auto;
+  padding: clamp(110px, 13vw, 210px) 0 clamp(120px, 15vw, 240px);
 }
 
 .romand-logo-section {
   position: relative;
-    text-align: center;
+  text-align: center;
 }
 
 .romand-system-label {
   display: inline-block;
-    margin: 0;
-    padding-bottom: 7px;
-    border-bottom: 1px solid currentColor;
-    font-size: clamp(1.125rem, 1.5vw, 1.625rem);
-    font-weight: 700;
-    line-height: 1.4;
+  margin: 0;
+  padding-bottom: 7px;
+  border-bottom: 1px solid currentColor;
+  font-size: clamp(1.125rem, 1.5vw, 1.625rem);
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .romand-system-description {
   margin: 28px 0 0;
-    color: #333;
-    font-family: "GMarketSans", Arial, sans-serif;
-    font-size: clamp(0.75rem, 0.9vw, 0.9375rem);
-    font-weight: 400;
-    line-height: 1.4;
-    word-break: keep-all;
+  color: #333;
+  font-family: "GMarketSans", Arial, sans-serif;
+  font-size: clamp(0.75rem, 0.9vw, 0.9375rem);
+  font-weight: 400;
+  line-height: 1.4;
+  word-break: keep-all;
 }
 
 .romand-logo-assets {
   display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: clamp(28px, 5vw, 80px);
-    margin-top: 56px;
+  justify-content: center;
+  align-items: flex-end;
+  gap: clamp(28px, 5vw, 80px);
+  margin-top: 56px;
 }
 
 .romand-logo-assets figure {
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
 }
 
 .romand-logo-assets figure:first-child img {
@@ -413,24 +407,24 @@
 
 .romand-logo-assets img {
   display: block;
-    height: auto;
+  height: auto;
 }
 
 .romand-logo-assets figcaption {
   font-family: "Pretendard", Arial, sans-serif;
-    font-size: clamp(0.75rem, 1.25vw, 1.125rem);
-    font-weight: 400;
-    line-height: 1.4;
-    letter-spacing: -0.02em;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
 }
 
 .romand-color-section,
 .romand-type-section {
   display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
-    gap: clamp(40px, 8vw, 120px);
-    align-items: center;
-    margin-top: clamp(130px, 16vw, 250px);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
+  gap: clamp(40px, 8vw, 120px);
+  align-items: center;
+  margin-top: clamp(130px, 16vw, 250px);
 }
 
 .romand-system-copy {
@@ -439,70 +433,70 @@
 
 .romand-system-copy .romand-system-description {
   margin-top: 28px;
-    text-align: left;
+  text-align: left;
 }
 
 .romand-color-palette {
   display: block;
-    width: min(100%, 330px);
-    height: auto;
-    justify-self: center;
+  width: min(100%, 330px);
+  height: auto;
+  justify-self: center;
 }
 
 .romand-type-section {
   grid-template-columns: minmax(230px, 0.72fr) minmax(0, 1.28fr);
-    align-items: start;
-    font-family: "SUITE", Arial, sans-serif;
+  align-items: start;
+  font-family: "SUITE", Arial, sans-serif;
 }
 
 .romand-type-section .romand-system-description {
   font-family: "GMarketSans", Arial, sans-serif;
 }
 
-.romand-type-section > .romand-system-copy .romand-system-label {
+.romand-type-section>.romand-system-copy .romand-system-label {
   font-family: "GMarketSans", Arial, sans-serif;
 }
 
 .romand-type-specimen h2 {
   margin: 0 0 14px;
-    font-family: "SUITE", Arial, sans-serif;
-    font-size: clamp(1.75rem, 3vw, 2.625rem);
-    font-weight: 700;
-    line-height: 1;
+  font-family: "SUITE", Arial, sans-serif;
+  font-size: clamp(1.75rem, 3vw, 2.625rem);
+  font-weight: 700;
+  line-height: 1;
 }
 
 .romand-type-table {
   display: grid;
-    gap: 13px;
-    width: min(100%, 560px);
-    font-family: "SUITE", Arial, sans-serif;
-    text-align: left;
+  gap: 13px;
+  width: min(100%, 560px);
+  font-family: "SUITE", Arial, sans-serif;
+  text-align: left;
 }
 
 .romand-type-table [role="row"] {
   display: flex;
-    gap: clamp(12px, 2vw, 28px);
-    align-items: baseline;
-    color: #333;
-    text-align: left;
-    font-size: clamp(0.625rem, 0.95vw, 1rem);
-    font-weight: 400;
-    line-height: 1.4;
+  gap: clamp(12px, 2vw, 28px);
+  align-items: baseline;
+  color: #333;
+  text-align: left;
+  font-size: clamp(0.625rem, 0.95vw, 1rem);
+  font-weight: 400;
+  line-height: 1.4;
 }
 
-.romand-type-table [role="row"] > :nth-child(1) {
+.romand-type-table [role="row"]> :nth-child(1) {
   flex: 1 1 0;
-    min-width: 0;
+  min-width: 0;
 }
 
-.romand-type-table [role="row"] > :nth-child(2) {
+.romand-type-table [role="row"]> :nth-child(2) {
   flex: 1 1 0;
-    min-width: 0;
+  min-width: 0;
 }
 
-.romand-type-table [role="row"] > :nth-child(3) {
+.romand-type-table [role="row"]> :nth-child(3) {
   flex: 1 1 0;
-    min-width: 0;
+  min-width: 0;
 }
 
 .romand-type-table [role="row"]:nth-child(-n + 2) {
@@ -539,37 +533,37 @@
 
 .romand-image-section {
   width: 100%;
-    background: #fff;
+  background: #fff;
 }
 
 .romand-image-frame {
   width: 100%;
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .romand-image-frame img {
   display: block;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
 }
 
 /* [반응형: 태블릿 · 769px–1200px] */
 @media (max-width: 1200px) and (min-width: 769px) {
   .romand-about dl {
     column-gap: 14px;
-        font-size: clamp(0.75rem, 1.35vw, 1rem);
+    font-size: clamp(0.75rem, 1.35vw, 1rem);
   }
 
-  .romand-type-table [role="row"] > :nth-child(1) {
+  .romand-type-table [role="row"]> :nth-child(1) {
     flex-basis: 130px;
   }
 
-  .romand-type-table [role="row"] > :nth-child(2) {
+  .romand-type-table [role="row"]> :nth-child(2) {
     flex-basis: 160px;
   }
 
-  .romand-type-table [role="row"] > :nth-child(3) {
+  .romand-type-table [role="row"]> :nth-child(3) {
     flex-basis: 96px;
   }
 }
@@ -578,10 +572,10 @@
 @media (max-width: 980px) and (min-width: 769px) {
   .romand-detail-content {
     display: flex;
-        flex-direction: column;
-        gap: 48px;
-        min-height: 0;
-        padding-inline: clamp(32px, 6vw, 72px);
+    flex-direction: column;
+    gap: 48px;
+    min-height: 0;
+    padding-inline: clamp(32px, 6vw, 72px);
   }
 
   .romand-detail-copy,
@@ -598,16 +592,16 @@
 @media (max-width: 768px) {
   .romand-detail-header {
     min-height: 36px;
-        padding-inline: 16px;
-        font-size: 0.875rem;
+    padding-inline: 16px;
+    font-size: 0.875rem;
   }
 
   .romand-detail-content {
     display: flex;
-        flex-direction: column;
-        gap: 38px;
-        min-height: 0;
-        padding: 48px 24px 52px;
+    flex-direction: column;
+    gap: 38px;
+    min-height: 0;
+    padding: 48px 24px 52px;
   }
 
   .romand-detail-copy {
@@ -620,12 +614,12 @@
 
   .romand-detail-copy h2 {
     margin: 12px 0 12px;
-        font-size: clamp(3rem, 17vw, 4.75rem);
+    font-size: clamp(3rem, 17vw, 4.75rem);
   }
 
   .romand-detail-copy p {
     font-size: clamp(0.6875rem, 3.3vw, 0.75rem);
-        line-height: 1.4;
+    line-height: 1.4;
   }
 
   .romand-device-showcase {
@@ -636,7 +630,7 @@
     width: min(clamp(150px, 50vw, 220px), 100%);
   }
 
-  .romand-device + .romand-device {
+  .romand-device+.romand-device {
     margin-left: 0;
   }
 
@@ -647,12 +641,12 @@
 
   .romand-device--right {
     display: block;
-        transform: none;
+    transform: none;
   }
 
   .romand-about h3 {
     margin-bottom: 10px;
-        font-size: 0.9375rem;
+    font-size: 0.9375rem;
   }
 
   .romand-about {
@@ -661,39 +655,39 @@
 
   .romand-about dl {
     grid-template-columns: minmax(0, 1fr) max-content;
-        gap: 3px clamp(8px, 2.5vw, 12px);
-        font-size: clamp(0.5rem, 3.2vw, 0.875rem);
-        line-height: 1.4;
-        text-align: left;
+    gap: 3px clamp(8px, 2.5vw, 12px);
+    font-size: clamp(0.5rem, 3.2vw, 0.875rem);
+    line-height: 1.4;
+    text-align: left;
   }
 
   .romand-about dd {
     min-width: 0;
-        overflow-wrap: anywhere;
+    overflow-wrap: anywhere;
   }
 
   .romand-problem-goal-inner {
     width: calc(100% - 48px);
-        padding: 72px 0 96px;
+    padding: 72px 0 96px;
   }
 
   .romand-section-summary {
     max-width: 300px;
-        margin: 20px auto 0;
-        font-size: 1rem;
+    margin: 20px auto 0;
+    font-size: 1rem;
   }
 
   .romand-problem-list {
     gap: 72px;
-        margin-top: 76px;
+    margin-top: 76px;
   }
 
   .romand-problem-item,
   .romand-problem-item:nth-child(even) {
     display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 24px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
   }
 
   .romand-problem-item:nth-child(even) .romand-problem-visual,
@@ -715,13 +709,13 @@
 
   .romand-problem-copy ul {
     margin-top: 12px;
-        padding-left: 0;
-        font-size: 0.75rem;
+    padding-left: 0;
+    font-size: 0.75rem;
   }
 
   .romand-goal {
     margin-top: 100px;
-        padding: 20px;
+    padding: 20px;
   }
 
   .romand-goal .romand-section-label {
@@ -730,19 +724,19 @@
 
   .romand-goal h2 {
     margin-top: 18px;
-        font-size: 1.25rem;
+    font-size: 1.25rem;
   }
 
   .romand-goal ol {
     grid-template-columns: 1fr;
-        gap: 14px;
-        margin-top: 30px;
+    gap: 14px;
+    margin-top: 30px;
   }
 
   .romand-goal li {
     gap: 8px;
-        padding: 16px;
-        font-size: 0.75rem;
+    padding: 16px;
+    font-size: 0.75rem;
   }
 
   .romand-goal li strong {
@@ -755,18 +749,18 @@
 
   .romand-design-system-inner {
     width: calc(100% - 48px);
-        padding: 88px 0 112px;
+    padding: 88px 0 112px;
   }
 
   .romand-system-description {
     margin-top: 20px;
-        font-size: 1.625rem;
-        line-height: 1.4;
+    font-size: 1.625rem;
+    line-height: 1.4;
   }
 
   .romand-logo-assets {
     gap: 28px;
-        margin-top: 40px;
+    margin-top: 40px;
   }
 
   .romand-logo-assets figure:first-child img {
@@ -784,8 +778,8 @@
   .romand-color-section,
   .romand-type-section {
     grid-template-columns: 1fr;
-        gap: 44px;
-        margin-top: 112px;
+    gap: 44px;
+    margin-top: 112px;
   }
 
   .romand-system-copy .romand-system-description {
@@ -794,7 +788,7 @@
 
   .romand-color-palette {
     width: min(100%, 260px);
-        justify-self: center;
+    justify-self: center;
   }
 
   .romand-type-section {
@@ -803,7 +797,7 @@
 
   .romand-type-specimen h2 {
     margin-bottom: 12px;
-        font-size: 1.875rem;
+    font-size: 1.875rem;
   }
 
   .romand-type-table {
@@ -812,34 +806,34 @@
 
   .romand-type-table [role="row"] {
     gap: 10px;
-        font-size: clamp(0.5rem, 2.8vw, 0.75rem);
-        white-space: nowrap;
+    font-size: clamp(0.5rem, 2.8vw, 0.75rem);
+    white-space: nowrap;
   }
 
-  .romand-type-table [role="row"] > :nth-child(1) {
+  .romand-type-table [role="row"]> :nth-child(1) {
     flex: 1 1 0;
-        min-width: 0;
+    min-width: 0;
   }
 
-  .romand-type-table [role="row"] > :nth-child(2) {
+  .romand-type-table [role="row"]> :nth-child(2) {
     flex: 1 1 0;
-        min-width: 0;
+    min-width: 0;
   }
 
-  .romand-type-table [role="row"] > :nth-child(3) {
+  .romand-type-table [role="row"]> :nth-child(3) {
     flex: 1 1 0;
-        min-width: 0;
+    min-width: 0;
   }
 }
 
 .romand-detail-header {
   padding: 0 96px;
-    font-size: 1.75rem;
+  font-size: 1.75rem;
 }
 
 .romand-detail-content {
   gap: 72px 80px;
-    padding: 96px 96px 84px;
+  padding: 96px 96px 84px;
 }
 
 .romand-detail-copy h2 {
@@ -868,7 +862,7 @@
 
 .romand-problem-list {
   gap: 150px;
-    margin-top: 150px;
+  margin-top: 150px;
 }
 
 .romand-problem-item {
@@ -885,8 +879,8 @@
 
 .romand-goal {
   margin-top: 190px;
-    padding: 64px;
-    border-radius: 32px;
+  padding: 64px;
+  border-radius: 32px;
 }
 
 .romand-goal .romand-section-label {
@@ -895,7 +889,7 @@
 
 .romand-goal h2 {
   font-size: 2rem;
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .romand-goal li {
@@ -924,7 +918,7 @@
 
 .romand-type-section {
   gap: 100px;
-    margin-top: 220px;
+  margin-top: 220px;
 }
 
 .romand-type-specimen h2 {
@@ -943,7 +937,7 @@
 
   .romand-detail-content {
     padding-inline: 64px;
-        gap: 56px;
+    gap: 56px;
   }
 
   .romand-detail-copy h2 {
@@ -972,7 +966,7 @@
 
   .romand-goal li {
     padding: 16px;
-        font-size: 1rem;
+    font-size: 1rem;
   }
 
   .romand-goal li strong {
@@ -988,12 +982,12 @@
 @media (max-width: 768px) {
   .romand-detail-header {
     padding-inline: 16px;
-        font-size: 0.9375rem;
+    font-size: 0.9375rem;
   }
 
   .romand-detail-content {
     gap: 44px;
-        padding: 56px 24px 72px;
+    padding: 56px 24px 72px;
   }
 
   .romand-detail-copy h2 {
@@ -1010,7 +1004,7 @@
 
   .romand-problem-goal-inner {
     width: 100%;
-        padding: 88px 24px 104px;
+    padding: 88px 24px 104px;
   }
 
   .romand-section-label {
@@ -1019,12 +1013,12 @@
 
   .romand-section-summary {
     font-size: 0.875rem;
-        line-height: 1.5;
+    line-height: 1.5;
   }
 
   .romand-problem-list {
     gap: 88px;
-        margin-top: 80px;
+    margin-top: 80px;
   }
 
   .romand-problem-item,
@@ -1038,13 +1032,13 @@
 
   .romand-problem-copy ul {
     margin-top: 14px;
-        font-size: 0.875rem;
+    font-size: 0.875rem;
   }
 
   .romand-goal {
     margin-top: 96px;
-        padding: 22px;
-        border-radius: 24px;
+    padding: 22px;
+    border-radius: 24px;
   }
 
   .romand-goal .romand-section-label {
@@ -1057,7 +1051,7 @@
 
   .romand-goal li {
     padding: 16px;
-        font-size: 0.75rem;
+    font-size: 0.75rem;
   }
 
   .romand-goal li strong {
@@ -1082,7 +1076,7 @@
 
   .romand-type-section {
     gap: 48px;
-        margin-top: 104px;
+    margin-top: 104px;
   }
 
   .romand-type-specimen h2 {
@@ -1108,7 +1102,7 @@
   }
 
   .romand-detail-copy h2 {
-    font-size: 5.25rem;
+    font-size: 5rem;
   }
 
   .romand-detail-copy p {
@@ -1156,6 +1150,7 @@
 
 /* [반응형: PC · 1201px 이상] */
 @media (min-width: 1201px) {
+
   .romand-detail-copy p,
   .romand-section-summary,
   .romand-problem-copy ul,
@@ -1185,7 +1180,7 @@
   .romand-type-section .romand-system-copy,
   .romand-type-section .romand-type-specimen {
     align-self: start;
-        margin-top: 0;
+    margin-top: 0;
   }
 
   .romand-type-section .romand-system-copy {
@@ -1205,28 +1200,28 @@
 
   .romand-color-section {
     grid-template-columns: minmax(0, 1fr) 410px;
-        gap: 180px;
-        align-items: start;
-        margin-top: 160px;
+    gap: 180px;
+    align-items: start;
+    margin-top: 160px;
   }
 
   .romand-color-section .romand-system-description,
   .romand-type-section .romand-system-description {
     font-size: 1.625rem;
-        line-height: 1.45;
+    line-height: 1.45;
   }
 
   .romand-color-palette {
-    width: 410px;
-        max-width: 100%;
-        margin-top: 0;
+    width: 340px;
+    max-width: 100%;
+    margin-top: 0;
   }
 
   .romand-type-section {
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-        gap: 120px;
-        margin-top: 230px;
-        align-items: start;
+    gap: 120px;
+    margin-top: 230px;
+    align-items: start;
   }
 
   .romand-type-section .romand-system-copy {
@@ -1235,13 +1230,13 @@
 
   .romand-type-specimen h2 {
     margin-bottom: 28px;
-        font-size: 3.25rem;
+    font-size: 3.25rem;
   }
 
   .romand-type-table {
     width: 100%;
-        max-width: none;
-        gap: 20px;
+    max-width: none;
+    gap: 20px;
   }
 
   .romand-type-table [role="row"] {
@@ -1253,21 +1248,21 @@
 @media (min-width: 1201px) {
   .romand-type-section {
     display: grid;
-        grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
-        gap: 120px;
-        align-items: start;
-        margin-top: 230px;
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+    gap: 120px;
+    align-items: start;
+    margin-top: 230px;
   }
 
-  .romand-type-section > .romand-system-copy {
+  .romand-type-section>.romand-system-copy {
     display: block;
-        min-width: 0;
+    min-width: 0;
   }
 
-  .romand-type-section > .romand-type-specimen {
+  .romand-type-section>.romand-type-specimen {
     grid-column: 2;
-        grid-row: 1;
-        min-width: 0;
+    grid-row: 1;
+    min-width: 0;
   }
 
   .romand-type-section .romand-system-description {
@@ -1279,20 +1274,20 @@
 @media (min-width: 769px) and (max-width: 1200px) {
   .romand-type-section {
     display: grid;
-        grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
-        gap: 56px;
-        align-items: start;
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+    gap: 56px;
+    align-items: start;
   }
 
-  .romand-type-section > .romand-system-copy {
+  .romand-type-section>.romand-system-copy {
     display: block;
-        min-width: 0;
+    min-width: 0;
   }
 
-  .romand-type-section > .romand-type-specimen {
+  .romand-type-section>.romand-type-specimen {
     grid-column: 2;
-        grid-row: 1;
-        min-width: 0;
+    grid-row: 1;
+    min-width: 0;
   }
 }
 
@@ -1329,7 +1324,7 @@
     display: block;
   }
 
-  .romand-type-section > .romand-type-specimen {
+  .romand-type-section>.romand-type-specimen {
     margin-top: 48px;
   }
 }
@@ -1346,8 +1341,8 @@
 
   .romand-type-table [role="row"] {
     gap: 4px;
-        font-size: 0.5625rem;
-        white-space: normal;
+    font-size: 0.5625rem;
+    white-space: normal;
   }
 }
 
@@ -1355,19 +1350,19 @@
 @media (max-width: 1200px) and (min-width: 769px) {
   .romand-design-system-inner {
     width: calc(100% - 96px);
-        padding-block: 88px 128px;
+    padding-block: 88px 128px;
   }
 
   .romand-system-description,
   .romand-color-section .romand-system-description,
   .romand-type-section .romand-system-description {
     font-size: clamp(0.875rem, 1.6vw, 1.25rem);
-        line-height: 1.5;
+    line-height: 1.5;
   }
 
   .romand-logo-assets {
     gap: 36px;
-        margin-top: 40px;
+    margin-top: 40px;
   }
 
   .romand-logo-assets figure:first-child img {
@@ -1385,7 +1380,7 @@
   .romand-color-section,
   .romand-type-section {
     gap: 52px;
-        margin-top: 112px;
+    margin-top: 112px;
   }
 
   .romand-color-palette {
@@ -1395,6 +1390,7 @@
 
 /* [반응형: PC · 1201px 이상] */
 @media (min-width: 1201px) {
+
   .romand-problem-item,
   .romand-problem-item:nth-child(even) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -1402,7 +1398,7 @@
 
   .romand-problem-copy {
     width: 100%;
-        max-width: none;
+    max-width: none;
   }
 }
 
@@ -1429,29 +1425,25 @@
 @media (max-width: 768px) {
   .romand-system-label {
     padding-bottom: 7px;
-        font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-        font-size: 1.25rem;
-        font-weight: 700;
-        line-height: 1.4;
+    font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
   }
 }
 
 .romand-detail-content,
 .romand-problem-goal-inner,
 .romand-design-system-inner {
-  width: min(
-      calc(100% - var(--page-gutter) - var(--page-gutter)),
-      var(--page-content-max)
-    );
-    margin-inline: auto;
-    padding-inline: 0;
+  width: min(calc(100% - var(--page-gutter) - var(--page-gutter)),
+      var(--page-content-max));
+  margin-inline: auto;
+  padding-inline: 0;
 }
 
 .romand-detail-header {
-  padding-inline: max(
-      var(--page-gutter),
-      calc((100% - var(--page-content-max)) / 2)
-    );
+  padding-inline: max(var(--page-gutter),
+      calc((100% - var(--page-content-max)) / 2));
 }
 
 /* [반응형: PC · 1201px 이상] */
@@ -1482,33 +1474,45 @@
 .romand-problem-goal .romand-problem-copy li,
 .romand-problem-goal .romand-goal li span,
 .romand-design-system .romand-system-description {
-  font-size: var(--romand-copy-size);
-    font-weight: 400;
-    line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
+/* 1. 기존 그룹에서 li strong만 제외한 나머지 요소들 */
 .romand-detail .romand-about h3,
 .romand-problem-goal .romand-section-label,
 .romand-problem-goal .romand-problem-copy h3,
-.romand-problem-goal .romand-goal li strong,
 .romand-design-system .romand-system-label {
-  font-size: var(--romand-subtitle-size);
-    line-height: 1.4;
+  font-size: 2rem;
+  line-height: 1.4;
+}
+
+/* 2. <ol> 내부의 strong 태그만 따로 지정 */
+.romand-problem-goal .romand-goal li strong {
+  font-size: 1.5rem;
+  font-family: 'pretendard', sans-serif;
+  line-height: 1.4;
+}
+
+#romand-goal-title {
+  font-size: 1rem;
+  font-family: 'Pretendard';
 }
 
 .romand-problem-goal .romand-goal h2 {
-  font-size: 1.75rem;
-    line-height: 1.4;
+  font-size: 2rem;
+  line-height: 1.4;
 }
 
 .romand-detail .romand-about dl {
-  grid-template-columns: minmax(96px, max-content) minmax(0, 1fr);
+  grid-template-columns: minmax(150px, max-content) minmax(0, 1fr);
 }
 
 .romand-detail .romand-about dd {
   min-width: 0;
-    white-space: normal;
-    overflow-wrap: anywhere;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .romand-problem-goal .romand-goal h2 {

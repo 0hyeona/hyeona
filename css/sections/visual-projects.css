@@ -34,7 +34,7 @@
 
 .visual-projects-title {
   margin: 14px 0 0;
-  font-size: 5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.4;
 }
@@ -57,7 +57,7 @@
   color: var(--text);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
   font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
   transition:
@@ -374,7 +374,11 @@
 body.is-detail-modal-open {
   overflow: hidden;
 }
-
+@media (min-width: 769px) and (max-width: 1400px) {
+  .visual-projects-title {
+  font-size: 3rem;
+}
+}
 /* [반응형: 모바일 · 768px 이하] */
 @media (max-width: 768px) {
   .detail-modal {
@@ -445,7 +449,7 @@ body.is-detail-modal-open {
 
 .visual-project-info h3 {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.4;
 }
@@ -510,7 +514,7 @@ body.is-detail-modal-open {
 /* [반응형: 모바일 · 768px 이하] */
 @media (max-width: 768px) {
   .visual-projects-kicker {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 
   .visual-projects-inner {
@@ -519,7 +523,7 @@ body.is-detail-modal-open {
 
   .visual-projects-title {
     margin-top: 20px;
-    font-size: clamp(2.375rem, 10.5vw, 3.625rem);
+    font-size:3rem;
   }
 
   .visual-filter {
@@ -531,7 +535,7 @@ body.is-detail-modal-open {
   .visual-filter-button {
     min-height: 34px;
     padding: 0 16px;
-    font-size: 0.6875rem;
+    font-size: 1rem;
   }
 
   .visual-project-slider-viewport {
@@ -579,7 +583,7 @@ body.is-detail-modal-open {
   }
 
   .visual-project-info h3 {
-    font-size: 1.0625rem;
+    font-size: 18px;
   }
 
   .visual-project-swiper.visual-project-swiper--banner {
