@@ -547,7 +547,6 @@
   height: auto;
   max-width: 100%;
 }
-
 /* [반응형: 태블릿 · 769px–1200px] */
 @media (max-width: 1200px) and (min-width: 769px) {
   .romand-about dl {
@@ -1089,6 +1088,7 @@
   .romand-detail-copy h2 {
     font-size: 2.875rem;
   }
+
   .romand-detail-header {
     font-size: 12px;
   }
@@ -1548,6 +1548,7 @@
 }
 
 @media (max-width: 300px) {
+
   .romand-type-specimen,
   .romand-type-table,
   .romand-type-table [role="row"] {
