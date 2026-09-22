@@ -8,20 +8,20 @@
 /* [기본 스타일] */
 .responsive-projects {
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 128px;
-    padding: 198px 0;
-    color: var(--text);
-    text-align: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 128px;
+  padding: 198px 0;
+  color: var(--text);
+  text-align: center;
 }
 
 .responsive-projects-main,
 .responsive-projects-info {
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .responsive-projects-main {
@@ -30,19 +30,18 @@
 
 .responsive-projects-title {
   margin: 0;
-    font-size: 5.625rem;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: -0.045em;
-    white-space: nowrap;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.40;
+  white-space: nowrap;
 }
 
 .responsive-projects-description {
   margin: 0;
-    font-size: 1.75rem;
-    font-weight: 500;
-    line-height: 1.4;
-    white-space: nowrap;
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
 }
 
 .responsive-projects-info {
@@ -51,60 +50,60 @@
 
 .responsive-projects-info h3 {
   margin: 0;
-    font-size: 1.625rem;
-    font-weight: 700;
-    line-height: 1;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .responsive-projects-breakpoints {
   display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 640px;
-    gap: 32px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  gap: 8rem;
 }
 
 .responsive-breakpoint {
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 83px;
-    gap: 3px;
+  flex-direction: column;
+  align-items: center;
+  width: 83px;
+  gap: 3px;
 }
 
-.responsive-breakpoint > img {
+.responsive-breakpoint>img {
   display: block;
-    flex: 0 0 48px;
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
 }
 
 .responsive-breakpoint-copy {
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    width: 100%;
-    line-height: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  line-height: 1;
 }
 
 .responsive-breakpoint-copy strong,
 .responsive-breakpoint-copy span {
   display: block;
-    font-style: normal;
-    white-space: nowrap;
+  font-style: normal;
+  white-space: nowrap;
 }
 
 .responsive-breakpoint-copy strong {
-  font-size: 1.125rem;
-    font-weight: 500;
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 
 .responsive-breakpoint-copy span {
   color: #777;
-    font-size: 0.875rem;
-    font-weight: 300;
+  font-size: 1.25rem;
+  font-weight: 300;
 }
 
 /* [반응형: 태블릿·모바일 · 1200px 이하] */
@@ -126,7 +125,7 @@
 @media (max-width: 768px) {
   .responsive-projects {
     gap: 72px;
-        padding: 112px 24px;
+    padding: 112px 24px;
   }
 
   .responsive-projects-main {
@@ -135,16 +134,16 @@
 
   .responsive-projects-title {
     font-size: 3rem;
-        line-height: 1.4;
-        white-space: normal;
+    line-height: 1.4;
+    white-space: normal;
   }
 
   .responsive-projects-description {
     max-width: 620px;
-        font-size: 1rem;
-        line-height: 1.4;
-        white-space: normal;
-        word-break: keep-all;
+    font-size: 1rem;
+    line-height: 1.4;
+    white-space: normal;
+    word-break: keep-all;
   }
 
   .responsive-projects-info {
@@ -157,8 +156,8 @@
 
   .responsive-projects-breakpoints {
     width: 100%;
-        gap: 0;
-        justify-content: space-between;
+    gap: 0;
+    justify-content: space-between;
   }
 
   .responsive-breakpoint {
@@ -186,10 +185,8 @@
 }
 
 .responsive-projects {
-  padding-inline: max(
-      var(--page-gutter),
-      calc((100% - var(--page-content-max)) / 2)
-    );
+  padding-inline: max(var(--page-gutter),
+      calc((100% - var(--page-content-max)) / 2));
 }
 
 .responsive-projects {
@@ -202,9 +199,9 @@
 
 .responsive-projects-description {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 1.75rem;
-    font-weight: 400;
-    line-height: 1.4;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .responsive-projects .responsive-projects-title {

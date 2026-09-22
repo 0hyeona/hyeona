@@ -8,37 +8,37 @@
 /* [기본 스타일] */
 .about-profile {
   position: relative;
-    z-index: 1;
-    display: flow-root;
-    min-height: 100svh;
-    overflow: visible;
-    background: #fff;
+  z-index: 1;
+  display: flow-root;
+  min-height: 100svh;
+  overflow: visible;
+  background: #fff;
 }
 
 .about-profile-inner {
   position: relative;
-    z-index: 3;
-    width: calc(100% - clamp(64px, 16.8vw, 232px));
-    max-width: 2100px;
-    margin: 52px auto 72px;
+  z-index: 3;
+  width: calc(100% - clamp(64px, 16.8vw, 232px));
+  max-width: 2100px;
+  margin: 52px auto 72px;
 }
 
 .about-profile-decoration {
   position: absolute;
-    top: 38%;
-    right: clamp(-360px, -17vw, -180px);
-    z-index: 2;
-    width: clamp(380px, 36vw, 680px);
-    height: auto;
-    pointer-events: none;
+  top: 38%;
+  right: clamp(-360px, -17vw, -180px);
+  z-index: 2;
+  width: clamp(380px, 36vw, 680px);
+  height: auto;
+  pointer-events: none;
 }
 
 .about-profile-eyebrow,
 .about-profile-kicker {
   margin: 0;
-    font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
 .about-profile-eyebrow {
@@ -47,29 +47,29 @@
 
 .about-profile-layout {
   display: grid;
-    grid-template-columns: clamp(340px, 24vw, 560px) minmax(0, 1fr);
-    gap: clamp(48px, 4vw, 80px);
-    align-items: start;
-    margin-top: 36px;
+  grid-template-columns: clamp(340px, 24vw, 560px) minmax(0, 1fr);
+  gap: clamp(48px, 4vw, 80px);
+  align-items: start;
+  margin-top: 36px;
 }
 
 .about-profile-photo {
   display: grid;
-    place-items: center;
-    width: 100%;
-    aspect-ratio: 0.74;
-    margin: 0;
-    overflow: hidden;
-    border-radius: 6px;
-    background: #d9d9d9;
-    color: var(--text);
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 0.74;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #d9d9d9;
+  color: var(--text);
 }
 
 .about-profile-photo img {
   display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .about-profile-content {
@@ -82,36 +82,35 @@
 
 .about-profile-title {
   margin: 18px 0 0;
-    font-size: clamp(3.25rem, 4.5vw, 5.375rem);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.055em;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .about-profile-description {
   max-width: 940px;
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .about-profile-description p {
   margin: 0;
-    font-size: 1.1875rem;
-    font-weight: 500;
-    line-height: 1.62;
-    letter-spacing: -0.025em;
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.62;
+  letter-spacing: -0.025em;
 }
 
-.about-profile-description p + p {
+.about-profile-description p+p {
   margin-top: 16px;
 }
 
 .about-profile-details {
   display: grid;
-    grid-template-columns: minmax(220px, 0.82fr) minmax(330px, 1.18fr);
-    gap: 0;
-    align-items: start;
-    margin-top: 38px;
-    padding-top: 28px;
+  grid-template-columns: minmax(220px, 0.82fr) minmax(330px, 1.18fr);
+  gap: 0;
+  align-items: start;
+  margin-top: 38px;
+  padding-top: 28px;
 }
 
 .about-personal,
@@ -129,18 +128,18 @@
 
 .about-profile-info {
   display: grid;
-    grid-template-columns: max-content minmax(0, 1fr);
-    gap: 28px clamp(48px, 4vw, 76px);
-    margin: 28px 0 0;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 28px clamp(48px, 4vw, 76px);
+  margin: 28px 0 0;
 }
 
 .about-profile-info div {
   display: grid;
-    grid-column: 1 / -1;
-    grid-template-columns: subgrid;
-    column-gap: inherit;
-    row-gap: 0;
-    align-items: center;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  column-gap: inherit;
+  row-gap: 0;
+  align-items: center;
 }
 
 .about-profile-info dt,
@@ -149,9 +148,9 @@
 .about-certifications h3,
 .about-certifications li {
   color: #333;
-    font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    line-height: 1.35;
+  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.35;
 }
 
 .about-profile-info dt,
@@ -167,34 +166,34 @@
 
 .about-profile-info dd {
   margin: 0;
-    color: #333;
-    font-weight: 300;
+  color: #333;
+  font-weight: 300;
 }
 
 .about-personal h3,
 .about-certifications h3 {
   margin: 0;
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .about-certifications ul {
   display: grid;
-    grid-template-columns: max-content minmax(0, 1fr);
-    gap: 28px clamp(48px, 4vw, 76px);
-    margin: 28px 0 0;
-    padding: 0;
-    list-style: none;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 28px clamp(48px, 4vw, 76px);
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
 .about-certifications li {
   display: grid;
-    grid-column: 1 / -1;
-    grid-template-columns: subgrid;
-    column-gap: inherit;
-    row-gap: 0;
-    align-items: center;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  column-gap: inherit;
+  row-gap: 0;
+  align-items: center;
 }
 
 .about-profile-info dt,
@@ -206,14 +205,14 @@
 
 .about-certifications time {
   color: #333;
-    font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-    font-weight: 500;
+  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+  font-weight: 500;
 }
 
 .about-certifications li span {
   color: #333;
-    font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-    font-weight: 300;
+  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+  font-weight: 300;
 }
 
 /* [반응형: 태블릿·모바일 · 1200px 이하] */
@@ -231,7 +230,7 @@
 
   .about-profile-layout {
     grid-template-columns: minmax(230px, 0.7fr) minmax(0, 1.3fr);
-        gap: 5vw;
+    gap: 5vw;
   }
 
   .about-profile-title {
@@ -263,30 +262,30 @@
 
   .about-profile-inner {
     width: calc(100% - 40px);
-        margin: 40px auto 88px;
+    margin: 40px auto 88px;
   }
 
   .about-profile-eyebrow,
   .about-profile-kicker {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 
   .about-profile-layout {
     grid-template-columns: 1fr;
-        gap: 38px;
-        margin-top: 32px;
+    gap: 38px;
+    margin-top: 32px;
   }
 
   .about-profile-photo {
     width: min(100%, 430px);
-        aspect-ratio: 4 / 5;
-        border-radius: 5px;
+    aspect-ratio: 4 / 5;
+    border-radius: 5px;
   }
 
   .about-profile-title {
     margin-top: 20px;
-        font-size: clamp(2.375rem, 10.5vw, 3.625rem);
-        line-height: 1.4;
+    font-size: clamp(2.375rem, 10.5vw, 3.625rem);
+    line-height: 1.4;
   }
 
   .about-profile-description {
@@ -295,10 +294,10 @@
 
   .about-profile-description p {
     font-size: 1rem;
-        line-height: 1.4;
+    line-height: 1.4;
   }
 
-  .about-profile-description p + p {
+  .about-profile-description p+p {
     margin-top: 18px;
   }
 
@@ -308,8 +307,8 @@
 
   .about-profile-details {
     grid-template-columns: 1fr;
-        margin-top: 38px;
-        padding-top: 24px;
+    margin-top: 38px;
+    padding-top: 24px;
   }
 
   .about-personal {
@@ -322,20 +321,21 @@
 
   .about-profile-info {
     gap: 18px;
-        margin-top: 20px;
+    margin-top: 20px;
   }
 
   .about-certifications ul {
     gap: 18px;
-        margin-top: 20px;
+    margin-top: 20px;
   }
 }
 
 /* [반응형: PC · 1201px 이상] */
 @media (min-width: 1201px) {
+
   .about-profile-eyebrow,
   .about-profile-kicker {
-    font-size: 1.375rem;
+    font-size: 1rem;
   }
 
   .about-profile-title {
@@ -382,13 +382,13 @@
 
   .about-profile-layout {
     grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1.28fr);
-        gap: clamp(32px, 4vw, 56px);
+    gap: clamp(32px, 4vw, 56px);
   }
 
   .about-profile-title {
     max-width: 100%;
-        font-size: clamp(3rem, 6vw, 4.5rem);
-        overflow-wrap: break-word;
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    overflow-wrap: break-word;
   }
 
   .about-profile-description p {
@@ -397,7 +397,7 @@
 
   .about-profile-details {
     grid-template-columns: minmax(0, 1fr);
-        gap: 32px;
+    gap: 32px;
   }
 
   .about-personal {
@@ -413,14 +413,14 @@
 @media (min-width: 769px) {
   .about-profile-photo {
     position: sticky;
-        top: 32px;
-        align-self: start;
+    top: 32px;
+    align-self: start;
   }
 }
 
 .about-profile-details {
   grid-template-columns: minmax(380px, 0.9fr) minmax(500px, 1.1fr);
-    column-gap: clamp(40px, 4vw, 72px);
+  column-gap: clamp(40px, 4vw, 72px);
 }
 
 .about-personal,
@@ -440,8 +440,8 @@
   }
 
   .about-profile-details {
-    grid-template-columns: minmax(0, 1fr);
-        gap: 44px;
+    /* grid-template-columns: minmax(0, 1fr); */
+    gap: 44px;
   }
 
   .about-certifications {
@@ -453,24 +453,22 @@
 @media (max-width: 768px) {
   .about-profile-details {
     grid-template-columns: minmax(0, 1fr);
-        gap: 0;
+    gap: 0;
   }
 }
 
 .about-profile-inner {
-  width: min(
-      calc(100% - var(--page-gutter) - var(--page-gutter)),
-      var(--page-content-max)
-    );
-    margin-inline: auto;
-    padding-inline: 0;
+  width: min(calc(100% - var(--page-gutter) - var(--page-gutter)),
+      var(--page-content-max));
+  margin-inline: auto;
+  padding-inline: 0;
 }
 
 .about-profile-inner {
   width: calc(100% - clamp(64px, 16.8vw, 232px));
-    max-width: 2100px;
-    margin: 52px auto 72px;
-    padding-inline: 0;
+  max-width: 2100px;
+  margin: 52px auto 72px;
+  padding-inline: 0;
 }
 
 /* [반응형: 태블릿 · 769px–1200px] */
@@ -484,7 +482,7 @@
 @media (max-width: 768px) {
   .about-profile-inner {
     width: calc(100% - 40px);
-        margin: 40px auto 88px;
+    margin: 40px auto 88px;
   }
 }
 
@@ -502,9 +500,9 @@
 .about-certifications time,
 .about-certifications li span {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: var(--introduction-copy-size);
-    font-weight: 400;
-    line-height: 1.4;
+  font-size: var(--introduction-copy-size);
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .about-profile .about-profile-title {

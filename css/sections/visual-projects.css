@@ -8,16 +8,16 @@
 /* [기본 스타일] */
 .visual-projects {
   min-height: 100svh;
-    padding: 0;
-    background: #fff;
-    display: flow-root;
-    scroll-margin-top: 0;
+  padding: 0;
+  background: #fff;
+  display: flow-root;
+  scroll-margin-top: 0;
 }
 
 .visual-projects-inner {
   width: 100%;
-    margin: 64px auto 100px;
-    overflow: hidden;
+  margin: 64px auto 100px;
+  overflow: hidden;
 }
 
 .visual-projects-header {
@@ -26,138 +26,137 @@
 
 .visual-projects-kicker {
   margin: 0;
-    font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.2;
+  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .visual-projects-title {
   margin: 14px 0 0;
-    font-size: clamp(3rem, 4.5vw, 4.75rem);
-    font-weight: 700;
-    line-height: 1.06;
-    letter-spacing: -0.055em;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .visual-filter {
   display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin: 38px auto 0;
-    padding-inline: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 38px auto 0;
+  padding-inline: 20px;
 }
 
 .visual-filter-button {
   min-height: 36px;
-    padding: 0 22px;
-    border: 0;
-    border-radius: 999px;
-    background: #fff;
-    color: var(--text);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
-    font-family: "GMarketSans", Arial, Helvetica, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition:
-      background 0.3s var(--ease),
-      color 0.3s var(--ease),
-      transform 0.3s var(--ease),
-      box-shadow 0.3s var(--ease);
+  padding: 0 22px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--text);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.3s var(--ease),
+    color 0.3s var(--ease),
+    transform 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
 }
 
 .visual-filter-button:hover {
   transform: translateY(-2px);
-    box-shadow: 0 9px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 9px 24px rgba(0, 0, 0, 0.1);
 }
 
 .visual-filter-button.is-active {
   background: #050505;
-    color: #fff;
-    box-shadow: none;
+  color: #fff;
+  box-shadow: none;
 }
 
 .visual-filter-button:focus-visible {
   outline: 2px solid #050505;
-    outline-offset: 3px;
+  outline-offset: 3px;
 }
 
 .visual-project-slider-viewport {
   position: relative;
-    margin-top: 38px;
+  margin-top: 38px;
 }
 
 .visual-project-panel[hidden] {
   position: absolute;
-    inset: 0;
-    display: block !important;
-    visibility: hidden;
-    pointer-events: none;
+  inset: 0;
+  display: block !important;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .visual-project-swiper {
   width: 100%;
-    overflow: visible;
-    padding-inline: clamp(30px, 3vw, 56px);
+  overflow: visible;
+  padding-inline: clamp(30px, 3vw, 56px);
 }
 
 .visual-project-swiper .swiper-wrapper {
   align-items: flex-start;
-    transition-timing-function: linear;
+  transition-timing-function: linear;
 }
 
 .visual-project-card {
   width: clamp(270px, 25vw, 390px);
-    min-width: 0;
+  min-width: 0;
 }
 
 .visual-project-media {
   position: relative;
-    aspect-ratio: 2 / 3;
-    overflow: hidden;
-    background: #f1f1f1;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: #f1f1f1;
 }
 
 .visual-project-panel[data-category="detail"] .visual-project-media::after {
   position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    content: "바로가기";
-    background: rgba(0, 0, 0, 0.68);
-    color: #fff;
-    font-family: "GMarketSans", Arial, sans-serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: -0.04em;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  content: "바로가기";
+  background: rgba(0, 0, 0, 0.68);
+  color: #fff;
+  font-family: "GMarketSans", Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
 }
 
 .visual-project-media img {
   display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .visual-project-swiper.visual-project-swiper--banner {
   width: min(calc(100% - 48px), 1600px);
-    margin-inline: auto;
-    padding-inline: 0;
-    overflow: hidden;
+  margin-inline: auto;
+  padding-inline: 0;
+  overflow: hidden;
 }
 
 .visual-project-swiper--banner .visual-project-card {
   display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(270px, 0.34fr);
-    align-items: center;
-    gap: clamp(28px, 3vw, 48px);
-    width: 100%;
+  grid-template-columns: minmax(0, 1fr) minmax(270px, 0.34fr);
+  align-items: center;
+  gap: clamp(28px, 3vw, 48px);
+  width: 100%;
 }
 
 .visual-project-swiper--banner .swiper-wrapper {
@@ -170,7 +169,7 @@
 
 .visual-project-swiper--banner .visual-project-info {
   margin-top: 0;
-    padding-right: 4px;
+  padding-right: 4px;
 }
 
 .visual-project-swiper--banner .visual-project-info h3 {
@@ -179,17 +178,17 @@
 
 .visual-project-swiper--banner .visual-project-info p {
   margin-top: 12px;
-    font-size: 1.125rem;
-    line-height: 1.65;
+  font-size: 1.125rem;
+  line-height: 1.65;
 }
 
 .visual-project-swiper .swiper-pagination {
   position: relative;
-    inset: auto;
-    display: none;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 28px;
+  inset: auto;
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
 }
 
 .visual-project-swiper--banner .swiper-pagination {
@@ -198,23 +197,23 @@
 
 .visual-project-swiper .swiper-pagination-bullet {
   width: 10px;
-    height: 10px;
-    margin: 0 !important;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    background: #8a8a8a;
-    opacity: 0.5;
-    transition:
-      width 0.25s ease,
-      opacity 0.25s ease,
-      background 0.25s ease;
+  height: 10px;
+  margin: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: #8a8a8a;
+  opacity: 0.5;
+  transition:
+    width 0.25s ease,
+    opacity 0.25s ease,
+    background 0.25s ease;
 }
 
 .visual-project-swiper .swiper-pagination-bullet-active {
   width: 28px;
-    border-radius: 999px;
-    background: #5f5f5f;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.24);
-    opacity: 1;
+  border-radius: 999px;
+  background: #5f5f5f;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.24);
+  opacity: 1;
 }
 
 .visual-project-panel[data-category="detail"] .visual-project-card {
@@ -235,73 +234,73 @@
 
 .detail-modal {
   position: fixed;
-    inset: 0;
-    z-index: 2000;
-    display: grid;
-    place-items: center;
-    padding: 32px;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 32px;
 }
 
 .detail-modal-backdrop {
   position: absolute;
-    inset: 0;
-    background: rgba(15, 15, 15, 0.48);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+  inset: 0;
+  background: rgba(15, 15, 15, 0.48);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .detail-modal-dialog {
   position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-    width: min(1180px, 100%);
-    height: min(900px, calc(100vh - 48px));
-    min-height: 0;
-    max-height: min(900px, calc(100vh - 48px));
-    overflow: hidden;
-    border-radius: 24px;
-    background: #fff;
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  width: min(1180px, 100%);
+  height: min(900px, calc(100vh - 48px));
+  min-height: 0;
+  max-height: min(900px, calc(100vh - 48px));
+  overflow: hidden;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
 }
 
 .detail-modal-media {
   display: grid;
-    place-items: center;
-    height: 100%;
-    min-height: 0;
-    padding: 24px;
-    overflow: hidden;
-    background: #f4f4f4;
+  place-items: center;
+  height: 100%;
+  min-height: 0;
+  padding: 24px;
+  overflow: hidden;
+  background: #f4f4f4;
 }
 
 .detail-modal-media img {
   display: block;
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    object-position: center;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .detail-modal.is-detail-modal .detail-modal-media {
   display: block;
-    overflow-y: auto;
-    padding: 0;
+  overflow-y: auto;
+  padding: 0;
 }
 
 .detail-modal.is-detail-modal .detail-modal-media img {
   width: 100%;
-    height: auto;
-    max-width: none;
-    max-height: none;
-    object-fit: initial;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  object-fit: initial;
 }
 
 .detail-modal.is-detail-modal .detail-modal-dialog {
   grid-template-columns: minmax(0, 1fr);
-    width: min(860px, 100%);
+  width: min(860px, 100%);
 }
 
 .detail-modal.is-detail-modal .detail-modal-copy {
@@ -310,66 +309,66 @@
 
 .detail-modal-media span {
   color: #333;
-    font-family: "GMarketSans", Arial, sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.6;
-    text-align: center;
-    letter-spacing: 0.08em;
+  font-family: "GMarketSans", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.08em;
 }
 
 .detail-modal-copy {
   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 64px 56px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 56px;
 }
 
 .detail-modal-label {
   margin: 0;
-    color: #777;
-    font-family: "GMarketSans", Arial, sans-serif;
-    font-size: 0.8125rem;
-    letter-spacing: 0.08em;
+  color: #777;
+  font-family: "GMarketSans", Arial, sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
 }
 
 .detail-modal-copy h2 {
   margin: 18px 0 0;
-    color: #333;
-    font-family: "GMarketSans", Arial, sans-serif;
-    font-size: 2rem;
-    line-height: 1.25;
-    word-break: keep-all;
+  color: #333;
+  font-family: "GMarketSans", Arial, sans-serif;
+  font-size: 2rem;
+  line-height: 1.25;
+  word-break: keep-all;
 }
 
-.detail-modal-copy > p:last-child {
+.detail-modal-copy>p:last-child {
   margin: 24px 0 0;
-    color: #777;
-    font-family: "Pretendard", Arial, sans-serif;
-    font-size: 1rem;
-    line-height: 1.7;
-    word-break: keep-all;
+  color: #777;
+  font-family: "Pretendard", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  word-break: keep-all;
 }
 
 .detail-modal-close {
   position: absolute;
-    top: 18px;
-    right: 20px;
-    z-index: 2;
-    display: grid;
-    place-items: center;
-    width: 40px;
-    height: 40px;
-    border: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.88);
-    color: #333;
-    font-family: Arial, sans-serif;
-    font-size: 1.75rem;
-    line-height: 40px;
-    text-align: center;
-    text-indent: 0;
-    cursor: pointer;
+  top: 18px;
+  right: 20px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 1.75rem;
+  line-height: 40px;
+  text-align: center;
+  text-indent: 0;
+  cursor: pointer;
 }
 
 body.is-detail-modal-open {
@@ -384,24 +383,24 @@ body.is-detail-modal-open {
 
   .detail-modal-dialog {
     display: block;
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        max-height: calc(100vh - 32px);
-        overflow: hidden;
-        border-radius: 18px;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: calc(100vh - 32px);
+    overflow: hidden;
+    border-radius: 18px;
   }
 
   .detail-modal-media {
     min-height: 280px;
-        height: auto;
-        aspect-ratio: 1 / 1;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
   .detail-modal.is-detail-modal .detail-modal-media {
     height: 100%;
-        aspect-ratio: auto;
-        max-height: none;
+    aspect-ratio: auto;
+    max-height: none;
   }
 
   .detail-modal.is-detail-modal .detail-modal-dialog {
@@ -416,14 +415,14 @@ body.is-detail-modal-open {
     font-size: 1.5rem;
   }
 
-  .detail-modal-copy > p:last-child {
+  .detail-modal-copy>p:last-child {
     font-size: 0.875rem;
   }
 }
 
 .visual-project-info {
   margin-top: 18px;
-    line-height: 1.4;
+  line-height: 1.4;
 }
 
 .visual-project-info h3,
@@ -433,27 +432,27 @@ body.is-detail-modal-open {
 
 .visual-project-info p {
   margin: 8px 0 0;
-    color: var(--text);
-    font-size: 1rem;
-    font-family:
-      "Pretendard",
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      sans-serif;
-    line-height: 1.5;
+  color: var(--text);
+  font-size: 1rem;
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
 }
 
 .visual-project-info h3 {
   margin: 0;
-    font-size: 1.125rem;
-    font-weight: 700;
-    line-height: 1.3;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .visual-project-info h3 span {
   margin-right: 7px;
-    font-family: "GMarketSans", Arial, Helvetica, sans-serif;
+  font-family: "GMarketSans", Arial, Helvetica, sans-serif;
 }
 
 /* [반응형: 마우스 사용 기기] */
@@ -466,9 +465,7 @@ body.is-detail-modal-open {
     transform: none;
   }
 
-  .visual-project-panel[data-category="detail"]
-      .visual-project-card:hover
-      .visual-project-media::after {
+  .visual-project-panel[data-category="detail"] .visual-project-card:hover .visual-project-media::after {
     opacity: 1;
   }
 }
@@ -482,16 +479,16 @@ body.is-detail-modal-open {
 
 .visual-filter-button:focus-visible {
   outline: 2px solid #000;
-    outline-offset: 4px;
+  outline-offset: 4px;
 }
 
 /* [반응형: 태블릿·모바일 · 1200px 이하] */
 @media (max-width: 1200px) {
   .visual-project-swiper:not(.visual-project-swiper--banner) {
     width: min(calc(100% - 48px), 440px);
-        margin-inline: auto;
-        padding-inline: 0;
-        overflow: hidden;
+    margin-inline: auto;
+    padding-inline: 0;
+    overflow: hidden;
   }
 
   .visual-project-swiper:not(.visual-project-swiper--banner) .visual-project-card {
@@ -522,19 +519,19 @@ body.is-detail-modal-open {
 
   .visual-projects-title {
     margin-top: 20px;
-        font-size: clamp(2.375rem, 10.5vw, 3.625rem);
+    font-size: clamp(2.375rem, 10.5vw, 3.625rem);
   }
 
   .visual-filter {
     gap: 8px;
-        margin-top: 44px;
-        padding-inline: 16px;
+    margin-top: 44px;
+    padding-inline: 16px;
   }
 
   .visual-filter-button {
     min-height: 34px;
-        padding: 0 16px;
-        font-size: 0.6875rem;
+    padding: 0 16px;
+    font-size: 0.6875rem;
   }
 
   .visual-project-slider-viewport {
@@ -551,29 +548,29 @@ body.is-detail-modal-open {
 
   .visual-project-media {
     aspect-ratio: auto;
-        height: auto;
-        overflow: visible;
+    height: auto;
+    overflow: visible;
   }
 
   .visual-project-media img {
     width: 100%;
-        height: auto;
-        object-fit: contain;
+    height: auto;
+    object-fit: contain;
   }
 
   .visual-project-swiper--banner .visual-project-media {
     aspect-ratio: auto;
-        height: auto;
+    height: auto;
   }
 
   .visual-project-panel[data-category="detail"] .visual-project-media {
     aspect-ratio: 2 / 3;
-        overflow: hidden;
+    overflow: hidden;
   }
 
   .visual-project-panel[data-category="detail"] .visual-project-media img {
     height: 100%;
-        object-fit: cover;
+    object-fit: cover;
   }
 
   .visual-project-info p,
@@ -591,12 +588,12 @@ body.is-detail-modal-open {
 
   .visual-project-swiper--banner .visual-project-card {
     display: block;
-        width: 100%;
+    width: 100%;
   }
 
   .visual-project-swiper--banner .visual-project-info {
     margin-top: 18px;
-        padding-right: 0;
+    padding-right: 0;
   }
 
   .visual-project-swiper--banner .visual-project-info h3 {
@@ -605,7 +602,7 @@ body.is-detail-modal-open {
 
   .visual-project-swiper--banner .visual-project-info p {
     margin-top: 10px;
-        font-size: 1rem;
+    font-size: 1rem;
   }
 
   .visual-project-swiper .swiper-pagination {
@@ -617,63 +614,57 @@ body.is-detail-modal-open {
 @media (max-width: 768px) {
   .visual-filter {
     display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-        width: min(100% - 40px, 320px);
-        padding-inline: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: min(100% - 40px, 320px);
+    padding-inline: 0;
   }
 
   .visual-filter-button {
     width: 100%;
-        padding-inline: 8px;
+    padding-inline: 8px;
   }
 
   .visual-filter-button:last-child {
     grid-column: auto;
-        width: 100%;
-        justify-self: stretch;
+    width: 100%;
+    justify-self: stretch;
   }
 }
 
 .visual-projects-header,
 .visual-filter {
-  width: min(
-      calc(100% - var(--page-gutter) - var(--page-gutter)),
-      var(--page-content-max)
-    );
-    margin-inline: auto;
-    padding-inline: 0;
+  width: min(calc(100% - var(--page-gutter) - var(--page-gutter)),
+      var(--page-content-max));
+  margin-inline: auto;
+  padding-inline: 0;
 }
 
 .visual-project-swiper {
-  padding-inline: max(
-      var(--page-gutter),
-      calc((100% - var(--page-content-max)) / 2)
-    );
+  padding-inline: max(var(--page-gutter),
+      calc((100% - var(--page-content-max)) / 2));
 }
 
 .visual-project-swiper.visual-project-swiper--banner {
-  width: min(
-      calc(100% - var(--page-gutter) - var(--page-gutter)),
-      var(--page-content-max)
-    );
-    padding-inline: 0;
+  width: min(calc(100% - var(--page-gutter) - var(--page-gutter)),
+      var(--page-content-max));
+  padding-inline: 0;
 }
 
 /* [반응형: 태블릿 이상 · 769px 이상] */
 @media (min-width: 769px) {
   .detail-modal.is-detail-modal .detail-modal-dialog {
     box-sizing: border-box;
-        padding: 12px 12px 12px 0;
+    padding: 12px 12px 12px 0;
   }
 
   .detail-modal.is-detail-modal .detail-modal-media {
     box-sizing: border-box;
-        height: 100%;
-        border-radius: 24px 14px 14px 24px;
-        scrollbar-color: #777 #ececec;
-        scrollbar-gutter: stable;
-        scrollbar-width: auto;
+    height: 100%;
+    border-radius: 24px 14px 14px 24px;
+    scrollbar-color: #777 #ececec;
+    scrollbar-gutter: stable;
+    scrollbar-width: auto;
   }
 
   .detail-modal.is-detail-modal .detail-modal-media::-webkit-scrollbar {
@@ -682,24 +673,24 @@ body.is-detail-modal-open {
 
   .detail-modal.is-detail-modal .detail-modal-media::-webkit-scrollbar-track {
     border-radius: 999px;
-        background: #ececec;
+    background: #ececec;
   }
 
   .detail-modal.is-detail-modal .detail-modal-media::-webkit-scrollbar-thumb {
     min-height: 48px;
-        border: 3px solid #ececec;
-        border-radius: 999px;
-        background: #777;
+    border: 3px solid #ececec;
+    border-radius: 999px;
+    background: #777;
   }
 
   .detail-modal.is-detail-modal .detail-modal-media::-webkit-scrollbar-button:single-button {
     display: block;
-        height: 18px;
-        border-radius: 999px;
-        background-color: #ececec;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 10px 10px;
+    height: 18px;
+    border-radius: 999px;
+    background-color: #ececec;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
   }
 
   .detail-modal.is-detail-modal .detail-modal-media::-webkit-scrollbar-button:single-button:vertical:decrement {
@@ -721,9 +712,9 @@ body.is-detail-modal-open {
 
 .visual-project-info p {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: var(--introduction-copy-size);
-    font-weight: 400;
-    line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .visual-projects .visual-projects-title {

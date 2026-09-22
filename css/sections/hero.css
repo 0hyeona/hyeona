@@ -209,7 +209,7 @@
       inset 0 1px 1px rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--text);
     cursor: pointer;
     transition:
