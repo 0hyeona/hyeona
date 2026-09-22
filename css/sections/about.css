@@ -65,6 +65,12 @@
   color: var(--text);
 }
 
+.about-profile-photo-sticky {
+  min-width: 0;
+  height: fit-content;
+  align-self: start;
+}
+
 .about-profile-photo img {
   display: block;
   width: 100%;
@@ -404,9 +410,9 @@
   }
 }
 
-/* [반응형: 태블릿 이상 · 769px 이상] */
-@media (min-width: 769px) {
-  .about-profile-photo {
+/* [반응형: 태블릿·중형 PC · 769px–1700px] */
+@media (min-width: 769px) and (max-width: 1700px) {
+  .about-profile-photo-sticky {
     position: sticky;
     top: 32px;
     align-self: start;
@@ -449,6 +455,16 @@
   .about-profile-details {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
+  }
+}
+
+/* PC의 진한 클로버를 Pad·Mobile에서도 같은 크기로 유지합니다. */
+@media (max-width: 1200px) {
+  .about-profile-decoration {
+    display: block;
+    width: clamp(380px, 36vw, 680px);
+    max-width: none;
+    opacity: 1;
   }
 }
 

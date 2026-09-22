@@ -709,3 +709,91 @@
     margin-top: -10px;
   }
 }
+
+/* Dark closing scene: reverse the palette and let the clover float forward. */
+.final-contact,
+.final-contact-inner {
+  background: #333;
+  color: #fff;
+}
+
+.final-contact-copy h2,
+.final-contact-copy > p,
+.final-contact-links span {
+  color: #fff;
+}
+
+.final-contact-links a,
+.final-contact-links a:hover {
+  border-color: rgba(255, 255, 255, 0.65);
+  background: transparent;
+  color: #fff;
+}
+
+.final-contact-links a:hover,
+.final-contact-links a:focus-visible {
+  border-color: #fff;
+  background: #fff;
+  color: #333;
+}
+
+.final-contact-copyright {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.final-contact-inner::after {
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.045) 38%,
+      transparent 70%);
+}
+
+.final-contact-decoration {
+  opacity: 0.5;
+  filter: brightness(1.22) contrast(1.04)
+    drop-shadow(0 30px 42px rgba(0, 0, 0, 0.35));
+}
+
+@media (max-width: 1200px) and (min-width: 769px) {
+  .final-contact,
+  .final-contact-inner {
+    background: #333;
+  }
+
+  .final-contact-decoration {
+    opacity: 0.46;
+  }
+}
+
+@media (max-width: 768px) {
+  .final-contact,
+  .final-contact-inner {
+    background: #333;
+  }
+
+  .final-contact-inner {
+    min-height: 760px;
+    padding-top: 104px;
+    padding-bottom: 48px;
+  }
+
+  .final-contact-decoration {
+    left: 50%;
+    align-self: flex-start;
+    width: min(62vw, 540px);
+    margin: 24px 0 0;
+    opacity: 0.78;
+    transform: translateX(-50%);
+    animation: finalCloverBackdropFloat 8s ease-in-out infinite;
+  }
+
+  .final-contact-copyright {
+    margin-top: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .final-contact-decoration {
+    animation: none;
+  }
+}

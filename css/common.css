@@ -15,7 +15,7 @@ html {
   max-width: 100%;
   font-size: 20px;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -23,7 +23,7 @@ body {
   max-width: 100%;
   min-width: 0;
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   background: var(--bg);
   color: var(--text);
   font-family: "GMarketSans", Arial, Helvetica, sans-serif;
@@ -41,7 +41,7 @@ main {
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 button {

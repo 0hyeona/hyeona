@@ -2054,16 +2054,17 @@
   }
 
   .noda-persona-details {
-    align-self: stretch;
-    grid-template-rows: auto minmax(0, 1fr);
+    align-self: start;
+    grid-template-rows: none;
   }
 
   .noda-persona-needs-goal {
-    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: inherit;
   }
 
   .noda-persona-needs-goal .noda-persona-block:last-child {
-    align-self: end;
+    align-self: auto;
   }
 }
 

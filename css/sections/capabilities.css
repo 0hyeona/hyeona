@@ -471,3 +471,54 @@
     font-size: 2.5rem;
   }
 }
+
+/* 메인 비주얼의 금속 장식을 큰 중간 장면으로 다시 보여줍니다. */
+.capabilities-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.capabilities-inner {
+  position: relative;
+  z-index: 1;
+}
+.capability-assets {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 200px;
+  margin-block: -50px;
+  overflow: hidden;
+}
+
+.capability-assets img {
+  display: block;
+  width: clamp(280px, 22vw, 320px);
+  max-width: 100%;
+  height: auto;
+  transform: translateY(-14%);
+}
+
+.capabilities-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.capabilities-inner {
+  position: relative;
+  z-index: 1;
+}
+
+
+@media (max-width: 768px) {
+  .capability-assets {
+    height: 175px;
+    margin-block: -32px;
+  }
+
+  .capability-assets img {
+    width: 280px;
+  }
+}

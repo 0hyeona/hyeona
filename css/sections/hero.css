@@ -811,3 +811,129 @@
     display: block;
   }
 }
+
+/* Mobile composition: stack the hero as a deliberately tall cover page. */
+@media (max-width: 768px) {
+  .portfolio-hero {
+    min-height: max(100svh, 780px);
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: max(100svh, 780px);
+    padding: clamp(48px, 12vw, 72px) var(--page-gutter)
+      clamp(56px, 14vw, 84px);
+    gap: clamp(28px, 8vw, 48px);
+  }
+
+  .hero-header {
+    width: 100%;
+  }
+
+  .hero-title {
+    width: 100%;
+    font-size: clamp(3.25rem, 16vw, 5rem);
+    line-height: 0.88;
+    white-space: normal;
+  }
+
+  .hero-title > span {
+    display: block;
+  }
+
+  .hero-visual {
+    flex: 0 0 auto;
+    width: 100%;
+    height: clamp(250px, 72vw, 350px);
+    margin-top: 0;
+  }
+
+  .hero-flourish {
+    width: 210vw;
+  }
+
+  .hero-symbol-rotator {
+    width: clamp(220px, 66vw, 320px);
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    margin-top: 0;
+  }
+
+  .hero-intro,
+  .hero-role {
+    align-self: center;
+    width: min(100%, 340px);
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .hero-intro {
+    order: 1;
+  }
+
+  .hero-role {
+    order: 2;
+  }
+
+  .project-nav-wrap {
+    order: 3;
+    width: min(100%, 220px);
+    min-width: 0;
+    max-width: none;
+    height: 48px;
+    margin: 16px auto 0;
+    transform: none;
+  }
+
+  .project-trigger {
+    position: initial;
+    inset: auto;
+    transform: none;
+  }
+
+  .hero-cta.project-trigger:hover,
+  .hero-cta.project-trigger:focus-visible {
+    transform: translateY(-3px);
+  }
+
+  .project-menu {
+    top: 50%;
+    transform: translate(-50%, -50%) scaleX(0.24);
+  }
+
+  .project-nav-wrap.is-open .project-trigger {
+    transform: scale(0.84);
+  }
+
+  .project-nav-wrap.is-open .project-menu {
+    transform: translate(-50%, -50%) scaleX(1);
+  }
+}
+
+@media (max-width: 300px) {
+  .portfolio-hero,
+  .hero-inner {
+    min-height: 720px;
+  }
+
+  .hero-inner {
+    padding-block: 40px 52px;
+    gap: 24px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 16vw, 3rem);
+  }
+
+  .hero-visual {
+    height: 220px;
+  }
+}

@@ -798,6 +798,16 @@ body.is-detail-modal-open {
   }
 }
 
+.visual-projects {
+  position: relative;
+  isolation: isolate;
+}
+
+.visual-projects-inner {
+  position: relative;
+  z-index: 1;
+}
+
 @media (max-width: 600px) {
   .visual-project-panel[data-category="detail"] .visual-project-swiper {
     width: min(calc(100% - 40px), 440px);
@@ -826,9 +836,14 @@ body.is-detail-modal-open {
 
 /* Pad·Mobile에서는 상단 콘텐츠와 동일한 좌우 여백을 사용합니다. */
 @media (max-width: 1200px) {
-  .visual-project-panel:not([data-category="detail"]) .visual-project-swiper,
-  .visual-project-panel[data-category="detail"] .visual-project-swiper {
+  .visual-project-panel:not([data-category="detail"]) .visual-project-swiper {
     width: calc(100% - var(--page-gutter) - var(--page-gutter));
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+
+  .visual-project-panel[data-category="detail"] .visual-project-swiper {
+    width: min(calc(100% - var(--page-gutter) - var(--page-gutter)), 440px);
     margin-inline: auto;
     padding-inline: 0;
   }
