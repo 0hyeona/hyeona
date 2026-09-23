@@ -378,11 +378,13 @@
 body.is-detail-modal-open {
   overflow: hidden;
 }
+
 @media (min-width: 769px) and (max-width: 1400px) {
   .visual-projects-title {
-  font-size: 3rem;
+    font-size: 3rem;
+  }
 }
-}
+
 /* [반응형: 모바일 · 768px 이하] */
 @media (max-width: 768px) {
   .detail-modal {
@@ -527,7 +529,7 @@ body.is-detail-modal-open {
 
   .visual-projects-title {
     margin-top: 20px;
-    font-size:3rem;
+    font-size: 3rem;
   }
 
   .visual-filter {
@@ -763,6 +765,13 @@ body.is-detail-modal-open {
     align-items: start;
     gap: 30px;
     transform: none !important;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding-inline: 60px;
+
+    transform: none !important;
   }
 
   .visual-project-panel[data-category="detail"] .visual-project-card {
@@ -819,32 +828,144 @@ body.is-detail-modal-open {
 }
 
 /* 팝업·포스터·배너 슬라이드는 화면 가장자리에서 바로 이어집니다. */
-.visual-project-panel:not([data-category="detail"]) .visual-project-swiper {
-  width: 100%;
-  max-width: none;
-  margin-inline: 0;
-  padding-inline: 0;
-  overflow: hidden;
-}
+/* PC - 팝업·포스터만 화면 가장자리까지 */
+/* ==================================================
+   VISUAL PROJECTS - PC / PAD / MOBILE 최종 정리
+================================================== */
 
-.visual-project-panel[data-category="detail"] .visual-project-swiper {
-  width: 100%;
-  max-width: none;
-  margin-inline: 0;
-  padding-inline: 0;
-}
+/* PC에서만 팝업 · 포스터는 화면 전체 폭 사용 */
+@media (min-width: 1201px) {
 
-/* Pad·Mobile에서는 상단 콘텐츠와 동일한 좌우 여백을 사용합니다. */
-@media (max-width: 1200px) {
-  .visual-project-panel:not([data-category="detail"]) .visual-project-swiper {
-    width: calc(100% - var(--page-gutter) - var(--page-gutter));
-    margin-inline: auto;
+  .visual-project-panel[data-category="popup"] .visual-project-swiper,
+  .visual-project-panel[data-category="poster"] .visual-project-swiper {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
     padding-inline: 0;
+    overflow: hidden;
   }
 
-  .visual-project-panel[data-category="detail"] .visual-project-swiper {
-    width: min(calc(100% - var(--page-gutter) - var(--page-gutter)), 440px);
+  @media (min-width: 1201px) {
+
+    /* 상세페이지 전체 영역은 화면 폭 사용 */
+    .visual-project-panel[data-category="detail"] .visual-project-swiper {
+      width: 100%;
+      max-width: none;
+      margin-inline: 0;
+      padding-inline: 0;
+      overflow: visible;
+    }
+
+    /* 카드 4개 + 양옆 여백 */
+    .visual-project-panel[data-category="detail"] .swiper-wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      width: 100%;
+      box-sizing: border-box;
+
+      /* 여기로 PC 양쪽 여백 조절 */
+      padding-inline: clamp(50px, 5vw, 90px);
+
+      gap: 30px;
+
+      transform: none !important;
+    }
+
+    /* 각 카드가 칸을 꽉 채우도록 */
+    .visual-project-panel[data-category="detail"] .visual-project-card {
+      width: 100% !important;
+      max-width: none;
+      min-width: 0;
+    }
+
+    .visual-project-panel[data-category="detail"] .visual-project-media,
+    .visual-project-panel[data-category="detail"] .visual-project-info {
+      width: 100%;
+    }
+
+    .visual-project-panel[data-category="detail"] .swiper-pagination {
+      display: none !important;
+    }
+  }
+
+}
+
+
+/* ==================================================
+   PAD · MOBILE : 모든 카테고리 동일한 좌우 여백
+================================================== */
+
+@media (max-width: 1200px) {
+
+  /* 팝업 · 포스터 · 배너 · 상세페이지 전체 공통 */
+  .visual-project-panel[data-category] .visual-project-swiper {
+    width: calc(100% - var(--page-gutter) - var(--page-gutter));
+
+    max-width: none;
+
     margin-inline: auto;
     padding-inline: 0;
+
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+
+  /* 모든 카드가 swiper 폭 안에서 움직이도록 */
+  .visual-project-panel[data-category] .visual-project-card {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+
+  /* 상세페이지 */
+  .visual-project-panel[data-category="detail"] .swiper-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .visual-project-panel[data-category="detail"] .visual-project-card {
+    width: 100% !important;
+  }
+
+
+  /* 상세페이지 이미지 + 텍스트를 같은 폭 안에 묶음 */
+  .visual-project-panel[data-category="detail"] .visual-project-media,
+  .visual-project-panel[data-category="detail"] .visual-project-info {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+
+  /* 상세페이지 페이지네이션 */
+  .visual-project-panel[data-category="detail"] .swiper-pagination {
+    display: flex !important;
+  }
+
+}
+
+/* =========================================
+   TABLET : 상세페이지 썸네일 높이 줄이기
+   769px ~ 1200px
+========================================= */
+@media (min-width: 769px) and (max-width: 1200px) {
+
+  .visual-project-panel[data-category="detail"] .visual-project-media {
+    aspect-ratio: 1 / 1;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .visual-project-panel[data-category="detail"] .visual-project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .visual-project-panel[data-category="detail"] .visual-project-info {
+    margin-top: 18px;
   }
 }
