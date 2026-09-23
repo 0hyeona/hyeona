@@ -680,7 +680,6 @@
   });
 })();
 
-
 /* ==================================================
    DETAIL PAGE MODAL — PC
 ================================================== */
@@ -695,21 +694,43 @@
   const modalDescription = document.getElementById("detail-modal-description");
   const modalLabel = modal?.querySelector(".detail-modal-label");
   let pointerStart = null;
+  let scrollLockY = 0; // ← 추가
 
   if (!visualProjects || !modal || !modalMedia || !modalTitle || !modalDescription) return;
+
+  /* 스크롤 잠금 ← 추가 */
+  function lockScroll() {
+    scrollLockY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollLockY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.overflow = "hidden";
+  }
+
+  /* 스크롤 복원 ← 추가 */
+  function unlockScroll() {
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.overflow = "";
+    window.scrollTo(0, scrollLockY);
+  }
 
   visualProjects
     .querySelectorAll('.visual-project-panel[data-category="detail"] .visual-project-card')
     .forEach((card) => {
-    card.setAttribute("data-visual-modal-trigger", "true");
-    card.setAttribute("tabindex", "0");
-    card.setAttribute("role", "button");
+      card.setAttribute("data-visual-modal-trigger", "true");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "button");
     });
 
   function closeModal() {
     modal.hidden = true;
     modal.classList.remove("is-detail-modal");
     document.body.classList.remove("is-detail-modal-open");
+    unlockScroll(); // ← 추가
     document.dispatchEvent(new CustomEvent("visual-modal-closed"));
   }
 
@@ -744,8 +765,10 @@
     modalDescription.textContent = sourceDescription?.textContent.trim() || "상세페이지 디자인 설명입니다.";
     modal.hidden = false;
     document.body.classList.add("is-detail-modal-open");
+    lockScroll(); // ← 추가
   }
 
+  // 이하 기존 코드 동일
   visualProjects.addEventListener("click", (event) => {
     const card = event.target.closest("[data-visual-modal-trigger]");
     if (card) openModal(card);
@@ -791,7 +814,6 @@
     if (event.key === "Escape" && !modal.hidden) closeModal();
   });
 })();
-
 
 (function () {
   "use strict";
@@ -901,3 +923,4 @@
 
   measure();
 })();
+
