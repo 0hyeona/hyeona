@@ -338,14 +338,20 @@
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      entry.target.classList.toggle("is-title-visible", entry.isIntersecting);
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.add("is-title-visible");
+      observer.unobserve(entry.target);
     });
   }, {
     threshold: 0.22,
     rootMargin: "0px 0px -8% 0px"
   });
 
-  titleGroups.forEach((group) => observer.observe(group));
+  titleGroups.forEach((group) => {
+    /* Capabilities는 아래의 반복 애니메이션 전용 observer가 담당합니다. */
+    if (!group.closest(".capabilities-section")) observer.observe(group);
+  });
 })();
 
 
@@ -380,9 +386,9 @@
     stagger: 110,
     maxDelay: 110
   });
+  register(".capabilities-summary", { y: "18px" });
   register(".capability-group", { y: "34px", stagger: 80, maxDelay: 240 });
   register(".capability-assets", { y: "24px" });
-  register(".tool-card", { y: "22px", stagger: 45, maxDelay: 180 });
   register(".visual-filter", { y: "18px" });
   register(".romand-device-showcase", { x: "38px", y: "0px" });
   register(".romand-about", { y: "24px" });
@@ -413,14 +419,77 @@
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      entry.target.classList.toggle("is-reveal-visible", entry.isIntersecting);
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.add("is-reveal-visible");
+      observer.unobserve(entry.target);
     });
   }, {
     threshold: 0.12,
     rootMargin: "0px 0px -5% 0px"
   });
 
-  revealItems.forEach((item) => observer.observe(item));
+  revealItems.forEach((item) => {
+    /* Capabilities는 부모 박스 단위로 반복 실행해 중첩 transform을 피합니다. */
+    if (!item.closest(".capabilities-section")) observer.observe(item);
+  });
+})();
+
+
+/* ==================================================
+   REPEATABLE CAPABILITIES REVEALS
+================================================== */
+
+(function () {
+  "use strict";
+
+  const section = document.querySelector(".capabilities-section");
+  if (!section) return;
+
+  const titleGroup = section.querySelector(".title-reveal-group");
+  const contentItems = [
+    ...section.querySelectorAll(
+      ".capabilities-summary.portfolio-reveal, .capability-group.portfolio-reveal, .capability-assets.portfolio-reveal"
+    )
+  ];
+  const items = [titleGroup, ...contentItems].filter(Boolean);
+
+  function show(item) {
+    item.classList.add(
+      item === titleGroup ? "is-title-visible" : "is-reveal-visible"
+    );
+  }
+
+  function prepareReplay(item) {
+    item.classList.add("is-reveal-resetting");
+    item.classList.remove(
+      item === titleGroup ? "is-title-visible" : "is-reveal-visible"
+    );
+
+    requestAnimationFrame(() => item.classList.remove("is-reveal-resetting"));
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    items.forEach(show);
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const showRatio = entry.target === titleGroup ? 0.25 : 0.12;
+
+      if (entry.isIntersecting && entry.intersectionRatio >= showRatio) {
+        show(entry.target);
+      } else if (entry.intersectionRatio <= 0.01) {
+        prepareReplay(entry.target);
+      }
+    });
+  }, {
+    threshold: [0, 0.01, 0.12, 0.25],
+    rootMargin: "0px 0px -6% 0px"
+  });
+
+  items.forEach((item) => observer.observe(item));
 })();
 
 
@@ -694,28 +763,55 @@
   const modalDescription = document.getElementById("detail-modal-description");
   const modalLabel = modal?.querySelector(".detail-modal-label");
   let pointerStart = null;
-  let scrollLockY = 0; // ← 추가
+  let scrollLockY = 0;
+  let scrollLockStyles = null;
+  let activeModalTrigger = null;
 
   if (!visualProjects || !modal || !modalMedia || !modalTitle || !modalDescription) return;
 
-  /* 스크롤 잠금 ← 추가 */
+  /* 모달을 열기 전 페이지 위치를 보존합니다. */
   function lockScroll() {
     scrollLockY = window.scrollY;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    scrollLockStyles = {
+      position: document.body.style.position,
+      top: document.body.style.top,
+      left: document.body.style.left,
+      right: document.body.style.right,
+      width: document.body.style.width,
+      overflow: document.body.style.overflow,
+      paddingRight: document.body.style.paddingRight,
+    };
+
     document.body.style.position = "fixed";
     document.body.style.top = `-${scrollLockY}px`;
     document.body.style.left = "0";
     document.body.style.right = "0";
+    document.body.style.width = "100%";
     document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
   }
 
-  /* 스크롤 복원 ← 추가 */
+  /* smooth scroll을 잠시 끄고 같은 프레임에서 원래 위치를 복원합니다. */
   function unlockScroll() {
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.left = "";
-    document.body.style.right = "";
-    document.body.style.overflow = "";
-    window.scrollTo(0, scrollLockY);
+    if (!scrollLockStyles) return;
+
+    const restoreY = scrollLockY;
+    const root = document.documentElement;
+    const previousScrollBehavior = root.style.scrollBehavior;
+
+    root.style.scrollBehavior = "auto";
+    Object.assign(document.body.style, scrollLockStyles);
+    scrollLockStyles = null;
+    window.scrollTo(0, restoreY);
+
+    requestAnimationFrame(() => {
+      window.scrollTo(0, restoreY);
+      activeModalTrigger?.focus({ preventScroll: true });
+      activeModalTrigger = null;
+      root.style.scrollBehavior = previousScrollBehavior;
+    });
   }
 
   visualProjects
@@ -730,12 +826,14 @@
     modal.hidden = true;
     modal.classList.remove("is-detail-modal");
     document.body.classList.remove("is-detail-modal-open");
-    unlockScroll(); // ← 추가
+    unlockScroll();
     document.dispatchEvent(new CustomEvent("visual-modal-closed"));
   }
 
   function openModal(card) {
     if (!modal.hidden) return;
+
+    activeModalTrigger = card;
 
     const sourceMedia = card.querySelector(".visual-project-media");
     const sourceTitle = card.querySelector(".visual-project-info h3");
@@ -763,12 +861,12 @@
     modal.classList.add("is-detail-modal");
     modalTitle.textContent = sourceTitle?.textContent.trim() || "상세페이지 디자인";
     modalDescription.textContent = sourceDescription?.textContent.trim() || "상세페이지 디자인 설명입니다.";
+    modalMedia.scrollTop = 0;
     modal.hidden = false;
     document.body.classList.add("is-detail-modal-open");
-    lockScroll(); // ← 추가
+    lockScroll();
   }
 
-  // 이하 기존 코드 동일
   visualProjects.addEventListener("click", (event) => {
     const card = event.target.closest("[data-visual-modal-trigger]");
     if (card) openModal(card);

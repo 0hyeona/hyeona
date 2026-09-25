@@ -163,6 +163,7 @@ html.has-reveal-motion .title-reveal-group.is-title-visible .reveal-kicker,
 html.has-reveal-motion .title-reveal-group.is-title-visible .reveal-heading {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+  will-change: auto;
 }
 
 html.has-portfolio-reveals .portfolio-reveal {
@@ -177,6 +178,21 @@ html.has-portfolio-reveals .portfolio-reveal {
 html.has-portfolio-reveals .portfolio-reveal.is-reveal-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+/* 모달이 열린 동안 배경의 등장 효과를 다시 계산하지 않습니다. */
+body.is-detail-modal-open .title-reveal-group .reveal-kicker,
+body.is-detail-modal-open .title-reveal-group .reveal-heading,
+body.is-detail-modal-open .portfolio-reveal {
+  transition: none !important;
+}
+
+/* 화면 밖에서 재실행 상태로 돌릴 때는 역방향 애니메이션을 보이지 않습니다. */
+.title-reveal-group.is-reveal-resetting .reveal-kicker,
+.title-reveal-group.is-reveal-resetting .reveal-heading,
+.portfolio-reveal.is-reveal-resetting {
+  transition: none !important;
 }
 
 /* [반응형: 접근성 · 모션 최소화] */
