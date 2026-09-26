@@ -125,6 +125,19 @@ main :where(h1, h2, h3, h4, p, li, dd) {
     --noda-subtitle-size: 2rem;
 }
 
+/* [전체 화면: 영문 문구 대문자 표시] */
+body {
+  text-transform: uppercase;
+}
+
+/* [예외: 이메일과 사용자가 직접 입력하는 값은 원래 표기 유지] */
+a[href^="mailto:"],
+input,
+textarea,
+[contenteditable="true"] {
+  text-transform: none;
+}
+
 /* [반응형: 태블릿 · 769px–1200px] */
 @media (min-width: 769px) and (max-width: 1200px) {
   :root {
