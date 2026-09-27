@@ -200,3 +200,23 @@
 .responsive-projects .responsive-projects-title {
   font-family: "GMarketSans", Arial, Helvetica, sans-serif;
 }
+
+/* [반응형: iPhone 15 Pro 포함 모바일 좌우 여백] */
+@media (max-width: 768px) {
+  .responsive-projects {
+    box-sizing: border-box;
+    width: 100%;
+    padding-inline: 1.5rem;
+  }
+
+  .responsive-projects-main,
+  .responsive-projects-info {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .responsive-projects-title {
+    max-width: 100%;
+    font-size: clamp(2.25rem, 10vw, 2.75rem);
+  }
+}

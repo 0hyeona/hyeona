@@ -1601,6 +1601,11 @@
   font-family: "SUITE", Arial, sans-serif;
 }
 
+/* [롬앤 타이포그래피: SUITE 위계 표 전체에 실제 서체 적용] */
+.romand-type-specimen :is(h2, b, div, span, strong) {
+  font-family: "SUITE", Arial, sans-serif;
+}
+
 @media (min-width: 1201px) {
   .romand-type-table [role="row"]:nth-child(-n + 2) {
     font-size: 39px;
