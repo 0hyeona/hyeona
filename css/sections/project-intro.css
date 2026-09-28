@@ -92,12 +92,12 @@
   align-items: center;
   justify-content: center;
   min-width: 100px;
-  height: 42px;
-  padding: 0 24px;
+  height: 35px;
+  padding: 0 1rem;
   background: #fff;
   border: none;
   border-radius: 999px;
-  font-size: .8rem;
+  font-size: .7rem;
   font-weight: 500;
   color: #333;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);

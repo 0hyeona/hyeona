@@ -10,6 +10,10 @@
   min-height: 100svh;
   background: #fff;
   overflow: hidden;
+  /* position: sticky;
+  left: 0;
+  top: 0;
+*/
 }
 
 .hero-inner {
@@ -823,8 +827,7 @@
     flex-direction: column;
     justify-content: center;
     min-height: max(100svh, 780px);
-    padding: clamp(48px, 12vw, 72px) var(--page-gutter)
-      clamp(56px, 14vw, 84px);
+    padding: clamp(48px, 12vw, 72px) var(--page-gutter) clamp(56px, 14vw, 84px);
     gap: clamp(28px, 8vw, 48px);
   }
 
@@ -839,7 +842,7 @@
     white-space: normal;
   }
 
-  .hero-title > span {
+  .hero-title>span {
     display: block;
   }
 
@@ -919,6 +922,7 @@
 }
 
 @media (max-width: 300px) {
+
   .portfolio-hero,
   .hero-inner {
     min-height: 720px;
