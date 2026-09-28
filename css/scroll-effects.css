@@ -330,6 +330,12 @@ html.has-scroll-effects.has-reveal-motion
   letter-spacing: var(--contact-letter-spacing, -0.06em);
 }
 
+@media (max-width: 1024px) {
+  .scroll-progress-rail {
+    display: none;
+  }
+}
+
 @media (max-width: 1023px) {
   .hero-scroll-stage {
     min-height: auto;
@@ -359,10 +365,6 @@ html.has-scroll-effects.has-reveal-motion
 }
 
 @media (max-width: 768px) {
-  .scroll-progress-rail {
-    height: 2px;
-  }
-
   .has-scroll-effects .visual-project-card .visual-project-media,
   .has-scroll-effects .responsive-projects,
   .has-scroll-effects .romand-project-index .project-intro,
