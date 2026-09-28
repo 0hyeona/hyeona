@@ -1,0 +1,434 @@
+/* ==================================================
+   PORTFOLIO INTERACTIONS
+   기존 레이아웃/리빌 로직과 분리된 PC 전용 인터랙션 레이어입니다.
+   JS가 .pi-motion-active를 설정한 경우에만 동작합니다.
+================================================== */
+
+/* 페이지 스크롤은 유지하면서 브라우저 기본 스크롤바만 숨깁니다. */
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+@media (min-width: 1201px) {
+  /* WEB PROJECTS INTRO 전체만 오른쪽에서 왼쪽으로 이동합니다.
+     sticky를 사용하지 않아 ROM&ND와 이후 섹션에는 영향을 주지 않습니다. */
+  html.pi-motion-active.has-scroll-effects .responsive-projects {
+    translate: var(--pi-responsive-section-x, 0) 0;
+    will-change: translate;
+  }
+
+  /* 프로젝트 인트로는 내부 요소가 아닌 섹션 전체가 한 덩어리로 이동합니다. */
+  html.pi-motion-active.has-scroll-effects .romand-project-index .project-intro.is-pi-section-moving {
+    translate: 0 var(--pi-romand-intro-y, 0);
+    will-change: translate;
+  }
+
+  html.pi-motion-active.has-scroll-effects #noda-project .project-intro.is-pi-section-moving {
+    translate: var(--pi-noda-intro-x, 0) 0;
+    will-change: translate;
+  }
+
+  /* 03. 모바일 목업 — Multi-speed Parallax
+     기존 좌우 목업의 기울기는 그대로 합성합니다. */
+  html.pi-motion-active .romand-device {
+    transform: translate3d(0, var(--pi-device-parallax-y, 0), 0);
+    will-change: transform, translate, rotate, scale;
+  }
+
+  html.pi-motion-active .romand-device--left {
+    transform: translate3d(0, calc(20px + var(--pi-device-parallax-y, 0px)), 0) rotate(-6deg);
+  }
+
+  html.pi-motion-active .romand-device--right {
+    transform: translate3d(0, calc(20px + var(--pi-device-parallax-y, 0px)), 0) rotate(6deg);
+  }
+
+  /* 05. PROBLEM — Sticky Card Stack */
+  html.pi-motion-active .romand-problem-goal {
+    overflow: clip;
+  }
+
+  html.pi-motion-active .romand-problem-item {
+    position: sticky;
+    top: var(--pi-problem-top, 88px);
+    z-index: var(--pi-problem-layer, 1);
+    isolation: isolate;
+    scale: var(--pi-problem-scale, 1);
+    transform-origin: center top;
+    will-change: scale;
+  }
+
+  html.pi-motion-active .romand-problem-item::before {
+    position: absolute;
+    z-index: -1;
+    inset: -30px;
+    border: 1px solid rgba(158, 23, 48, 0.09);
+    border-radius: 30px;
+    background: rgba(255, 247, 250, 0.94);
+    box-shadow: 0 24px 60px rgba(124, 65, 84, 0.1);
+    content: "";
+    opacity: var(--pi-problem-surface-opacity, 1);
+    backdrop-filter: blur(12px);
+  }
+
+  /* 06. GOAL — Scroll Progress / FIND → COMPARE → BUY */
+  html.pi-motion-active .romand-goal ol {
+    position: relative;
+  }
+
+  html.pi-motion-active .romand-goal ol::before,
+  html.pi-motion-active .romand-goal ol::after {
+    position: absolute;
+    top: -21px;
+    right: 0;
+    left: 0;
+    height: 2px;
+    border-radius: 999px;
+    content: "";
+  }
+
+  html.pi-motion-active .romand-goal ol::before {
+    background: rgba(158, 23, 48, 0.14);
+  }
+
+  html.pi-motion-active .romand-goal ol::after {
+    background: #a61c39;
+    transform: scaleX(var(--pi-goal-progress, 0));
+    transform-origin: left center;
+    will-change: transform;
+  }
+
+  html.pi-motion-active .romand-goal li {
+    position: relative;
+  }
+
+  html.pi-motion-active .romand-goal li::before {
+    position: absolute;
+    top: -27px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #a61c39;
+    border-radius: 50%;
+    background: #fff;
+    content: "";
+    scale: 0.82;
+    transition: background-color 180ms ease, scale 220ms ease;
+  }
+
+  html.pi-motion-active .romand-goal li strong {
+    transition: color 220ms ease, translate 220ms ease;
+  }
+
+  html.pi-motion-active .romand-goal li.is-pi-reached::before {
+    background: #a61c39;
+    scale: 1;
+  }
+
+  html.pi-motion-active .romand-goal li.is-pi-reached strong {
+    color: #a61c39;
+    translate: 0 -2px;
+  }
+
+  /* 07. LOGO — Hover */
+  html.pi-motion-active .romand-logo-assets figure,
+  html.pi-motion-active .romand-logo-assets img {
+    transition: translate 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      rotate 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      scale 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      filter 320ms ease;
+  }
+
+  /* 08. COLOR — Expand Hover */
+  html.pi-motion-active .romand-color-palette {
+    transform-origin: center;
+    transition: scale 420ms cubic-bezier(0.2, 0.75, 0.2, 1), filter 420ms ease;
+    will-change: scale;
+  }
+
+  /* 10. Final Mockup — Scale-out */
+  html.pi-motion-active .romand-image-frame {
+    overflow: clip;
+  }
+
+  html.pi-motion-active .romand-image-frame img {
+    scale: var(--pi-romand-final-scale, 1);
+    transform-origin: center center;
+    will-change: scale;
+  }
+
+  /* 11. NODA Intro — Chair Float */
+  html.pi-motion-active #noda-project .project-intro {
+    overflow: clip;
+    isolation: isolate;
+  }
+
+  html.pi-motion-active #noda-project .project-intro::before {
+    position: absolute;
+    z-index: 0;
+    right: clamp(24px, 5vw, 100px);
+    bottom: 4%;
+    width: min(24vw, 360px);
+    aspect-ratio: 1;
+    background: url("../img/noda-chair-asset-transparent.png") center / contain no-repeat;
+    content: "";
+    opacity: 0.2;
+    pointer-events: none;
+    animation: piChairFloat 5.2s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  html.pi-motion-active #noda-project .project-intro-inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* 12. NODA ABOUT — Line Reveal */
+  html.pi-motion-active .noda-showcase-about :is(h3, dt, dd) {
+    clip-path: inset(0 var(--pi-noda-line-hidden, 100%) 0 0);
+    translate: var(--pi-noda-line-x, 24px) 0;
+    will-change: clip-path, translate;
+  }
+
+  /* 13. Persona — Sticky Persona */
+  html.pi-motion-active .noda-persona {
+    overflow: clip;
+  }
+
+  html.pi-motion-active .noda-persona-content {
+    position: sticky;
+    top: 10vh;
+  }
+
+  /* 14. Color — Hover */
+  html.pi-motion-active .noda-color-item span,
+  html.pi-motion-active .noda-color-item b {
+    transition: translate 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      scale 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      opacity 260ms ease,
+      filter 320ms ease;
+  }
+
+  /* 15. Final Mockup — Slow Parallax */
+  html.pi-motion-active .noda-image-frame {
+    overflow: clip;
+  }
+
+  html.pi-motion-active .noda-image-frame img {
+    translate: 0 var(--pi-noda-final-y, 0);
+    scale: var(--pi-noda-final-scale, 1.06);
+    transform-origin: center center;
+    will-change: translate, scale;
+  }
+
+  /* 16. CONTACT — Footer Reveal */
+  html.pi-motion-active .final-contact {
+    clip-path: inset(var(--pi-contact-clip, 22%) 0 0 0);
+    will-change: clip-path;
+  }
+
+  html.pi-motion-active .final-contact-inner {
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    opacity: var(--pi-contact-opacity, 0.35);
+    translate: 0 var(--pi-contact-y, 72px);
+    will-change: opacity, translate;
+  }
+
+  html.pi-motion-active .final-contact {
+    min-height: 150vh;
+    overflow: clip;
+  }
+
+  html.pi-motion-active.has-scroll-effects .final-contact-decoration {
+    opacity: 0.5;
+    translate: var(--pi-contact-clover-x, 0) var(--pi-contact-clover-y, 0);
+    rotate: var(--pi-contact-clover-rotate, -4deg);
+    scale: var(--pi-contact-clover-scale, 1);
+    animation: none;
+    will-change: translate, rotate, scale;
+  }
+}
+
+@media (min-width: 1201px) and (hover: hover) and (pointer: fine) {
+  html.pi-motion-active .romand-logo-assets figure:hover {
+    translate: 0 -10px;
+    rotate: -2deg;
+    filter: drop-shadow(0 18px 20px rgba(158, 23, 48, 0.13));
+  }
+
+  html.pi-motion-active .romand-logo-assets figure:nth-child(even):hover {
+    rotate: 3deg;
+  }
+
+  html.pi-motion-active .romand-logo-assets figure:hover img {
+    scale: 1.055;
+  }
+
+  html.pi-motion-active .romand-color-palette:hover {
+    scale: 1.09;
+    filter: drop-shadow(0 22px 24px rgba(158, 23, 48, 0.14));
+  }
+
+  html.pi-motion-active .noda-color-list:hover .noda-color-item:not(:hover) span {
+    opacity: 0.58;
+    scale: 0.92;
+  }
+
+  html.pi-motion-active .noda-color-item:hover span {
+    translate: 0 -10px;
+    scale: 1.09;
+    filter: drop-shadow(0 18px 22px rgba(79, 61, 50, 0.2));
+  }
+
+  html.pi-motion-active .noda-color-item:hover b {
+    translate: 0 -3px;
+  }
+}
+
+@keyframes piChairFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-5deg);
+  }
+
+  50% {
+    transform: translate3d(0, -18px, 0) rotate(2deg);
+  }
+}
+
+/* ==================================================
+   겹침·가로 스크롤 보정
+================================================== */
+
+/* NODA 인트로의 버튼과 다음 섹션 헤더를 의자 장식보다 위에 둡니다. */
+#noda-project {
+  position: relative;
+  z-index: 8;
+}
+
+#noda-project .project-links-slot {
+  position: relative;
+  z-index: 5;
+}
+
+.noda-showcase {
+  position: relative;
+  z-index: 6;
+}
+
+.noda-showcase-header,
+.noda-showcase-inner {
+  z-index: 7;
+}
+
+/* 패드에서는 모든 프로젝트 링크 고정을 해제해 헤더·메뉴와의 겹침을 막습니다. */
+@media (max-width: 1200px) {
+  /* 기존 전환 효과까지 해제해 태블릿·모바일에서는 섹션을 정지시킵니다. */
+  html.has-scroll-effects .responsive-projects {
+    translate: none !important;
+  }
+
+  html.has-scroll-effects .romand-project-index .project-intro.is-direction-moving,
+  html.has-scroll-effects #noda-project .project-intro.is-direction-moving {
+    translate: none !important;
+  }
+
+  html.has-scroll-effects .project-links.is-sticky {
+    position: static;
+    top: auto;
+    left: auto;
+    z-index: auto;
+    margin: 0 auto;
+    transform: none;
+  }
+
+  .romand-detail-header,
+  .noda-showcase-header {
+    padding-right: max(88px, var(--page-gutter));
+  }
+
+  /* NODA 타이포그래피 내부 가로 스크롤 제거 */
+  .noda-type-specimen {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .noda-type-table {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .noda-type-table [role="row"] {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 0.95fr);
+    gap: clamp(6px, 1.8vw, 18px);
+    min-width: 0;
+    white-space: normal;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .noda-type-specimen h2 {
+    font-size: clamp(2.5rem, 5vw, 3.25rem);
+  }
+
+  .noda-type-table [role="row"]:nth-child(-n + 2) {
+    font-size: clamp(1.25rem, 2.8vw, 2rem);
+  }
+
+  .noda-type-table [role="row"]:nth-child(n + 3):nth-child(-n + 4) {
+    font-size: clamp(1.125rem, 2.3vw, 1.625rem);
+  }
+
+  .noda-type-table [role="row"]:nth-child(n + 5):nth-child(-n + 6) {
+    font-size: clamp(1rem, 2vw, 1.375rem);
+  }
+
+  .noda-type-table [role="row"]:nth-child(n + 7):nth-child(-n + 8) {
+    font-size: clamp(0.875rem, 1.7vw, 1.125rem);
+  }
+
+  .noda-type-table [role="row"]:nth-child(n + 9) {
+    font-size: clamp(0.75rem, 1.4vw, 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .noda-type-specimen h2 {
+    font-size: 2rem;
+  }
+
+  .noda-type-table [role="row"]:nth-child(-n + 2) {
+    font-size: 1rem;
+  }
+
+  .noda-type-table [role="row"]:nth-child(n + 3):nth-child(-n + 4) {
+    font-size: 0.875rem;
+  }
+
+  .noda-type-table [role="row"]:nth-child(n + 5):nth-child(-n + 6) {
+    font-size: 0.75rem;
+  }
+
+  .noda-type-table [role="row"]:nth-child(n + 7) {
+    font-size: 0.6875rem;
+  }
+}
+
+/* 태블릿/모바일 및 모션 최소화 환경에서는 위 선택자가 활성화되지 않습니다. */
+@media (max-width: 1200px), (prefers-reduced-motion: reduce) {
+  html.pi-motion-active #noda-project .project-intro::before {
+    animation: none;
+  }
+}
