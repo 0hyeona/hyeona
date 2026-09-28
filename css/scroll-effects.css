@@ -1,0 +1,450 @@
+/* ==================================================
+   SCROLL EFFECTS
+   기존 레이아웃과 reveal 코드는 유지하고, 독립된 레이어로만 동작합니다.
+================================================== */
+
+.scroll-progress-rail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  width: 100%;
+  height: 3px;
+  pointer-events: none;
+  transform: scaleX(var(--page-scroll-progress, 0));
+  transform-origin: left center;
+  background: linear-gradient(90deg, #111 0%, #777 55%, #111 100%);
+  will-change: transform;
+}
+
+/* Hero만 한 번 고정되고, 이 stage가 끝나면 sticky도 함께 끝납니다. */
+.hero-scroll-stage {
+  position: relative;
+  z-index: 0;
+  min-height: 165svh;
+  background: #fff;
+  isolation: isolate;
+}
+
+.hero-scroll-stage .portfolio-hero {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 100svh;
+  background: #fff;
+}
+
+.hero-scroll-stage .hero-inner {
+  scale: var(--hero-scene-scale, 1);
+  opacity: var(--hero-scene-opacity, 1);
+  transform-origin: 50% 46%;
+  will-change: scale, opacity;
+}
+
+.hero-scroll-stage + .about-chapter {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+.hero-scroll-stage .hero-title span {
+  display: inline-block;
+  translate: var(--hero-title-x, 0) var(--hero-title-y, 0);
+  opacity: var(--hero-title-opacity, 1);
+  will-change: translate, opacity;
+}
+
+.hero-scroll-stage .hero-title span:first-child {
+  --hero-title-x: var(--hero-title-left-x, 0);
+}
+
+.hero-scroll-stage .hero-title span:last-child {
+  --hero-title-x: var(--hero-title-right-x, 0);
+}
+
+.hero-scroll-stage .hero-symbol-tilt {
+  translate: 0 var(--hero-symbol-y, 0);
+  rotate: var(--hero-symbol-rotate, 0deg);
+  scale: var(--hero-symbol-scale, 1);
+  opacity: var(--hero-symbol-opacity, 1);
+  will-change: translate, rotate, scale, opacity;
+}
+
+.hero-scroll-stage .hero-flourish {
+  filter: opacity(var(--hero-flourish-opacity, 1));
+}
+
+.hero-scroll-stage .hero-meta {
+  translate: 0 var(--hero-meta-y, 0);
+  opacity: var(--hero-meta-opacity, 1);
+  will-change: translate, opacity;
+}
+
+/* About: 사진은 frame 안에서 천천히 이동하고 장식은 반대 방향으로 회전합니다. */
+.has-scroll-effects .about-profile-photo img {
+  scale: 1.075;
+  translate: 0 var(--about-photo-y, 0);
+  will-change: translate;
+}
+
+.has-scroll-effects .about-profile-decoration {
+  translate: var(--about-decoration-x, 0) var(--about-decoration-y, 0);
+  rotate: var(--about-decoration-rotate, 0deg);
+  will-change: translate, rotate;
+}
+
+/* Hero → About → Capabilities가 순서대로 이전 화면을 덮는 패널 전환입니다. */
+@media (min-width: 1201px) {
+  .has-scroll-effects .about-profile {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    min-height: 100svh;
+    border-radius: 38px 38px 0 0;
+    box-shadow: 0 -28px 70px rgba(0, 0, 0, 0.075);
+  }
+}
+
+.has-scroll-effects .capabilities-section {
+  position: relative;
+  z-index: 2;
+  border-radius: 38px 38px 0 0;
+  box-shadow: 0 -24px 62px rgba(0, 0, 0, 0.055);
+}
+
+/* Capabilities 헤더는 오른쪽에서 수평 직선으로 등장합니다. */
+html.has-scroll-effects.has-reveal-motion
+  .capabilities-header.title-reveal-group
+  :is(.reveal-kicker, .reveal-heading) {
+  transform: translate3d(96px, 0, 0);
+}
+
+html.has-scroll-effects.has-reveal-motion
+  .capabilities-header.title-reveal-group.is-title-visible
+  :is(.reveal-kicker, .reveal-heading) {
+  transform: translate3d(0, 0, 0);
+}
+
+.has-scroll-effects .capabilities-summary.portfolio-reveal {
+  --reveal-x: 96px !important;
+  --reveal-y: 0px !important;
+}
+
+/* Tools: 카드의 등장 효과는 유지하고 아이콘과 중앙 에셋에만 생동감을 더합니다. */
+.has-scroll-effects .capability-assets img {
+  translate: var(--capability-asset-x, 0) var(--capability-asset-y, 0);
+  rotate: var(--capability-asset-rotate, 0deg);
+  will-change: translate, rotate, scale;
+}
+
+.has-scroll-effects .capabilities-section.is-assets-active .capability-assets img {
+  animation: capabilityAssetBreath 3.8s ease-in-out infinite;
+}
+
+.has-scroll-effects .capabilities-section.is-assets-active .tool-card:nth-child(3n + 1) .tool-icon {
+  animation: toolIconFloat 2.5s ease-in-out infinite;
+}
+
+.has-scroll-effects .capabilities-section.is-assets-active .tool-card:nth-child(3n + 2) .tool-icon {
+  animation: toolIconPulse 2.9s ease-in-out -0.8s infinite;
+}
+
+.has-scroll-effects .capabilities-section.is-assets-active .tool-card:nth-child(3n) .tool-icon {
+  animation: toolIconOrbit 3.2s ease-in-out -1.3s infinite;
+}
+
+@keyframes capabilityAssetBreath {
+  0%,
+  100% { scale: 1; }
+  50% { scale: 1.035; }
+}
+
+@keyframes toolIconFloat {
+  0%,
+  100% { translate: 0 0; }
+  50% { translate: 0 -6px; }
+}
+
+@keyframes toolIconPulse {
+  0%,
+  100% { scale: 1; }
+  50% { scale: 1.12; }
+}
+
+@keyframes toolIconOrbit {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+
+  35% {
+    translate: 3px -4px;
+    rotate: 5deg;
+  }
+
+  70% {
+    translate: -2px -2px;
+    rotate: -4deg;
+  }
+}
+
+/* Visual works: 움직이는 슬라이더 자체는 건드리지 않고 카드 프레임에 깊이만 더합니다. */
+.has-scroll-effects .visual-projects {
+  position: relative;
+  z-index: 3;
+  background-color: #fff;
+  background-image: none;
+  isolation: isolate;
+}
+
+.has-scroll-effects .visual-projects-inner {
+  background-color: #fff;
+}
+
+.has-scroll-effects .visual-projects-header {
+  translate: var(--visual-heading-x, 0) 0;
+  opacity: var(--visual-heading-opacity, 1);
+  will-change: translate, opacity;
+}
+
+.has-scroll-effects .visual-project-card .visual-project-media {
+  translate: 0 var(--visual-card-y, 0);
+  rotate: var(--visual-card-rotate, 0deg);
+  will-change: translate, rotate;
+}
+
+/* 섹션 전환 방향: 각 챕터의 성격이 겹치지 않도록 축을 나눕니다. */
+@media (min-width: 769px) {
+  html.has-scroll-effects,
+  html.has-scroll-effects body {
+    overflow-x: clip;
+  }
+
+  .has-scroll-effects .responsive-projects {
+    translate: var(--responsive-section-x, 0) 0;
+    will-change: translate;
+  }
+
+  .has-scroll-effects .romand-project-index .project-intro.is-direction-moving {
+    translate: 0 var(--romand-intro-y, 0);
+    will-change: translate;
+  }
+
+  .has-scroll-effects #noda-project .project-intro.is-direction-moving {
+    translate: 0 var(--noda-intro-y, 0);
+    will-change: translate;
+  }
+}
+
+/* 프로젝트 인트로: 원형 장식 없이 하단 진행선만 사용합니다. */
+.has-scroll-effects .project-intro {
+  position: relative;
+}
+
+.has-scroll-effects .project-intro::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: var(--intro-line-width, 0%);
+  height: 2px;
+  background: currentColor;
+  content: "";
+  opacity: 0.32;
+}
+
+/* 스크롤 중 프로젝트 링크가 목업 이미지 뒤로 숨지 않도록 전역 레이어로 올립니다. */
+.has-scroll-effects .project-links.is-sticky {
+  z-index: 1600;
+}
+
+/* Case study: 기존 transform과 충돌하지 않는 개별 transform 속성을 사용합니다. */
+.has-scroll-effects .romand-detail-copy {
+  translate: var(--romand-copy-x, 0) 0;
+  opacity: var(--romand-copy-opacity, 1);
+  will-change: translate, opacity;
+}
+
+.has-scroll-effects .romand-device {
+  translate: var(--romand-device-x, 0) var(--romand-device-y, 0);
+  rotate: var(--romand-device-rotate, 0deg);
+  scale: var(--romand-device-scale, 1);
+  will-change: translate, rotate, scale;
+}
+
+.has-scroll-effects .romand-problem-visual img {
+  translate: var(--problem-image-x, 0) var(--problem-image-y, 0);
+  scale: var(--problem-image-scale, 1);
+  will-change: translate, scale;
+}
+
+.has-scroll-effects .noda-brand-chair {
+  translate: var(--noda-chair-x, 0) var(--noda-chair-y, 0);
+  rotate: var(--noda-chair-rotate, 0deg);
+  will-change: translate, rotate;
+}
+
+.has-scroll-effects .noda-showcase-copy {
+  translate: var(--noda-copy-x, 0) 0;
+  opacity: var(--noda-copy-opacity, 1);
+  will-change: translate, opacity;
+}
+
+.has-scroll-effects .noda-showcase-visual img {
+  translate: 0 var(--noda-showcase-y, 0);
+  scale: var(--noda-showcase-scale, 1);
+  will-change: translate, scale;
+}
+
+.has-scroll-effects .noda-brand-hero {
+  translate: 0 var(--noda-brand-heading-y, 0);
+  opacity: var(--noda-brand-heading-opacity, 1);
+  will-change: translate, opacity;
+}
+
+.has-scroll-effects .noda-persona-room {
+  translate: var(--persona-room-x, 0) var(--persona-room-y, 0);
+  scale: var(--persona-room-scale, 1);
+  will-change: translate, scale;
+}
+
+/* 긴 목업은 fade 대신 마스크가 열리는 느낌을 함께 사용합니다. */
+.has-scroll-effects .scroll-mask-reveal {
+  clip-path: inset(10% 0 10% 0 round 24px);
+  transition: clip-path 1.15s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.has-scroll-effects .scroll-mask-reveal.is-mask-visible {
+  clip-path: inset(0 0 0 0 round 0);
+}
+
+.has-scroll-effects .final-contact-decoration {
+  translate: var(--contact-clover-x, 0) var(--contact-clover-y, 0);
+  rotate: var(--contact-clover-rotate, 0deg);
+  scale: var(--contact-clover-scale, 1);
+  opacity: var(--contact-clover-opacity, 0.11);
+  will-change: translate, rotate, scale, opacity;
+}
+
+.has-scroll-effects .final-contact-copy h2 {
+  letter-spacing: var(--contact-letter-spacing, -0.06em);
+}
+
+@media (max-width: 1023px) {
+  .hero-scroll-stage {
+    min-height: auto;
+  }
+
+  .hero-scroll-stage .portfolio-hero {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .hero-scroll-stage .hero-inner,
+  .hero-scroll-stage .hero-symbol-tilt,
+  .hero-scroll-stage .hero-meta,
+  .hero-scroll-stage .hero-title span {
+    translate: none;
+    rotate: none;
+    scale: none;
+    opacity: 1;
+  }
+
+  .hero-scroll-stage .hero-flourish {
+    filter: none;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .scroll-progress-rail {
+    height: 2px;
+  }
+
+  .has-scroll-effects .visual-project-card .visual-project-media,
+  .has-scroll-effects .responsive-projects,
+  .has-scroll-effects .romand-project-index .project-intro,
+  .has-scroll-effects #noda-project .project-intro,
+  .has-scroll-effects .romand-detail-copy,
+  .has-scroll-effects .romand-device,
+  .has-scroll-effects .romand-problem-visual img,
+  .has-scroll-effects .noda-showcase-copy,
+  .has-scroll-effects .noda-showcase-visual img,
+  .has-scroll-effects .noda-brand-hero,
+  .has-scroll-effects .noda-brand-chair,
+  .has-scroll-effects .final-contact-decoration {
+    translate: none;
+    rotate: none;
+    scale: none;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress-rail {
+    display: none;
+  }
+
+  .hero-scroll-stage {
+    min-height: auto;
+  }
+
+  .hero-scroll-stage .portfolio-hero {
+    position: relative;
+    height: auto;
+  }
+
+  .has-scroll-effects .about-profile,
+  .has-scroll-effects .capabilities-section {
+    position: relative;
+    top: auto;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .has-scroll-effects .capabilities-section .tool-icon,
+  .has-scroll-effects .capabilities-section .capability-assets img {
+    animation: none !important;
+  }
+
+  html.has-scroll-effects.has-reveal-motion
+    .capabilities-header.title-reveal-group
+    :is(.reveal-kicker, .reveal-heading) {
+    transform: none !important;
+  }
+
+  .has-scroll-effects :where(
+    .hero-title span,
+    .hero-inner,
+    .hero-symbol-tilt,
+    .hero-meta,
+    .about-profile-photo img,
+    .about-profile-decoration,
+    .visual-projects-header,
+    .visual-project-media,
+    .responsive-projects,
+    .romand-project-index .project-intro,
+    #noda-project .project-intro,
+    .romand-detail-copy,
+    .romand-device,
+    .romand-problem-visual img,
+    .noda-showcase-copy,
+    .noda-showcase-visual img,
+    .noda-brand-hero,
+    .noda-brand-chair,
+    .noda-persona-room,
+    .final-contact-decoration
+  ) {
+    translate: none !important;
+    rotate: none !important;
+    scale: none !important;
+    opacity: 1 !important;
+  }
+
+  .has-scroll-effects .scroll-mask-reveal {
+    clip-path: none;
+    transition: none;
+  }
+}
