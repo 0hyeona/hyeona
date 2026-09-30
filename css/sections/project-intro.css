@@ -79,11 +79,12 @@
 
 .project-links.is-sticky {
   position: fixed;
-  top: 40px;
+  top: calc(40px + env(safe-area-inset-top));
   left: 50%;
   transform: translateX(-50%);
 
   z-index: 999;
+  max-width: calc(100vw - 32px);
   margin: 0;
 }
 
@@ -205,6 +206,11 @@
     padding: 0 14px;
     font-size: 0.6875rem;
   }
+
+  .project-links.is-sticky {
+    top: calc(16px + env(safe-area-inset-top));
+    max-width: calc(100vw - 24px);
+  }
 }
 
 .project-intro {
@@ -251,6 +257,20 @@
 
 /* [반응형: 초소형 모바일 · 300px 이하] */
 @media (max-width: 300px) {
+  .project-links {
+    gap: 4px;
+  }
+
+  .project-links.is-sticky {
+    max-width: calc(100vw - 16px);
+  }
+
+  .project-links a {
+    height: 30px;
+    padding-inline: 8px;
+    font-size: 0.625rem;
+  }
+
   .romand-project-index .project-number strong,
   .romand-project-index .project-number span,
   #noda-project .project-number strong,

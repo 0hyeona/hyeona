@@ -331,7 +331,7 @@ html::-webkit-scrollbar {
   z-index: 7;
 }
 
-/* 패드에서는 모든 프로젝트 링크 고정을 해제해 헤더·메뉴와의 겹침을 막습니다. */
+/* 패드에서도 프로젝트 링크의 fixed 상태는 유지합니다. */
 @media (max-width: 1200px) {
   /* 기존 전환 효과까지 해제해 태블릿·모바일에서는 섹션을 정지시킵니다. */
   html.has-scroll-effects .responsive-projects {
@@ -341,15 +341,6 @@ html::-webkit-scrollbar {
   html.has-scroll-effects .romand-project-index .project-intro.is-direction-moving,
   html.has-scroll-effects #noda-project .project-intro.is-direction-moving {
     translate: none !important;
-  }
-
-  html.has-scroll-effects .project-links.is-sticky {
-    position: static;
-    top: auto;
-    left: auto;
-    z-index: auto;
-    margin: 0 auto;
-    transform: none;
   }
 
   .romand-detail-header,
