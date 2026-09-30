@@ -2030,13 +2030,15 @@
 .noda-persona-room {
   position: absolute;
   z-index: 0;
+  top: clamp(24px, 5vw, 96px);
   right: calc((100vw - 100%) / -2);
-  bottom: 0;
+  bottom: auto;
   display: block;
   width: min(50vw, 1000px);
   height: auto;
-  opacity: 0.42;
+  opacity: 0.36;
   pointer-events: none;
+  transform-origin: right top;
 }
 
 .noda-persona-label {
@@ -2083,15 +2085,20 @@
 /* [반응형: 태블릿 · 769px–1200px] */
 @media (min-width: 769px) and (max-width: 1200px) {
   .noda-persona-room {
+    top: 48px;
     width: min(58vw, 680px);
-    opacity: 0.26;
+    opacity: 0.24;
   }
 }
 
 /* [반응형: 모바일 · 768px 이하] */
 @media (max-width: 768px) {
   .noda-persona-room {
-    display: none;
+    top: 48px;
+    right: clamp(-150px, -24vw, -64px);
+    display: block;
+    width: min(105vw, 520px);
+    opacity: 0.14;
   }
 }
 

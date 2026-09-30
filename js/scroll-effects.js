@@ -31,7 +31,6 @@
   const nodaShowcaseVisual = nodaShowcase?.querySelector(".noda-showcase-visual img");
   const nodaBrand = document.querySelector(".noda-brand-concept");
   const nodaBrandHero = nodaBrand?.querySelector(".noda-brand-hero");
-  const nodaPersona = document.querySelector(".noda-persona");
   const contact = document.querySelector(".final-contact");
   const visualCards = [...document.querySelectorAll(".visual-project-card")];
   const romandDevices = [...document.querySelectorAll(".romand-device")];
@@ -223,10 +222,6 @@
     setProperty(nodaBrand, "--noda-chair-y", px(lerp(74, -36, brandProgress)));
     setProperty(nodaBrand, "--noda-chair-rotate", deg(lerp(8, -7, brandProgress)));
 
-    const personaProgress = sectionProgress(nodaPersona);
-    setProperty(nodaPersona, "--persona-room-x", px(lerp(70, -34, personaProgress)));
-    setProperty(nodaPersona, "--persona-room-y", px(lerp(32, -18, personaProgress)));
-    setProperty(nodaPersona, "--persona-room-scale", String(lerp(1.04, 1.12, personaProgress)));
   }
 
   function updateContact() {

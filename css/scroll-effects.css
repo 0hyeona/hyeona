@@ -302,12 +302,6 @@ html.has-scroll-effects.has-reveal-motion
   will-change: translate, opacity;
 }
 
-.has-scroll-effects .noda-persona-room {
-  translate: var(--persona-room-x, 0) var(--persona-room-y, 0);
-  scale: var(--persona-room-scale, 1);
-  will-change: translate, scale;
-}
-
 /* 긴 목업은 fade 대신 마스크가 열리는 느낌을 함께 사용합니다. */
 .has-scroll-effects .scroll-mask-reveal {
   clip-path: inset(10% 0 10% 0 round 24px);
