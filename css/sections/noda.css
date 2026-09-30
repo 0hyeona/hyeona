@@ -503,6 +503,10 @@
   font-weight: 400;
 }
 
+.noda-type-table em {
+  white-space: nowrap;
+}
+
 .noda-type-table .is-bold {
   font-weight: 700;
 }

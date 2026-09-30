@@ -497,6 +497,7 @@
 .romand-type-table [role="row"]> :nth-child(3) {
   flex: 1 1 0;
   min-width: 0;
+  white-space: nowrap;
 }
 
 .romand-type-table [role="row"]:nth-child(-n + 2) {
