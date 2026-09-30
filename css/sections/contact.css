@@ -682,12 +682,9 @@
   font-weight: 400;
 }
 
-/* [반응형: PC · 1201px 이상] */
-@media (min-width: 1201px) {
-  .final-contact-links a,
-  .final-contact-copyright {
-    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  }
+.final-contact-links,
+.final-contact-copyright {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 /* [반응형: 초소형 모바일 · 300px 이하] */
@@ -798,9 +795,9 @@
   }
 }
 
-/* [CONTACT: 마지막 섹션 하단 여백 제거] */
+/* [CONTACT: 마지막 섹션 하단 마무리 여백] */
 .final-contact .final-contact-inner {
-  padding-bottom: 0;
+  padding-bottom: 32px;
 }
 
 /* [CONTACT: 태블릿에서 버튼이 빠르게 보이도록 상단 여백 축소] */
@@ -814,6 +811,6 @@
 @media (max-width: 768px) {
   .final-contact .final-contact-inner {
     padding-top: 4rem;
-    padding-bottom: 0;
+    padding-bottom: 24px;
   }
 }
